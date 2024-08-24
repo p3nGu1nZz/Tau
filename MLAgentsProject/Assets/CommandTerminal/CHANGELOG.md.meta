@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 25234e8462bb8dc4fbc6f086023e2da3
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 123344
+  packageName: Command Terminal
+  packageVersion: 1.0
+  assetPath: Assets/CommandTerminal/CHANGELOG.md
+  uploadId: 260308

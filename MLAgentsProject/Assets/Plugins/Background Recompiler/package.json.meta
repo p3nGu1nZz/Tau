@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0e8877fdce6d29646a11ee32afcc074f
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 234979
+  packageName: Background Recompiler
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/Background Recompiler/package.json
+  uploadId: 537237

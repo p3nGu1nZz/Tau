@@ -1,0 +1,39 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "General",
+      "context": "Greetings",
+      "system": "Friendly AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Hi"
+        },
+        {
+          "role": "Agent",
+          "message": "Hello"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Support",
+      "context": "Software issue",
+      "system": "Support AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Can't install software"
+        },
+        {
+          "role": "Agent",
+          "message": "Check download"
+        }
+      ]
+    }
+  ]
+}

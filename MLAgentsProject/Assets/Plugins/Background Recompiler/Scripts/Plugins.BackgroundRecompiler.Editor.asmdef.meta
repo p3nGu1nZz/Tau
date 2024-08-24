@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7183d2233e41f3342bc2964fcc4a0e13
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 234979
+  packageName: Background Recompiler
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/Background Recompiler/Scripts/Plugins.BackgroundRecompiler.Editor.asmdef
+  uploadId: 537237

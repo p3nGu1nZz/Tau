@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: f11f30525695e1b40990f6e9e8079a80
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 234979
+  packageName: Background Recompiler
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/Background Recompiler/Scripts/BackgroundRecompiler.cs
+  uploadId: 537237

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: dd909a69524e40843a8b0cffd88f597f
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 234979
+  packageName: Background Recompiler
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/Background Recompiler/README.md
+  uploadId: 537237

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ca139d7e5acb3da40816aab2eb3eadd4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 123344
+  packageName: Command Terminal
+  packageVersion: 1.0
+  assetPath: Assets/CommandTerminal/RegisterCommandAttribute.cs
+  uploadId: 260308

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 233dd9105c96c334c819835f5d97d3ae
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 123344
+  packageName: Command Terminal
+  packageVersion: 1.0
+  assetPath: Assets/CommandTerminal/CommandHistory.cs
+  uploadId: 260308

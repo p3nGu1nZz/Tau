@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 44a98f28e833eb1459f71a04c3a7676d
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 234979
+  packageName: Background Recompiler
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/Background Recompiler/CHANGELOG.md
+  uploadId: 537237
