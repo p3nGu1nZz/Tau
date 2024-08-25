@@ -134,6 +134,8 @@ if exist "%VENV_DIR%" (
     if %errorlevel% neq 0 goto :exit
     call :upgrade_pip
     if %errorlevel% neq 0 goto :exit
+    call :install_pytorch
+    if %errorlevel% neq 0 goto :exit
     exit /b 0
 )
 
@@ -156,7 +158,7 @@ exit /b 0
 
 :upgrade_pip
 echo Upgrading pip...
-python -m pip install --upgrade pip
+"%VENV_DIR%\Scripts\python.exe" -m pip install --upgrade pip
 
 if %errorlevel% neq 0 (
     echo Pip upgrade failed.
@@ -166,7 +168,7 @@ exit /b 0
 
 :install_pytorch
 echo Installing PyTorch...
-pip install torch~=2.2.1 --index-url https://download.pytorch.org/whl/cu121
+"%VENV_DIR%\Scripts\python.exe" -m pip install torch~=2.2.1 --index-url https://download.pytorch.org/whl/cu121
 
 if %errorlevel% neq 0 (
     echo PyTorch installation failed.
@@ -185,12 +187,12 @@ exit /b 0
 :install_ml_agents
 echo Installing ml-agents packages...
 cd "%ML_AGENTS_DIR%"
-python -m pip install "%ML_AGENTS_ENVS_INSTALL%"
+"%VENV_DIR%\Scripts\python.exe" -m pip install "%ML_AGENTS_ENVS_INSTALL%"
 if %errorlevel% neq 0 (
     echo ml-agents-envs installation failed.
     goto :exit
 )
-python -m pip install "%ML_AGENTS_INSTALL%"
+"%VENV_DIR%\Scripts\python.exe" -m pip install "%ML_AGENTS_INSTALL%"
 if %errorlevel% neq 0 (
     echo ml-agents installation failed.
     goto :exit
