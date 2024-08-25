@@ -72,4 +72,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 /venv/*
+/.venv/*
+/python/*
 /ml-agents

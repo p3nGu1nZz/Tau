@@ -1,7 +1,7 @@
 {
     "version": "0.1.0",
-    "model_name": "Tau-LLM",
-    "organization": "Tau",
+    "model_name": "Tau",
+    "organization": "Huggingface",
     "total_words": 28,
     "words": [
         "agent",
