@@ -37,19 +37,25 @@ if %errorlevel% neq 0 goto :error
 call :install_ml_agents
 if %errorlevel% neq 0 goto :error
 
-call :verify_ml_agents
+call :install_encoder_dependencies
 if %errorlevel% neq 0 goto :error
 
 call :clean_temp
+if %errorlevel% neq 0 goto :error
+
+call :verify_ml_agents
+if %errorlevel% neq 0 goto :error
+
+call :verify_encoder
 if %errorlevel% neq 0 goto :error
 
 call "%DEACTIVATE_SCRIPT%"
 if %errorlevel% neq 0 goto :error
 
 set "END_TIME=%time%"
-call "%~dp0utilities.bat" :calculate_duration "%START_TIME%" "%END_TIME%"
+call "%UTILITIES_SCRIPT%" :calculate_duration "%START_TIME%" "%END_TIME%"
 
-echo Installation complete!
+echo Setup completed in %DURATION_SEC% seconds.
 goto :exit
 
 :run_clean
@@ -160,14 +166,13 @@ if %errorlevel% neq 0 (
 )
 exit /b 0
 
-:verify_ml_agents
-echo Verifying ml-agents installation...
-mlagents-learn --help >nul 2>&1
+:install_encoder_dependencies
+echo Installing encoder dependencies...
+"%VENV_DIR%\Scripts\python.exe" -m pip install sentence-transformers
 if %errorlevel% neq 0 (
-    echo ml-agents verification failed.
+    echo Encoder dependencies installation failed with error code %errorlevel%.
     goto :error
 )
-echo ml-agents verification successful.
 exit /b 0
 
 :clean_temp
@@ -178,6 +183,26 @@ if %errorlevel% neq 0 (
     echo Cleanup failed with error code %errorlevel%.
     goto :error
 )
+exit /b 0
+
+:verify_ml_agents
+echo Verifying ml-agents installation...
+mlagents-learn --help >nul 2>&1
+if %errorlevel% neq 0 (
+    echo ml-agents verification failed.
+    goto :error
+)
+echo ml-agents verification successful.
+exit /b 0
+
+:verify_encoder
+echo Verifying encoder installation...
+call "%~dp0encoder.bat" "test" >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Encoder verification failed.
+    goto :error
+)
+echo Encoder verification successful.
 exit /b 0
 
 :error
