@@ -37,6 +37,9 @@ if %errorlevel% neq 0 goto :error
 call :install_ml_agents
 if %errorlevel% neq 0 goto :error
 
+call :verify_ml_agents
+if %errorlevel% neq 0 goto :error
+
 call :clean_temp
 if %errorlevel% neq 0 goto :error
 
@@ -155,6 +158,16 @@ if %errorlevel% neq 0 (
     echo ml-agents installation failed with error code %errorlevel%.
     goto :error
 )
+exit /b 0
+
+:verify_ml_agents
+echo Verifying ml-agents installation...
+mlagents-learn --help >nul 2>&1
+if %errorlevel% neq 0 (
+    echo ml-agents verification failed.
+    goto :error
+)
+echo ml-agents verification successful.
 exit /b 0
 
 :clean_temp

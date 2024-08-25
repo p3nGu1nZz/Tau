@@ -18,12 +18,12 @@ set /A "END_MS=%END:~9,2%"
 set /A "START_TOTAL_SEC=(%START_HOUR%*3600 + %START_MIN%*60 + %START_SEC%)"
 set /A "END_TOTAL_SEC=(%END_HOUR%*3600 + %END_MIN%*60 + %END_SEC%)"
 
-set /A "DURATION_SEC=%END_TOTAL_SEC% - %START_TOTAL_SEC%"
+set /A "DURATION_SEC=(%END_TOTAL_SEC% - %START_TOTAL_SEC%)/1000"
 
 if %DURATION_SEC% lss 0 (
     set /A "DURATION_SEC=%DURATION_SEC% + 86400"
 )
 
-echo Setup completed in %DURATION_SEC% seconds.
+echo ML-Agents Setup completed! (%DURATION_SEC%s)
 endlocal
 exit /b 0
