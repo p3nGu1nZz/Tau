@@ -2,6 +2,7 @@ using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
+using UnityEngine;
 
 [BurstCompile]
 public struct CosineSimilarityJob : IJobParallelFor
@@ -13,7 +14,7 @@ public struct CosineSimilarityJob : IJobParallelFor
 
     public void Execute(int index)
     {
-        Log.Message($"Starting CosineSimilarityJob for index {index}...");
+        Debug.Log($"Starting CosineSimilarityJob for index {index}...");
 
         double dotProduct = 0.0;
         double magnitudeA = 0.0;
@@ -32,6 +33,6 @@ public struct CosineSimilarityJob : IJobParallelFor
         magnitudeB = math.sqrt(magnitudeB);
         Results[index] = dotProduct / (magnitudeA * magnitudeB);
 
-        Log.Message($"Completed CosineSimilarityJob for index {index} with similarity {Results[index]:F4}.");
+        Debug.Log($"Completed CosineSimilarityJob for index {index} with similarity {Results[index]:G4}.");
     }
 }
