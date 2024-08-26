@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 
 public static class StringUtilities
@@ -17,14 +18,30 @@ public static class StringUtilities
 
     public static string ConvertVectorToString(double[] vector)
     {
-        return "[" + string.Join(", ", vector.Select(v => v.ToString("F6"))) + "]";
+        if (vector.Length != DatabaseConstants.VectorSize)
+        {
+            throw new ArgumentException($"Vector must be of size {DatabaseConstants.VectorSize}.");
+        }
+
+        return "[" + string.Join(DatabaseConstants.VectorSeparator, vector.Select(v => v.ToString("F6"))) + "]";
     }
 
     public static double[] ConvertStringToVector(string vectorString)
     {
-        // Remove the brackets and split the string by commas
+        if (!vectorString.StartsWith("[") || !vectorString.EndsWith("]"))
+        {
+            throw new ArgumentException("Embedding vector must be enclosed in square brackets.");
+        }
+
         string[] parts = vectorString.Trim('[', ']').Split(DatabaseConstants.VectorSeparator);
-        return parts.Select(double.Parse).ToArray();
+        double[] vector = parts.Select(double.Parse).ToArray();
+
+        if (vector.Length != DatabaseConstants.VectorSize)
+        {
+            throw new ArgumentException($"Embedding vector must be of size {DatabaseConstants.VectorSize}.");
+        }
+
+        return vector;
     }
 
     public static string TruncateVectorString(string vectorString, int maxLength = 80)

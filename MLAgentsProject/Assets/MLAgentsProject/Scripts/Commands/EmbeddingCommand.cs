@@ -11,29 +11,59 @@ public class EmbeddingCommand : BaseCommand<EmbeddingCommand>
         { "match", MatchCommand }
     };
 
+    private static readonly Dictionary<string, Action<CommandArg[]>> MatchCommandActions = new()
+    {
+        { "token", MatchTokenAction.Execute }
+    };
+
     [RegisterCommand(Help = "Manages embedding operations", MinArgCount = 1)]
     public static void CommandEmbedding(CommandArg[] args)
     {
-        Execute(args);
+        try
+        {
+            Execute(args);
+        }
+        catch (Exception ex)
+        {
+            Log.Error($"An error occurred while executing the command: {ex.Message}");
+            throw;
+        }
+    }
+
+    protected override Action<CommandArg[]> GetCommandAction(string command, CommandArg[] args)
+    {
+        if (CommandActions.TryGetValue(command, out var commandAction))
+        {
+            return commandAction;
+        }
+
+        if (command == "match" && args.Length >= 2)
+        {
+            string matchCommand = args[1].String.ToLower();
+            if (MatchCommandActions.TryGetValue(matchCommand, out var matchCommandAction))
+            {
+                return matchCommandAction;
+            }
+        }
+
+        return null;
     }
 
     private static void MatchCommand(CommandArg[] args)
     {
-        if (args.Length < DatabaseConstants.VectorSize)
+        if (args.Length < 2)
         {
-            Log.Error("Insufficient arguments. Usage: embedding match <384 float values>");
-            return;
+            throw new ArgumentException($"Insufficient arguments. Usage: embedding match token <token>");
         }
 
-        double[] embedding = args.Select(arg => (double)arg.Float).ToArray();
-        var token = Database.Instance.Match(embedding);
-        if (token != null)
+        string subCommand = args[0].String.ToLower();
+        if (MatchCommandActions.TryGetValue(subCommand, out var subCommandAction))
         {
-            Debug.Log($"Token for embedding '{string.Join(", ", embedding)}': {token}");
+            subCommandAction(args.Skip(1).ToArray());
         }
         else
         {
-            Debug.Log($"Embedding not found in the vocabulary.");
+            throw new ArgumentException($"Invalid subcommand. Usage: embedding match token <token>");
         }
     }
 }
