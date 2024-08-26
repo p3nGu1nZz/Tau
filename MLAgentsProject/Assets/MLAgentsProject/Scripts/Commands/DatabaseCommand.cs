@@ -1,11 +1,11 @@
 using CommandTerminal;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using UnityEngine;
 
-public static class DatabaseCommand
+public class DatabaseCommand : BaseCommand<DatabaseCommand>
 {
-    private static readonly Dictionary<string, Action<CommandArg[]>> CommandActions = new()
+    protected override Dictionary<string, Action<CommandArg[]>> CommandActions { get; } = new()
     {
         { "load", DatabaseLoadAction.Execute },
         { "save", DatabaseSaveAction.Execute },
@@ -17,31 +17,10 @@ public static class DatabaseCommand
     [RegisterCommand(Help = "Manages the Vector Database", MinArgCount = 1)]
     public static void CommandDatabase(CommandArg[] args)
     {
-        try
-        {
-            if (args.Length < 1)
-            {
-                throw new ArgumentException("Insufficient arguments.");
-            }
-
-            string command = args[0].String.ToLower();
-            var commandAction = GetCommandAction(command, args);
-            if (commandAction != null)
-            {
-                commandAction(args);
-            }
-            else
-            {
-                throw new ArgumentException("Invalid command or insufficient arguments.");
-            }
-        }
-        catch (Exception ex)
-        {
-            Log.Error($"An error occurred while executing the command: {ex.Message}");
-        }
+        Execute(args);
     }
 
-    private static Action<CommandArg[]> GetCommandAction(string command, CommandArg[] args)
+    protected override Action<CommandArg[]> GetCommandAction(string command, CommandArg[] args)
     {
         if (CommandActions.TryGetValue(command, out var commandAction))
         {

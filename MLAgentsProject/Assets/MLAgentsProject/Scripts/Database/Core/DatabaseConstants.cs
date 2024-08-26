@@ -13,4 +13,5 @@ public static class DatabaseConstants
     public const char TableSeparator = '-';
     public const int MaxTableWidth = 110;
     public const int MaxLogLength = 110;
+    public const int VectorSize = 384;
 }

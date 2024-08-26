@@ -11,9 +11,10 @@ public class DatabaseFinder
         _resultFormatter = new ResultFormatter();
     }
 
-    public void FindInTables(string token, string tableName, bool searchAllTables)
+    public List<(string TableName, Embedding Embedding)> FindInTables(string token, string tableName, bool searchAllTables)
     {
         var results = _tableSearcher.SearchInTables(token, searchAllTables, tableName);
         Log.Message(_resultFormatter.FormatFindResults(results));
+        return results;
     }
 }

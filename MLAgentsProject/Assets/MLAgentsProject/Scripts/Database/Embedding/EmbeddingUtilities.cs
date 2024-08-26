@@ -9,7 +9,7 @@ public static class EmbeddingUtilities
 {
     public const int MaxConcurrentJobs = 8;
 
-    public static void ValidateEmbeddingSize(double[] embedding, int expectedSize = 384)
+    public static void ValidateEmbeddingSize(double[] embedding, int expectedSize = DatabaseConstants.VectorSize)
     {
         if (embedding.Length != expectedSize)
         {

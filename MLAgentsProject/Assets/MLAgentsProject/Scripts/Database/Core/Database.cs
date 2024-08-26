@@ -98,10 +98,10 @@ public class Database
         _databaseManager.FindInTable(tableName, token);
     }
 
-    public void FindInTables(string token, string tableName, bool searchAllTables)
+    public List<(string TableName, Embedding Embedding)> FindInTables(string token, string tableName = TableNames.Vocabulary, bool searchAllTables = false)
     {
         var finder = new DatabaseFinder(_databaseManager.GetTables());
-        finder.FindInTables(token, tableName, searchAllTables);
+        return finder.FindInTables(token, tableName, searchAllTables);
     }
 
     public Embedding Match(double[] vector)
