@@ -20,7 +20,7 @@ public class SaveLoadManager
             fileName = DatabaseConstants.DatabaseFileName;
         }
 
-        string filePath = DatabaseUtilities.GetFilePath(fileName);
+        string filePath = DataUtilities.GetFilePath(fileName);
         Log.Message($"Saving database to {fileName}");
 
         var stopwatch = Stopwatch.StartNew();
@@ -51,7 +51,7 @@ public class SaveLoadManager
             fileName = DatabaseConstants.DatabaseFileName;
         }
 
-        string filePath = DatabaseUtilities.GetFilePath(fileName);
+        string filePath = DataUtilities.GetFilePath(fileName);
         Log.Message($"Loading database from {filePath}");
 
         var stopwatch = Stopwatch.StartNew();

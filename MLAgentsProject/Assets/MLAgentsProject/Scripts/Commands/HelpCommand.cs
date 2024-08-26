@@ -1,6 +1,6 @@
 using CommandTerminal;
 using UnityEngine;
-using System.IO;
+using System.Collections.Generic;
 
 public static class HelpCommand
 {
@@ -9,9 +9,23 @@ public static class HelpCommand
     {
         if (args.Length == 0)
         {
+            var helpText = new List<string>
+            {
+                "Usage: <command> [options]",
+                "",
+                "Commands:"
+            };
+
             foreach (var command in Terminal.Shell.Commands)
             {
-                Terminal.Log("{0}: {1}", command.Key.PadRight(16), command.Value.help);
+                helpText.Add($"  {command.Key.PadRight(16).ToLower()} {command.Value.help}");
+            }
+
+            helpText.Add("");
+
+            foreach (var line in helpText)
+            {
+                Terminal.Log(line);
             }
             return;
         }
@@ -20,7 +34,7 @@ public static class HelpCommand
 
         if (!Terminal.Shell.Commands.ContainsKey(command_name))
         {
-            Terminal.Shell.IssueErrorMessage("Command {0} could not be found.", command_name);
+            Terminal.Shell.IssueErrorMessage($"Command {command_name} could not be found.");
             return;
         }
 
@@ -28,7 +42,7 @@ public static class HelpCommand
 
         if (help == null)
         {
-            Terminal.Log("{0} does not provide any help documentation.", command_name);
+            Terminal.Log($"{command_name} does not provide any help documentation.");
         }
         else
         {

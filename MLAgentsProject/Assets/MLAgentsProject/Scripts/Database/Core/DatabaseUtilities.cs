@@ -8,16 +8,6 @@ using UnityEngine;
 
 public static class DatabaseUtilities
 {
-    public static string GetFilePath(string fileName)
-    {
-        if (string.IsNullOrEmpty(fileName))
-        {
-            throw new ArgumentNullException(nameof(fileName), "File name cannot be null or empty.");
-        }
-
-        return Path.Combine(Application.dataPath, DatabaseConstants.UpDirectoryLevel, DatabaseConstants.DataDirectoryName, fileName);
-    }
-
     public static void SaveToFile(string content, string filePath)
     {
         File.WriteAllText(filePath, content);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -53,7 +54,7 @@ public static class DataLoader
 
     public static MessageList Load(string fileName)
     {
-        var file = DatabaseUtilities.GetFilePath(fileName);
+        var file = DataUtilities.GetFilePath(fileName);
         if (File.Exists(file))
         {
             string jsonData = File.ReadAllText(file);
@@ -73,7 +74,7 @@ public static class DataLoader
 
     public static void Save(MessageList messageList, string fileName)
     {
-        var file = DatabaseUtilities.GetFilePath(fileName);
+        var file = DataUtilities.GetFilePath(fileName);
         string jsonData = JsonUtility.ToJson(messageList, true);
         File.WriteAllText(file, jsonData);
         Debug.Log($"Combined data saved to {fileName}");

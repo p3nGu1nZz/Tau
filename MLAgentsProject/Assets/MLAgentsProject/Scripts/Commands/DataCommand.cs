@@ -3,17 +3,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public static class LoadCommand
+public static class DataCommand
 {
     private static readonly Dictionary<string, Action<CommandArg[]>> CommandActions = new()
     {
-        { "data", LoadDataAction.Execute },
-        { "check", LoadCheckAction.Execute },
-        { "concat", LoadConcatAction.Execute }
+        { "load", DataLoadAction.Execute },
+        { "check", DataCheckAction.Execute },
+        { "concat", DataConcatAction.Execute },
+        { "remove", DataRemoveAction.Execute },
+        { "info", DataInfoAction.Execute },
+        { "list", DataListAction.Execute },
+        { "help", DataHelpAction.Execute }
     };
 
     [RegisterCommand(Help = "Loads training data from one or more JSON files in the Scripts directory", MinArgCount = 1)]
-    public static void CommandLoad(CommandArg[] args)
+    public static void CommandData(CommandArg[] args)
     {
         try
         {

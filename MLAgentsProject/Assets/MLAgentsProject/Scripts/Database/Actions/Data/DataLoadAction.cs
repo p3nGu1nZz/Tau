@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-public static class LoadDataAction
+public static class DataLoadAction
 {
     public static async void Execute(CommandArg[] args)
     {

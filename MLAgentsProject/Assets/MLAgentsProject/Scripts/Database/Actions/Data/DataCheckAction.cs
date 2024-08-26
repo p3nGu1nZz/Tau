@@ -1,6 +1,6 @@
 using CommandTerminal;
 
-public static class LoadCheckAction
+public static class DataCheckAction
 {
     public static void Execute(CommandArg[] args)
     {
