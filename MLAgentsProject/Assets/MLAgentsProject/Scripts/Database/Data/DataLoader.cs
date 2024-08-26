@@ -34,10 +34,10 @@ public static class DataLoader
         Save(combinedMessageList, outputFileName);
         Log.Message($"Combined data saved to {outputFileName}");
 
-        await LoadData(combinedMessageList, outputFileName);
+        await LoadData(combinedMessageList);
     }
 
-    public static async Task LoadData(MessageList messageList, string fileName)
+    public static async Task LoadData(MessageList messageList)
     {
         List<string> vocabulary = ExtractAndLogVocabulary(messageList);
         var (chunkedTrainingData, combinedTrainingData) = ProcessAndLogData(messageList.training_data, "training");

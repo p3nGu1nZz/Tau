@@ -1,80 +1,51 @@
 using CommandTerminal;
-using System.Diagnostics;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public static class LoadCommand
 {
-    [RegisterCommand(Help = "Loads training data from one or more JSON files in the Scripts directory", MinArgCount = 1)]
-    public static async void CommandLoad(CommandArg[] args)
+    private static readonly Dictionary<string, Action<CommandArg[]>> CommandActions = new()
     {
-        List<string> fileNames = new List<string>();
-        foreach (var arg in args)
+        { "data", LoadDataAction.Execute },
+        { "check", LoadCheckAction.Execute },
+        { "concat", LoadConcatAction.Execute }
+    };
+
+    [RegisterCommand(Help = "Loads training data from one or more JSON files in the Scripts directory", MinArgCount = 1)]
+    public static void CommandLoad(CommandArg[] args)
+    {
+        try
         {
-            fileNames.Add(arg.String);
-        }
-
-        if (Terminal.IssuedError) return;
-
-        Stopwatch stopwatch = Stopwatch.StartNew();
-        Log.Message($"Starting to load training data from {string.Join(", ", fileNames)}...");
-
-        if (fileNames.Count == 1)
-        {
-            // Single file load
-            string fileName = fileNames[0];
-            MessageList messageList = DataLoader.Load(fileName);
-
-            if (messageList != null)
+            if (args.Length < 1)
             {
-                Log.Message("Training data loaded successfully.");
-                Log.Message($"Version: {messageList.version}");
-                Log.Message($"Model Name: {messageList.model_name}");
-                Log.Message($"Organization: {messageList.organization}");
+                throw new ArgumentException("Insufficient arguments.");
+            }
 
-                // Log the size of training and evaluation data
-                Log.Message($"Training data size: {messageList.training_data.Count}");
-                Log.Message($"Evaluation data size: {messageList.evaluation_data.Count}");
-
-                await DataLoader.LoadData(messageList, fileName);
-
-                stopwatch.Stop();
-                Log.Message($"Loading '{fileName}' completed successfully! (Elapsed time: {stopwatch.Elapsed.TotalSeconds} seconds)");
+            string command = args[0].String.ToLower();
+            var commandAction = GetCommandAction(command, args);
+            if (commandAction != null)
+            {
+                commandAction(args.Skip(1).ToArray());
             }
             else
             {
-                Log.Error("Failed to load training data.");
+                throw new ArgumentException("Invalid command or insufficient arguments.");
             }
         }
-        else
+        catch (Exception ex)
         {
-            // Multiple files load and concatenate
-            string outputFileName = "combined_data.json";
-            MessageList combinedMessageList = new MessageList
-            {
-                version = "0.1.0",
-                model_name = "Tau",
-                organization = "Huggingface",
-                training_data = new List<Message>(),
-                evaluation_data = new List<Message>()
-            };
-
-            foreach (var fileName in fileNames)
-            {
-                MessageList messageList = DataLoader.Load(fileName);
-                if (messageList != null)
-                {
-                    combinedMessageList.training_data.AddRange(messageList.training_data);
-                    combinedMessageList.evaluation_data.AddRange(messageList.evaluation_data);
-                }
-            }
-
-            DataLoader.Save(combinedMessageList, outputFileName);
-            Log.Message($"Combined data saved to {outputFileName}");
-
-            await DataLoader.LoadData(combinedMessageList, outputFileName);
-
-            stopwatch.Stop();
-            Log.Message($"Concatenation and loading completed successfully! (Elapsed time: {stopwatch.Elapsed.TotalSeconds} seconds)");
+            Log.Error($"An error occurred while executing the command: {ex.Message}");
         }
+    }
+
+    private static Action<CommandArg[]> GetCommandAction(string command, CommandArg[] args)
+    {
+        if (CommandActions.TryGetValue(command, out var commandAction))
+        {
+            return commandAction;
+        }
+
+        return null;
     }
 }
