@@ -15,7 +15,17 @@ public class TauAgent : Agent
 
     public override void Initialize()
     {
-        base.Initialize();
+        if (Vocabulary != null)
+        {
+            foreach (var token in Vocabulary.Keys)
+            {
+                Log.Message($"Token: {token}");
+            }
+        }
+        else
+        {
+            Log.Error("Vocabulary is not initialized.");
+        }
     }
 
     public override void OnEpisodeBegin() { }
@@ -30,20 +40,5 @@ public class TauAgent : Agent
     {
         Vocabulary = Database.Instance.GetTable(TableNames.Vocabulary);
         Log.Message($"Loaded {Vocabulary.Count} tokens into agent's vocabulary.");
-    }
-
-    private void OnEnable()
-    {
-        if (Vocabulary != null)
-        {
-            foreach (var token in Vocabulary.Keys)
-            {
-                Log.Message($"Token: {token}");
-            }
-        }
-        else
-        {
-            Log.Error("Vocabulary is not initialized.");
-        }
     }
 }
