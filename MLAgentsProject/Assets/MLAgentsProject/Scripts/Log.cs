@@ -34,7 +34,7 @@ public static class Log
         errorQueue.Enqueue($"[ERROR] {message}");
     }
 
-    private static void LogToFile(string message)
+    public static void LogToFile(string message)
     {
         int retryCount = 3;
         while (retryCount > 0)
