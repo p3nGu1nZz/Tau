@@ -399,7 +399,7 @@ namespace CommandTerminal
             Log(TerminalLogType.Input, "{0}", command_text);
             Shell.RunCommand(command_text);
             History.Push(command_text);
-            LogUtility.LogToFile($"Terminal command: '{command_text}'");
+            LogUtility.LogToFile($"$Command: '{command_text}'");
 
             if (IssuedError)
             {
