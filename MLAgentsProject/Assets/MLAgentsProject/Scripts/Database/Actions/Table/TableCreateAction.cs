@@ -7,9 +7,9 @@ public static class TableCreateAction
     {
         try
         {
-            if (args.Length < 2)
+            if (args.Length < 3)
             {
-                throw new ArgumentException("Insufficient arguments for create table command.");
+                throw new ArgumentException("Insufficient arguments for create table command. Usage: database table create <table_name>");
             }
 
             string tableName = args[2].String;

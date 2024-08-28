@@ -8,13 +8,13 @@ public static class DatabaseTableAction
     {
         try
         {
-            if (args.Length < 1)
+            if (args.Length < 2)
             {
                 throw new ArgumentException("Insufficient arguments for table command. Usage: database table <subcommand> <table_name>");
             }
 
-            string command = args[1].String.ToLower();
-            if (Actions.TryGetValue(command, out var action))
+            string subCommand = args[1].String.ToLower();
+            if (Actions.TryGetValue(subCommand, out var action))
             {
                 action(args);
             }

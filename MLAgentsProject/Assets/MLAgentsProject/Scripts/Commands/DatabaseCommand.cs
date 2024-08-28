@@ -11,6 +11,7 @@ public class DatabaseCommand : BaseCommand<DatabaseCommand>
         { "info", DatabaseInfoAction.Execute },
         { "find", DatabaseFindAction.Execute },
         { "table", DatabaseTableAction.Execute },
+        { "help", DatabaseHelpAction.Execute }
     };
 
     [RegisterCommand(Help = "Manages the Vector Database", MinArgCount = 1)]
@@ -26,12 +27,12 @@ public class DatabaseCommand : BaseCommand<DatabaseCommand>
             return action;
         }
 
-        if (command == CommandNames.Table && args.Length >= 2)
+        if (command == "table" && args.Length >= 2)
         {
-            string _command = args[1].String.ToLower();
-            if (DatabaseTableAction.Actions.TryGetValue(_command, out var _action))
+            string subCommand = args[1].String.ToLower();
+            if (DatabaseTableAction.Actions.TryGetValue(subCommand, out var subAction))
             {
-                return _action;
+                return subAction;
             }
         }
         else

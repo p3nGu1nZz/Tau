@@ -7,9 +7,9 @@ public static class TableRemoveAction
     {
         try
         {
-            if (args.Length < 2)
+            if (args.Length < 3)
             {
-                throw new ArgumentException("Insufficient arguments for remove table command.");
+                throw new ArgumentException("Insufficient arguments for remove table command. Usage: database table remove <table_name>");
             }
 
             string tableName = args[2].String;

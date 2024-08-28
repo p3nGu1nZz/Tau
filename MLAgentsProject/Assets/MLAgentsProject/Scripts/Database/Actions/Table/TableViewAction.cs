@@ -7,9 +7,9 @@ public static class TableViewAction
     {
         try
         {
-            if (args.Length < 2)
+            if (args.Length < 3)
             {
-                throw new ArgumentException("Insufficient arguments for view table command.");
+                throw new ArgumentException("Insufficient arguments for view table command. Usage: database table view <table_name>");
             }
 
             string tableName = args[2].String;
