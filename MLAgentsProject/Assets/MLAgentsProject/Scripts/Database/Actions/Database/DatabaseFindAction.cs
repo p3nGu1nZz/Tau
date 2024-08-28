@@ -37,18 +37,8 @@ public static class DatabaseFindAction
                 throw new ArgumentException("Token must be enclosed in double or single quotes.");
             }
 
-            bool searchAllTables = string.IsNullOrEmpty(tableName);
-
-            Log.Message($"Searching database for '{token}'" + (searchAllTables ? " in all tables" : $" in table '{tableName}'"));
-
-            if (searchAllTables)
-            {
-                Database.Instance.FindInTables(token, tableName, searchAllTables);
-            }
-            else
-            {
-                Database.Instance.FindInTable(tableName, token);
-            }
+            Log.Message($"Searching database for '{token}' in table '{tableName}'");
+            Database.Instance.FindInTable(tableName, token);
         }
         catch (Exception ex)
         {

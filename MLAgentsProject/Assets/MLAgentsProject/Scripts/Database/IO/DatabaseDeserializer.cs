@@ -75,18 +75,18 @@ public class DatabaseDeserializer
         int i = 0;
         while (i < lines.Count)
         {
-            Log.Message($"Parsing line {i}: {DatabaseUtilities.TruncateLogMessage(lines[i])}");
+            Log.Message($"Parsing line {i}: {StringUtilities.TruncateLogMessage(lines[i])}");
             if (lines[i].Contains(DatabaseStrings.Tokens[DatabaseTokens.Table]))
             {
                 string tableName = ExtractValue(lines, i + 1);
-                Log.Message($"Found table: {DatabaseUtilities.TruncateLogMessage(tableName)}");
+                Log.Message($"Found table: {StringUtilities.TruncateLogMessage(tableName)}");
                 tables[tableName] = new List<Embedding>();
 
                 // Skip to the next table or end token
                 i += 2; // Move to the next line after the table name
                 while (i < lines.Count && !lines[i].Contains(DatabaseStrings.Tokens[DatabaseTokens.Table]) && !lines[i].Contains(DatabaseStrings.Tokens[DatabaseTokens.End]))
                 {
-                    Log.Message($"Parsing line {i}: {DatabaseUtilities.TruncateLogMessage(lines[i])}");
+                    Log.Message($"Parsing line {i}: {StringUtilities.TruncateLogMessage(lines[i])}");
                     if (lines[i].Contains(DatabaseStrings.Tokens[DatabaseTokens.Embedding]))
                     {
                         Log.Message("Found embedding start.");
@@ -185,7 +185,7 @@ public class DatabaseDeserializer
 
         while (startIndex < lines.Count && !lines[startIndex].StartsWith("<|"))
         {
-            Log.Message($"Parsing vector line: {DatabaseUtilities.TruncateLogMessage(lines[startIndex])}");
+            Log.Message($"Parsing vector line: {StringUtilities.TruncateLogMessage(lines[startIndex])}");
             try
             {
                 // Remove square brackets and split by delimiter
@@ -194,7 +194,7 @@ public class DatabaseDeserializer
             }
             catch (Exception ex)
             {
-                Log.Error($"Failed to parse vector line: {DatabaseUtilities.TruncateLogMessage(lines[startIndex])}. Error: {ex.Message}");
+                Log.Error($"Failed to parse vector line: {StringUtilities.TruncateLogMessage(lines[startIndex])}. Error: {ex.Message}");
             }
             startIndex++;
         }

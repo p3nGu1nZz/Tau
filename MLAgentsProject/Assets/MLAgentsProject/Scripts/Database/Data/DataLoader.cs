@@ -86,7 +86,7 @@ public static class DataLoader
         combinedData.AddRange(messageList.training_data);
         combinedData.AddRange(messageList.evaluation_data);
 
-        List<string> vocabulary = DatabaseUtilities.ExtractVocabulary(combinedData);
+        List<string> vocabulary = Tokenizer.ExtractVocabulary(combinedData);
         Log.Message($"Vocabulary size: {vocabulary.Count}");
         return vocabulary;
     }

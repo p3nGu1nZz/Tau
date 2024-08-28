@@ -1,19 +1,66 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 public static class StringUtilities
 {
+    public static List<string> WrapText(string text, int maxWidth, int maxLines)
+    {
+        List<string> lines = new List<string>();
+        int start = 0;
+
+        while (start < text.Length && lines.Count < maxLines)
+        {
+            int length = Math.Min(maxWidth, text.Length - start);
+            if (start + length < text.Length)
+            {
+                length -= 3;
+            }
+            lines.Add(text.Substring(start, length));
+            start += length;
+        }
+
+        if (start < text.Length)
+        {
+            lines[lines.Count - 1] = lines[lines.Count - 1].TrimEnd() + DatabaseConstants.TextElipsis;
+        }
+
+        return lines;
+    }
+
     public static string ExtractQuotedString(ref string input)
     {
-        int startIndex = input.IndexOf('"');
-        if (startIndex == -1) return null;
+        if (string.IsNullOrEmpty(input))
+        {
+            throw new ArgumentException("Input cannot be null or empty.");
+        }
 
-        int endIndex = input.IndexOf('"', startIndex + 1);
-        if (endIndex == -1) return null;
+        int startQuoteIndex = input.IndexOf('"');
+        if (startQuoteIndex == -1)
+        {
+            throw new ArgumentException("No starting quote found.");
+        }
 
-        string result = input.Substring(startIndex + 1, endIndex - startIndex - 1);
-        input = input.Substring(endIndex + 1).Trim();
-        return result;
+        int endQuoteIndex = input.IndexOf('"', startQuoteIndex + 1);
+        if (endQuoteIndex == -1)
+        {
+            throw new ArgumentException("No ending quote found.");
+        }
+
+        string quotedString = input.Substring(startQuoteIndex + 1, endQuoteIndex - startQuoteIndex - 1);
+        input = input.Substring(endQuoteIndex + 1).Trim();
+
+        return quotedString;
+    }
+
+    public static string TruncateLogMessage(string message)
+    {
+        if (string.IsNullOrEmpty(message) || message.Length <= DatabaseConstants.MaxLogLength)
+        {
+            return message;
+        }
+
+        return message.Substring(0, DatabaseConstants.MaxLogLength) + DatabaseConstants.TextElipsis;
     }
 
     public static string ConvertVectorToString(double[] vector)

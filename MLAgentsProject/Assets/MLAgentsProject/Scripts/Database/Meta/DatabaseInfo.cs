@@ -27,8 +27,7 @@ public class DatabaseInfo
         }
         else
         {
-            return $"Vector Database Info:\n" +
-                   $"Version: {Version}\n" +
+            return $"Version: {Version}\n" +
                    $"Model Name: {ModelName}\n" +
                    $"Organization: {Organization}\n" +
                    $"Total Embeddings: {TotalEmbeddings}\n" +

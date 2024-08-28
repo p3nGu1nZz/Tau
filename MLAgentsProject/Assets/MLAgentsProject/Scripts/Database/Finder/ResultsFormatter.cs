@@ -35,11 +35,11 @@ public class ResultFormatter
             string tokenDisplay = FinderUtilities.TruncateText(embedding.Token, maxTokenLength);
             string firstEmbeddings = FinderUtilities.FormatEmbeddings(embedding.Vector, numEmbeddingsToShow);
 
-            List<string> idLines = DatabaseUtilities.WrapText(embedding.Id.ToString(), idColumnWidth, maxLinesPerRecord);
-            List<string> typeLines = DatabaseUtilities.WrapText(embedding.Type.ToString(), typeColumnWidth, maxLinesPerRecord);
-            List<string> tokenLines = DatabaseUtilities.WrapText(tokenDisplay, tokenColumnWidth, maxLinesPerRecord);
-            List<string> tableLines = DatabaseUtilities.WrapText(tableName, tableColumnWidth, maxLinesPerRecord);
-            List<string> embeddingLines = DatabaseUtilities.WrapText(firstEmbeddings, embeddingColumnWidth, maxLinesPerRecord);
+            List<string> idLines = StringUtilities.WrapText(embedding.Id.ToString(), idColumnWidth, maxLinesPerRecord);
+            List<string> typeLines = StringUtilities.WrapText(embedding.Type.ToString(), typeColumnWidth, maxLinesPerRecord);
+            List<string> tokenLines = StringUtilities.WrapText(tokenDisplay, tokenColumnWidth, maxLinesPerRecord);
+            List<string> tableLines = StringUtilities.WrapText(tableName, tableColumnWidth, maxLinesPerRecord);
+            List<string> embeddingLines = StringUtilities.WrapText(firstEmbeddings, embeddingColumnWidth, maxLinesPerRecord);
 
             result.AppendLine(FinderUtilities.FormatRecord(idLines, typeLines, tokenLines, tableLines, embeddingLines, idColumnWidth, typeColumnWidth, tokenColumnWidth, tableColumnWidth, embeddingColumnWidth));
             result.AppendLine(separator);

@@ -95,10 +95,10 @@ public class TableDisplay
         string tokenDisplay = TruncateText(entry.Key, maxTokenLength);
         string firstEmbeddings = FormatEmbeddings(embedding.Vector, numEmbeddingsToShow);
 
-        List<string> idLines = DatabaseUtilities.WrapText(embedding.Id.ToString(), idColumnWidth, maxLinesPerRecord);
-        List<string> typeLines = DatabaseUtilities.WrapText(embedding.Type.ToString(), typeColumnWidth, maxLinesPerRecord);
-        List<string> tokenLines = DatabaseUtilities.WrapText(tokenDisplay, tokenColumnWidth, maxLinesPerRecord);
-        List<string> embeddingLines = DatabaseUtilities.WrapText(firstEmbeddings, embeddingColumnWidth, maxLinesPerRecord);
+        List<string> idLines = StringUtilities.WrapText(embedding.Id.ToString(), idColumnWidth, maxLinesPerRecord);
+        List<string> typeLines = StringUtilities.WrapText(embedding.Type.ToString(), typeColumnWidth, maxLinesPerRecord);
+        List<string> tokenLines = StringUtilities.WrapText(tokenDisplay, tokenColumnWidth, maxLinesPerRecord);
+        List<string> embeddingLines = StringUtilities.WrapText(firstEmbeddings, embeddingColumnWidth, maxLinesPerRecord);
 
         return FormatRecord(idLines, typeLines, tokenLines, embeddingLines, idColumnWidth, typeColumnWidth, tokenColumnWidth, embeddingColumnWidth);
     }
