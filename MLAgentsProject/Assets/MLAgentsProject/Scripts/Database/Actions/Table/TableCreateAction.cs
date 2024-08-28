@@ -12,7 +12,7 @@ public static class TableCreateAction
                 throw new ArgumentException("Insufficient arguments for create table command.");
             }
 
-            string tableName = args[1].String;
+            string tableName = args[2].String;
             Database.Instance.CreateTable(tableName);
         }
         catch (Exception ex)

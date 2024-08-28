@@ -54,7 +54,7 @@ public class Database
         _databaseManager.CreateTable(tableName);
     }
 
-    public void DeleteTable(string tableName)
+    public void RemoveTable(string tableName)
     {
         _databaseManager.DeleteTable(tableName);
     }

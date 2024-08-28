@@ -1,17 +1,16 @@
 using CommandTerminal;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class DatabaseCommand : BaseCommand<DatabaseCommand>
 {
-    protected override Dictionary<string, Action<CommandArg[]>> CommandActions { get; } = new()
+    protected override Dictionary<string, Action<CommandArg[]>> Actions { get; } = new()
     {
         { "load", DatabaseLoadAction.Execute },
         { "save", DatabaseSaveAction.Execute },
         { "info", DatabaseInfoAction.Execute },
+        { "find", DatabaseFindAction.Execute },
         { "table", DatabaseTableAction.Execute },
-        { "find", DatabaseFindAction.Execute }
     };
 
     [RegisterCommand(Help = "Manages the Vector Database", MinArgCount = 1)]
@@ -20,20 +19,24 @@ public class DatabaseCommand : BaseCommand<DatabaseCommand>
         Execute(args);
     }
 
-    protected override Action<CommandArg[]> GetCommandAction(string command, CommandArg[] args)
+    protected override Action<CommandArg[]> GetAction(string command, CommandArg[] args)
     {
-        if (CommandActions.TryGetValue(command, out var commandAction))
+        if (Actions.TryGetValue(command, out var action))
         {
-            return commandAction;
+            return action;
         }
 
-        if (command == "table" && args.Length >= 2)
+        if (command == CommandNames.Table && args.Length >= 2)
         {
-            string tableCommand = args[1].String.ToLower();
-            if (DatabaseTableAction.TableCommandActions.TryGetValue(tableCommand, out var tableCommandAction))
+            string _command = args[1].String.ToLower();
+            if (DatabaseTableAction.Actions.TryGetValue(_command, out var _action))
             {
-                return tableCommandAction;
+                return _action;
             }
+        }
+        else
+        {
+            throw new ArgumentOutOfRangeException();
         }
 
         return null;

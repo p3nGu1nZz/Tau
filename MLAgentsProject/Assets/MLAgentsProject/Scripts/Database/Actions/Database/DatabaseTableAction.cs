@@ -1,7 +1,6 @@
 using CommandTerminal;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 public static class DatabaseTableAction
 {
@@ -9,15 +8,15 @@ public static class DatabaseTableAction
     {
         try
         {
-            if (args.Length < 2)
+            if (args.Length < 1)
             {
-                throw new ArgumentException("Insufficient arguments for table command.");
+                throw new ArgumentException("Insufficient arguments for table command. Usage: database table <subcommand> <table_name>");
             }
 
-            string tableCommand = args[1].String.ToLower();
-            if (TableCommandActions.TryGetValue(tableCommand, out var tableCommandAction))
+            string command = args[1].String.ToLower();
+            if (Actions.TryGetValue(command, out var action))
             {
-                tableCommandAction(args.Skip(1).ToArray());
+                action(args);
             }
             else
             {
@@ -30,10 +29,10 @@ public static class DatabaseTableAction
         }
     }
 
-    public static readonly Dictionary<string, Action<CommandArg[]>> TableCommandActions = new()
+    public static readonly Dictionary<string, Action<CommandArg[]>> Actions = new()
     {
         { "create", TableCreateAction.Execute },
-        { "delete", TableDeleteAction.Execute },
+        { "remove", TableRemoveAction.Execute },
         { "list", TableListAction.Execute },
         { "view", TableViewAction.Execute }
     };

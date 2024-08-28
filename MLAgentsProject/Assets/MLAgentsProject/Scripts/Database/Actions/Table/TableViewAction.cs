@@ -12,7 +12,7 @@ public static class TableViewAction
                 throw new ArgumentException("Insufficient arguments for view table command.");
             }
 
-            string tableName = args[1].String;
+            string tableName = args[2].String;
             Database.Instance.ViewTable(tableName);
         }
         catch (Exception ex)
