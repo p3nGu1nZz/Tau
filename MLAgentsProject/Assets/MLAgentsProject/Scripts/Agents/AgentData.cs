@@ -7,6 +7,4 @@ public class AgentData
     public double[] ModelOutput { get; set; }
     public double[] ExpectedOutput { get; set; }
     public float[] Observations { get; set; }
-    public string TrainingFileName { get; set; }
-    public List<EmbeddingPair> TrainingDataList { get; set; }
 }

@@ -2,13 +2,13 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 using System.Collections.Generic;
-using System.Linq;
 using System;
 
 public abstract class BaseAgent : Agent, IBaseAgent
 {
     public AgentData Data { get; private set; }
-    public BaseReward<double[]> RewardCalculator { get; set; }
+    public float StepReward { get; set; }
+    public int EpisodeCount {  get; set; }
 
     public void Setup()
     {
@@ -22,6 +22,7 @@ public abstract class BaseAgent : Agent, IBaseAgent
         try
         {
             Log.Message("Initializing BaseAgent.");
+            EpisodeCount = 0;
             if (Data.Vocabulary != null)
             {
                 LogTokens();
@@ -39,7 +40,7 @@ public abstract class BaseAgent : Agent, IBaseAgent
 
     public override void OnEpisodeBegin()
     {
-        Log.Message("New episode has begun.");
+        Log.Message($"New episode {EpisodeCount++} has begun.");
         ResetAgent();
     }
 
@@ -47,10 +48,10 @@ public abstract class BaseAgent : Agent, IBaseAgent
     {
         try
         {
-            Log.Message("Collecting observations.");
-            if (Data.ModelInput != null)
+            Log.Message("Collecting observations...");
+            if (Data.Observations != null && Data.Observations.Length == DatabaseConstants.VectorSize)
             {
-                AgentUtilities.AddObservations(sensor, Data.ModelInput);
+                sensor.AddObservation(Data.Observations);
             }
         }
         catch (Exception ex)
@@ -64,12 +65,10 @@ public abstract class BaseAgent : Agent, IBaseAgent
         try
         {
             Log.Message("Action received.");
-            if (!CheckActionLength(actions.ContinuousActions.Length))
-            {
-                throw new ArgumentException($"Expected 384 continuous actions, but received {actions.ContinuousActions.Length}.");
-            }
+            CheckActionLength(actions.ContinuousActions.Length);
+            Data.ModelOutput = AgentUtilities.ConvertActionsToDouble(actions.ContinuousActions);
+            Log.Message(StringUtilities.TruncateLogMessage($"ModelOutput={Data.ModelOutput}"));
 
-            ProcessActionToVector(actions.ContinuousActions);
             HandleReward();
         }
         catch (Exception ex)
@@ -84,14 +83,8 @@ public abstract class BaseAgent : Agent, IBaseAgent
         var continuousActions = actionsOut.ContinuousActions;
         for (int i = 0; i < continuousActions.Length; i++)
         {
-            continuousActions[i] = UnityEngine.Random.Range(-1f, 1f); // Example heuristic: random actions
+            continuousActions[i] = UnityEngine.Random.Range(-1f, 1f);
         }
-    }
-
-    public void UpdateWithReward(float reward)
-    {
-        Log.Message($"Updating with reward: {reward}");
-        SetReward(reward);
     }
 
     protected void InitializeVocabulary()
@@ -128,12 +121,6 @@ public abstract class BaseAgent : Agent, IBaseAgent
             throw new ArgumentException($"Expected 384 continuous actions, but received {length}.");
         }
         return true;
-    }
-
-    protected void ProcessActionToVector(ActionSegment<float> actions)
-    {
-        Log.Message("Processing action to vector.");
-        Data.ModelOutput = AgentUtilities.ConvertActionsToDouble(actions);
     }
 
     protected abstract void HandleReward();

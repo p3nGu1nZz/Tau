@@ -6,40 +6,41 @@ using UnityEngine;
 
 public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
 {
-    public int maxStepsPerEpisode = 10000;
-    public float rewardThreshold = -1000f;
-    public float waitTimeInSeconds = 1.0f;
-    private bool isCoroutineRunning = false;
+    public int MaxStepsPerEpisode = 10000;
+    public float RewardThreshold = -1000f;
+    public float WaitTimeInSeconds = 1.0f;
+    private bool _IsTrainingRunning = false;
+    public string TrainingFileName { get; set; }
+    public List<EmbeddingPair> TrainingData { get; set; }
 
     protected override void Initialize()
     {
         Log.Message("Initializing AgentTrainer.");
-        SetupAgent();
+        Setup();
 
-        if (string.IsNullOrEmpty(data.TrainingFileName))
+        if (string.IsNullOrEmpty(TrainingFileName))
         {
             throw new ArgumentException("Training file name is not set or is empty.");
         }
 
-        Log.Message($"Loading training data from file: {data.TrainingFileName}");
-        LoadTrainingData(data.TrainingFileName);
+        Log.Message($"Loading training data from file: {TrainingFileName}");
+        Load(TrainingFileName);
     }
 
-    protected override void SetupAgent()
+    protected override void Setup()
     {
         Log.Message("Setting up TauAgent.");
-        agent = FindFirstObjectByType<TauAgent>();
-        if (agent == null)
+        Agent = FindFirstObjectByType<TauAgent>();
+        if (Agent == null)
         {
             throw new ArgumentException("TauAgent not found in the scene.");
         }
 
-        agent.Setup();
-        rewardCalculator = RewardFactory.CreateReward(RewardType.Binary);
-        agent.RewardCalculator = rewardCalculator;
-        agent.gameObject.SetActive(true);
+        Agent.Setup();
+        Reward = RewardFactory.CreateReward(RewardType.Binary);
+        Agent.gameObject.SetActive(true);
 
-        var behaviorParameters = agent.GetComponent<BehaviorParameters>();
+        var behaviorParameters = Agent.GetComponent<BehaviorParameters>();
         if (behaviorParameters != null)
         {
             behaviorParameters.enabled = true;
@@ -48,60 +49,54 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
 
     void FixedUpdate()
     {
-        if (isProcessing)
+        if (IsProcessing)
         {
-            if (agent.StepCount >= maxStepsPerEpisode || agent.GetCumulativeReward() <= rewardThreshold)
+            if (Agent.StepCount >= MaxStepsPerEpisode || Agent.GetCumulativeReward() <= RewardThreshold)
             {
                 Log.Message("Ending training episode.");
                 EndTrainingEpisode();
             }
         }
-        else if (!isCoroutineRunning)
+        else if (!_IsTrainingRunning)
         {
-            StartCoroutine(TrainingUpdateCoroutine());
+            StartCoroutine(TrainingUpdate());
         }
     }
 
     void EndTrainingEpisode()
     {
         Log.Message("Ending training episode.");
-        isProcessing = false;
-        agent.EndEpisode();
+        IsProcessing = false;
+        Agent.EndEpisode();
     }
 
-    IEnumerator TrainingUpdateCoroutine()
+    IEnumerator TrainingUpdate()
     {
-        isCoroutineRunning = true;
+        _IsTrainingRunning = true;
         Log.Message("Starting training update coroutine.");
-        yield return new WaitForSeconds(waitTimeInSeconds);
+        yield return new WaitForSeconds(WaitTimeInSeconds);
 
-        TrainingUpdate();
-        isCoroutineRunning = false;
+        RequestTraining();
+        _IsTrainingRunning = false;
     }
 
-    void TrainingUpdate()
+    void RequestTraining()
     {
-        Log.Message("Updating training loop.");
-        var randomTrainingData = GetRandomTrainingData();
-        agent.Data.ModelInput = randomTrainingData.InputEmbedding;
-        agent.Data.ExpectedOutput = randomTrainingData.OutputEmbedding;
-        UpdateObservations();
-        agent.RequestDecision();
+        Log.Message("Request training.");
+        EmbeddingPair trainingData = GetRandomTrainingData();
+        Agent.Data.ModelInput = trainingData.InputEmbedding;
+        Agent.Data.ExpectedOutput = trainingData.OutputEmbedding;
+        Agent.Data.Observations = AgentUtilities.ConvertToFloatArray(Agent.Data.ModelInput);
+        Agent.RequestDecision();
     }
 
-    void UpdateObservations()
-    {
-        Log.Message("Updating observations.");
-        agent.Data.Observations = AgentUtilities.ConvertToFloatArray(agent.Data.ModelInput);
-    }
-
-    void LoadTrainingData(string fileName)
+    void Load(string fileName)
     {
         try
         {
             Log.Message($"Loading training data from file: {fileName}");
-            data.TrainingDataList = TrainingDataFactory.CreateTrainingDataList(fileName);
-            if (data.TrainingDataList == null || data.TrainingDataList.Count == 0)
+            TrainingData = TrainingDataFactory.CreateTrainingData(fileName);
+            if (TrainingData == null || TrainingData.Count == 0)
             {
                 throw new Exception("Training data list is empty or null.");
             }
@@ -115,7 +110,7 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
     EmbeddingPair GetRandomTrainingData()
     {
         Log.Message("Selecting random training data.");
-        int randomIndex = UnityEngine.Random.Range(0, data.TrainingDataList.Count);
-        return data.TrainingDataList[randomIndex];
+        int index = UnityEngine.Random.Range(0, TrainingData.Count);
+        return TrainingData[index];
     }
 }

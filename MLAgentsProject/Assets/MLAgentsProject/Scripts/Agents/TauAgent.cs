@@ -3,13 +3,12 @@ public class TauAgent : BaseAgent
     protected override void HandleReward()
     {
         Log.Message("Calculating reward...");
-        if (RewardCalculator != null && Data.ModelOutput != null && Data.ExpectedOutput != null)
+        if (AgentTrainer.Instance.Reward != null && Data.ModelOutput != null && Data.ExpectedOutput != null)
         {
-            float reward = RewardCalculator.CalculateReward(Data.ModelOutput, Data.ExpectedOutput);
+            float reward = AgentTrainer.Instance.Reward.Calculate(Data.ModelOutput, Data.ExpectedOutput);
             SetReward(reward);
 
-            Log.Message($"Training step {StepCount} completed with reward: {reward}");
-            AgentTrainer.Instance.isProcessing = false;
+            Log.Message($"step {StepCount} reward: {reward} ({GetCumulativeReward()})");
         }
     }
 }

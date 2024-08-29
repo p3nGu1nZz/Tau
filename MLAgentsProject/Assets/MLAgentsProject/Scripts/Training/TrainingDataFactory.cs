@@ -1,21 +1,20 @@
 using System.Collections.Generic;
 using System.IO;
-using UnityEngine;
 
 public static class TrainingDataFactory
 {
-    public static List<EmbeddingPair> CreateTrainingDataList(string fileName)
+    public static List<EmbeddingPair> CreateTrainingData(string fileName)
     {
         Log.Message($"Creating training data list from file: {fileName}");
         var trainingDataList = new List<EmbeddingPair>();
-        var messageList = LoadMessageList(fileName);
+        var messageList = Load(fileName);
 
         foreach (var message in messageList.training_data)
         {
             try
             {
                 Log.Message($"Processing message with {message.turns.Count} turns.");
-                CheckMessages(message.turns);
+                CheckTurns(message.turns);
 
                 for (int i = 0; i < message.turns.Count - 1; i += 2)
                 {
@@ -23,8 +22,8 @@ public static class TrainingDataFactory
                     var agentTurn = message.turns[i + 1];
 
                     Log.Message($"User turn: {userTurn.message}, Agent turn: {agentTurn.message}");
-                    var inputEmbedding = GetEmbeddingForToken(userTurn.message);
-                    var outputEmbedding = GetEmbeddingForToken(agentTurn.message);
+                    var inputEmbedding = GetEmbedding(userTurn.message);
+                    var outputEmbedding = GetEmbedding(agentTurn.message);
                     trainingDataList.Add(new EmbeddingPair(inputEmbedding, outputEmbedding));
                 }
             }
@@ -38,7 +37,7 @@ public static class TrainingDataFactory
         return trainingDataList;
     }
 
-    private static void CheckMessages(List<Turn> turns)
+    private static void CheckTurns(List<Turn> turns)
     {
         Log.Message("Checking message pairs.");
         if (turns.Count % 2 != 0)
@@ -55,18 +54,20 @@ public static class TrainingDataFactory
         }
     }
 
-    private static MessageList LoadMessageList(string fileName)
+    private static MessageList Load(string fileName)
     {
         Log.Message($"Loading message list from file: {fileName}");
         string filePath = DataUtilities.GetFilePath(fileName);
         return DataLoader.Load(filePath);
     }
 
-    private static double[] GetEmbeddingForToken(string token)
+    private static double[] GetEmbedding(string token)
     {
         Log.Message($"Getting embedding for token: {token}");
         // Implement the logic to get the embedding for the given token
         // This is a placeholder implementation
-        return new double[] { 0.0, 1.0, 0.0 }; // Replace with actual logic
+        // This should also actually search the database for the token in our training_data table.
+        // replace our random vector with that found embedding from the token.
+        return VectorUtilities.GetRandomVector(DatabaseConstants.VectorSize);
     }
 }

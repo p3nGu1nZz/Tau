@@ -1,4 +1,3 @@
-using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 using UnityEngine;
@@ -6,7 +5,6 @@ using UnityEngine;
 public interface IBaseAgent
 {
     AgentData Data { get; }
-    BaseReward<double[]> RewardCalculator { get; set; }
 
     void Setup();
     void Initialize();
@@ -15,8 +13,6 @@ public interface IBaseAgent
     void OnActionReceived(ActionBuffers actions);
     void Heuristic(in ActionBuffers actionsOut);
     void ResetAgent();
-
-    // Additional methods and properties from Agent
     void EndEpisode();
     GameObject gameObject { get; }
     T GetComponent<T>();

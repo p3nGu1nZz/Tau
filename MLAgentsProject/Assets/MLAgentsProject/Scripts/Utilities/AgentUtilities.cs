@@ -18,10 +18,4 @@ public static class AgentUtilities
         }
         return result;
     }
-
-    public static void AddObservations(VectorSensor sensor, double[] observations)
-    {
-        float[] floatObservations = ConvertToFloatArray(observations);
-        sensor.AddObservation(floatObservations);
-    }
 }

@@ -35,7 +35,7 @@ public static class TrainingAgentAction
             UnityEngine.Object.Instantiate(agentTrainerPrefab);
             UnityEngine.Object.Instantiate(tauAgentPrefab);
 
-            AgentTrainer.Instance.data.TrainingFileName = fileName;
+            AgentTrainer.Instance.TrainingFileName = fileName;
 
             Log.Message($"Successfully instantiated {agentPrefabName} and {trainerPrefabName} prefabs.");
         }

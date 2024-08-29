@@ -2,7 +2,7 @@ using System;
 
 public class DifferenceReward : BaseReward<double[]>
 {
-    public override float CalculateReward(double[] embedding, double[] expectedEmbedding)
+    public override float Calculate(double[] embedding, double[] expectedEmbedding)
     {
         double totalDifference = 0.0;
 
