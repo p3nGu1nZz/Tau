@@ -26,17 +26,6 @@ public abstract class AgentDelegator<T, U> : MonoBehaviour where T : MonoBehavio
         Initialize();
     }
 
-    protected virtual void Update()
-    {
-        if (isInitialized && !isProcessing)
-        {
-            Process();
-        }
-    }
-
     protected abstract void Initialize();
-
-    protected abstract void Process();
-
     protected abstract void SetupAgent();
 }

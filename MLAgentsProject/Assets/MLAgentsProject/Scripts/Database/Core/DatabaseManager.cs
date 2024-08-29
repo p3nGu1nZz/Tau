@@ -28,7 +28,5 @@ public class DatabaseManager
     public Dictionary<string, List<Embedding>> GetTables() => _tableManager.GetTables();
     public Dictionary<string, Embedding> GetTable(string tableName) => _tableManager.GetTable(tableName);
     public void ViewTable(string tableName) => _searchDisplayManager.ViewTable(tableName);
-    public void FindInTable(string tableName, string token) => _searchDisplayManager.FindInTable(tableName, token);
-    public bool HasTable(string tableName) => _tableManager.HasTable(tableName);
     public bool IsLoaded() => _tableManager.IsLoaded();
 }

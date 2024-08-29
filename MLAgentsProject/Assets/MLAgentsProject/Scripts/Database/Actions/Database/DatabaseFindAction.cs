@@ -38,7 +38,7 @@ public static class DatabaseFindAction
             }
 
             Log.Message($"Searching database for '{token}' in table '{tableName}'");
-            Database.Instance.FindInTable(tableName, token);
+            Database.Instance.FindInTables(token, tableName);
         }
         catch (Exception ex)
         {

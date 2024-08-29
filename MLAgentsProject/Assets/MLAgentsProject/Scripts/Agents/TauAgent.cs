@@ -1,15 +1,14 @@
 public class TauAgent : BaseAgent
 {
-    protected override void CalculateReward()
+    protected override void HandleReward()
     {
-        if (RewardCalculator != null && Data.CachedInputVector != null)
+        Log.Message("Calculating reward...");
+        if (RewardCalculator != null && Data.ModelOutput != null && Data.ExpectedOutput != null)
         {
-            var expectedResponse = Data.TrainingData[Data.CachedInputVector];
-            float reward = RewardCalculator.CalculateReward(Data.CachedOutputVector, expectedResponse);
-            UpdateWithReward(reward);
+            float reward = RewardCalculator.CalculateReward(Data.ModelOutput, Data.ExpectedOutput);
+            SetReward(reward);
 
-            Log.Message($"Training step completed with reward: {reward}");
-
+            Log.Message($"Training step {StepCount} completed with reward: {reward}");
             AgentTrainer.Instance.isProcessing = false;
         }
     }

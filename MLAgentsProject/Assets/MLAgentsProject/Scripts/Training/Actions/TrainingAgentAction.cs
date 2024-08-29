@@ -7,6 +7,7 @@ public static class TrainingAgentAction
     {
         try
         {
+            Log.Message("Checking if database is loaded.");
             if (!Database.Instance.IsLoaded())
             {
                 throw new InvalidOperationException("No database loaded. Please load a database or training data.");
@@ -17,6 +18,7 @@ public static class TrainingAgentAction
             string agentPrefabName = $"{agentType}{trainType}";
             string trainerPrefabName = $"{trainType}Trainer";
 
+            Log.Message($"Loading prefabs: {agentPrefabName} and {trainerPrefabName}");
             GameObject agentTrainerPrefab = Resources.Load<GameObject>(trainerPrefabName);
             GameObject tauAgentPrefab = Resources.Load<GameObject>(agentPrefabName);
 
@@ -25,9 +27,11 @@ public static class TrainingAgentAction
                 throw new Exception($"Failed to load prefabs: '{trainerPrefabName}' or '{agentPrefabName}'");
             }
 
+            Log.Message("Removing existing instances of prefabs.");
             GameUtilities.RemoveExistingInstances(agentPrefabName);
             GameUtilities.RemoveExistingInstances(trainerPrefabName);
 
+            Log.Message("Instantiating prefabs.");
             UnityEngine.Object.Instantiate(agentTrainerPrefab);
             UnityEngine.Object.Instantiate(tauAgentPrefab);
 

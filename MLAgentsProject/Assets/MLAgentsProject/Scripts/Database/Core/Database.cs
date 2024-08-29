@@ -93,11 +93,6 @@ public class Database
         _databaseManager.ViewTable(tableName);
     }
 
-    public void FindInTable(string tableName, string token)
-    {
-        _databaseManager.FindInTable(tableName, token);
-    }
-
     public List<(string TableName, Embedding Embedding)> FindInTables(string token, string tableName = TableNames.Vocabulary, bool searchAllTables = false)
     {
         var finder = new DatabaseFinder(_databaseManager.GetTables());

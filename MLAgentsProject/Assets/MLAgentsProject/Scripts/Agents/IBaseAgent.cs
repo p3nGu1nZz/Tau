@@ -14,7 +14,6 @@ public interface IBaseAgent
     void CollectObservations(VectorSensor sensor);
     void OnActionReceived(ActionBuffers actions);
     void Heuristic(in ActionBuffers actionsOut);
-    void UpdateWithReward(float reward);
     void ResetAgent();
 
     // Additional methods and properties from Agent

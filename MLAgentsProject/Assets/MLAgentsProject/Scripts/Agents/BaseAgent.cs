@@ -12,6 +12,7 @@ public abstract class BaseAgent : Agent, IBaseAgent
 
     public void Setup()
     {
+        Log.Message("Setting up BaseAgent.");
         Data = new AgentData();
         InitializeVocabulary();
     }
@@ -20,6 +21,7 @@ public abstract class BaseAgent : Agent, IBaseAgent
     {
         try
         {
+            Log.Message("Initializing BaseAgent.");
             if (Data.Vocabulary != null)
             {
                 LogTokens();
@@ -45,9 +47,10 @@ public abstract class BaseAgent : Agent, IBaseAgent
     {
         try
         {
-            if (Data.CachedInputVector != null)
+            Log.Message("Collecting observations.");
+            if (Data.ModelInput != null)
             {
-                AgentUtilities.AddObservations(sensor, Data.CachedInputVector);
+                AgentUtilities.AddObservations(sensor, Data.ModelInput);
             }
         }
         catch (Exception ex)
@@ -60,13 +63,14 @@ public abstract class BaseAgent : Agent, IBaseAgent
     {
         try
         {
+            Log.Message("Action received.");
             if (!CheckActionLength(actions.ContinuousActions.Length))
             {
                 throw new ArgumentException($"Expected 384 continuous actions, but received {actions.ContinuousActions.Length}.");
             }
 
             ProcessActionToVector(actions.ContinuousActions);
-            CalculateReward();
+            HandleReward();
         }
         catch (Exception ex)
         {
@@ -74,10 +78,19 @@ public abstract class BaseAgent : Agent, IBaseAgent
         }
     }
 
-    public override void Heuristic(in ActionBuffers actionsOut) { }
+    public override void Heuristic(in ActionBuffers actionsOut)
+    {
+        Log.Message("Using heuristic to determine actions.");
+        var continuousActions = actionsOut.ContinuousActions;
+        for (int i = 0; i < continuousActions.Length; i++)
+        {
+            continuousActions[i] = UnityEngine.Random.Range(-1f, 1f); // Example heuristic: random actions
+        }
+    }
 
     public void UpdateWithReward(float reward)
     {
+        Log.Message($"Updating with reward: {reward}");
         SetReward(reward);
     }
 
@@ -85,6 +98,7 @@ public abstract class BaseAgent : Agent, IBaseAgent
     {
         try
         {
+            Log.Message("Initializing vocabulary.");
             Data.Vocabulary = GetVocabulary();
             Log.Message($"Loaded {Data.Vocabulary.Count} tokens into agent's vocabulary.");
         }
@@ -118,18 +132,18 @@ public abstract class BaseAgent : Agent, IBaseAgent
 
     protected void ProcessActionToVector(ActionSegment<float> actions)
     {
-        Data.CachedOutputVector = AgentUtilities.ConvertActionsToDouble(actions);
-        Data.OutputVector = AgentUtilities.ConvertToFloatArray(Data.CachedOutputVector);
+        Log.Message("Processing action to vector.");
+        Data.ModelOutput = AgentUtilities.ConvertActionsToDouble(actions);
     }
 
-    protected abstract void CalculateReward();
+    protected abstract void HandleReward();
 
     public void ResetAgent()
     {
-        Data.CachedInputVector = null;
-        Data.CachedOutputVector = null;
-        Data.ExpectedOutputVector = null;
-        Data.InputVector = null;
-        Data.OutputVector = null;
+        Log.Message("Resetting agent.");
+        Data.ModelInput = null;
+        Data.ModelOutput = null;
+        Data.ExpectedOutput = null;
+        Data.Observations = null;
     }
 }
