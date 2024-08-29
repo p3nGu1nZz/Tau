@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class TrainingAgentAction
 {
-    public static void Execute(string trainType, string agentType)
+    public static void Execute(string trainType, string agentType, string fileName)
     {
         try
         {
@@ -12,7 +12,7 @@ public static class TrainingAgentAction
                 throw new InvalidOperationException("No database loaded. Please load a database or training data.");
             }
 
-            Log.Message($"Starting training for {trainType} with agent type {agentType}.");
+            Log.Message($"Starting training for {trainType} with agent type {agentType} using file {fileName}");
 
             string agentPrefabName = $"{agentType}{trainType}";
             string trainerPrefabName = $"{trainType}Trainer";
@@ -28,8 +28,11 @@ public static class TrainingAgentAction
             GameUtilities.RemoveExistingInstances(agentPrefabName);
             GameUtilities.RemoveExistingInstances(trainerPrefabName);
 
-            GameObject agentTrainer = UnityEngine.Object.Instantiate(agentTrainerPrefab);
-            GameObject tauAgent = UnityEngine.Object.Instantiate(tauAgentPrefab);
+            UnityEngine.Object.Instantiate(agentTrainerPrefab);
+            UnityEngine.Object.Instantiate(tauAgentPrefab);
+
+            AgentTrainer.Instance.data.TrainingFileName = fileName;
+
             Log.Message($"Successfully instantiated {agentPrefabName} and {trainerPrefabName} prefabs.");
         }
         catch (Exception ex)

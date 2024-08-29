@@ -2,7 +2,7 @@ using System;
 
 public class BinaryReward : BaseReward<double[]>
 {
-    public override double CalculateReward(double[] embedding, double[] expectedEmbedding)
+    public override float CalculateReward(double[] embedding, double[] expectedEmbedding)
     {
         double threshold = 0.1;
         bool isWithinThreshold = true;
@@ -16,6 +16,6 @@ public class BinaryReward : BaseReward<double[]>
             }
         }
 
-        return isWithinThreshold ? 1.0 : -1.0;
+        return (float)(isWithinThreshold ? 1.0 : -1.0);
     }
 }

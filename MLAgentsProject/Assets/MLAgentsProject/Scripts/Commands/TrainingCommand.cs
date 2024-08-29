@@ -38,6 +38,7 @@ public static class TrainingCommand
     private static void ExecuteAgentTraining(CommandArg[] args)
     {
         string agentType = StringUtilities.CapitalizeFirstLetter(args[1].String.ToLower());
-        TrainingAgentAction.Execute(TrainingType.Agent, agentType);
+        string fileName = args[1].String.ToLower();
+        TrainingAgentAction.Execute(TrainingType.Agent, agentType, fileName);
     }
 }

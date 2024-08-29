@@ -1,4 +1,4 @@
 public abstract class BaseReward<T>
 {
-    public abstract double CalculateReward(T embedding, T expectedEmbedding);
+    public abstract float CalculateReward(T embedding, T expectedEmbedding);
 }

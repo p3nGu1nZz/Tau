@@ -2,7 +2,7 @@ using System;
 
 public class DifferenceReward : BaseReward<double[]>
 {
-    public override double CalculateReward(double[] embedding, double[] expectedEmbedding)
+    public override float CalculateReward(double[] embedding, double[] expectedEmbedding)
     {
         double totalDifference = 0.0;
 
@@ -12,6 +12,6 @@ public class DifferenceReward : BaseReward<double[]>
         }
 
         double averageDifference = totalDifference / embedding.Length;
-        return -averageDifference;
+        return (float)-averageDifference;
     }
 }
