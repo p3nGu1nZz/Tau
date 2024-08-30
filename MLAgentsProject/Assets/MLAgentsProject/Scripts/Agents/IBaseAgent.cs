@@ -11,7 +11,8 @@ public interface IBaseAgent
     void OnEpisodeBegin();
     void CollectObservations(VectorSensor sensor);
     void OnActionReceived(ActionBuffers actions);
-    void Heuristic(in ActionBuffers actionsOut);
+    void Heuristic(in ActionBuffers actions);
+    void ProcessActions(ActionSegment<float> actions);
     void ResetAgent();
     void EndEpisode();
     GameObject gameObject { get; }

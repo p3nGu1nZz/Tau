@@ -75,3 +75,4 @@ crashlytics-build.properties
 /.venv/*
 /python/*
 /ml-agents
+/results/*

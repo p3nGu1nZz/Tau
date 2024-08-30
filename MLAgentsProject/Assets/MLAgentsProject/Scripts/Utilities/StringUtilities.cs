@@ -73,6 +73,16 @@ public static class StringUtilities
         return "[" + string.Join(DatabaseConstants.VectorSeparator, vector.Select(v => v.ToString("F6"))) + "]";
     }
 
+    public static string ConvertVectorToString(float[] vector)
+    {
+        if (vector.Length != DatabaseConstants.VectorSize)
+        {
+            throw new ArgumentException($"Vector must be of size {DatabaseConstants.VectorSize}.");
+        }
+
+        return "[" + string.Join(DatabaseConstants.VectorSeparator, vector.Select(v => v.ToString("F6"))) + "]";
+    }
+
     public static double[] ConvertStringToVector(string vectorString)
     {
         if (!vectorString.StartsWith("[") || !vectorString.EndsWith("]"))

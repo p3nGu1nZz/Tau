@@ -4,7 +4,7 @@ public class BinaryReward : BaseReward<double[]>
 {
     public override float Calculate(double[] embedding, double[] expectedEmbedding)
     {
-        Log.Message("Calculating reward...");
+        Log.Message($"Calculate mean binary reward. vectorSize={embedding.Length}");
         float threshold = 0.1f;
         float totalReward = 0.0f;
 
@@ -12,8 +12,6 @@ public class BinaryReward : BaseReward<double[]>
         {
             if (Math.Abs(expectedEmbedding[i] - embedding[i]) < threshold)
             {
-                Log.Message(StringUtilities.TruncateLogMessage($"found={embedding[i]}"));
-                Log.Message(StringUtilities.TruncateLogMessage($"expected={expectedEmbedding[i]}"));
                 totalReward += 1.0f;
             }
             else

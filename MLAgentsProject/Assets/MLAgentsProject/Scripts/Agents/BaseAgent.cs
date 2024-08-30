@@ -3,12 +3,13 @@ using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 public abstract class BaseAgent : Agent, IBaseAgent
 {
     public AgentData Data { get; private set; }
     public float StepReward { get; set; }
-    public int EpisodeCount {  get; set; }
+    public int EpisodeCount { get; set; }
 
     public void Setup()
     {
@@ -48,7 +49,6 @@ public abstract class BaseAgent : Agent, IBaseAgent
     {
         try
         {
-            Log.Message("Collecting observations...");
             if (Data.Observations != null && Data.Observations.Length == DatabaseConstants.VectorSize)
             {
                 sensor.AddObservation(Data.Observations);
@@ -64,12 +64,7 @@ public abstract class BaseAgent : Agent, IBaseAgent
     {
         try
         {
-            Log.Message("Action received.");
-            CheckActionLength(actions.ContinuousActions.Length);
-            Data.ModelOutput = AgentUtilities.ConvertActionsToDouble(actions.ContinuousActions);
-            Log.Message(StringUtilities.TruncateLogMessage($"ModelOutput={Data.ModelOutput}"));
-
-            HandleReward();
+            ProcessActions(actions.ContinuousActions);
         }
         catch (Exception ex)
         {
@@ -79,12 +74,30 @@ public abstract class BaseAgent : Agent, IBaseAgent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        Log.Message("Using heuristic to determine actions.");
-        var continuousActions = actionsOut.ContinuousActions;
-        for (int i = 0; i < continuousActions.Length; i++)
+        try
         {
-            continuousActions[i] = UnityEngine.Random.Range(-1f, 1f);
+            Log.Message("Using heuristic to determine actions.");
+            var continuousActions = actionsOut.ContinuousActions;
+            for (int i = 0; i < continuousActions.Length; i++)
+            {
+                continuousActions[i] = UnityEngine.Random.Range(-1f, 1f);
+            }
+
+            ProcessActions(actionsOut.ContinuousActions);
         }
+        catch (Exception ex)
+        {
+            Log.Error($"Error during heuristic action processing: {ex.Message}");
+        }
+    }
+
+    public void ProcessActions(ActionSegment<float> continuousActions)
+    {
+        CheckActionLength(continuousActions.Length);
+        Data.ModelOutput = AgentUtilities.ConvertActionsToDouble(continuousActions);
+        Log.Message(StringUtilities.TruncateLogMessage($"process_actions: ModelOutput={StringUtilities.ConvertVectorToString(Data.ModelOutput)}"));
+
+        HandleReward();
     }
 
     protected void InitializeVocabulary()
