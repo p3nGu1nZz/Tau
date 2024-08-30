@@ -22,8 +22,8 @@ public static class TrainingDataFactory
                     var agentTurn = message.turns[i + 1];
 
                     Log.Message($"User turn: {userTurn.message}, Agent turn: {agentTurn.message}");
-                    var inputEmbedding = GetEmbedding(userTurn.message);
-                    var outputEmbedding = GetEmbedding(agentTurn.message);
+                    var inputEmbedding = FindEmbedding(userTurn.message);
+                    var outputEmbedding = FindEmbedding(agentTurn.message);
                     trainingDataList.Add(new EmbeddingPair(inputEmbedding, outputEmbedding));
                 }
             }
@@ -61,13 +61,15 @@ public static class TrainingDataFactory
         return DataLoader.Load(filePath);
     }
 
-    private static double[] GetEmbedding(string token)
+    private static double[] FindEmbedding(string token)
     {
-        Log.Message($"Getting embedding for token: {token}");
-        // Implement the logic to get the embedding for the given token
-        // This is a placeholder implementation
-        // This should also actually search the database for the token in our training_data table.
-        // replace our random vector with that found embedding from the token.
-        return VectorUtilities.GetRandomVector(DatabaseConstants.VectorSize);
+        token = token.ToLower();
+        //Log.Message($"Getting embedding for token: {token}");
+        var embedding = Database.Instance.FindEmbedding(TableNames.TrainingData, token);
+        if (embedding != null)
+        {
+            return embedding;
+        }
+        throw new KeyNotFoundException($"Embedding for token '{token}' not found in the database.");
     }
 }

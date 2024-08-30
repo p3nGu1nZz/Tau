@@ -92,4 +92,17 @@ public class TableManager
 
         return isLoaded;
     }
+
+    public double[] FindEmbedding(string tableName, string token)
+    {
+        if (_tables.TryGetValue(tableName, out var table))
+        {
+            var embedding = table.FirstOrDefault(e => e.Token == token)?.Vector;
+            if (embedding != null)
+            {
+                return embedding.ToArray();
+            }
+        }
+        return null;
+    }
 }

@@ -4,7 +4,7 @@ public class BinaryReward : BaseReward<double[]>
 {
     public override float Calculate(double[] embedding, double[] expectedEmbedding)
     {
-        Log.Message($"Calculate mean binary reward. vectorSize={embedding.Length}");
+        //Log.Message($"Calculate mean binary reward. vectorSize={embedding.Length}");
         float threshold = 0.1f;
         float totalReward = 0.0f;
 
@@ -21,7 +21,7 @@ public class BinaryReward : BaseReward<double[]>
         }
 
         float meanReward = totalReward / embedding.Length;
-        Log.Message($"Calculated mean reward: {meanReward}");
+        //Log.Message($"Calculated mean reward: {meanReward}");
         return meanReward;
     }
 }

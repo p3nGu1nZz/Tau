@@ -113,4 +113,9 @@ public class Database
     {
         return _databaseManager.IsLoaded();
     }
+
+    public double[] FindEmbedding(string tableName, string token)
+    {
+        return _databaseManager.FindEmbedding(tableName, token);
+    }
 }

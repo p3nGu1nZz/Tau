@@ -44,3 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db87dcd09198b8f4d97a2de5491575b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Agent: {fileID: 6851654580899953587, guid: 9c684efee0f78994a9ddbb57e55dcd93, type: 3}
+  IsInitialized: 0
+  IsProcessing: 0
+  MaxStepsPerEpisode: 10000
+  RewardThreshold: -100
+  WaitTimeInSeconds: 0

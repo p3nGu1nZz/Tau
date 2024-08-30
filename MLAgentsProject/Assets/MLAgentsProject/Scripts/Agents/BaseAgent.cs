@@ -95,7 +95,7 @@ public abstract class BaseAgent : Agent, IBaseAgent
     {
         CheckActionLength(continuousActions.Length);
         Data.ModelOutput = AgentUtilities.ConvertActionsToDouble(continuousActions);
-        Log.Message(StringUtilities.TruncateLogMessage($"process_actions: ModelOutput={StringUtilities.ConvertVectorToString(Data.ModelOutput)}"));
+        //Log.Message(StringUtilities.TruncateLogMessage($"process_actions: ModelOutput={StringUtilities.ConvertVectorToString(Data.ModelOutput)}"));
 
         HandleReward();
     }
@@ -140,7 +140,7 @@ public abstract class BaseAgent : Agent, IBaseAgent
 
     public void ResetAgent()
     {
-        Log.Message("Resetting agent.");
+        //Log.Message("Resetting agent.");
         Data.ModelInput = null;
         Data.ModelOutput = null;
         Data.ExpectedOutput = null;

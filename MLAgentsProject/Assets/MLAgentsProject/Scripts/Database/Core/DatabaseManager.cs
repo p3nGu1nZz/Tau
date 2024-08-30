@@ -29,4 +29,5 @@ public class DatabaseManager
     public Dictionary<string, Embedding> GetTable(string tableName) => _tableManager.GetTable(tableName);
     public void ViewTable(string tableName) => _searchDisplayManager.ViewTable(tableName);
     public bool IsLoaded() => _tableManager.IsLoaded();
+    public double[] FindEmbedding(string tableName, string token) => _tableManager.FindEmbedding(tableName, token);
 }
