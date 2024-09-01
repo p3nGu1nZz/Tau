@@ -99,7 +99,3 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 - [Unity ML-Agents Toolkit](https://github.com/Unity-Technologies/ml-agents)
 - Sentence Transformers
-
----
-
-Feel free to customize this `README.md` to better fit your project's specifics. If you have any questions or need further assistance, let me know!
