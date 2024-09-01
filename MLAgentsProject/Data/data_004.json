@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Simple Addition",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is two plus 3?"
+        },
+        {
+          "role": "Agent",
+          "message": "5"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Simple Subtraction",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 9 minus four?"
+        },
+        {
+          "role": "Agent",
+          "message": "5"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Verb Forms",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of 'run'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Ran"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Nouns",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the plural of 'child'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Children"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "How do you spell 'necessary'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Necessary"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is the word 'recieve' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 3 times three?"
+        },
+        {
+          "role": "Agent",
+          "message": "9"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is twenty divided by 5?"
+        },
+        {
+          "role": "Agent",
+          "message": "4"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the adjective form of 'happy'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Happily"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Common Misspelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is the word 'seperate' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Addition",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 7 plus eight?"
+        },
+        {
+          "role": "Agent",
+          "message": "15"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Verb Forms",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of 'swim'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Swam"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "How do you spell 'accommodate'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Accommodate"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 12 minus five?"
+        },
+        {
+          "role": "Agent",
+          "message": "7"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Nouns",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the plural of 'mouse'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Mice"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is the word 'definately' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 6 times two?"
+        },
+        {
+          "role": "Agent",
+          "message": "12"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the adjective form of 'bright'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Brightly"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Common Misspelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is the word 'occurence' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 21 divided by 7?"
+        },
+        {
+          "role": "Agent",
+          "message": "3"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Addition",
+      "system": "Math AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 2 plus 2?"
+        },
+        {
+          "role": "Agent",
+          "message": "4"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Math AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 5 minus three?"
+        },
+        {
+          "role": "Agent",
+          "message": "2"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Verb Tense",
+      "system": "Grammar AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of run?"
+        },
+        {
+          "role": "Agent",
+          "message": "Ran"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Pluralization",
+      "system": "Grammar AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the plural of cat?"
+        },
+        {
+          "role": "Agent",
+          "message": "Cats"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "How do you spell 'necessary'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Necessary"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Spelling AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "How do you spell 'neccessary'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Incorrect"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Math AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 3 times 3?"
+        },
+        {
+          "role": "Agent",
+          "message": "9"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Math AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 10 divided by 2?"
+        },
+        {
+          "role": "Agent",
+          "message": "5"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Adjectives",
+      "system": "Grammar AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the adjective form of 'quick'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Quickly"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Common Misspelling",
+      "system": "Spelling AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "How do you spell 'recieve'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Incorrect"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Addition",
+      "system": "Math AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 7 plus three?"
+        },
+        {
+          "role": "Agent",
+          "message": "10"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Verb Tense",
+      "system": "Grammar AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of 'swim'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Swam"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "How do you spell 'accommodate'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Accommodate"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Math AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 9 minus 4?"
+        },
+        {
+          "role": "Agent",
+          "message": "5"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Pluralization",
+      "system": "Grammar AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the plural of 'mouse'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Mice"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Spelling AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "How do you spell 'definately'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Incorrect"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Math AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 4 times 2?"
+        },
+        {
+          "role": "Agent",
+          "message": "8"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Adjectives",
+      "system": "Grammar AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the adjective form of 'happy'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Happily"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Common Misspelling",
+      "system": "Spelling AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "How do you spell 'seperate'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Incorrect"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Math AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 12 divided by 4?"
+        },
+        {
+          "role": "Agent",
+          "message": "3"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Simple Addition",
+      "system": "Arithmetic AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is one plus 1?"
+        },
+        {
+          "role": "Agent",
+          "message": "2"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Simple Subtraction",
+      "system": "Arithmetic AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 10 minus five?"
+        },
+        {
+          "role": "Agent",
+          "message": "5"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Verb Forms",
+      "system": "Language AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of 'eat'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Ate"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Nouns",
+      "system": "Language AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the plural of 'book'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Books"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Orthography AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "How do you spell 'beautiful'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Beautiful"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Orthography AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is the word 'definately' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Arithmetic AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 4 times four?"
+        },
+        {
+          "role": "Agent",
+          "message": "16"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Arithmetic AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is twenty divided by 4?"
+        },
+        {
+          "role": "Agent",
+          "message": "5"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Adjectives",
+      "system": "Language AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the adjective form of 'quick'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Quickly"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Common Misspelling",
+      "system": "Orthography AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is the word 'occurence' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Addition",
+      "system": "Arithmetic AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 6 plus seven?"
+        },
+        {
+          "role": "Agent",
+          "message": "13"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Verb Forms",
+      "system": "Language AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of 'go'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Went"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Orthography AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "How do you spell 'necessary'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Necessary"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Arithmetic AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 15 minus eight?"
+        },
+        {
+          "role": "Agent",
+          "message": "7"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Nouns",
+      "system": "Language AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the plural of 'mouse'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Mice"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Orthography AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is the word 'recieve' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Arithmetic AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 5 times five?"
+        },
+        {
+          "role": "Agent",
+          "message": "25"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Grammar",
+      "context": "Adjectives",
+      "system": "Language AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the adjective form of 'happy'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Happily"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Common Misspelling",
+      "system": "Orthography AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is the word 'seperate' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Arithmetic AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 18 divided by 6?"
+        },
+        {
+          "role": "Agent",
+          "message": "3"
+        }
+      ]
+    }
+  ]
+}
