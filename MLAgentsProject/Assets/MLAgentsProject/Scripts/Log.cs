@@ -11,6 +11,8 @@ public static class Log
     private static ConcurrentQueue<string> messageQueue = new ConcurrentQueue<string>();
     private static ConcurrentQueue<string> warningQueue = new ConcurrentQueue<string>();
     private static ConcurrentQueue<string> errorQueue = new ConcurrentQueue<string>();
+    public static int maxSpeed = 500;
+    public static int minSpeed = 1;
 
     public static int LogsPerFrame { get; set; } = 1; // Default value
 
@@ -59,9 +61,6 @@ public static class Log
 
     public static int CalculateLogSpeed(int totalQueueSize)
     {
-        int maxSpeed = 100;
-        int minSpeed = 1;
-
         int speed = Math.Max(minSpeed, Math.Min(maxSpeed, totalQueueSize));
         return speed;
     }

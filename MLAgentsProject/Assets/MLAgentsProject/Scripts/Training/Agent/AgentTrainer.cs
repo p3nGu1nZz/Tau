@@ -7,11 +7,11 @@ using UnityEngine;
 
 public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
 {
-    public int MaxStepsPerEpisode = 10000;
-    public float RewardThreshold = -100f;
-    public float WaitTimeInSeconds = 0f;
-    public string TrainingFileName { get; set; }
-    public List<EmbeddingPair> TrainingData { get; set; }
+    public static int MaxStepsPerEpisode = 10000;
+    public static float RewardThreshold = -100f;
+    public static float WaitTimeInSeconds = 0f;
+    public static string TrainingFileName { get; set; }
+    public static List<EmbeddingPair> TrainingData { get; set; }
 
     private List<float> _Rewards = new List<float>();
     private int _LogCounter = 0;
@@ -20,7 +20,7 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
     private Stopwatch _Stopwatch = new Stopwatch();
     private bool _IsTraining = false;
 
-    protected override void Initialize()
+    public override void Initialize()
     {
         Log.Message("Initializing AgentTrainer.");
         Setup();
@@ -38,7 +38,7 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
     protected override void Setup()
     {
         Log.Message($"Setting up AgentTrainer. maxSteps={MaxStepsPerEpisode}, rewardThreshold={RewardThreshold}");
-        Agent = FindFirstObjectByType<TauAgent>();
+
         if (Agent == null)
         {
             throw new ArgumentException("TauAgent not found in the scene.");

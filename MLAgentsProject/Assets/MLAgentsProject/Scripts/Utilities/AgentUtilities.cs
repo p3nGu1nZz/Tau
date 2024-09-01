@@ -1,6 +1,7 @@
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 using System.Linq;
+using System.Collections.Generic;
 
 public static class AgentUtilities
 {
@@ -17,5 +18,13 @@ public static class AgentUtilities
             result[i] = actions[i];
         }
         return result;
+    }
+
+    public static void LogTokens(Dictionary<string, Embedding>.KeyCollection keys)
+    {
+        foreach (var token in keys)
+        {
+            Log.Message($"Token: {token}");
+        }
     }
 }

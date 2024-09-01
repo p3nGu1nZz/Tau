@@ -3,13 +3,15 @@ using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 using System.Collections.Generic;
 using System;
-using System.Linq;
 
-public abstract class BaseAgent : Agent, IBaseAgent
+public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
+    where TDelegator : AgentDelegator<TDelegator, TAgent>
+    where TAgent : BaseAgent<TDelegator, TAgent>
 {
     public AgentData Data { get; private set; }
     public float StepReward { get; set; }
     public int EpisodeCount { get; set; }
+    public TDelegator Delegator { get; set; }
 
     public void Setup()
     {
@@ -26,7 +28,7 @@ public abstract class BaseAgent : Agent, IBaseAgent
             EpisodeCount = 0;
             if (Data.Vocabulary != null)
             {
-                LogTokens();
+                AgentUtilities.LogTokens(Data.Vocabulary.Keys);
             }
             else
             {
@@ -95,7 +97,7 @@ public abstract class BaseAgent : Agent, IBaseAgent
     {
         CheckActionLength(continuousActions.Length);
         Data.ModelOutput = AgentUtilities.ConvertActionsToDouble(continuousActions);
-        //Log.Message(StringUtilities.TruncateLogMessage($"process_actions: ModelOutput={StringUtilities.ConvertVectorToString(Data.ModelOutput)}"));
+        // Log.Message(StringUtilities.TruncateLogMessage($"process_actions: ModelOutput={StringUtilities.ConvertVectorToString(Data.ModelOutput)}"));
 
         HandleReward();
     }
@@ -119,14 +121,6 @@ public abstract class BaseAgent : Agent, IBaseAgent
         return Database.Instance.GetTable(TableNames.Vocabulary);
     }
 
-    protected void LogTokens()
-    {
-        foreach (var token in Data.Vocabulary.Keys)
-        {
-            Log.Message($"Token: {token}");
-        }
-    }
-
     protected bool CheckActionLength(int length)
     {
         if (length != DatabaseConstants.VectorSize)
@@ -140,7 +134,7 @@ public abstract class BaseAgent : Agent, IBaseAgent
 
     public void ResetAgent()
     {
-        //Log.Message("Resetting agent.");
+        // Log.Message("Resetting agent.");
         Data.ModelInput = null;
         Data.ModelOutput = null;
         Data.ExpectedOutput = null;

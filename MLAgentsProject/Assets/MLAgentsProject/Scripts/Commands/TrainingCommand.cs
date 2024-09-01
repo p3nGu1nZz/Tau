@@ -6,39 +6,34 @@ public static class TrainingCommand
 {
     private static readonly Dictionary<string, Action<CommandArg[]>> CommandActions = new()
     {
-        { TrainingType.Agent.ToLower(), ExecuteAgentTraining }
+        { TrainingType.Agent.ToLower(), TrainingAgentAction.Execute },
+        { "cancel", TrainingCancelAction.Execute },
+        { "help", TrainingHelpAction.Execute }
     };
 
-    [RegisterCommand(Help = "Training a specified agent", MinArgCount = 2)]
+    [RegisterCommand(Help = "Training a specified agent", MinArgCount = 1)]
     public static void CommandTraining(CommandArg[] args)
     {
         try
         {
-            if (args.Length < 2)
+            if (args.Length < 1)
             {
-                throw new ArgumentException("Insufficient arguments for train command. Usage: train agent tau");
+                throw new ArgumentException("Insufficient arguments for train command. Usage: train agent tau <filename> [--num-agents <number>] or train cancel or train help");
             }
 
-            string trainType = args[0].String.ToLower();
-            if (CommandActions.TryGetValue(trainType, out var commandAction))
+            string commandType = args[0].String.ToLower();
+            if (CommandActions.TryGetValue(commandType, out var commandAction))
             {
                 commandAction(args);
             }
             else
             {
-                throw new ArgumentException("Invalid train type. Only 'agent' is supported.");
+                throw new ArgumentException("Invalid command type. Only 'agent', 'cancel', and 'help' are supported.");
             }
         }
         catch (Exception ex)
         {
             Log.Error($"An error occurred while executing the training command: {ex.Message}");
         }
-    }
-
-    private static void ExecuteAgentTraining(CommandArg[] args)
-    {
-        string agentType = StringUtilities.CapitalizeFirstLetter(args[1].String.ToLower());
-        string fileName = args[2].String.ToLower();
-        TrainingAgentAction.Execute(TrainingType.Agent, agentType, fileName);
     }
 }

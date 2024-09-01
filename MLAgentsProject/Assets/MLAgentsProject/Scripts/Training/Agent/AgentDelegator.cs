@@ -22,6 +22,6 @@ public abstract class AgentDelegator<T, U> : MonoBehaviour where T : MonoBehavio
         Initialize();
     }
 
-    protected abstract void Initialize();
+    public abstract void Initialize();
     protected abstract void Setup();
 }
