@@ -40,6 +40,9 @@ if %errorlevel% neq 0 goto :error
 call :install_encoder_dependencies
 if %errorlevel% neq 0 goto :error
 
+call :install_sentencepiece
+if %errorlevel% neq 0 goto :error
+
 call :clean_temp
 if %errorlevel% neq 0 goto :error
 
@@ -171,6 +174,15 @@ echo Installing encoder dependencies...
 "%VENV_DIR%\Scripts\python.exe" -m pip install sentence-transformers
 if %errorlevel% neq 0 (
     echo Encoder dependencies installation failed with error code %errorlevel%.
+    goto :error
+)
+exit /b 0
+
+:install_sentencepiece
+echo Installing SentencePiece...
+"%VENV_DIR%\Scripts\python.exe" -m pip install sentencepiece
+if %errorlevel% neq 0 (
+    echo SentencePiece installation failed with error code %errorlevel%.
     goto :error
 )
 exit /b 0
