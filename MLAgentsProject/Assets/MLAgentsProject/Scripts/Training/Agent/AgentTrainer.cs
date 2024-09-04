@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
+using Unity.MLAgents;
 
 public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
 {
@@ -141,6 +142,9 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
         double iterationsPerSecond = _LogInterval / elapsedSeconds;
 
         Log.Message($"training >> step={_TotalSteps}, episode={Agent.EpisodeCount} reward={meanReward} ({iterationsPerSecond:F2} it/sec)");
+
+        // Log to TensorBoard
+        Academy.Instance.StatsRecorder.Add("Averaged Reward", meanReward);
 
         _Stopwatch.Restart();
     }
