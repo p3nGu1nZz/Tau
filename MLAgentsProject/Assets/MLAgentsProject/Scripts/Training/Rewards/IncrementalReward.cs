@@ -18,26 +18,16 @@ public class IncrementalReward : BaseReward<double[]>
 
     public override float Calculate(double[] embedding, double[] expectedEmbedding)
     {
-        float threshold = 0.5f;
         float totalReward = 0.0f;
-
-        //Log.Message($"Calculating reward using the first {columnsToUse} columns.");
-        //Log.Message($"V: {embedding[0]}..., E: {expectedEmbedding[0]}..., D: {Math.Abs(expectedEmbedding[0] - embedding[0])}");
 
         for (int i = 0; i < columnsToUse; i++)
         {
-            if (Math.Abs(expectedEmbedding[i] - embedding[i]) < threshold)
-            {
-                totalReward += 1.0f;
-            }
-            else
-            {
-                totalReward -= 1.0f;
-            }
+            float difference = (float)Math.Abs(expectedEmbedding[i] - embedding[i]);
+            float reward = 1.0f / (1.0f + (float)Math.Exp(-difference)); // Sigmoid function
+            totalReward += reward * 2.0f - 1.0f; // Map to range [-1, 1]
         }
 
         float meanReward = totalReward / columnsToUse;
-        //Log.Message($"Total reward: {totalReward}, Mean reward: {meanReward}");
         return meanReward;
     }
 
