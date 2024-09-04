@@ -67,7 +67,7 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
 
     void EndTrainingEpisode()
     {
-        Log.Message($"Ending training episode {Agent.EpisodeCount}");
+        //Log.Message($"Ending training episode {Agent.EpisodeCount}");
         IsProcessing = false;
         Agent.EndEpisode();
     }

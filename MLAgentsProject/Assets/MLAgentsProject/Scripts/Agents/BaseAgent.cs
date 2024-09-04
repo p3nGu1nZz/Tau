@@ -43,7 +43,7 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
 
     public override void OnEpisodeBegin()
     {
-        Log.Message($"New episode {EpisodeCount++} has begun.");
+        //Log.Message($"New episode {EpisodeCount++} has begun.");
         ResetAgent();
     }
 
