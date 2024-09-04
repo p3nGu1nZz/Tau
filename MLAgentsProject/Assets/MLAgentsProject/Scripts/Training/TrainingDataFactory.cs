@@ -13,7 +13,7 @@ public static class TrainingDataFactory
         {
             try
             {
-                Log.Message($"Processing message with {message.turns.Count} turns.");
+                //Log.Message($"Processing message with {message.turns.Count} turns.");
                 CheckTurns(message.turns);
 
                 for (int i = 0; i < message.turns.Count - 1; i += 2)
@@ -21,7 +21,7 @@ public static class TrainingDataFactory
                     var userTurn = message.turns[i];
                     var agentTurn = message.turns[i + 1];
 
-                    Log.Message($"User turn: {userTurn.message}, Agent turn: {agentTurn.message}");
+                    //Log.Message($"User turn: {userTurn.message}, Agent turn: {agentTurn.message}");
                     var inputEmbedding = FindEmbedding(userTurn.message);
                     var outputEmbedding = FindEmbedding(agentTurn.message);
                     trainingDataList.Add(new EmbeddingPair(inputEmbedding, outputEmbedding));

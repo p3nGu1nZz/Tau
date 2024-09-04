@@ -75,7 +75,7 @@ public class DatabaseDeserializer
         int i = 0;
         while (i < lines.Count)
         {
-            Log.Message($"Parsing line {i}: {StringUtilities.TruncateLogMessage(lines[i])}");
+            //Log.Message($"Parsing line {i}: {StringUtilities.TruncateLogMessage(lines[i])}");
             if (lines[i].Contains(DatabaseStrings.Tokens[DatabaseTokens.Table]))
             {
                 string tableName = ExtractValue(lines, i + 1);

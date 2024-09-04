@@ -22,9 +22,9 @@ public static class AgentUtilities
 
     public static void LogTokens(Dictionary<string, Embedding>.KeyCollection keys)
     {
-        foreach (var token in keys)
-        {
-            Log.Message($"Token: {token}");
-        }
+        //foreach (var token in keys)
+        //{
+        //    Log.Message($"Token: {token}");
+        //}
     }
 }
