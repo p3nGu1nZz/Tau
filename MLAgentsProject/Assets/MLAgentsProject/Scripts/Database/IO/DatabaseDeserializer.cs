@@ -103,7 +103,7 @@ public class DatabaseDeserializer
 
     private static Embedding ExtractEmbedding(List<string> lines, ref int index)
     {
-        Log.Message($"Extracting embedding at index {index} with total lines count {lines.Count}.");
+        //Log.Message($"Extracting embedding at index {index} with total lines count {lines.Count}.");
         int id = 0;
         string token = null;
         EmbeddingType type = default;
@@ -180,7 +180,7 @@ public class DatabaseDeserializer
 
     private static List<double> ExtractVector(List<string> lines, int startIndex, char delimiter)
     {
-        Log.Message($"Extracting vector starting at line {startIndex}");
+        //Log.Message($"Extracting vector starting at line {startIndex}");
         var vector = new List<double>();
 
         while (startIndex < lines.Count && !lines[startIndex].StartsWith("<|"))

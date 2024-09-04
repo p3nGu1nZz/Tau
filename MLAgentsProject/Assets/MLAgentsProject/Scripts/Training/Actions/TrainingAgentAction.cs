@@ -7,8 +7,6 @@ using AgentTrainerDelegator = AgentDelegator<AgentTrainer, TauAgent>;
 
 public static class TrainingAgentAction
 {
-    private static TrainingProcessor<AgentTrainer, TauAgent> processor;
-
     public static void Execute(CommandArg[] args)
     {
         try
@@ -19,37 +17,7 @@ public static class TrainingAgentAction
             var argValues = CommandUtilities.ParseArgs(args, "num-agents");
             int numAgents = argValues.ContainsKey("num-agents") && int.TryParse(argValues["num-agents"], out int parsedNumAgents) ? parsedNumAgents : 1;
 
-            Log.Message("Checking if database is loaded.");
-            if (!Database.Instance.IsLoaded())
-            {
-                throw new InvalidOperationException("No database loaded. Please load a database or training data.");
-            }
-
-            Log.Message($"Starting training for {TrainingType.Agent} with agent type {agentType} using file {fileName} and {numAgents} agents");
-
-            string agentPrefabName = $"{agentType}{TrainingType.Agent}";
-            string trainerPrefabName = $"{TrainingType.Agent}Trainer";
-
-            Log.Message($"Loading prefabs: {agentPrefabName} and {trainerPrefabName}");
-            GameObject agentTrainerPrefab = Resources.Load<GameObject>(trainerPrefabName);
-            GameObject tauAgentPrefab = Resources.Load<GameObject>(agentPrefabName);
-
-            if (agentTrainerPrefab == null || tauAgentPrefab == null)
-            {
-                throw new Exception($"Failed to load prefabs: '{trainerPrefabName}' or '{agentPrefabName}'");
-            }
-
-            Log.Message("Removing existing instances of prefabs.");
-            GameUtilities.RemoveExistingInstances(agentPrefabName);
-            GameUtilities.RemoveExistingInstances(trainerPrefabName);
-
-            Log.Message("Instantiating prefabs.");
-            processor = new TrainingProcessor<AgentTrainer, TauAgent>(numAgents, agentTrainerPrefab, tauAgentPrefab);
-
-            Log.Message($"Successfully instantiated {numAgents} pairs of {agentPrefabName} and {trainerPrefabName} prefabs.");
-
-            // Start the training
-            processor.StartTraining(fileName);
+            TrainingManager.Instance.ExecuteTraining(agentType, fileName, numAgents);
         }
         catch (Exception ex)
         {
@@ -59,6 +27,6 @@ public static class TrainingAgentAction
 
     public static void CancelTraining()
     {
-        processor?.CancelTraining();
+        TrainingManager.Instance.CancelTraining();
     }
 }
