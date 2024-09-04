@@ -37,14 +37,14 @@ public class DatabaseDeserializer
     private static string ExtractField(List<string> lines, DatabaseTokens token)
     {
         string tokenString = DatabaseStrings.Tokens[token];
-        Log.Message($"Extracting field: {tokenString}");
+        //Log.Message($"Extracting field: {tokenString}");
 
         int i = 0;
         while (i < lines.Count)
         {
             if (lines[i].Contains(tokenString))
             {
-                Log.Message($"Found field {tokenString} at line {i}");
+                //Log.Message($"Found field {tokenString} at line {i}");
                 return ExtractValue(lines, i + 1);
             }
             i++;
@@ -54,13 +54,13 @@ public class DatabaseDeserializer
 
     private static string ExtractValue(List<string> lines, int startIndex)
     {
-        Log.Message($"Extracting value starting at line {startIndex}");
+        //Log.Message($"Extracting value starting at line {startIndex}");
         if (startIndex < lines.Count)
         {
             string value = lines[startIndex].Trim();
             if (!value.StartsWith("<|"))
             {
-                Log.Message($"Extracted value: {value}");
+                //Log.Message($"Extracted value: {value}");
                 return value;
             }
         }
@@ -86,10 +86,10 @@ public class DatabaseDeserializer
                 i += 2; // Move to the next line after the table name
                 while (i < lines.Count && !lines[i].Contains(DatabaseStrings.Tokens[DatabaseTokens.Table]) && !lines[i].Contains(DatabaseStrings.Tokens[DatabaseTokens.End]))
                 {
-                    Log.Message($"Parsing line {i}: {StringUtilities.TruncateLogMessage(lines[i])}");
+                    //Log.Message($"Parsing line {i}: {StringUtilities.TruncateLogMessage(lines[i])}");
                     if (lines[i].Contains(DatabaseStrings.Tokens[DatabaseTokens.Embedding]))
                     {
-                        Log.Message("Found embedding start.");
+                        //Log.Message("Found embedding start.");
                         var embedding = ExtractEmbedding(lines, ref i);
                         tables[tableName].Add(embedding);
                     }
@@ -114,44 +114,44 @@ public class DatabaseDeserializer
             while (index < lines.Count)
             {
                 string line = lines[index].Trim();
-                Log.Message($"Processing line: {line}");
+                //Log.Message($"Processing line: {line}");
 
                 if (line == DatabaseStrings.Tokens[DatabaseTokens.Embedding])
                 {
-                    Log.Message("Found embedding start.");
+                    //Log.Message("Found embedding start.");
                     index++;
                 }
                 else if (line == DatabaseStrings.Tokens[DatabaseTokens.Id])
                 {
-                    Log.Message("Found Id token.");
+                    //Log.Message("Found Id token.");
                     id = int.Parse(lines[++index].Trim());
-                    Log.Message($"Extracted Id: {id}");
+                    //Log.Message($"Extracted Id: {id}");
                     index++;
                 }
                 else if (line == DatabaseStrings.Tokens[DatabaseTokens.Token])
                 {
-                    Log.Message("Found Token token.");
+                    //Log.Message("Found Token token.");
                     token = lines[++index].Trim();
-                    Log.Message($"Extracted Token: {token}");
+                    //Log.Message($"Extracted Token: {token}");
                     index++;
                 }
                 else if (line == DatabaseStrings.Tokens[DatabaseTokens.Type])
                 {
-                    Log.Message("Found Type token.");
+                    //Log.Message("Found Type token.");
                     type = (EmbeddingType)Enum.Parse(typeof(EmbeddingType), lines[++index].Trim());
-                    Log.Message($"Extracted Type: {type}");
+                    //Log.Message($"Extracted Type: {type}");
                     index++;
                 }
                 else if (line == DatabaseStrings.Tokens[DatabaseTokens.Vector])
                 {
-                    Log.Message("Found Vector token.");
+                    //Log.Message("Found Vector token.");
                     vector = ExtractVector(lines, ++index, '|');
-                    Log.Message($"Extracted Vector with {vector.Count} elements.");
+                    //Log.Message($"Extracted Vector with {vector.Count} elements.");
                     index++;
                 }
                 else if (line == DatabaseStrings.Tokens[DatabaseTokens.End])
                 {
-                    Log.Message("Found end token.");
+                    //Log.Message("Found end token.");
                     index++;
                     if (id != 0 && token != null && vector != null)
                     {
@@ -185,7 +185,7 @@ public class DatabaseDeserializer
 
         while (startIndex < lines.Count && !lines[startIndex].StartsWith("<|"))
         {
-            Log.Message($"Parsing vector line: {StringUtilities.TruncateLogMessage(lines[startIndex])}");
+            //Log.Message($"Parsing vector line: {StringUtilities.TruncateLogMessage(lines[startIndex])}");
             try
             {
                 // Remove square brackets and split by delimiter
