@@ -45,7 +45,7 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
         }
 
         Agent.Setup();
-        Reward = RewardFactory.CreateReward(RewardType.Binary);
+        Reward = RewardFactory.CreateReward(RewardType.Incremental, 1);
         Agent.gameObject.SetActive(true);
 
         ComponentUtilities.EnableAllComponents(Agent.gameObject);

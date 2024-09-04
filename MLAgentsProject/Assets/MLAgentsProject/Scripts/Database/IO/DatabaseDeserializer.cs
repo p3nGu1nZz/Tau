@@ -199,7 +199,7 @@ public class DatabaseDeserializer
             startIndex++;
         }
 
-        Log.Message($"Extracted vector with {vector.Count} elements.");
+        //Log.Message($"Extracted vector with {vector.Count} elements.");
         return vector;
     }
 }
