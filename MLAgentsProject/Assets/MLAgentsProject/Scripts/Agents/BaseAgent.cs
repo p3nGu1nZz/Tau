@@ -44,6 +44,7 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
     public override void OnEpisodeBegin()
     {
         //Log.Message($"New episode {EpisodeCount++} has begun.");
+        EpisodeCount++;
         ResetAgent();
     }
 
@@ -106,9 +107,9 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
     {
         try
         {
-            Log.Message("Initializing vocabulary.");
+            //Log.Message("Initializing vocabulary.");
             Data.Vocabulary = GetVocabulary();
-            Log.Message($"Loaded {Data.Vocabulary.Count} tokens into agent's vocabulary.");
+            Log.Message($"Loaded {Data.Vocabulary.Count} tokens into agent vocabulary.");
         }
         catch (Exception ex)
         {
@@ -125,7 +126,7 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
     {
         if (length != DatabaseConstants.VectorSize)
         {
-            throw new ArgumentException($"Expected 384 continuous actions, but received {length}.");
+            throw new ArgumentException($"Expected {DatabaseConstants.VectorSize} continuous actions, but received {length}.");
         }
         return true;
     }

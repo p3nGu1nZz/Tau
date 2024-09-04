@@ -39,7 +39,7 @@ public static class TrainingDataFactory
 
     private static void CheckTurns(List<Turn> turns)
     {
-        Log.Message("Checking message pairs.");
+        //Log.Message("Checking message pairs.");
         if (turns.Count % 2 != 0)
         {
             throw new InvalidDataException("Invalid number of messages. Messages should be in pairs of user and agent.");
