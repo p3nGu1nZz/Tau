@@ -13,7 +13,7 @@ public static class DataConcatAction
             bool isFirstFile = true;
             string firstArg = args[0].String;
             string firstArgPath = DataUtilities.GetFilePath(firstArg);
-            string saveFileName = "data.json";
+            string saveFileName = DatabaseConstants.DefaultDataFileName;
             List<string> fileNames = new();
             MessageList combined = new();
 
@@ -44,6 +44,9 @@ public static class DataConcatAction
 
             Stopwatch stopwatch = Stopwatch.StartNew();
             Log.Message($"Starting to concatenate data from {string.Join(", ", fileNames)}...");
+
+            int totalTrainingRecords = 0;
+            int totalEvaluationRecords = 0;
 
             foreach (var fileName in fileNames)
             {
@@ -81,6 +84,9 @@ public static class DataConcatAction
                     combined.training_data.AddRange(messageList.training_data ?? new List<Message>());
                     combined.evaluation_data.AddRange(messageList.evaluation_data ?? new List<Message>());
 
+                    totalTrainingRecords += messageList.training_data?.Count ?? 0;
+                    totalEvaluationRecords += messageList.evaluation_data?.Count ?? 0;
+
                     Log.Message($"Added data from '{fileName}' into combined data.");
                 }
                 else
@@ -89,8 +95,15 @@ public static class DataConcatAction
                 }
             }
 
+            Log.Message("Removing duplicates from combined data...");
+            DataLoader.RemoveDuplicates(combined);
+
             Log.Message("Saving combined data...");
             DataLoader.Save(combined, saveFileName);
+
+            Log.Message($"Total training records added: {totalTrainingRecords}");
+            Log.Message($"Total evaluation records added: {totalEvaluationRecords}");
+            Log.Message($"Total combined records added: {totalTrainingRecords + totalEvaluationRecords}");
             Log.Message($"Concatenation completed successfully! Combined data saved to '{saveFileName}' (Elapsed time: {stopwatch.Elapsed.TotalSeconds} seconds)");
 
             stopwatch.Stop();

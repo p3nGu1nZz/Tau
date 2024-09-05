@@ -229,21 +229,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you spell 'recieve'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Incorrect"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Multiplication",
             "system": "Math AI",
@@ -420,21 +405,6 @@
                 {
                     "role": "Agent",
                     "message": "5"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Language AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'quick'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Quickly"
                 }
             ]
         },
@@ -665,21 +635,6 @@
         },
         {
             "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you spell 'necessary'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Necessary"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
             "context": "Incorrect Spelling",
             "system": "Spelling Checker AI",
             "turns": [
@@ -815,36 +770,6 @@
         },
         {
             "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of run?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Ran"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of cat?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Cats"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
             "context": "Adjectives",
             "system": "Grammar Helper AI",
             "turns": [
@@ -855,51 +780,6 @@
                 {
                     "role": "Agent",
                     "message": "Beautiful"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'accommodate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'definately' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'necessary' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -1205,21 +1085,6 @@
         },
         {
             "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 3 plus 9?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Twelve"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
             "context": "Subtraction",
             "system": "Math Tutor AI",
             "turns": [
@@ -1335,21 +1200,6 @@
                 {
                     "role": "Agent",
                     "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'accommodate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -1474,36 +1324,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'recieve' correct?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'calendar' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -1594,36 +1414,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Adjective for 'grace'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Graceful"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'accommodate' spelled right?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Spelling",
             "context": "Incorrect Spelling",
             "system": "Spelling Checker AI",
@@ -1635,66 +1425,6 @@
                 {
                     "role": "Agent",
                     "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'maintenance' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 5 plus 3?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "8"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 10 minus 4?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "6"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of run?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Ran"
                 }
             ]
         },
@@ -1714,36 +1444,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'accommodate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'definately' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Multiplication",
             "system": "Math Tutor AI",
@@ -1759,21 +1459,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 20 divided by 4?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "5"
-                }
-            ]
-        },
-        {
             "domain": "Basic Grammar",
             "context": "Adjectives",
             "system": "Grammar Helper AI",
@@ -1785,21 +1470,6 @@
                 {
                     "role": "Agent",
                     "message": "Better"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'necessary' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -1985,21 +1655,6 @@
         },
         {
             "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'write'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Wrote"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
             "context": "Pluralization",
             "system": "Grammar Helper AI",
             "turns": [
@@ -2089,21 +1744,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'calendar' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -2160,21 +1800,6 @@
                 {
                     "role": "Agent",
                     "message": "Fish"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'maintenance' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -2254,126 +1879,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 5 plus 3?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "8"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 10 minus 4?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "6"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of run?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Ran"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of cat?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Cats"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'accommodate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'definately' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Multiplication",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 7 times 6?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "42"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 20 divided by 4?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "5"
-                }
-            ]
-        },
-        {
             "domain": "Basic Grammar",
             "context": "Adjectives",
             "system": "Grammar Helper AI",
@@ -2389,21 +1894,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'necessary' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -2435,21 +1925,6 @@
         },
         {
             "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'swim'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Swam"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
             "context": "Pluralization",
             "system": "Grammar Helper AI",
             "turns": [
@@ -2460,36 +1935,6 @@
                 {
                     "role": "Agent",
                     "message": "Mice"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'occurrence' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'recieve' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
                 }
             ]
         },
@@ -2509,21 +1954,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Divide 18 by 3."
-                },
-                {
-                    "role": "Agent",
-                    "message": "6"
-                }
-            ]
-        },
-        {
             "domain": "Basic Grammar",
             "context": "Adjectives",
             "system": "Grammar Helper AI",
@@ -2535,171 +1965,6 @@
                 {
                     "role": "Agent",
                     "message": "Joyful"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'embarrass' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Add 7 and 8."
-                },
-                {
-                    "role": "Agent",
-                    "message": "15"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Subtract 9 from 20."
-                },
-                {
-                    "role": "Agent",
-                    "message": "11"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'swim'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Swam"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'mouse'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'occurrence' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'recieve' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Multiplication",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Multiply 4 by 9."
-                },
-                {
-                    "role": "Agent",
-                    "message": "36"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Divide 18 by 3."
-                },
-                {
-                    "role": "Agent",
-                    "message": "6"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'joy'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Joyful"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'embarrass' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -2745,21 +2010,6 @@
                 {
                     "role": "Agent",
                     "message": "Sang"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'goose'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Geese"
                 }
             ]
         },
@@ -2839,21 +2089,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'privilege' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -2910,21 +2145,6 @@
                 {
                     "role": "Agent",
                     "message": "Teeth"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'maintenance' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -3019,21 +2239,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Subtract 5 from 12."
-                },
-                {
-                    "role": "Agent",
-                    "message": "7"
-                }
-            ]
-        },
-        {
             "domain": "Basic Grammar",
             "context": "Verb Forms",
             "system": "Grammar Helper AI",
@@ -3075,21 +2280,6 @@
                 {
                     "role": "Agent",
                     "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'recieve' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
                 }
             ]
         },
@@ -3139,36 +2329,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'accommodate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 8 plus 5?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "13"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Subtraction",
             "system": "Math Tutor AI",
@@ -3195,51 +2355,6 @@
                 {
                     "role": "Agent",
                     "message": "Saw"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'fish'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Fish"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'accommodate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'definately' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
                 }
             ]
         },
@@ -3274,51 +2389,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'grace'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Graceful"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'privilege' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 5 plus 3?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "8"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Subtraction",
             "system": "Math Tutor AI",
@@ -3330,66 +2400,6 @@
                 {
                     "role": "Agent",
                     "message": "3"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of run?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Ran"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of child?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Children"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'accommodate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'definately' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
                 }
             ]
         },
@@ -3424,36 +2434,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'beauty'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Beautiful"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'necessary' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -3484,126 +2464,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'swim'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Swam"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'goose'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Geese"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'occurrence' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'recieve' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Multiplication",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 5 times 5?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "25"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Divide 18 by 3."
-                },
-                {
-                    "role": "Agent",
-                    "message": "6"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'joy'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Joyful"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'embarrass' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -3615,81 +2475,6 @@
                 {
                     "role": "Agent",
                     "message": "14"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Subtract 9 from 15."
-                },
-                {
-                    "role": "Agent",
-                    "message": "6"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'write'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Wrote"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'tooth'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Teeth"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'recommend' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'seperate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
                 }
             ]
         },
@@ -3724,13 +2509,688 @@
             ]
         },
         {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 2 plus 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "10"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Subtract 3 from 14."
+                },
+                {
+                    "role": "Agent",
+                    "message": "11"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 8 times 4?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "32"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 4 plus 5?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "9"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Subtract 8 from 13."
+                },
+                {
+                    "role": "Agent",
+                    "message": "5"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 7 times 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "56"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 7 plus 5?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "12"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 15 minus 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "8"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Incorrect Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is 'neccessary' spelled correctly?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "No"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 6 times 3?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "18"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 10 plus 4?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "14"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 18 minus 9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "9"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of 'bring'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Brought"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 42 divided by 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "6"
+                }
+            ]
+        },
+        {
             "domain": "Basic Grammar",
             "context": "Adjectives",
             "system": "Grammar Helper AI",
             "turns": [
                 {
                     "role": "User",
-                    "message": "What is the adjective form of 'danger'?"
+                    "message": "What is the comparative form of 'bad'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Worse"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 20 minus 5?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "15"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the plural of 'knife'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Knives"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 5 times 6?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "30"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 36 divided by 6?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "6"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 9 plus 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "17"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 16 minus 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "9"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of 'catch'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Caught"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 56 divided by 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "7"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 12 plus 9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "21"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of 'think'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Thought"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Correct Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is 'acquire' spelled correctly?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Yes"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 7 times 5?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "35"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 81 divided by 9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "9"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the comparative form of 'tall'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Taller"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 15 plus 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "22"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 30 minus 12?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "18"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the plural of 'cactus'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Cacti"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Correct Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is 'convenient' spelled correctly?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Yes"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 8 times 3?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "24"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 72 divided by 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "9"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the comparative form of 'easy'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Easier"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 18 plus 5?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "23"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 27 minus 14?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "13"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Correct Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is 'beautiful' spelled correctly?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Yes"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 63 divided by 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "9"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the comparative form of 'short'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Shorter"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 20 minus 9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "11"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 8 times 2?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "16"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of swim?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Swam"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the plural of mouse?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Mice"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the adjective form of danger?"
                 },
                 {
                     "role": "Agent",
@@ -3745,11 +3205,911 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "Is 'maintenance' spelled correctly?"
+                    "message": "Is 'separate' spelled correctly?"
                 },
                 {
                     "role": "Agent",
                     "message": "Yes"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 18 minus 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "11"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 24 divided by 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "3"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of write?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Wrote"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the plural of tooth?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Teeth"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the adjective form of care?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Careful"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 11 plus 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "19"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 30 divided by 5?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "6"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of drink?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Drank"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the plural of goose?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Geese"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the adjective form of success?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Successful"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 14 plus 5?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "19"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of bring?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Brought"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the adjective form of joy?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Joyful"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Correct Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is 'conscience' spelled correctly?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Yes"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 27 minus 9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "18"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 4 times 9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "36"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of buy?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Bought"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the adjective form of peace?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Peaceful"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 10 plus 15?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "25"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 50 minus 20?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "30"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 6 times 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "48"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of see?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Saw"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the plural of fish?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Fish"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 16 plus 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "23"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 40 minus 15?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "25"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 3 times 12?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "36"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of catch?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Caught"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 17 plus 4?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "21"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 29 minus 13?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "16"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 4 times 11?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "44"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 56 divided by 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "8"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of think?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Thought"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the plural of person?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "People"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the adjective form of courage?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Courageous"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 35 minus 10?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "25"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 90 divided by 10?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "9"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of speak?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Spoke"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the adjective form of grace?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Graceful"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 19 plus 6?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "25"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 45 minus 20?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "25"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 8 times 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "56"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 100 divided by 10?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "10"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 21 plus 9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "30"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 50 minus 25?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "25"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 9 times 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "63"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 22 plus 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "29"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 40 minus 18?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "22"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 6 times 9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "54"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 72 divided by 9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "8"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of teach?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Taught"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the plural of knife?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Knives"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 23 plus 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "31"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 50 minus 22?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "28"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 8 times 6?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "48"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 24 plus 5?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "29"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 60 minus 15?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "45"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 9 times 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "72"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the plural of leaf?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Leaves"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 25 plus 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "32"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 45 minus 18?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "27"
                 }
             ]
         }
@@ -3767,21 +4127,6 @@
                 {
                     "role": "Agent",
                     "message": "10"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Verb Tense",
-            "system": "Grammar AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'swim'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Swam"
                 }
             ]
         },
@@ -3816,21 +4161,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'mouse'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
             "domain": "Spelling",
             "context": "Incorrect Spelling",
             "system": "Spelling AI",
@@ -3857,36 +4187,6 @@
                 {
                     "role": "Agent",
                     "message": "8"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'happy'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Happily"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Common Misspelling",
-            "system": "Spelling AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you spell 'seperate'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Incorrect"
                 }
             ]
         },
@@ -3921,21 +4221,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Verb Tense",
-            "system": "Grammar AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'sing'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Sang"
-                }
-            ]
-        },
-        {
             "domain": "Spelling",
             "context": "Correct Spelling",
             "system": "Spelling AI",
@@ -3962,36 +4247,6 @@
                 {
                     "role": "Agent",
                     "message": "5"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'child'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Children"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you spell 'definately'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Incorrect"
                 }
             ]
         },
@@ -4071,36 +4326,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Language AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'go'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Went"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Orthography AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you spell 'necessary'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Necessary"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Subtraction",
             "system": "Arithmetic AI",
@@ -4116,36 +4341,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Nouns",
-            "system": "Language AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'mouse'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Orthography AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is the word 'recieve' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Multiplication",
             "system": "Arithmetic AI",
@@ -4157,51 +4352,6 @@
                 {
                     "role": "Agent",
                     "message": "25"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Language AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'happy'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Happily"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Common Misspelling",
-            "system": "Orthography AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is the word 'seperate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Arithmetic AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 18 divided by 6?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "3"
                 }
             ]
         },
@@ -4236,36 +4386,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'see'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Saw"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'mouse'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
             "domain": "Spelling",
             "context": "Correct Spelling",
             "system": "Spelling Checker AI",
@@ -4277,21 +4397,6 @@
                 {
                     "role": "Agent",
                     "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'recieve' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
                 }
             ]
         },
@@ -4326,36 +4431,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'beauty'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Beautiful"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'accommodate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -4371,36 +4446,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'swim'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Swam"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you spell 'accommodate'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Accommodate"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Subtraction",
             "system": "Math Tutor AI",
@@ -4412,81 +4457,6 @@
                 {
                     "role": "Agent",
                     "message": "7"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Nouns",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'mouse'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is the word 'definately' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Multiplication",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 6 times two?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "12"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'bright'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Brightly"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Common Misspelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is the word 'occurence' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
                 }
             ]
         },
@@ -4507,21 +4477,6 @@
         },
         {
             "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 2 plus 2?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "4"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
             "context": "Subtraction",
             "system": "Math Tutor AI",
             "turns": [
@@ -4532,36 +4487,6 @@
                 {
                     "role": "Agent",
                     "message": "10"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Multiplication",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 3 times 3?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "9"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 16 divided by 4?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "4"
                 }
             ]
         },
@@ -4592,51 +4517,6 @@
                 {
                     "role": "Agent",
                     "message": "Dogs"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of danger?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Dangerous"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'receive' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'recieve' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
                 }
             ]
         },
@@ -4686,36 +4566,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Multiplication",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 5 times 5?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Twenty-five"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 24 divided by 6?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Four"
-                }
-            ]
-        },
-        {
             "domain": "Basic Grammar",
             "context": "Verb Forms",
             "system": "Grammar Helper AI",
@@ -4727,21 +4577,6 @@
                 {
                     "role": "Agent",
                     "message": "Swam"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Plural of 'child'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Children"
                 }
             ]
         },
@@ -4791,21 +4626,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'necessary' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -4847,21 +4667,6 @@
                 {
                     "role": "Agent",
                     "message": "Twenty"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 30 divided by 5?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Six"
                 }
             ]
         },
@@ -4926,36 +4731,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'recieve' correct?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'necessary' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -4967,21 +4742,6 @@
                 {
                     "role": "Agent",
                     "message": "Eleven"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 18 minus 9?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Nine"
                 }
             ]
         },
@@ -5091,21 +4851,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'necessary' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -5151,21 +4896,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 36 divided by 6?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Six"
-                }
-            ]
-        },
-        {
             "domain": "Basic Grammar",
             "context": "Verb Forms",
             "system": "Grammar Helper AI",
@@ -5196,66 +4926,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Adjective for 'anger'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Angry"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'believe' spelled right?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'tommorow' correct?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'necessary' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -5267,21 +4937,6 @@
                 {
                     "role": "Agent",
                     "message": "Eleven"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 20 minus 8?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Twelve"
                 }
             ]
         },
@@ -5316,111 +4971,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Past tense of 'swim'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Swam"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Plural of 'tooth'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Teeth"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Adjective for 'hope'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Hopeful"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'privilege' spelled right?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'recieve' correct?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'necessary' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 2 plus 2?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "4"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Subtraction",
             "system": "Math Tutor AI",
@@ -5432,66 +4982,6 @@
                 {
                     "role": "Agent",
                     "message": "6"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'eat'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Ate"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'mouse'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'receive' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'recieve' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
                 }
             ]
         },
@@ -5541,21 +5031,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'acquire' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -5586,36 +5061,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'sing'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Sang"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'tooth'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Teeth"
-                }
-            ]
-        },
-        {
             "domain": "Spelling",
             "context": "Correct Spelling",
             "system": "Spelling Checker AI",
@@ -5627,21 +5072,6 @@
                 {
                     "role": "Agent",
                     "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'seperate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
                 }
             ]
         },
@@ -5661,21 +5091,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 30 divided by 5?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "6"
-                }
-            ]
-        },
-        {
             "domain": "Basic Grammar",
             "context": "Adjectives",
             "system": "Grammar Helper AI",
@@ -5687,21 +5102,6 @@
                 {
                     "role": "Agent",
                     "message": "Best"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'accommodate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -5736,51 +5136,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'go'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Went"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'man'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Men"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'friend' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Spelling",
             "context": "Incorrect Spelling",
             "system": "Spelling Checker AI",
@@ -5811,21 +5166,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 36 divided by 6?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "6"
-                }
-            ]
-        },
-        {
             "domain": "Basic Grammar",
             "context": "Adjectives",
             "system": "Grammar Helper AI",
@@ -5837,21 +5177,6 @@
                 {
                     "role": "Agent",
                     "message": "Smallest"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'necessary' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -5887,21 +5212,6 @@
         },
         {
             "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'see'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Saw"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
             "context": "Pluralization",
             "system": "Grammar Helper AI",
             "turns": [
@@ -5912,21 +5222,6 @@
                 {
                     "role": "Agent",
                     "message": "Deer"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'separate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -5991,126 +5286,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'acquire' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 2 plus 2?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "4"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 15 minus 5?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "10"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of eat?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Ate"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of dog?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Dogs"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'receive' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'recieve' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Multiplication",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 8 times 5?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "40"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Division",
             "system": "Math Tutor AI",
@@ -6126,36 +5301,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'anger'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Angry"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'acquire' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -6186,51 +5331,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'write'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Wrote"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'child'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Children"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'believe' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Spelling",
             "context": "Incorrect Spelling",
             "system": "Spelling Checker AI",
@@ -6242,231 +5342,6 @@
                 {
                     "role": "Agent",
                     "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Multiplication",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 6 times 7?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "42"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 24 divided by 8?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "3"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'danger'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Dangerous"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'separate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 3 plus 4?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "7"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 12 minus 7?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "5"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'write'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Wrote"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'child'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Children"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'believe' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'beleive' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Multiplication",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 6 times 7?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "42"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 24 divided by 8?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "3"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'danger'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Dangerous"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'separate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 9 plus 6?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "15"
                 }
             ]
         },
@@ -6501,36 +5376,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'foot'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Feet"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'calendar' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Spelling",
             "context": "Incorrect Spelling",
             "system": "Spelling Checker AI",
@@ -6546,36 +5391,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Multiplication",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 3 times 9?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "27"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 21 divided by 7?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "3"
-                }
-            ]
-        },
-        {
             "domain": "Basic Grammar",
             "context": "Adjectives",
             "system": "Grammar Helper AI",
@@ -6587,36 +5402,6 @@
                 {
                     "role": "Agent",
                     "message": "Courageous"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'recommend' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 11 plus 8?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "19"
                 }
             ]
         },
@@ -6651,51 +5436,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'man'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Men"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'necessary' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'definately' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Multiplication",
             "system": "Math Tutor AI",
@@ -6707,21 +5447,6 @@
                 {
                     "role": "Agent",
                     "message": "36"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 25 divided by 5?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "5"
                 }
             ]
         },
@@ -6741,21 +5466,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'accommodate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -6767,141 +5477,6 @@
                 {
                     "role": "Agent",
                     "message": "17"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 18 minus 9?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "9"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'run'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Ran"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'mouse'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'believe' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'beleive' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Multiplication",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 7 times 5?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "35"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 36 divided by 6?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "6"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'beauty'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Beautiful"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'necessary' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -6936,81 +5511,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'go'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Went"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'child'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Children"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'calendar' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'calender' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Multiplication",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 8 times 3?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "24"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Division",
             "system": "Math Tutor AI",
@@ -7022,36 +5522,6 @@
                 {
                     "role": "Agent",
                     "message": "4"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'joy'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Joyful"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'recommend' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -7086,66 +5556,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'eat'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Ate"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'mouse'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'receive' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'recieve' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Multiplication",
             "system": "Math Tutor AI",
@@ -7162,51 +5572,6 @@
         },
         {
             "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 16 divided by 4?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "4"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'anger'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Angry"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'accommodate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
             "turns": [
@@ -7217,81 +5582,6 @@
                 {
                     "role": "Agent",
                     "message": "8"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 15 minus 7?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "8"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'sing'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Sang"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'foot'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Feet"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'believe' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'beleive' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
                 }
             ]
         },
@@ -7326,36 +5616,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the adjective form of 'grace'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Graceful"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'accommodate' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -7367,81 +5627,6 @@
                 {
                     "role": "Agent",
                     "message": "15"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 20 minus 8?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "12"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the past tense of 'drink'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Drank"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'leaf'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Leaves"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'calendar' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Incorrect Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'calender' spelled correctly?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "No"
                 }
             ]
         },
@@ -7462,16 +5647,256 @@
         },
         {
             "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Add 6 and 7."
+                },
+                {
+                    "role": "Agent",
+                    "message": "13"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Multiply 5 by 6."
+                },
+                {
+                    "role": "Agent",
+                    "message": "30"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 9 plus 4?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "13"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 5 plus 9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "14"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 12 minus 4?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "8"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the plural of 'person'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "People"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 3 times 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "21"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 8 plus 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "15"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 17 minus 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "9"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of 'read'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Read"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 7 times 4?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "28"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
             "context": "Division",
             "system": "Math Tutor AI",
             "turns": [
                 {
                     "role": "User",
-                    "message": "What is 30 divided by 5?"
+                    "message": "What is 48 divided by 8?"
                 },
                 {
                     "role": "Agent",
                     "message": "6"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 11 plus 5?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "16"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 14 plus 3?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "17"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 19 minus 4?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "15"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the plural of 'sheep'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Sheep"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 64 divided by 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "8"
                 }
             ]
         },
@@ -7482,26 +5907,521 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "What is the adjective form of 'grace'?"
+                    "message": "What is the superlative form of 'fast'?"
                 },
                 {
                     "role": "Agent",
-                    "message": "Graceful"
+                    "message": "Fastest"
                 }
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
             "turns": [
                 {
                     "role": "User",
-                    "message": "Is 'accommodate' spelled correctly?"
+                    "message": "What is 6 plus 8?"
                 },
                 {
                     "role": "Agent",
-                    "message": "Yes"
+                    "message": "14"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 22 minus 9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "13"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of 'buy'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Bought"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 54 divided by 6?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "9"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 10 plus 11?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "21"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of 'give'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Gave"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 5 times 9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "45"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 40 divided by 5?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "8"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the superlative form of 'easy'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Easiest"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 6 times 6?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "36"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 9 divided by 3?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "3"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of go?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Went"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 4 plus 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "11"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 13 minus 5?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "8"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 21 divided by 3?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "7"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of sing?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Sang"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the plural of foot?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Feet"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the adjective form of help?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Helpful"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 22 minus 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "14"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 9 times 5?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "45"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of fly?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Flew"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the plural of man?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Men"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the adjective form of power?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Powerful"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 6 plus 9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "15"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 32 divided by 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "4"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of choose?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Chose"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the adjective form of hope?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Hopeful"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 19 minus 6?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "13"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of drive?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Drove"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 21 minus 9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "12"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 6 times 5?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "30"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 48 divided by 6?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "8"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 3 times 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "24"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 23 minus 9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "14"
                 }
             ]
         }

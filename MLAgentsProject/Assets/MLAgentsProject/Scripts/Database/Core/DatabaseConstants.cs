@@ -5,6 +5,7 @@ public static class DatabaseConstants
         "domain", "context", "system", "user", "agent", "turns", "role", "version", "model_name", "organization", "training_data", "evaluation_data", "data", "id", "type"
     };
 
+    public const string DefaultDataFileName = "data.json";
     public const string DatabaseFileName = "database.bin";
     public const string DataDirectoryName = "Data";
     public const string UpDirectoryLevel = "..";

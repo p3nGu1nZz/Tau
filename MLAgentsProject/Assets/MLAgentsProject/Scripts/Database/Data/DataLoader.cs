@@ -8,35 +8,8 @@ using UnityEngine;
 public static class DataLoader
 {
     private const string Version = "0.1.0";
-    private const string ModelName = "Tau";
-    private const string Organization = "Huggingface";
-
-    public static async Task ConcatenateAndLoadData(List<string> fileNames, string outputFileName)
-    {
-        var combinedMessageList = new MessageList
-        {
-            version = Version,
-            model_name = ModelName,
-            organization = Organization,
-            training_data = new List<Message>(),
-            evaluation_data = new List<Message>()
-        };
-
-        foreach (var fileName in fileNames)
-        {
-            var messageList = Load(fileName);
-            if (messageList != null)
-            {
-                combinedMessageList.training_data.AddRange(messageList.training_data);
-                combinedMessageList.evaluation_data.AddRange(messageList.evaluation_data);
-            }
-        }
-
-        Save(combinedMessageList, outputFileName);
-        Log.Message($"Combined data saved to {outputFileName}");
-
-        await LoadData(combinedMessageList);
-    }
+    private const string ModelName = "Tau-LLM";
+    private const string Organization = "Tau";
 
     public static async Task LoadData(MessageList messageList)
     {
@@ -58,11 +31,18 @@ public static class DataLoader
         if (File.Exists(file))
         {
             string jsonData = File.ReadAllText(file);
-            return Deserialize(jsonData);
+            MessageList messageList = Deserialize(jsonData);
+
+            if (messageList != null)
+            {
+                RemoveDuplicates(messageList);
+            }
+
+            return messageList;
         }
         else
         {
-            Debug.LogError($"{fileName} file not found.");
+            Log.Error($"{fileName} file not found.");
             return null;
         }
     }
@@ -74,10 +54,12 @@ public static class DataLoader
 
     public static void Save(MessageList messageList, string fileName)
     {
+        RemoveDuplicates(messageList);
+
         var file = DataUtilities.GetFilePath(fileName);
         string jsonData = JsonUtility.ToJson(messageList, true);
         File.WriteAllText(file, jsonData);
-        Debug.Log($"Combined data saved to {fileName}");
+        Log.Message($"Data saved to {fileName}");
     }
 
     private static List<string> ExtractAndLogVocabulary(MessageList messageList)
@@ -117,5 +99,24 @@ public static class DataLoader
         var tableNames = string.Join(", ", Database.Instance.GetTables().Keys);
         Log.Message($"Total tables exported: {Database.Instance.GetTables().Count}");
         Log.Message($"Table names: {tableNames}");
+    }
+
+    public static void RemoveDuplicates(MessageList messageList)
+    {
+        var trainingDuplicates = MessageComparer.FindDuplicates(messageList.training_data);
+        var evaluationDuplicates = MessageComparer.FindDuplicates(messageList.evaluation_data);
+
+        messageList.training_data = messageList.training_data.Except(trainingDuplicates).ToList();
+        messageList.evaluation_data = messageList.evaluation_data.Except(evaluationDuplicates).ToList();
+
+        // Remove messages from evaluation_data if they exist in training_data
+        var trainingMessages = new HashSet<string>(messageList.training_data.SelectMany(m => m.turns.Where(t => t.role == "User").Select(t => t.message)));
+        int initialEvaluationCount = messageList.evaluation_data.Count;
+        messageList.evaluation_data = messageList.evaluation_data.Where(m => !trainingMessages.Contains(m.turns.FirstOrDefault(t => t.role == "User")?.message)).ToList();
+        int messagesRemovedFromEvaluation = initialEvaluationCount - messageList.evaluation_data.Count;
+
+        Log.Message($"Training data duplicates removed: {trainingDuplicates.Count}");
+        Log.Message($"Evaluation data duplicates removed: {evaluationDuplicates.Count}");
+        Log.Message($"Messages removed from evaluation data because they exist in training data: {messagesRemovedFromEvaluation}");
     }
 }
