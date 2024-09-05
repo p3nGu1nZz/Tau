@@ -98,6 +98,9 @@ public static class DataConcatAction
             Log.Message("Removing duplicates from combined data...");
             DataLoader.RemoveDuplicates(combined);
 
+            Log.Message("Randomizing combined data...");
+            DataLoader.Shuffle(combined);
+
             Log.Message("Saving combined data...");
             DataLoader.Save(combined, saveFileName);
 

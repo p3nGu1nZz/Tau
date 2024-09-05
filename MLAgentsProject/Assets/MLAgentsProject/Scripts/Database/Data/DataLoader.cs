@@ -54,8 +54,6 @@ public static class DataLoader
 
     public static void Save(MessageList messageList, string fileName)
     {
-        RemoveDuplicates(messageList);
-
         var file = DataUtilities.GetFilePath(fileName);
         string jsonData = JsonUtility.ToJson(messageList, true);
         File.WriteAllText(file, jsonData);
@@ -118,5 +116,14 @@ public static class DataLoader
         Log.Message($"Training data duplicates removed: {trainingDuplicates.Count}");
         Log.Message($"Evaluation data duplicates removed: {evaluationDuplicates.Count}");
         Log.Message($"Messages removed from evaluation data because they exist in training data: {messagesRemovedFromEvaluation}");
+    }
+
+    public static void Shuffle(MessageList messageList)
+    {
+        System.Random rng = new();
+        messageList.training_data = messageList.training_data.OrderBy(_ => rng.Next()).ToList();
+        messageList.evaluation_data = messageList.evaluation_data.OrderBy(_ => rng.Next()).ToList();
+
+        Log.Message("Training data and evaluation data have been randomized.");
     }
 }
