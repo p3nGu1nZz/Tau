@@ -40,7 +40,7 @@ if %errorlevel% neq 0 goto :error
 call :install_encoder_dependencies
 if %errorlevel% neq 0 goto :error
 
-call :install_sentencepiece
+call :install_ollama
 if %errorlevel% neq 0 goto :error
 
 call :clean_temp
@@ -178,11 +178,11 @@ if %errorlevel% neq 0 (
 )
 exit /b 0
 
-:install_sentencepiece
-echo Installing SentencePiece...
-"%VENV_DIR%\Scripts\python.exe" -m pip install sentencepiece
+:install_ollama
+echo Installing Ollama...
+"%VENV_DIR%\Scripts\python.exe" -m pip install ollama
 if %errorlevel% neq 0 (
-    echo SentencePiece installation failed with error code %errorlevel%.
+    echo Ollama installation failed with error code %errorlevel%.
     goto :error
 )
 exit /b 0
