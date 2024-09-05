@@ -2,6 +2,7 @@ using CommandTerminal;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 
 public static class DataConcatAction
 {
@@ -9,32 +10,46 @@ public static class DataConcatAction
     {
         try
         {
-            string combinedArgs = DataUtilities.CombineArgs(args);
-            Log.Message($"Combined arguments: {combinedArgs}");
+            bool isFirstFile = true;
+            string firstArg = args[0].String;
+            string firstArgPath = DataUtilities.GetFilePath(firstArg);
+            string saveFileName = "data.json";
+            List<string> fileNames = new();
+            MessageList combined = new();
 
-            List<string> fileNames = DataUtilities.ParseFileNames(combinedArgs);
-            Log.Message($"Parsed file names: {string.Join(", ", fileNames)}");
-
-            if (fileNames.Count == 0)
+            if (Directory.Exists(firstArgPath))
             {
-                throw new Exception("No files specified for concatenation.");
+                if (args.Length > 1)
+                {
+                    throw new ArgumentException("Only one directory can be specified at a time.");
+                }
+
+                Log.Message($"Directory detected: {firstArgPath}");
+                fileNames = DataUtilities.GetDirectoryContents(firstArgPath, "*.json");
+                saveFileName = $"{Path.GetFileName(firstArgPath)}.json";
+            }
+            else
+            {
+                string combinedArgs = DataUtilities.CombineArgs(args);
+                Log.Message($"Combined arguments: {combinedArgs}");
+
+                fileNames = DataUtilities.ParseFileNames(combinedArgs);
+                Log.Message($"Parsed file names: {string.Join(", ", fileNames)}");
+
+                if (fileNames.Count == 0)
+                {
+                    throw new Exception("No files specified for concatenation.");
+                }
             }
 
             Stopwatch stopwatch = Stopwatch.StartNew();
             Log.Message($"Starting to concatenate data from {string.Join(", ", fileNames)}...");
 
-            MessageList combined = new MessageList
-            {
-                training_data = new List<Message>(),
-                evaluation_data = new List<Message>()
-            };
-            bool isFirstFile = true;
-            string saveFileName = "combined_data.json";
-
             foreach (var fileName in fileNames)
             {
-                Log.Message($"Loading data from file: {fileName}");
-                MessageList messageList = DataLoader.Load(fileName);
+                string filePath = Directory.Exists(firstArgPath) ? Path.Combine(firstArgPath, fileName) : fileName;
+                Log.Message($"Loading data from file: {filePath}");
+                MessageList messageList = DataLoader.Load(filePath);
 
                 if (messageList != null)
                 {
