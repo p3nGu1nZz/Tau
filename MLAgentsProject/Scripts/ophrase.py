@@ -5,6 +5,7 @@ from tenacity import retry, stop_after_attempt, wait_fixed
 from ophrase_config import Config
 from ophrase_proc import OphraseProcessor
 from ophrase_log import Log
+from ophrase_util import post_process
 
 class Ophrase:
     def __init__(self, cfg: Config):
@@ -31,7 +32,7 @@ def main(text: str, debug: bool, include_prompts: bool) -> None:
         op = Ophrase(cfg)
         op.check()
         res, prompts = op.generate(text)
-        final_result = op.processor.post_process(text, res, prompts, include_prompts)
+        final_result = post_process(text, res, prompts, include_prompts)
         print(json.dumps(final_result, indent=2, separators=(',', ': ')))
     except ValidationError as e:
         Log.error(f"Validation error: {e}")

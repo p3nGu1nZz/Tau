@@ -4,6 +4,7 @@ import json, subprocess as proc, ollama as oll
 from ophrase_template import TEMPLATE, TASKS
 from ophrase_config import INSTR, SYS
 from ophrase_log import Log
+from ophrase_util import post_process
 
 class OphraseProcessor:
     def __init__(self, cfg):
@@ -19,17 +20,6 @@ class OphraseProcessor:
         except FileNotFoundError:
             Log.error(error_msg)
             raise Exception(error_msg)
-
-    def post_process(self, text: str, results: List[Dict[str, Any]], prompts: List[str], include_prompts: bool) -> Dict[str, Any]:
-        if isinstance(results, dict) and 'error' in results:
-            return results
-        combined_responses = []
-        for result in results:
-            combined_responses.extend(result['response'])
-        output = {"original_text": text, "responses": combined_responses}
-        if include_prompts:
-            output["prompts"] = prompts
-        return output
 
     def _gen(self, text: str, task: str) -> str:
         instr = INSTR
