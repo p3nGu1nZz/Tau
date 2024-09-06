@@ -1,52 +1,27 @@
-import json, ollama as oll, argparse
-from tenacity import retry, stop_after_attempt, wait_fixed
+import json, argparse
 from loguru import logger as log
-from typing import List, Tuple, Dict, Any
+from typing import List, Dict, Any, Tuple
 from pydantic import ValidationError
-from ophrase_config import Config, INSTR, SYS, EXAMPLES
-from ophrase_template import TEMPLATE
-from ophrase_util import run_command, setup_logging, post_process
+from tenacity import retry, stop_after_attempt, wait_fixed
+from ophrase_config import Config
+from ophrase_util import setup_logging
+from ophrase_proc import OphraseProcessor
 
 class Ophrase:
     def __init__(self, cfg: Config):
         self.cfg = cfg
-        setup_logging(self.cfg.debug)
+        self.processor = OphraseProcessor(cfg)
+        self.processor.setup_logging(self.cfg.debug)
         self._log = log
 
     def check(self) -> None:
-        run_command(['ollama', '--version'], "Ollama not installed. Install it before running this script.")
+        self.processor.run_command(['ollama', '--version'], "Ollama not installed. Install it before running this script.")
 
     def pull(self) -> None:
-        run_command(['ollama', 'pull', self.cfg.model], f"Failed to pull model {self.cfg.model}.")
-
-    def _gen(self, text: str, task: str) -> str:
-        instr = INSTR
-        return TEMPLATE.render(system=SYS, task=task, text=text, example=EXAMPLES[task], instructions=instr, lang=self.cfg.lang)
-
-    @retry(stop=stop_after_attempt(5), wait=wait_fixed(1))
-    def _task(self, text: str, task: str) -> Dict[str, Any]:
-        prompt = self._gen(text, task)
-        self._log.debug(f"Prompt: {prompt}")
-        self._log.debug('-' * 100)
-        resp = oll.generate(prompt=prompt, model=self.cfg.model)
-        self._log.debug(f"Response: {resp}")
-        self._log.debug('-' * 100)
-        resp_str = resp['response']
-        self._log.debug(f"Response string: {resp_str}")
-        resp_json = json.loads(resp_str)
-        self._log.debug(f"Response JSON: {resp_json}")
-        return {"prompt": prompt, "response": resp_json}
+        self.processor.run_command(['ollama', 'pull', self.cfg.model], f"Failed to pull model {self.cfg.model}.")
 
     def generate(self, text: str) -> Tuple[List[Dict[str, Any]], List[str]]:
-        results, prompts = [], []
-        for task in EXAMPLES.keys():
-            result = self._task(text, task)
-            if 'error' not in result:
-                results.append(result)
-                prompts.append(result['prompt'])
-            if len(results) >= 3:
-                return results[:3], prompts
-        return [{"error": "Reached maximum retries without successful generation"}], prompts
+        return self.processor.generate(text)
 
 @retry(stop=stop_after_attempt(5), wait=wait_fixed(1))
 def main(text: str, debug: bool, include_prompts: bool) -> None:
@@ -58,7 +33,7 @@ def main(text: str, debug: bool, include_prompts: bool) -> None:
         op = Ophrase(cfg)
         op.check()
         res, prompts = op.generate(text)
-        final_result = post_process(text, res, prompts, include_prompts)
+        final_result = op.processor.post_process(text, res, prompts, include_prompts)
         print(json.dumps(final_result, indent=2, separators=(',', ': ')))
     except ValidationError as e:
         log.error(f"Validation error: {e}")

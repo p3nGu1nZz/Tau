@@ -1,16 +1,5 @@
-import subprocess as proc
 from loguru import logger as log
 from typing import List, Dict, Any
-
-def run_command(cmd: List[str], error_msg: str) -> None:
-    try:
-        result = proc.run(cmd, capture_output=True, text=True)
-        if result.returncode != 0:
-            log.error(result.stdout)
-            raise Exception(error_msg)
-    except FileNotFoundError:
-        log.error(error_msg)
-        raise Exception(error_msg)
 
 def setup_logging(debug: bool) -> None:
     log.remove()
