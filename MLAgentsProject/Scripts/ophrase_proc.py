@@ -4,13 +4,13 @@ from typing import List, Dict, Any, Tuple
 import json, subprocess as proc, ollama as oll
 from ophrase_template import TEMPLATE, TASKS
 from ophrase_config import INSTR, SYS
-from ophrase_log import setup_logging
+from ophrase_log import Log
 
 class OphraseProcessor:
     def __init__(self, cfg):
         self.cfg = cfg
         self._log = log
-        setup_logging(self.cfg.debug)
+        Log.setup(self.cfg.debug)
 
     def run_command(self, cmd: List[str], error_msg: str) -> None:
         try:
