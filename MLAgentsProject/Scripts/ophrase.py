@@ -6,6 +6,7 @@ from ophrase_config import Config
 from ophrase_proc import OphraseProcessor
 from ophrase_log import Log
 from ophrase_util import post_process
+from ophrase_const import Const
 
 class Ophrase:
     def __init__(self, cfg: Config):
@@ -14,10 +15,10 @@ class Ophrase:
         self._log = Log
 
     def check(self) -> None:
-        self.processor.run_command(['ollama', '--version'], "Ollama not installed. Install it before running this script.")
+        self.processor.run_command(['ollama', '--version'], Const.RUN_COMMAND_ERROR)
 
     def pull(self) -> None:
-        self.processor.run_command(['ollama', 'pull', self.cfg.model], f"Failed to pull model {self.cfg.model}.")
+        self.processor.run_command(['ollama', 'pull', self.cfg.model], f"{Const.PULL_COMMAND_ERROR} {self.cfg.model}.")
 
     def generate(self, text: str) -> Tuple[List[Dict[str, Any]], List[str]]:
         return self.processor.generate(text)
@@ -26,7 +27,7 @@ class Ophrase:
 def main(text: str, debug: bool, include_prompts: bool) -> None:
     if not debug:
         Log.setup(debug)
-    Log.debug("Starting main function")
+    Log.debug(Const.STARTING_MAIN_FUNCTION)
     try:
         cfg = Config(debug=debug)
         op = Ophrase(cfg)
@@ -35,15 +36,15 @@ def main(text: str, debug: bool, include_prompts: bool) -> None:
         final_result = post_process(text, res, prompts, include_prompts)
         print(json.dumps(final_result, indent=2, separators=(',', ': ')))
     except ValidationError as e:
-        Log.error(f"Validation error: {e}")
+        Log.error(f"{Const.VALIDATION_ERROR}{e}")
     except Exception as e:
-        Log.error(f"Error processing input: {e}")
+        Log.error(f"{Const.ERROR_PROCESSING_INPUT}{e}")
         raise SystemExit(1)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Ophrase script")
-    parser.add_argument("text", type=str, help="Input text")
-    parser.add_argument("--debug", action="store_true", help="Enable debug logging")
-    parser.add_argument("--prompt", action="store_true", help="Include prompts in the output JSON")
+    parser = argparse.ArgumentParser(description=Const.ARG_DESCRIPTION)
+    parser.add_argument(Const.ARG_TEXT, type=str, help=Const.ARG_TEXT_HELP)
+    parser.add_argument(Const.ARG_DEBUG, action="store_true", help=Const.ARG_DEBUG_HELP)
+    parser.add_argument(Const.ARG_PROMPT, action="store_true", help=Const.ARG_PROMPT_HELP)
     args = parser.parse_args()
     main(args.text, args.debug, args.prompt)
