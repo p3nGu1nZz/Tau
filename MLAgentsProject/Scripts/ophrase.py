@@ -1,38 +1,26 @@
-import json, subprocess as proc, ollama as oll, argparse
-from jinja2 import Template as T
+import json, ollama as oll, argparse
 from tenacity import retry, stop_after_attempt, wait_fixed
 from loguru import logger as log
 from typing import List, Tuple, Dict, Any
 from pydantic import ValidationError
 from ophrase_config import Config, INSTR, SYS, EXAMPLES
 from ophrase_template import TEMPLATE
+from ophrase_util import run_command, setup_logging, post_process
 
 class Ophrase:
     def __init__(self, cfg: Config):
         self.cfg = cfg
-        log.remove()
-        if self.cfg.debug:
-            log.add(lambda msg: print(msg, end=''), level="DEBUG")
+        setup_logging(self.cfg.debug)
         self._log = log
 
     def check(self) -> None:
-        self._run(['ollama', '--version'], "Ollama not installed. Install it before running this script.")
+        run_command(['ollama', '--version'], "Ollama not installed. Install it before running this script.")
 
     def pull(self) -> None:
-        self._run(['ollama', 'pull', self.cfg.model], f"Failed to pull model {self.cfg.model}.")
-
-    def _run(self, cmd: List[str], error_msg: str) -> None:
-        try:
-            result = proc.run(cmd, capture_output=True, text=True)
-            if result.returncode != 0:
-                self._log.error(result.stdout)
-                raise Exception(error_msg)
-        except FileNotFoundError:
-            self._log.error(error_msg)
-            raise Exception(error_msg)
+        run_command(['ollama', 'pull', self.cfg.model], f"Failed to pull model {self.cfg.model}.")
 
     def _gen(self, text: str, task: str) -> str:
-        instr = T(INSTR).render(amount=3)
+        instr = INSTR
         return TEMPLATE.render(system=SYS, task=task, text=text, example=EXAMPLES[task], instructions=instr, lang=self.cfg.lang)
 
     @retry(stop=stop_after_attempt(5), wait=wait_fixed(1))
@@ -60,17 +48,6 @@ class Ophrase:
                 return results[:3], prompts
         return [{"error": "Reached maximum retries without successful generation"}], prompts
 
-    def post_process(self, text: str, results: List[Dict[str, Any]], prompts: List[str], include_prompts: bool) -> Dict[str, Any]:
-        if isinstance(results, dict) and 'error' in results:
-            return results
-        combined_responses = []
-        for result in results:
-            combined_responses.extend(result['response'])
-        output = {"original_text": text, "responses": combined_responses}
-        if include_prompts:
-            output["prompts"] = prompts
-        return output
-
 @retry(stop=stop_after_attempt(5), wait=wait_fixed(1))
 def main(text: str, debug: bool, include_prompts: bool) -> None:
     if not debug:
@@ -81,7 +58,7 @@ def main(text: str, debug: bool, include_prompts: bool) -> None:
         op = Ophrase(cfg)
         op.check()
         res, prompts = op.generate(text)
-        final_result = op.post_process(text, res, prompts, include_prompts)
+        final_result = post_process(text, res, prompts, include_prompts)
         print(json.dumps(final_result, indent=2, separators=(',', ': ')))
     except ValidationError as e:
         log.error(f"Validation error: {e}")
