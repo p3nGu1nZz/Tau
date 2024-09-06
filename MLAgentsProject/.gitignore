@@ -76,3 +76,4 @@ crashlytics-build.properties
 /python/*
 /ml-agents
 /results/*
+/Scripts/__pycache__/*
