@@ -37,10 +37,7 @@ if %errorlevel% neq 0 goto :error
 call :install_ml_agents
 if %errorlevel% neq 0 goto :error
 
-call :install_encoder_dependencies
-if %errorlevel% neq 0 goto :error
-
-call :install_ollama
+call :install_packages
 if %errorlevel% neq 0 goto :error
 
 call :clean_temp
@@ -140,7 +137,7 @@ exit /b 0
 echo Installing PyTorch...
 "%VENV_DIR%\Scripts\python.exe" -m pip install torch~=2.2.1 --index-url https://download.pytorch.org/whl/cu121
 
-if %errorlevel% neq 0 (
+if %errorlevel% neq  0 (
     echo PyTorch installation failed with error code %errorlevel%.
     goto :error
 )
@@ -169,20 +166,11 @@ if %errorlevel% neq 0 (
 )
 exit /b 0
 
-:install_encoder_dependencies
-echo Installing encoder dependencies...
-"%VENV_DIR%\Scripts\python.exe" -m pip install sentence-transformers
+:install_packages
+echo Installing required Python packages...
+"%VENV_DIR%\Scripts\python.exe" -m pip install sentence-transformers ollama jinja2 typer tenacity rich pydantic loguru
 if %errorlevel% neq 0 (
-    echo Encoder dependencies installation failed with error code %errorlevel%.
-    goto :error
-)
-exit /b 0
-
-:install_ollama
-echo Installing Ollama...
-"%VENV_DIR%\Scripts\python.exe" -m pip install ollama
-if %errorlevel% neq 0 (
-    echo Ollama installation failed with error code %errorlevel%.
+    echo Package installation failed with error code %errorlevel%.
     goto :error
 )
 exit /b 0
