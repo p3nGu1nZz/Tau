@@ -3,23 +3,23 @@ from jinja2 import Template as T
 from pydantic import BaseModel, Field, ValidationError
 from tenacity import retry, stop_after_attempt, wait_fixed
 from loguru import logger as log
+from typing import List, Tuple, Dict, Any
 
-# Config
 MODEL, LANG = 'llama3.1', 'English'
-DEFAULT_AMOUNT, DEFAULT_OFFSET, DEFAULT_RETRIES = 3, 4, 5
-INSTRUCTIONS = (
+INSTR = (
     "Provide the task as plain JSON, no explanations or markdown.\n"
-    "Return exactly {{ amount }} sentences in a JSON array.\n"
+    "Return exactly 3 sentences in a JSON array.\n"
     "Only one JSON array, e.g., [\"sentence_a\", \"sentence_b\", ...]\n"
     "Sentences must be in double quotes.\n"
     "No markdown or code.\n"
     "Do not answer the input; only generate variations.\n"
-    "No explanations; only a JSON array with {{ amount }} sentences.\n"
-    "For spelling tasks, do not provide the spelling; only variations.\n"
+    "No explanations; only a JSON array with 3 sentences.\n"
+    "For spelling tasks, do not provide the correct spelling; only variations.\n"
+    "Always include the word being spelled in the variations.\n"
     "Match the punctuation of the input text (e.g., questions, exclamations).\n"
-    "If the User text is a question, generate {{ amount }} sentences rhetorically as a question."
+    "If the User text is a question, generate 3 sentences rhetorically as a question."
 )
-SYSTEM = "You are an expert writing system that generates {{ task }}s. Provide a {{ task }} for the following text in {{ lang }}."
+SYS = "You are an expert writing system that generates {{ task }}s. Provide a {{ task }} for the following text in {{ lang }}."
 PROMPT = (
     "System: {{ system }}\n"
     "Instructions: {{ instructions }}\n"
@@ -37,8 +37,8 @@ TEMPLATE = T(PROMPT)
 class Config(BaseModel):
     model: str = Field(default=MODEL)
     lang: str = Field(default=LANG)
-    offset: int = Field(default=DEFAULT_OFFSET)
-    retries: int = Field(default=DEFAULT_RETRIES)
+    offset: int = Field(default=1)
+    retries: int = Field(default=5)
     debug: bool = Field(default=False)
 
 class Ophrase:
@@ -47,65 +47,63 @@ class Ophrase:
         log.remove()
         if self.cfg.debug:
             log.add(lambda msg: print(msg, end=''), level="DEBUG")
+        self._log = log
 
-    def check_reqs(self):
-        pass  # Skipping pip-check-reqs check for now
-
-    def check(self):
+    def check(self) -> None:
         self._run(['ollama', '--version'], "Ollama not installed. Install it before running this script.")
 
-    def pull(self):
+    def pull(self) -> None:
         self._run(['ollama', 'pull', self.cfg.model], f"Failed to pull model {self.cfg.model}.")
 
-    def _run(self, cmd, error_msg):
+    def _run(self, cmd: List[str], error_msg: str) -> None:
         try:
             result = proc.run(cmd, capture_output=True, text=True)
             if result.returncode != 0:
-                self._log(result.stdout, error=True)
+                self._log.error(result.stdout)
                 raise Exception(error_msg)
         except FileNotFoundError:
-            self._log(error_msg, error=True)
+            self._log.error(error_msg)
             raise Exception(error_msg)
 
-    def _gen(self, text, amount, task):
-        instructions = T(INSTRUCTIONS).render(amount=amount)
-        return TEMPLATE.render(system=SYSTEM, task=task, text=text, example=EXAMPLES[task], instructions=instructions, amount=amount, lang=self.cfg.lang)
+    def _gen(self, text: str, task: str) -> str:
+        instr = T(INSTR).render(amount=3)
+        return TEMPLATE.render(system=SYS, task=task, text=text, example=EXAMPLES[task], instructions=instr, lang=self.cfg.lang)
 
-    def _log(self, message, error=False):
-        if error:
-            log.error(message)
-        elif self.cfg.debug:
-            log.debug(message)
-
-    @retry(stop=stop_after_attempt(DEFAULT_RETRIES), wait=wait_fixed(1))
-    def _task(self, text, amount, task):
-        prompt = self._gen(text, amount, task)
-        self._log(f"Prompt: {prompt}")
-        self._log('-' * 100)
+    @retry(stop=stop_after_attempt(5), wait=wait_fixed(1))
+    def _task(self, text: str, task: str) -> Dict[str, Any]:
+        prompt = self._gen(text, task)
+        self._log.debug(f"Prompt: {prompt}")
+        self._log.debug('-' * 100)
         resp = oll.generate(prompt=prompt, model=self.cfg.model)
-        self._log(f"Response: {resp}")
-        self._log('-' * 100)
-        response_text = json.loads(resp['response'])
-        return {"prompt": prompt, "response": response_text}
+        self._log.debug(f"Response: {resp}")
+        self._log.debug('-' * 100)
+        resp_str = resp['response']
+        self._log.debug(f"Response string: {resp_str}")
+        resp_json = json.loads(resp_str)
+        self._log.debug(f"Response JSON: {resp_json}")
+        return {"prompt": prompt, "response": resp_json}
 
-    def generate(self, text, amount):
-        results = []
-        tasks = list(EXAMPLES.keys())
-        for task in tasks:
-            result = self._task(text, amount, task)
+    def generate(self, text: str) -> Tuple[List[Dict[str, Any]], List[str]]:
+        results, prompts = [], []
+        for task in EXAMPLES.keys():
+            result = self._task(text, task)
             if 'error' not in result:
                 results.append(result)
-            if len(results) >= amount:
-                return results[:amount]
-        return {"error": "Reached maximum retries without successful generation"}
+                prompts.append(result['prompt'])
+            if len(results) >= 3:
+                return results[:3], prompts
+        return [{"error": "Reached maximum retries without successful generation"}], prompts
 
-    def post_process(self, results):
+    def post_process(self, text: str, results: List[Dict[str, Any]], prompts: List[str]) -> Dict[str, Any]:
         if isinstance(results, dict) and 'error' in results:
             return results
-        return results
+        combined_responses = []
+        for result in results:
+            combined_responses.extend(result['response'])
+        return {"original_text": text, "responses": combined_responses, "prompts": prompts}
 
-@retry(stop=stop_after_attempt(3), wait=wait_fixed(1))
-def main(text: str, debug: bool):
+@retry(stop=stop_after_attempt(5), wait=wait_fixed(1))
+def main(text: str, debug: bool) -> None:
     if not debug:
         log.remove()
     log.debug("Starting main function")
@@ -113,8 +111,8 @@ def main(text: str, debug: bool):
         cfg = Config(debug=debug)
         op = Ophrase(cfg)
         op.check()
-        res = op.generate(text, DEFAULT_AMOUNT)
-        final_result = op.post_process(res)
+        res, prompts = op.generate(text)
+        final_result = op.post_process(text, res, prompts)
         print(json.dumps(final_result, indent=2, separators=(',', ': ')))
     except ValidationError as e:
         log.error(f"Validation error: {e}")

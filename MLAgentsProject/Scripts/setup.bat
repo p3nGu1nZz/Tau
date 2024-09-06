@@ -168,7 +168,7 @@ exit /b 0
 
 :install_packages
 echo Installing required Python packages...
-"%VENV_DIR%\Scripts\python.exe" -m pip install sentence-transformers ollama jinja2 typer tenacity rich pydantic loguru pip-check-reqs
+"%VENV_DIR%\Scripts\python.exe" -m pip install sentence-transformers ollama jinja2 typer tenacity rich pydantic loguru
 if %errorlevel% neq 0 (
     echo Package installation failed with error code %errorlevel%.
     goto :error
