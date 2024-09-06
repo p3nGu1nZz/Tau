@@ -1,5 +1,4 @@
 from tenacity import retry, stop_after_attempt, wait_fixed
-from loguru import logger as log
 from typing import List, Dict, Any, Tuple
 import json, subprocess as proc, ollama as oll
 from ophrase_template import TEMPLATE, TASKS
@@ -9,17 +8,16 @@ from ophrase_log import Log
 class OphraseProcessor:
     def __init__(self, cfg):
         self.cfg = cfg
-        self._log = log
         Log.setup(self.cfg.debug)
 
     def run_command(self, cmd: List[str], error_msg: str) -> None:
         try:
             result = proc.run(cmd, capture_output=True, text=True)
             if result.returncode != 0:
-                self._log.error(result.stdout)
+                Log.error(result.stdout)
                 raise Exception(error_msg)
         except FileNotFoundError:
-            self._log.error(error_msg)
+            Log.error(error_msg)
             raise Exception(error_msg)
 
     def post_process(self, text: str, results: List[Dict[str, Any]], prompts: List[str], include_prompts: bool) -> Dict[str, Any]:
@@ -40,15 +38,15 @@ class OphraseProcessor:
     @retry(stop=stop_after_attempt(5), wait=wait_fixed(1))
     def _task(self, text: str, task: str) -> Dict[str, Any]:
         prompt = self._gen(text, task)
-        self._log.debug(f"Prompt: {prompt}")
-        self._log.debug('-' * 100)
+        Log.debug(f"Prompt: {prompt}")
+        Log.debug('-' * 100)
         resp = oll.generate(prompt=prompt, model=self.cfg.model)
-        self._log.debug(f"Response: {resp}")
-        self._log.debug('-' * 100)
+        Log.debug(f"Response: {resp}")
+        Log.debug('-' * 100)
         resp_str = resp['response']
-        self._log.debug(f"Response string: {resp_str}")
+        Log.debug(f"Response string: {resp_str}")
         resp_json = json.loads(resp_str)
-        self._log.debug(f"Response JSON: {resp_json}")
+        Log.debug(f"Response JSON: {resp_json}")
         return {"prompt": prompt, "response": resp_json}
 
     def generate(self, text: str) -> Tuple[List[Dict[str, Any]], List[str]]:
@@ -60,4 +58,4 @@ class OphraseProcessor:
                 prompts.append(result['prompt'])
             if len(results) >= 3:
                 return results[:3], prompts
-        return [{"error": "Reached maximum retries without successful generation"}], prompts
+        return results, prompts

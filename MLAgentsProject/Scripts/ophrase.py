@@ -1,16 +1,16 @@
 import json, argparse
-from loguru import logger as log
 from typing import List, Dict, Any, Tuple
 from pydantic import ValidationError
 from tenacity import retry, stop_after_attempt, wait_fixed
 from ophrase_config import Config
 from ophrase_proc import OphraseProcessor
+from ophrase_log import Log
 
 class Ophrase:
     def __init__(self, cfg: Config):
         self.cfg = cfg
         self.processor = OphraseProcessor(cfg)
-        self._log = log
+        self._log = Log
 
     def check(self) -> None:
         self.processor.run_command(['ollama', '--version'], "Ollama not installed. Install it before running this script.")
@@ -24,8 +24,8 @@ class Ophrase:
 @retry(stop=stop_after_attempt(5), wait=wait_fixed(1))
 def main(text: str, debug: bool, include_prompts: bool) -> None:
     if not debug:
-        log.remove()
-    log.debug("Starting main function")
+        Log.setup(debug)
+    Log.debug("Starting main function")
     try:
         cfg = Config(debug=debug)
         op = Ophrase(cfg)
@@ -34,9 +34,9 @@ def main(text: str, debug: bool, include_prompts: bool) -> None:
         final_result = op.processor.post_process(text, res, prompts, include_prompts)
         print(json.dumps(final_result, indent=2, separators=(',', ': ')))
     except ValidationError as e:
-        log.error(f"Validation error: {e}")
+        Log.error(f"Validation error: {e}")
     except Exception as e:
-        log.error(f"Error processing input: {e}")
+        Log.error(f"Error processing input: {e}")
         raise SystemExit(1)
 
 if __name__ == "__main__":
