@@ -3,9 +3,9 @@ from jinja2 import Template as T
 from tenacity import retry, stop_after_attempt, wait_fixed
 from loguru import logger as log
 from typing import List, Tuple, Dict, Any
-from ophrase_config import Config, INSTR, SYS, PROMPT, EXAMPLES
-
-TEMPLATE = T(PROMPT)
+from pydantic import ValidationError
+from ophrase_config import Config, INSTR, SYS, EXAMPLES
+from ophrase_template import TEMPLATE
 
 class Ophrase:
     def __init__(self, cfg: Config):
