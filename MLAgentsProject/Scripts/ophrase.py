@@ -1,9 +1,9 @@
 import json, subprocess as proc, ollama as oll, argparse
 from jinja2 import Template as T
-from pydantic import BaseModel, Field, ValidationError
 from tenacity import retry, stop_after_attempt, wait_fixed
 from loguru import logger as log
 from typing import List, Tuple, Dict, Any
+from ophrase_config import Config
 
 MODEL, LANG = 'llama3.1', 'English'
 INSTR = (
@@ -33,13 +33,6 @@ EXAMPLES = {
     "synonym": "What is another word for 'happy'? What is a synonym for 'joyful'?"
 }
 TEMPLATE = T(PROMPT)
-
-class Config(BaseModel):
-    model: str = Field(default=MODEL)
-    lang: str = Field(default=LANG)
-    offset: int = Field(default=1)
-    retries: int = Field(default=5)
-    debug: bool = Field(default=False)
 
 class Ophrase:
     def __init__(self, cfg: Config):
