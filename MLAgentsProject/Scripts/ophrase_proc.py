@@ -2,8 +2,8 @@ from tenacity import retry, stop_after_attempt, wait_fixed
 from loguru import logger as log
 from typing import List, Dict, Any, Tuple
 import json, subprocess as proc, ollama as oll
-from ophrase_template import TEMPLATE
-from ophrase_config import INSTR, SYS, EXAMPLES
+from ophrase_template import TEMPLATE, TASKS
+from ophrase_config import INSTR, SYS
 from ophrase_log import setup_logging
 
 class OphraseProcessor:
@@ -35,7 +35,7 @@ class OphraseProcessor:
 
     def _gen(self, text: str, task: str) -> str:
         instr = INSTR
-        return TEMPLATE.render(system=SYS, task=task, text=text, example=EXAMPLES[task], instructions=instr, lang=self.cfg.lang)
+        return TEMPLATE.render(system=SYS, task=task, text=text, example=TASKS[task], instructions=instr, lang=self.cfg.lang)
 
     @retry(stop=stop_after_attempt(5), wait=wait_fixed(1))
     def _task(self, text: str, task: str) -> Dict[str, Any]:
@@ -53,7 +53,7 @@ class OphraseProcessor:
 
     def generate(self, text: str) -> Tuple[List[Dict[str, Any]], List[str]]:
         results, prompts = [], []
-        for task in EXAMPLES.keys():
+        for task in TASKS.keys():
             result = self._task(text, task)
             if 'error' not in result:
                 results.append(result)

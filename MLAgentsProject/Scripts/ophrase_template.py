@@ -21,7 +21,7 @@ PROMPT = (
     "User: {{ text }}\n"
     "System: Return only a JSON array of sentences. No explanations, only JSON array."
 )
-EXAMPLES = {
+TASKS = {
     "paraphrase": "What is 2 plus 2? What is the sum of 2 and 2?",
     "spelling": "How do you spell 'necessary'? How do you spell 'neccessary'?",
     "synonym": "What is another word for 'happy'? What is a synonym for 'joyful'?"

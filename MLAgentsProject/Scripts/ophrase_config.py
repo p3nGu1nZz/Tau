@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from ophrase_template import INSTR, SYS, PROMPT, EXAMPLES
+from ophrase_template import INSTR, SYS, PROMPT, TASKS
 
 MODEL = 'llama3.1'
 LANG = 'English'
