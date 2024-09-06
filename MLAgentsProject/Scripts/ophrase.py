@@ -4,14 +4,12 @@ from typing import List, Dict, Any, Tuple
 from pydantic import ValidationError
 from tenacity import retry, stop_after_attempt, wait_fixed
 from ophrase_config import Config
-from ophrase_util import setup_logging
 from ophrase_proc import OphraseProcessor
 
 class Ophrase:
     def __init__(self, cfg: Config):
         self.cfg = cfg
         self.processor = OphraseProcessor(cfg)
-        self.processor.setup_logging(self.cfg.debug)
         self._log = log
 
     def check(self) -> None:

@@ -4,11 +4,13 @@ from typing import List, Dict, Any, Tuple
 import json, subprocess as proc, ollama as oll
 from ophrase_template import TEMPLATE
 from ophrase_config import INSTR, SYS, EXAMPLES
+from ophrase_log import setup_logging
 
 class OphraseProcessor:
     def __init__(self, cfg):
         self.cfg = cfg
         self._log = log
+        setup_logging(self.cfg.debug)
 
     def run_command(self, cmd: List[str], error_msg: str) -> None:
         try:
@@ -19,11 +21,6 @@ class OphraseProcessor:
         except FileNotFoundError:
             self._log.error(error_msg)
             raise Exception(error_msg)
-
-    def setup_logging(self, debug: bool) -> None:
-        log.remove()
-        if debug:
-            log.add(lambda msg: print(msg, end=''), level="DEBUG")
 
     def post_process(self, text: str, results: List[Dict[str, Any]], prompts: List[str], include_prompts: bool) -> Dict[str, Any]:
         if isinstance(results, dict) and 'error' in results:
