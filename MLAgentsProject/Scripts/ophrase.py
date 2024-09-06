@@ -94,16 +94,19 @@ class Ophrase:
                 return results[:3], prompts
         return [{"error": "Reached maximum retries without successful generation"}], prompts
 
-    def post_process(self, text: str, results: List[Dict[str, Any]], prompts: List[str]) -> Dict[str, Any]:
+    def post_process(self, text: str, results: List[Dict[str, Any]], prompts: List[str], include_prompts: bool) -> Dict[str, Any]:
         if isinstance(results, dict) and 'error' in results:
             return results
         combined_responses = []
         for result in results:
             combined_responses.extend(result['response'])
-        return {"original_text": text, "responses": combined_responses, "prompts": prompts}
+        output = {"original_text": text, "responses": combined_responses}
+        if include_prompts:
+            output["prompts"] = prompts
+        return output
 
 @retry(stop=stop_after_attempt(5), wait=wait_fixed(1))
-def main(text: str, debug: bool) -> None:
+def main(text: str, debug: bool, include_prompts: bool) -> None:
     if not debug:
         log.remove()
     log.debug("Starting main function")
@@ -112,7 +115,7 @@ def main(text: str, debug: bool) -> None:
         op = Ophrase(cfg)
         op.check()
         res, prompts = op.generate(text)
-        final_result = op.post_process(text, res, prompts)
+        final_result = op.post_process(text, res, prompts, include_prompts)
         print(json.dumps(final_result, indent=2, separators=(',', ': ')))
     except ValidationError as e:
         log.error(f"Validation error: {e}")
@@ -124,5 +127,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Ophrase script")
     parser.add_argument("text", type=str, help="Input text")
     parser.add_argument("--debug", action="store_true", help="Enable debug logging")
+    parser.add_argument("--prompt", action="store_true", help="Include prompts in the output JSON")
     args = parser.parse_args()
-    main(args.text, args.debug)
+    main(args.text, args.debug, args.prompt)
