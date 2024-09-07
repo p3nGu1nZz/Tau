@@ -8,7 +8,7 @@ from ophrase_config import Config
 from ophrase_response import OphraseResponse
 from ophrase_proof import OphraseProof
 from ophrase_log import Log
-from ophrase_util import post_process
+from ophrase_serializer import serialize_output  # Updated import
 from ophrase_const import Const
 
 class Ophrase:
@@ -46,7 +46,7 @@ def main(text: str, debug: bool, include_prompts: bool) -> None:
         proofs = op.validate(text, [r["response"] for r in res])
         # Use the same prompts for proofs for now
         proof_prompts = response_prompts
-        final_result = post_process(text, res, response_prompts, proof_prompts, include_prompts)
+        final_result = serialize_output(text, res, response_prompts, proof_prompts, include_prompts)  # Updated function call
         print(json.dumps(final_result, indent=2, separators=(',', ': ')))
     except ValidationError as e:
         error_output = {Const.ERROR_KEY: f"{Const.VALIDATION_ERROR}{e}"}
