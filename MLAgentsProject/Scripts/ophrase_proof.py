@@ -6,11 +6,9 @@ from ophrase_const import Const
 from ophrase_template import PROOF_TEMPLATE, TASKS, PROOF_INSTR, PROOF_SYS
 import ollama as oll
 import json
+from ophrase_task import OphraseTask
 
-class OphraseProof:
-    def __init__(self, cfg):
-        self.cfg = cfg
-
+class OphraseProof(OphraseTask):
     def validate(self, original_text: str, responses: List[str]) -> List[str]:
         Log.debug(f"Validating responses for: {original_text}")
         valid_responses = []
