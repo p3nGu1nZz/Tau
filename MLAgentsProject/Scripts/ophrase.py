@@ -43,7 +43,7 @@ def main(text: str, debug: bool, include_prompts: bool) -> None:
         op.check()
         res, response_prompts = op.generate(text)
         # Validate responses and generate proofs
-        proofs = op.validate(text, [r['response'] for r in res])
+        proofs = op.validate(text, [r["response"] for r in res])
         # Use the same prompts for proofs for now
         proof_prompts = response_prompts
         final_result = post_process(text, res, response_prompts, proof_prompts, include_prompts)

@@ -32,4 +32,4 @@ class OphraseTask:
         Log.debug(f"Response string: {resp_str}")
         resp_json = json.loads(resp_str)
         Log.debug(f"Response JSON: {resp_json}")
-        return {"prompt": prompt, "response": resp_json}
+        return {"prompt": prompt, "response": resp_json}  # Ensure this key matches the actual response structure

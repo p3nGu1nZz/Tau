@@ -10,13 +10,15 @@ def post_process(text: str, results: List[Dict[str, Any]], response_prompts: Lis
         return results
     combined_responses = []
     for result in results:
-        combined_responses.extend(result['response'])
+        combined_responses.extend(result["response"])  # Ensure this key matches the actual response structure
     output = {
         Const.ORIGINAL_TEXT_KEY: text,
         Const.RESPONSES_KEY: combined_responses,
-        "proofs": combined_responses  # Mirror the responses for proofs
+        Const.PROOFS_KEY: combined_responses  # Mirror the responses for proofs
     }
     if include_prompts:
-        output["response_prompts"] = response_prompts
-        output["proof_prompts"] = proof_prompts
+        output[Const.PROMPTS_KEY] = {
+            Const.RESPONSES_KEY: response_prompts,
+            Const.PROOFS_KEY: proof_prompts
+        }
     return output

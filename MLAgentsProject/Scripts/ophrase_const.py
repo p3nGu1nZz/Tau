@@ -10,6 +10,7 @@ class Const:
     ERROR_MESSAGE = 'Error in results'
     ORIGINAL_TEXT_KEY = 'original_text'
     RESPONSES_KEY = 'responses'
+    PROOFS_KEY = 'proofs'
     PROMPTS_KEY = 'prompts'
     RUN_COMMAND_ERROR = "Ollama not installed. Install it before running this script."
     PULL_COMMAND_ERROR = "Failed to pull model"

@@ -11,19 +11,6 @@ class OphraseProof(OphraseTask):
         Log.debug(f"Validating responses for: {original_text}")
         valid_responses = []
         for response in responses:
-            proof_responses = self._generate(response, "paraphrase", PROOF_TEMPLATE, PROOF_SYS, PROOF_INSTR)
-            if self._is_valid_response(original_text, proof_responses['response']):
-                valid_responses.append(response)
-            else:
-                Log.debug(f"Invalid response: {response}")
+            proof_response = self._generate(response, "paraphrase", PROOF_TEMPLATE, PROOF_SYS, PROOF_INSTR)
+            valid_responses.append(proof_response["response"])  # Ensure this key matches the actual response structure
         return valid_responses
-
-    def _is_valid_response(self, original_text: str, proof_responses: List[str]) -> bool:
-        # Simple validation logic: check if the proof responses contain key words from the original text
-        original_words = set(original_text.lower().split())
-        for proof_response in proof_responses:
-            response_words = set(proof_response.lower().split())
-            common_words = original_words.intersection(response_words)
-            if len(common_words) > 0:
-                return True
-        return False
