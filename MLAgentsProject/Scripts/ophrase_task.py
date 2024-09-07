@@ -3,7 +3,7 @@
 from typing import List, Dict, Any
 from ophrase_log import Log
 from ophrase_const import Const
-from ophrase_template import TASKS  # Ensure TASKS is imported
+from ophrase_template import TASKS
 import subprocess as proc
 import ollama as oll
 import json
@@ -22,7 +22,7 @@ class OphraseTask:
             Log.error(error_msg)
             raise Exception(error_msg)
 
-    def _generate(self, text: str, task: str, template, system_prompt, instructions) -> Dict[str, Any]:
+    def generate(self, text: str, task: str, template, system_prompt, instructions) -> Dict[str, Any]:
         prompt = template.render(system=system_prompt, task=task, text=text, example=TASKS[task], instructions=instructions, lang=self.cfg.lang)
         Log.debug(f"Prompt: {prompt}")
         resp = oll.generate(prompt=prompt, model=self.cfg.model)
@@ -32,4 +32,4 @@ class OphraseTask:
         Log.debug(f"Response string: {resp_str}")
         resp_json = json.loads(resp_str)
         Log.debug(f"Response JSON: {resp_json}")
-        return {"prompt": prompt, "response": resp_json}  # Ensure this key matches the actual response structure
+        return {"prompt": prompt, "response": resp_json}

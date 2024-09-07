@@ -10,11 +10,11 @@ def serialize_output(text: str, results: List[Dict[str, Any]], response_prompts:
         return results
     combined_responses = []
     for result in results:
-        combined_responses.extend(result["response"])  # Ensure this key matches the actual response structure
+        combined_responses.extend(result["response"])
     output = {
         Const.ORIGINAL_TEXT_KEY: text,
         Const.RESPONSES_KEY: combined_responses,
-        Const.PROOFS_KEY: combined_responses  # Mirror the responses for proofs
+        Const.PROOFS_KEY: combined_responses
     }
     if include_prompts:
         output[Const.PROMPTS_KEY] = {

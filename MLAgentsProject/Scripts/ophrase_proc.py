@@ -7,7 +7,7 @@ from ophrase_log import Log
 from ophrase_util import post_process
 from ophrase_const import Const
 from ophrase_task import OphraseTask
-from ophrase_template import TASKS  # Ensure TASKS is imported
+from ophrase_template import TASKS 
 
 class OphraseProcessor:
     def __init__(self, cfg, task: OphraseTask):
