@@ -7,11 +7,13 @@ from ophrase_proc import OphraseProcessor
 from ophrase_log import Log
 from ophrase_util import post_process
 from ophrase_const import Const
+from ophrase_proof import OphraseProof
 
 class Ophrase:
     def __init__(self, cfg: Config):
         self.cfg = cfg
         self.processor = OphraseProcessor(cfg)
+        self.proof = OphraseProof()
         self._log = Log
 
     def check(self) -> None:
@@ -32,8 +34,12 @@ def main(text: str, debug: bool, include_prompts: bool) -> None:
         cfg = Config(debug=debug)
         op = Ophrase(cfg)
         op.check()
-        res, prompts = op.generate(text)
-        final_result = post_process(text, res, prompts, include_prompts)
+        res, response_prompts = op.generate(text)
+        # Validate responses and generate proofs
+        proofs = op.proof.validate(text, [r['response'] for r in res])
+        # Use the same prompts for proofs for now
+        proof_prompts = response_prompts
+        final_result = post_process(text, res, response_prompts, proof_prompts, include_prompts)
         print(json.dumps(final_result, indent=2, separators=(',', ': ')))
     except ValidationError as e:
         Log.error(f"{Const.VALIDATION_ERROR}{e}")
