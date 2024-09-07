@@ -49,9 +49,11 @@ def main(text: str, debug: bool, include_prompts: bool) -> None:
         final_result = post_process(text, res, response_prompts, proof_prompts, include_prompts)
         print(json.dumps(final_result, indent=2, separators=(',', ': ')))
     except ValidationError as e:
-        Log.error(f"{Const.VALIDATION_ERROR}{e}")
+        error_output = {Const.ERROR_KEY: f"{Const.VALIDATION_ERROR}{e}"}
+        print(json.dumps(error_output, indent=2, separators=(',', ': ')))
     except Exception as e:
-        Log.error(f"{Const.ERROR_PROCESSING_INPUT}{e}")
+        error_output = {Const.ERROR_KEY: f"{Const.ERROR_PROCESSING_INPUT}{e}"}
+        print(json.dumps(error_output, indent=2, separators=(',', ': ')))
         raise SystemExit(1)
 
 if __name__ == "__main__":
