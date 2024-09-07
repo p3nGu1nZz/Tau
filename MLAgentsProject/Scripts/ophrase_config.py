@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from ophrase_template import INSTR, SYS, PROMPT, TASKS
+from ophrase_template import RESPONSE_INSTR, RESPONSE_SYS, PROOF_INSTR, PROOF_SYS, TASKS
 from ophrase_const import Const
 
 MODEL = Const.MODEL_DEFAULT

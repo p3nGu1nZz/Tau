@@ -1,8 +1,7 @@
 from tenacity import retry, stop_after_attempt, wait_fixed
 from typing import List, Dict, Any, Tuple
 import json, subprocess as proc, ollama as oll
-from ophrase_template import TEMPLATE, TASKS
-from ophrase_config import INSTR, SYS
+from ophrase_template import RESPONSE_TEMPLATE, TASKS, RESPONSE_INSTR, RESPONSE_SYS
 from ophrase_log import Log
 from ophrase_util import post_process
 from ophrase_const import Const
@@ -23,8 +22,8 @@ class OphraseProcessor:
             raise Exception(error_msg)
 
     def _gen(self, text: str, task: str) -> str:
-        instr = INSTR
-        return TEMPLATE.render(system=SYS, task=task, text=text, example=TASKS[task], instructions=instr, lang=self.cfg.lang)
+        instr = RESPONSE_INSTR
+        return RESPONSE_TEMPLATE.render(system=RESPONSE_SYS, task=task, text=text, example=TASKS[task], instructions=instr, lang=self.cfg.lang)
 
     @retry(stop=stop_after_attempt(5), wait=wait_fixed(1))
     def _task(self, text: str, task: str) -> Dict[str, Any]:

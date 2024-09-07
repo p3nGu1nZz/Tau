@@ -13,7 +13,7 @@ class Ophrase:
     def __init__(self, cfg: Config):
         self.cfg = cfg
         self.processor = OphraseProcessor(cfg)
-        self.proof = OphraseProof()
+        self.proof = OphraseProof(cfg)
         self._log = Log
 
     def check(self) -> None:
