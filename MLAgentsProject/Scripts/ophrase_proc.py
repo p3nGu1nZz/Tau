@@ -1,14 +1,18 @@
+# ophrase_processor.py
+
 from tenacity import retry, stop_after_attempt, wait_fixed
 from typing import List, Dict, Any, Tuple
 import json, subprocess as proc, ollama as oll
-from ophrase_template import RESPONSE_TEMPLATE, TASKS, RESPONSE_INSTR, RESPONSE_SYS
 from ophrase_log import Log
 from ophrase_util import post_process
 from ophrase_const import Const
+from ophrase_task import OphraseTask
+from ophrase_template import TASKS  # Ensure TASKS is imported
 
 class OphraseProcessor:
-    def __init__(self, cfg):
+    def __init__(self, cfg, task: OphraseTask):
         self.cfg = cfg
+        self.task = task
         Log.setup(self.cfg.debug)
 
     def run_command(self, cmd: List[str], error_msg: str = Const.RUN_COMMAND_ERROR) -> None:
@@ -22,8 +26,14 @@ class OphraseProcessor:
             raise Exception(error_msg)
 
     def _gen(self, text: str, task: str) -> str:
-        instr = RESPONSE_INSTR
-        return RESPONSE_TEMPLATE.render(system=RESPONSE_SYS, task=task, text=text, example=TASKS[task], instructions=instr, lang=self.cfg.lang)
+        return self.task.template.render(
+            system=self.task.system_prompt,
+            task=task,
+            text=text,
+            example=TASKS[task],
+            instructions=self.task.instructions,
+            lang=self.cfg.lang
+        )
 
     @retry(stop=stop_after_attempt(5), wait=wait_fixed(1))
     def _task(self, text: str, task: str) -> Dict[str, Any]:

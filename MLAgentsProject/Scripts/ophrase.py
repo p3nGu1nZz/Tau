@@ -1,29 +1,36 @@
+# ophrase.py
+
 import json, argparse
 from typing import List, Dict, Any, Tuple
 from pydantic import ValidationError
 from tenacity import retry, stop_after_attempt, wait_fixed
 from ophrase_config import Config
-from ophrase_proc import OphraseProcessor
+from ophrase_response import OphraseResponse
+from ophrase_proof import OphraseProof
 from ophrase_log import Log
 from ophrase_util import post_process
 from ophrase_const import Const
-from ophrase_proof import OphraseProof
 
 class Ophrase:
     def __init__(self, cfg: Config):
         self.cfg = cfg
-        self.processor = OphraseProcessor(cfg)
+        self.response = OphraseResponse(cfg)
         self.proof = OphraseProof(cfg)
         self._log = Log
 
     def check(self) -> None:
-        self.processor.run_command(['ollama', '--version'], Const.RUN_COMMAND_ERROR)
+        self.response.run_command(['ollama', '--version'], Const.RUN_COMMAND_ERROR)
 
     def pull(self) -> None:
-        self.processor.run_command(['ollama', 'pull', self.cfg.model], f"{Const.PULL_COMMAND_ERROR} {self.cfg.model}.")
+        self.response.run_command(['ollama', 'pull', self.cfg.model], f"{Const.PULL_COMMAND_ERROR} {self.cfg.model}.")
 
     def generate(self, text: str) -> Tuple[List[Dict[str, Any]], List[str]]:
-        return self.processor.generate(text)
+        responses = self.response.generate(text)
+        response_prompts = [r['prompt'] for r in responses]
+        return responses, response_prompts
+
+    def validate(self, text: str, responses: List[str]) -> List[str]:
+        return self.proof.validate(text, responses)
 
 @retry(stop=stop_after_attempt(5), wait=wait_fixed(1))
 def main(text: str, debug: bool, include_prompts: bool) -> None:
@@ -36,7 +43,7 @@ def main(text: str, debug: bool, include_prompts: bool) -> None:
         op.check()
         res, response_prompts = op.generate(text)
         # Validate responses and generate proofs
-        proofs = op.proof.validate(text, [r['response'] for r in res])
+        proofs = op.validate(text, [r['response'] for r in res])
         # Use the same prompts for proofs for now
         proof_prompts = response_prompts
         final_result = post_process(text, res, response_prompts, proof_prompts, include_prompts)

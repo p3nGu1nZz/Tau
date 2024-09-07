@@ -1,3 +1,5 @@
+# ophrase_config.py
+
 from pydantic import BaseModel, Field
 from ophrase_template import RESPONSE_INSTR, RESPONSE_SYS, PROOF_INSTR, PROOF_SYS, TASKS
 from ophrase_const import Const

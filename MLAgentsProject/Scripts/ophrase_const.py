@@ -1,3 +1,5 @@
+# ophrase_const.py
+
 class Const:
     OFFSET_DEFAULT = 1
     RETRIES_DEFAULT = 5
