@@ -23,12 +23,12 @@ public class OllamaParaphraseTask
 
         foreach (var message in messageList.training_data)
         {
+            var userContent = message.turns.First(turn => turn.role == "User").message;
             tasks.Add(Task.Run(async () =>
             {
                 await _semaphore.WaitAsync(_cancellationToken);
                 try
                 {
-                    var userContent = message.turns.First(turn => turn.role == "User").message;
                     Log.Message($"Processing user content: {userContent}");
 
                     var paraphrasedResponses = await Execute(userContent);
@@ -53,6 +53,10 @@ public class OllamaParaphraseTask
                     }
 
                     Log.Message($"Generated {newMessages.Count} paraphrased messages for user content: {userContent}");
+                }
+                catch (Exception ex)
+                {
+                    Log.Error($"Exception occurred while processing user content '{userContent}': {ex.Message}");
                 }
                 finally
                 {
@@ -82,8 +86,15 @@ public class OllamaParaphraseTask
         await _semaphore.WaitAsync(_cancellationToken);
         try
         {
+            Log.Message($"Starting paraphrase task for user content: {userContent}");
             string[] result = await Ophrase.Instance.Paraphrase(userContent);
+            Log.Message($"Paraphrase task completed for user content: {userContent}");
             return result;
+        }
+        catch (Exception ex)
+        {
+            Log.Error($"Exception occurred during paraphrase task for user content '{userContent}': {ex.Message}");
+            return new string[0];
         }
         finally
         {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 public static class DataOphraseAction
 {
-    private static SemaphoreSlim _semaphore = new SemaphoreSlim(5);  // Adjust the number of parallel tasks as needed
+    private static SemaphoreSlim _semaphore = new SemaphoreSlim(1);
     private static CancellationTokenSource _cts = new CancellationTokenSource();
 
     public static async void Execute(CommandArg[] args)
