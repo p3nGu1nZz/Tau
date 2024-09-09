@@ -38,7 +38,6 @@ public class Ophrase : MonoBehaviour
         }
 
         BatchFilePath = Path.Combine(Application.dataPath, "..", "Scripts", "ophrase.bat");
-        Log.Message($"Batch file path set to: {BatchFilePath}");
     }
 
     public async Task<string[]> Paraphrase(string inputString)
