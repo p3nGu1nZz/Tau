@@ -22,7 +22,7 @@ public class EmbeddingManager
 
     public async Task<double[]> GenerateEmbedding(string token, EmbeddingType type)
     {
-        return await EmbeddingGenerator.GenerateEmbedding(token, type);
+        return await GenerateEmbeddingTask.Execute(token, type);
     }
 
     public async Task<double[]> GetEmbedding(string token, EmbeddingType type)

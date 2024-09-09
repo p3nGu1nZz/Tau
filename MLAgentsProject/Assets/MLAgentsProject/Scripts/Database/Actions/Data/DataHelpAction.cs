@@ -16,6 +16,7 @@ public static class DataHelpAction
                 "  load <filename>       Loads training data from one or more JSON files",
                 "  check <filename>      Checks the integrity of the specified data file",
                 "  concat <filenames>    Concatenates multiple data files into one, or processes all JSON files in a directory",
+                "  ophrase <filename>    Processes data with ophrase to generate paraphrased responses",
                 "  info <filename>       Displays metadata and data counts for the specified file",
                 "  delete <filename>     Deletes the specified data file",
                 "  list                  Lists all JSON data files in the Data directory",

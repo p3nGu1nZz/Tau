@@ -10,6 +10,7 @@ public static class DataCommand
         { "load", DataLoadAction.Execute },
         { "check", DataCheckAction.Execute },
         { "concat", DataConcatAction.Execute },
+        { "ophrase", DataOphraseAction.Execute },
         { "remove", DataRemoveAction.Execute },
         { "info", DataInfoAction.Execute },
         { "list", DataListAction.Execute },
