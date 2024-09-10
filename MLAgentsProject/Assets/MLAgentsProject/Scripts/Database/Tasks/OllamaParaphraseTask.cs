@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
 {
-    private static readonly int MaxConcurrency = 1;
+    private static readonly int MaxConcurrency = 8;
     private static readonly SemaphoreSlim Semaphore = new SemaphoreSlim(MaxConcurrency);
     private static readonly CancellationTokenSource CancellationTokenSource = new CancellationTokenSource();
 
