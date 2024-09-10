@@ -1,5 +1,3 @@
-![Screenshot of a the greek symbol tau](logo.png)
-
 # Tau LLM Unity ML Agents Project
 
 Welcome to the Tau LLM Unity ML Agents project! This project aims to build a Language Model (LLM) from scratch using Unity, ML-Agents, and Sentence Transformers.
@@ -129,4 +127,8 @@ This project is licensed under the MIT License. See the LICENSE file for details
 ## Acknowledgements
 
 - Unity ML-Agents Toolkit
-- Sentence Transformers
+- Huggingface Sentence Transformers
+
+---
+
+![Screenshot of a the greek symbol tau](logo.png)
