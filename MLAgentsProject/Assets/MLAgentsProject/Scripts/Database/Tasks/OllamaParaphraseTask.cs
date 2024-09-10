@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -12,6 +13,8 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
     private static readonly SemaphoreSlim Semaphore = new SemaphoreSlim(MaxConcurrency);
     private static readonly CancellationTokenSource CancellationTokenSource = new CancellationTokenSource();
 
+    private readonly ConcurrentDictionary<string, int> _counters = new ConcurrentDictionary<string, int>();
+
     public OllamaParaphraseTask()
     {
         Application.quitting += OnApplicationQuit;
@@ -24,8 +27,9 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
 
     public override async Task Process(MessageList messageList, string jsonDataFilename)
     {
-        int totalProcessedMessages = 0;
-        int totalGeneratedPhrases = 0;
+        _counters["totalProcessedMessages"] = 0;
+        _counters["totalGeneratedPhrases"] = 0;
+
         var newMessagesList = new List<Message>();
         int totalMessages = messageList.training_data.Count;
         int timeoutLength = 30;
@@ -42,43 +46,53 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
             var message = messageList.training_data[i];
             var userContent = GetUserContent(message);
 
-            tasks.Add(Task.Run(async () =>
-            {
-                await Semaphore.WaitAsync(CancellationTokenSource.Token);
-                try
-                {
-                    Log.Message($"Processing user content: {userContent} ({i + 1} of {totalMessages})");
-
-                    var responses = await Execute(userContent, TimeSpan.FromSeconds(timeoutLength), retryAmount);
-                    if (responses.Length == 0 || responses.Any(response => response.StartsWith("Error")))
-                    {
-                        throw new Exception($"Failed to generate valid responses for user content: {userContent}");
-                    }
-
-                    var newMessages = CreateNewMessages(message, responses);
-                    lock (newMessagesList)
-                    {
-                        newMessagesList.AddRange(newMessages);
-                    }
-                    Interlocked.Add(ref totalProcessedMessages, newMessages.Count);
-                    Interlocked.Add(ref totalGeneratedPhrases, responses.Length);
-
-                    Log.Message($"Generated {newMessages.Count} responses for user content: {userContent}");
-                    Log.Message($"Completed {i + 1} of {totalMessages} tasks.");
-                    Log.Message($"Total phrases generated so far: {totalGeneratedPhrases}");
-                }
-                catch (Exception)
-                {
-                    CancellationTokenSource.Cancel();
-                    throw;
-                }
-                finally
-                {
-                    Semaphore.Release();
-                }
-            }, CancellationTokenSource.Token));
+            tasks.Add(ProcessUserContent(userContent, message, newMessagesList, timeoutLength, retryAmount, i, totalMessages));
         }
 
+        await HandleTasksCompletion(tasks);
+
+        stopwatch.Stop();
+        LogProcessingCompletion(stopwatch, _counters["totalGeneratedPhrases"], messageList, newMessagesList, _counters["totalProcessedMessages"], jsonDataFilename);
+    }
+
+    private async Task ProcessUserContent(string userContent, Message message, List<Message> newMessagesList, int timeoutLength, int retryAmount, int index, int totalMessages)
+    {
+        await Semaphore.WaitAsync(CancellationTokenSource.Token);
+        try
+        {
+            Log.Message($"Processing user content: {userContent} ({index + 1} of {totalMessages})");
+
+            var responses = await Execute(userContent, TimeSpan.FromSeconds(timeoutLength), retryAmount);
+            if (responses.Length == 0 || responses.Any(response => response.StartsWith("Error")))
+            {
+                throw new Exception($"Failed to generate valid responses for user content: {userContent}");
+            }
+
+            var newMessages = CreateNewMessages(message, responses);
+            lock (newMessagesList)
+            {
+                newMessagesList.AddRange(newMessages);
+            }
+            _counters.AddOrUpdate("totalProcessedMessages", newMessages.Count, (key, oldValue) => oldValue + newMessages.Count);
+            _counters.AddOrUpdate("totalGeneratedPhrases", responses.Length, (key, oldValue) => oldValue + responses.Length);
+
+            Log.Message($"Generated {newMessages.Count} responses for user content: {userContent}");
+            Log.Message($"Completed {index + 1} of {totalMessages} tasks.");
+            Log.Message($"Total phrases generated so far: {_counters["totalGeneratedPhrases"]}");
+        }
+        catch (Exception)
+        {
+            CancellationTokenSource.Cancel();
+            throw;
+        }
+        finally
+        {
+            Semaphore.Release();
+        }
+    }
+
+    private async Task HandleTasksCompletion(List<Task> tasks)
+    {
         try
         {
             await Task.WhenAll(tasks);
@@ -89,8 +103,10 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
             CancellationTokenSource.Cancel();
             throw;
         }
+    }
 
-        stopwatch.Stop();
+    private void LogProcessingCompletion(Stopwatch stopwatch, int totalGeneratedPhrases, MessageList messageList, List<Message> newMessagesList, int totalProcessedMessages, string jsonDataFilename)
+    {
         double elapsedMinutes = stopwatch.Elapsed.TotalMinutes;
         double paraphrasesPerMinute = totalGeneratedPhrases / elapsedMinutes;
 
@@ -138,27 +154,5 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
             stopwatch.Stop();
             Log.Message($"Paraphrase task for user content '{userContent}' completed in {stopwatch.ElapsedMilliseconds} ms.");
         }
-    }
-
-    protected virtual string GetUserContent(Message message)
-    {
-        return message.turns.First(turn => turn.role == "User").message;
-    }
-
-    protected virtual List<Message> CreateNewMessages(Message originalMessage, string[] responses)
-    {
-        var agentResponse = originalMessage.turns.Last(turn => turn.role == "Agent").message;
-
-        return responses.Select(response => new Message
-        {
-            domain = originalMessage.domain,
-            context = originalMessage.context,
-            system = originalMessage.system,
-            turns = new List<Turn>
-            {
-                new() { role = "User", message = response },
-                new() { role = "Agent", message = agentResponse }
-            }
-        }).ToList();
     }
 }

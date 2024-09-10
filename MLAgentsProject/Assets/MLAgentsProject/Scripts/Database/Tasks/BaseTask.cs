@@ -35,7 +35,7 @@ public abstract class BaseTask<T> where T : BaseTask<T>
             {
                 if (attempt + 1 == maxRetries)
                 {
-                    Log.Error($"Attempt {attempt + 1} failed for user content '{userContent}': {ex.Message}");
+                    throw new Exception($"Max retries ({attempt + 1}) reached for user content '{userContent}': {ex.Message}");
                 }
                 else
                 {
@@ -45,7 +45,29 @@ public abstract class BaseTask<T> where T : BaseTask<T>
             }
         }
 
-        Log.Error($"Max retries reached for user content '{userContent}'.");
+        // Return an error response if all retries are exhausted
         return new string[] { "Error: Unable to generate responses." };
+    }
+
+    protected virtual string GetUserContent(Message message)
+    {
+        return message.turns.First(turn => turn.role == "User").message;
+    }
+
+    protected virtual List<Message> CreateNewMessages(Message originalMessage, string[] responses)
+    {
+        var agentResponse = originalMessage.turns.Last(turn => turn.role == "Agent").message;
+
+        return responses.Select(response => new Message
+        {
+            domain = originalMessage.domain,
+            context = originalMessage.context,
+            system = originalMessage.system,
+            turns = new List<Turn>
+            {
+                new() { role = "User", message = response },
+                new() { role = "Agent", message = agentResponse }
+            }
+        }).ToList();
     }
 }
