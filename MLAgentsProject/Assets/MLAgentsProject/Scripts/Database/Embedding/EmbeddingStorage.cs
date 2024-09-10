@@ -54,7 +54,7 @@ public class EmbeddingStorage
         }
 
         Log.Message($"Generating new embedding for token '{token}'.");
-        double[] newEmbedding = await EmbeddingGenerator.GenerateEmbedding(token, type);
+        double[] newEmbedding = await GenerateEmbeddingTask.Execute(token, type);
 
         if (newEmbedding != null)
         {

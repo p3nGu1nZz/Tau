@@ -117,4 +117,9 @@ public static class StringUtilities
 
         return char.ToUpper(input[0]) + input[1..].ToLower();
     }
+
+    public static string ScrubResponse(string response)
+    {
+        return response.Replace("\n", "").Replace("\r", "").Replace("\\", "").Replace("\"", "\\\"");
+    }
 }

@@ -60,7 +60,7 @@ public class TableBuilder
                 {
                     Log.Message($"Processing token '{token}' ({i + 1}/{tokens.Count})");
                     var tokenStopwatch = Stopwatch.StartNew();
-                    double[] embedding = await EmbeddingGenerator.GenerateEmbedding(token, type);
+                    double[] embedding = await GenerateEmbeddingTask.Execute(token, type);
                     tokenStopwatch.Stop();
 
                     if (embedding != null)
