@@ -80,6 +80,7 @@ public class Ophrase : MonoBehaviour
                 catch (Exception jsonEx)
                 {
                     Log.Error($"JSON parse error: {jsonEx.Message}");
+                    Log.Error($"Raw JSON output: {result}");
                     return new string[] { "Error: JSON parse error." };
                 }
             }
