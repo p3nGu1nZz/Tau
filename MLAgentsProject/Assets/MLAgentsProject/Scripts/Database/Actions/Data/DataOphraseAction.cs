@@ -27,7 +27,7 @@ public static class DataOphraseAction
         }
 
         var paraphraseTask = new OllamaParaphraseTask();
-        await paraphraseTask.ProcessMessages(messageList, jsonDataFilename);
+        await paraphraseTask.Process(messageList, jsonDataFilename);
 
         stopwatch.Stop();
         Log.Message($"Processing completed successfully! (Elapsed time: {stopwatch.Elapsed.TotalSeconds} seconds)");

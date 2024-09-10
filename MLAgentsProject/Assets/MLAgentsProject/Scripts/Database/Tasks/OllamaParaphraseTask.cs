@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using UnityEngine;
 
-public class OllamaParaphraseTask
+public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
 {
-    public async Task ProcessMessages(MessageList messageList, string jsonDataFilename)
+    public override async Task Process(MessageList messageList, string jsonDataFilename)
     {
-        int totalParaphrasedMessages = 0;
+        int totalProcessedMessages = 0;
         int totalGeneratedPhrases = 0;
         var newMessagesList = new List<Message>();
         int totalMessages = messageList.training_data.Count;
         int timeoutLength = 30;
+        int retryAmount = 5;
 
         Log.Message($"Starting to process {totalMessages} user contents from {jsonDataFilename}...");
 
@@ -22,36 +22,23 @@ public class OllamaParaphraseTask
             try
             {
                 var message = messageList.training_data[i];
-                var userContent = message.turns.First(turn => turn.role == "User").message;
+                var userContent = GetUserContent(message);
                 Log.Message($"Processing user content: {userContent} ({i + 1} of {totalMessages})");
 
-                var paraphrasedResponses = await Execute(userContent, TimeSpan.FromSeconds(timeoutLength), 3);
-                if (paraphrasedResponses.Length == 0 || paraphrasedResponses.Any(response => response.StartsWith("Error")))
+                var responses = await Execute(userContent, TimeSpan.FromSeconds(timeoutLength), retryAmount);
+                if (responses.Length == 0 || responses.Any(response => response.StartsWith("Error")))
                 {
-                    Log.Error($"Failed to generate valid paraphrased messages for user content: {userContent}");
+                    Log.Error($"Failed to generate valid responses for user content: {userContent}");
                     continue; // Skip adding this message to the newMessagesList
                 }
 
-                var agentResponse = message.turns.Last(turn => turn.role == "Agent").message;
-
-                var newMessages = paraphrasedResponses.Select(response => new Message
-                {
-                    domain = message.domain,
-                    context = message.context,
-                    system = message.system,
-                    turns = new List<Turn>
-                    {
-                        new() { role = "User", message = response },
-                        new() { role = "Agent", message = agentResponse }
-                    }
-                }).ToList();
-
+                var newMessages = CreateNewMessages(message, responses);
                 newMessagesList.AddRange(newMessages);
-                totalParaphrasedMessages += newMessages.Count;
-                totalGeneratedPhrases += paraphrasedResponses.Length;
+                totalProcessedMessages += newMessages.Count;
+                totalGeneratedPhrases += responses.Length;
 
-                Log.Message($"Generated {newMessages.Count} paraphrased messages for user content: {userContent}");
-                Log.Message($"Completed {i + 1} of {totalMessages} paraphrase tasks.");
+                Log.Message($"Generated {newMessages.Count} responses for user content: {userContent}");
+                Log.Message($"Completed {i + 1} of {totalMessages} tasks.");
                 Log.Message($"Total phrases generated so far: {totalGeneratedPhrases}");
             }
             catch (Exception ex)
@@ -67,7 +54,7 @@ public class OllamaParaphraseTask
             messageList.training_data.AddRange(newMessagesList);
         }
 
-        Log.Message($"All messages processed successfully. Total paraphrased messages generated: {totalParaphrasedMessages}");
+        Log.Message($"All messages processed successfully. Total processed messages generated: {totalProcessedMessages}");
         Log.Message($"Total phrases generated: {totalGeneratedPhrases}");
 
         string outputFilename = jsonDataFilename.Replace(".json", "_ophrase.json");
@@ -75,37 +62,49 @@ public class OllamaParaphraseTask
         Log.Message($"Updated message list saved to {outputFilename}");
     }
 
-    private async Task<string[]> Execute(string userContent, TimeSpan timeout, int maxRetries = 1)
+    protected override async Task<string[]> Generate(string userContent, TimeSpan timeout)
     {
-        int attempt = 0;
-        while (attempt < maxRetries)
+        try
         {
-            Log.Message($"Attempt {attempt + 1} of {maxRetries} for user content: {userContent}");
-            try
+            using (var cts = new CancellationTokenSource(timeout))
             {
-                using (var cts = new CancellationTokenSource(timeout))
-                {
-                    Log.Message($"Starting paraphrase task for user content: {userContent}");
-                    string[] result = await Ophrase.Instance.Paraphrase(userContent);
-                    Log.Message($"Paraphrase task completed for user content: {userContent}");
-                    return result;
-                }
+                Log.Message($"Starting paraphrase task for user content: {userContent}");
+                string[] result = await Ophrase.Instance.Paraphrase(userContent);
+                Log.Message($"Paraphrase task completed for user content: {userContent}");
+                return result.Select(StringUtilities.ScrubResponse).ToArray();
             }
-            catch (OperationCanceledException)
-            {
-                Log.Error($"Paraphrase task for user content '{userContent}' timed out. Attempt {attempt + 1} of {maxRetries}");
-                attempt++;
-            }
-            catch (Exception ex)
-            {
-                Log.Error($"Attempt {attempt + 1} failed for user content '{userContent}': {ex.Message}");
-                attempt++;
-            }
-
-            Log.Message($"Retrying paraphrase task for user content: {userContent}. Attempt {attempt + 1} of {maxRetries}");
         }
+        catch (OperationCanceledException)
+        {
+            Log.Error($"Paraphrase task for user content '{userContent}' timed out.");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            Log.Error($"Exception occurred during paraphrase task for user content '{userContent}': {ex.Message}");
+            throw;
+        }
+    }
 
-        Log.Error($"Max retries reached for user content '{userContent}'.");
-        return new string[] { "Error: Unable to generate paraphrase." };
+    protected virtual string GetUserContent(Message message)
+    {
+        return message.turns.First(turn => turn.role == "User").message;
+    }
+
+    protected virtual List<Message> CreateNewMessages(Message originalMessage, string[] responses)
+    {
+        var agentResponse = originalMessage.turns.Last(turn => turn.role == "Agent").message;
+
+        return responses.Select(response => new Message
+        {
+            domain = originalMessage.domain,
+            context = originalMessage.context,
+            system = originalMessage.system,
+            turns = new List<Turn>
+            {
+                new() { role = "User", message = response },
+                new() { role = "Agent", message = agentResponse }
+            }
+        }).ToList();
     }
 }

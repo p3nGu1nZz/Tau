@@ -117,4 +117,10 @@ public static class StringUtilities
 
         return char.ToUpper(input[0]) + input[1..].ToLower();
     }
+
+    public static string ScrubResponse(string response)
+    {
+        // Implement scrubbing logic to remove invalid characters
+        return response.Replace("\n", "").Replace("\r", "").Replace("\\", "").Replace("\"", "\\\"");
+    }
 }
