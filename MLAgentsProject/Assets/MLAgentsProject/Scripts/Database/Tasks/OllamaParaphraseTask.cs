@@ -4,9 +4,24 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using UnityEngine;
 
 public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
 {
+    private static readonly int MaxConcurrency = 1;
+    private static readonly SemaphoreSlim Semaphore = new SemaphoreSlim(MaxConcurrency);
+    private static readonly CancellationTokenSource CancellationTokenSource = new CancellationTokenSource();
+
+    public OllamaParaphraseTask()
+    {
+        Application.quitting += OnApplicationQuit;
+    }
+
+    private void OnApplicationQuit()
+    {
+        CancellationTokenSource.Cancel();
+    }
+
     public override async Task Process(MessageList messageList, string jsonDataFilename)
     {
         int totalProcessedMessages = 0;
@@ -20,35 +35,59 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
 
         var stopwatch = Stopwatch.StartNew();
 
+        var tasks = new List<Task>();
+
         for (int i = 0; i < totalMessages; i++)
         {
-            try
-            {
-                var message = messageList.training_data[i];
-                var userContent = GetUserContent(message);
-                Log.Message($"Processing user content: {userContent} ({i + 1} of {totalMessages})");
+            var message = messageList.training_data[i];
+            var userContent = GetUserContent(message);
 
-                var responses = await Execute(userContent, TimeSpan.FromSeconds(timeoutLength), retryAmount);
-                if (responses.Length == 0 || responses.Any(response => response.StartsWith("Error")))
+            tasks.Add(Task.Run(async () =>
+            {
+                await Semaphore.WaitAsync(CancellationTokenSource.Token);
+                try
                 {
-                    Log.Error($"Failed to generate valid responses for user content: {userContent}");
-                    continue;
+                    Log.Message($"Processing user content: {userContent} ({i + 1} of {totalMessages})");
+
+                    var responses = await Execute(userContent, TimeSpan.FromSeconds(timeoutLength), retryAmount);
+                    if (responses.Length == 0 || responses.Any(response => response.StartsWith("Error")))
+                    {
+                        throw new Exception($"Failed to generate valid responses for user content: {userContent}");
+                    }
+
+                    var newMessages = CreateNewMessages(message, responses);
+                    lock (newMessagesList)
+                    {
+                        newMessagesList.AddRange(newMessages);
+                    }
+                    Interlocked.Add(ref totalProcessedMessages, newMessages.Count);
+                    Interlocked.Add(ref totalGeneratedPhrases, responses.Length);
+
+                    Log.Message($"Generated {newMessages.Count} responses for user content: {userContent}");
+                    Log.Message($"Completed {i + 1} of {totalMessages} tasks.");
+                    Log.Message($"Total phrases generated so far: {totalGeneratedPhrases}");
                 }
+                catch (Exception)
+                {
+                    CancellationTokenSource.Cancel();
+                    throw;
+                }
+                finally
+                {
+                    Semaphore.Release();
+                }
+            }, CancellationTokenSource.Token));
+        }
 
-                var newMessages = CreateNewMessages(message, responses);
-                newMessagesList.AddRange(newMessages);
-                totalProcessedMessages += newMessages.Count;
-                totalGeneratedPhrases += responses.Length;
-
-                Log.Message($"Generated {newMessages.Count} responses for user content: {userContent}");
-                Log.Message($"Completed {i + 1} of {totalMessages} tasks.");
-                Log.Message($"Total phrases generated so far: {totalGeneratedPhrases}");
-            }
-            catch (Exception ex)
-            {
-                Log.Error($"Exception occurred while processing user content: {ex.Message}");
-                throw;
-            }
+        try
+        {
+            await Task.WhenAll(tasks);
+        }
+        catch (Exception ex)
+        {
+            Log.Error($"Processing failed: {ex.Message}");
+            CancellationTokenSource.Cancel();
+            throw;
         }
 
         stopwatch.Stop();

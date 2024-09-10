@@ -4,11 +4,11 @@ using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public abstract class BaseProcess : MonoBehaviour
+public abstract class BaseProcess
 {
     public string BatchFilePath { get; private set; }
 
-    protected virtual void Awake()
+    protected BaseProcess()
     {
         BatchFilePath = Path.Combine(Application.dataPath, "..", "Scripts", GetBatchFileName());
     }

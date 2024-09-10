@@ -9,11 +9,7 @@ public class Ophrase : BaseProcess
         {
             if (_instance == null)
             {
-                _instance = FindFirstObjectByType<Ophrase>();
-                if (_instance == null)
-                {
-                    Log.Error("Ophrase object not found in the scene.");
-                }
+                _instance = new Ophrase();
             }
             return _instance;
         }
