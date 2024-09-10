@@ -1,8 +1,6 @@
 using CommandTerminal;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 
 public abstract class BaseCommand<T> where T : BaseCommand<T>, new()
 {

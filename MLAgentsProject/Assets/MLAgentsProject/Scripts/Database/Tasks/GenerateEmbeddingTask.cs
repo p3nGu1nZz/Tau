@@ -1,9 +1,9 @@
 using System;
 using System.Threading.Tasks;
 
-public class EmbeddingGenerator
+public class GenerateEmbeddingTask
 {
-    public static async Task<double[]> GenerateEmbedding(string token, EmbeddingType type)
+    public static async Task<double[]> Execute(string token, EmbeddingType type)
     {
         string result = await Encoder.Instance.Encode(token);
 
