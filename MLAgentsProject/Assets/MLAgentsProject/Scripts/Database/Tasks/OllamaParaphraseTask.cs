@@ -25,7 +25,7 @@ public class OllamaParaphraseTask
                 var userContent = message.turns.First(turn => turn.role == "User").message;
                 Log.Message($"Processing user content: {userContent} ({i + 1} of {totalMessages})");
 
-                var paraphrasedResponses = await ExecuteWithRetries(userContent, TimeSpan.FromSeconds(timeoutLength), 3);
+                var paraphrasedResponses = await Execute(userContent, TimeSpan.FromSeconds(timeoutLength), 3);
                 if (paraphrasedResponses.Length == 0 || paraphrasedResponses.Any(response => response.StartsWith("Error")))
                 {
                     Log.Error($"Failed to generate valid paraphrased messages for user content: {userContent}");
@@ -75,11 +75,12 @@ public class OllamaParaphraseTask
         Log.Message($"Updated message list saved to {outputFilename}");
     }
 
-    private async Task<string[]> ExecuteWithRetries(string userContent, TimeSpan timeout, int maxRetries)
+    private async Task<string[]> Execute(string userContent, TimeSpan timeout, int maxRetries = 1)
     {
         int attempt = 0;
         while (attempt < maxRetries)
         {
+            Log.Message($"Attempt {attempt + 1} of {maxRetries} for user content: {userContent}");
             try
             {
                 using (var cts = new CancellationTokenSource(timeout))
@@ -92,7 +93,7 @@ public class OllamaParaphraseTask
             }
             catch (OperationCanceledException)
             {
-                Log.Error($"Paraphrase task for user content '{userContent}' timed out.");
+                Log.Error($"Paraphrase task for user content '{userContent}' timed out. Attempt {attempt + 1} of {maxRetries}");
                 attempt++;
             }
             catch (Exception ex)
@@ -101,12 +102,10 @@ public class OllamaParaphraseTask
                 attempt++;
             }
 
-            if (attempt >= maxRetries)
-            {
-                Log.Error($"Max retries reached for user content '{userContent}'.");
-                return new string[] { "Error: Unable to generate paraphrase." };
-            }
+            Log.Message($"Retrying paraphrase task for user content: {userContent}. Attempt {attempt + 1} of {maxRetries}");
         }
-        return new string[0];
+
+        Log.Error($"Max retries reached for user content '{userContent}'.");
+        return new string[] { "Error: Unable to generate paraphrase." };
     }
 }
