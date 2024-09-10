@@ -17,25 +17,23 @@ public abstract class BaseProcess : MonoBehaviour
 
     public async Task<string[]> Execute(string inputString)
     {
-        string command = $"/c \"{BatchFilePath} \"{inputString}\"\"";
-        Log.Message($"Executing command: {command}");
-
-        var startInfo = new ProcessStartInfo
-        {
-            FileName = "cmd.exe",
-            Arguments = command,
-            UseShellExecute = false,
-            RedirectStandardOutput = true,
-            RedirectStandardError = true,
-            CreateNoWindow = true
-        };
-
-        Log.Message($"Process start info configured with arguments: {startInfo.Arguments}");
-
         var stopwatch = Stopwatch.StartNew();
 
         try
         {
+            string command = $"/c \"{BatchFilePath} \"{inputString}\"\"";
+            Log.Message($"Starting command: '{command}'");
+
+            var startInfo = new ProcessStartInfo
+            {
+                FileName = "cmd.exe",
+                Arguments = command,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                CreateNoWindow = true
+            };
+
             using (var process = Process.Start(startInfo))
             {
                 string result = await process.StandardOutput.ReadToEndAsync();
@@ -43,33 +41,21 @@ public abstract class BaseProcess : MonoBehaviour
 
                 if (!string.IsNullOrEmpty(error))
                 {
-                    Log.Error($"Process error: {error}");
+                    throw new Exception($"Process exception: {error}");
                 }
 
-                Log.Message($"Process output: {result}");
-
-                try
-                {
-                    var commandResult = JsonUtility.FromJson<CommandResult>(result);
-                    Log.Message($"Parsed {commandResult.responses.Length} responses.");
-                    return commandResult.responses;
-                }
-                catch (Exception jsonEx)
-                {
-                    Log.Error($"JSON parse error: {jsonEx.Message}");
-                    throw;
-                }
+                var commandResult = JsonUtility.FromJson<CommandResult>(result);
+                return commandResult.responses;
             }
         }
         catch (Exception ex)
         {
-            Log.Error($"Exception occurred during command execution: {ex.Message}");
-            throw;
+            throw new Exception($"Command execution failed: {ex.Message}", ex);
         }
         finally
         {
             stopwatch.Stop();
-            Log.Message($"Command execution completed in {stopwatch.ElapsedMilliseconds} ms.");
+            Log.Message($"Command execution completed in {stopwatch.ElapsedMilliseconds / 1000.0:F2} s.");
         }
     }
 }

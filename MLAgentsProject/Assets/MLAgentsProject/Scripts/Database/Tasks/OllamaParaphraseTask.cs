@@ -32,7 +32,7 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
                 if (responses.Length == 0 || responses.Any(response => response.StartsWith("Error")))
                 {
                     Log.Error($"Failed to generate valid responses for user content: {userContent}");
-                    continue; // Skip adding this message to the newMessagesList
+                    continue;
                 }
 
                 var newMessages = CreateNewMessages(message, responses);
@@ -47,7 +47,6 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
             catch (Exception ex)
             {
                 Log.Error($"Exception occurred while processing user content: {ex.Message}");
-                Log.Error("Exiting task due to error.");
                 throw;
             }
         }
@@ -87,12 +86,12 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
         }
         catch (OperationCanceledException)
         {
-            Log.Error($"Paraphrase task for user content '{userContent}' timed out.");
+            Log.Message($"Paraphrase task for user content '{userContent}' timed out. Retrying...");
             throw;
         }
         catch (Exception ex)
         {
-            Log.Error($"Exception occurred during paraphrase task for user content '{userContent}': {ex.Message}");
+            Log.Message($"Exception occurred during paraphrase task for user content '{userContent}': {ex.Message}. Retrying...");
             throw;
         }
         finally

@@ -28,25 +28,24 @@ public abstract class BaseTask<T> where T : BaseTask<T>
             }
             catch (OperationCanceledException)
             {
-                Log.Error($"Task for user content '{userContent}' timed out. Attempt {attempt + 1} of {maxRetries}");
+                Log.Message($"Task for user content '{userContent}' timed out. Retrying... Attempt {attempt + 1} of {maxRetries}");
                 attempt++;
             }
             catch (Exception ex)
             {
-                Log.Error($"Attempt {attempt + 1} failed for user content '{userContent}': {ex.Message}");
+                if (attempt + 1 == maxRetries)
+                {
+                    Log.Error($"Attempt {attempt + 1} failed for user content '{userContent}': {ex.Message}");
+                }
+                else
+                {
+                    Log.Message($"Attempt {attempt + 1} failed for user content '{userContent}': {ex.Message}. Retrying...");
+                }
                 attempt++;
             }
-
-            Log.Message($"Retrying task for user content: {userContent}. Attempt {attempt + 1} of {maxRetries}");
         }
 
         Log.Error($"Max retries reached for user content '{userContent}'.");
         return new string[] { "Error: Unable to generate responses." };
-    }
-
-    protected virtual string ScrubResponse(string response)
-    {
-        // Implement scrubbing logic to remove invalid characters
-        return response.Replace("\n", "").Replace("\r", "").Replace("\\", "").Replace("\"", "\\\"");
     }
 }

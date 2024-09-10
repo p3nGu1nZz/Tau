@@ -1,4 +1,5 @@
 using CommandTerminal;
+using System;
 using System.Diagnostics;
 
 public static class DataOphraseAction
@@ -7,7 +8,7 @@ public static class DataOphraseAction
     {
         if (args.Length < 1)
         {
-            Log.Error("Invalid command or insufficient arguments. Usage: data ophase <jsonDataFilename>");
+            Log.Error("Invalid command or insufficient arguments. Usage: data ophrase <jsonDataFilename>");
             return;
         }
 
@@ -27,9 +28,17 @@ public static class DataOphraseAction
         }
 
         var paraphraseTask = new OllamaParaphraseTask();
-        await paraphraseTask.Process(messageList, jsonDataFilename);
+        try
+        {
+            await paraphraseTask.Process(messageList, jsonDataFilename);
+        }
+        catch (Exception ex)
+        {
+            Log.Error($"Processing failed: {ex.Message}");
+            return;
+        }
 
         stopwatch.Stop();
-        Log.Message($"Processing completed successfully! (Elapsed time: {stopwatch.Elapsed.TotalSeconds} seconds)");
+        Log.Message($"Processing completed successfully! (Elapsed time: {stopwatch.Elapsed.TotalSeconds:F2} seconds)");
     }
 }

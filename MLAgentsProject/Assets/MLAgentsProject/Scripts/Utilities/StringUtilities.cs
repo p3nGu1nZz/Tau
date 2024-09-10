@@ -120,7 +120,6 @@ public static class StringUtilities
 
     public static string ScrubResponse(string response)
     {
-        // Implement scrubbing logic to remove invalid characters
         return response.Replace("\n", "").Replace("\r", "").Replace("\\", "").Replace("\"", "\\\"");
     }
 }
