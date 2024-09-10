@@ -19,7 +19,7 @@ public static class DataOphraseAction
         Stopwatch stopwatch = Stopwatch.StartNew();
         Log.Message($"Starting to process data from {jsonDataFilename}...");
 
-        MessageList messageList = DataLoader.Load(jsonDataFilename);
+        var messageList = DataLoader.Load(jsonDataFilename);
         if (messageList == null)
         {
             Log.Error($"Failed to load data from '{jsonDataFilename}'.");

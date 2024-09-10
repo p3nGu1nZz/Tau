@@ -45,7 +45,7 @@ public class Ophrase : MonoBehaviour
         string command = $"/c \"{BatchFilePath} \"{inputString}\"\"";
         Log.Message($"Executing command: {command}");
 
-        ProcessStartInfo start = new ProcessStartInfo
+        var startInfo = new ProcessStartInfo
         {
             FileName = "cmd.exe",
             Arguments = command,
@@ -55,36 +55,32 @@ public class Ophrase : MonoBehaviour
             CreateNoWindow = true
         };
 
-        Log.Message($"Process start info configured with arguments: {start.Arguments}");
+        Log.Message($"Process start info configured with arguments: {startInfo.Arguments}");
 
         try
         {
-            using (Process process = Process.Start(start))
+            using (var process = Process.Start(startInfo))
             {
-                using (StreamReader reader = process.StandardOutput)
-                using (StreamReader errorReader = process.StandardError)
+                string result = await process.StandardOutput.ReadToEndAsync();
+                string error = await process.StandardError.ReadToEndAsync();
+
+                if (!string.IsNullOrEmpty(error))
                 {
-                    string result = await reader.ReadToEndAsync();
-                    string error = await errorReader.ReadToEndAsync();
+                    Log.Error($"Process error: {error}");
+                }
 
-                    if (!string.IsNullOrEmpty(error))
-                    {
-                        Log.Error($"Process error: {error}");
-                    }
+                Log.Message($"Process output: {result}");
 
-                    Log.Message($"Process output: {result}");
-
-                    try
-                    {
-                        var ophraseResult = JsonUtility.FromJson<OphraseResult>(result);
-                        Log.Message($"Parsed {ophraseResult.responses.Length} paraphrased responses.");
-                        return ophraseResult.responses;
-                    }
-                    catch (Exception jsonEx)
-                    {
-                        Log.Error($"JSON parse error: {jsonEx.Message}");
-                        return new string[] { "Error: JSON parse error." };
-                    }
+                try
+                {
+                    var ophraseResult = JsonUtility.FromJson<OphraseResult>(result);
+                    Log.Message($"Parsed {ophraseResult.responses.Length} paraphrased responses.");
+                    return ophraseResult.responses;
+                }
+                catch (Exception jsonEx)
+                {
+                    Log.Error($"JSON parse error: {jsonEx.Message}");
+                    return new string[] { "Error: JSON parse error." };
                 }
             }
         }

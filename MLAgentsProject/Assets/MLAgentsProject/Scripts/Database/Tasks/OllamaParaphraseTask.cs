@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using UnityEngine;
 
 public class OllamaParaphraseTask
 {
     public async Task ProcessMessages(MessageList messageList, string jsonDataFilename)
     {
         int totalParaphrasedMessages = 0;
+        var newMessagesList = new List<Message>();
+        int totalMessages = messageList.training_data.Count;
+        int timeoutLength = 30;
 
-        foreach (var message in messageList.training_data)
+        Log.Message($"Starting to process {totalMessages} user contents from {jsonDataFilename}...");
+
+        for (int i = 0; i < totalMessages; i++)
         {
-            var userContent = message.turns.First(turn => turn.role == "User").message;
             try
             {
-                Log.Message($"Processing user content: {userContent}");
+                var message = messageList.training_data[i];
+                var userContent = message.turns.First(turn => turn.role == "User").message;
+                Log.Message($"Processing user content: {userContent} ({i + 1} of {totalMessages})");
 
-                var paraphrasedResponses = await ExecuteWithTimeout(userContent, TimeSpan.FromSeconds(30));
+                var paraphrasedResponses = await Execute(userContent, TimeSpan.FromSeconds(timeoutLength));
                 var agentResponse = message.turns.Last(turn => turn.role == "Agent").message;
 
                 var newMessages = paraphrasedResponses.Select(response => new Message
@@ -33,18 +38,21 @@ public class OllamaParaphraseTask
                     }
                 }).ToList();
 
-                lock (messageList.training_data)
-                {
-                    messageList.training_data.AddRange(newMessages);
-                    totalParaphrasedMessages += newMessages.Count;
-                }
+                newMessagesList.AddRange(newMessages);
+                totalParaphrasedMessages += newMessages.Count;
 
                 Log.Message($"Generated {newMessages.Count} paraphrased messages for user content: {userContent}");
+                Log.Message($"Completed {i + 1} of {totalMessages} paraphrase tasks.");
             }
             catch (Exception ex)
             {
-                Log.Error($"Exception occurred while processing user content '{userContent}': {ex.Message}");
+                Log.Error($"Exception occurred while processing user content: {ex.Message}");
             }
+        }
+
+        lock (messageList.training_data)
+        {
+            messageList.training_data.AddRange(newMessagesList);
         }
 
         Log.Message($"All messages processed successfully. Total paraphrased messages generated: {totalParaphrasedMessages}");
@@ -54,30 +62,22 @@ public class OllamaParaphraseTask
         Log.Message($"Updated message list saved to {outputFilename}");
     }
 
-    private async Task<string[]> ExecuteWithTimeout(string userContent, TimeSpan timeout)
-    {
-        using (var cts = new CancellationTokenSource(timeout))
-        {
-            try
-            {
-                return await Execute(userContent, cts.Token);
-            }
-            catch (OperationCanceledException)
-            {
-                Log.Error($"Paraphrase task for user content '{userContent}' timed out.");
-                return new string[0];
-            }
-        }
-    }
-
-    public async Task<string[]> Execute(string userContent, CancellationToken cancellationToken)
+    private async Task<string[]> Execute(string userContent, TimeSpan timeout)
     {
         try
         {
-            Log.Message($"Starting paraphrase task for user content: {userContent}");
-            string[] result = await Ophrase.Instance.Paraphrase(userContent);
-            Log.Message($"Paraphrase task completed for user content: {userContent}");
-            return result;
+            using (var cts = new CancellationTokenSource(timeout))
+            {
+                Log.Message($"Starting paraphrase task for user content: {userContent}");
+                string[] result = await Ophrase.Instance.Paraphrase(userContent);
+                Log.Message($"Paraphrase task completed for user content: {userContent}");
+                return result;
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            Log.Error($"Paraphrase task for user content '{userContent}' timed out.");
+            return new string[0];
         }
         catch (Exception ex)
         {
