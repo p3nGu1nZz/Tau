@@ -74,17 +74,24 @@ public class Ophrase : MonoBehaviour
 
                     Log.Message($"Process output: {result}");
 
-                    var ophraseResult = JsonUtility.FromJson<OphraseResult>(result);
-                    Log.Message($"Parsed {ophraseResult.responses.Length} paraphrased responses.");
-
-                    return ophraseResult.responses;
+                    try
+                    {
+                        var ophraseResult = JsonUtility.FromJson<OphraseResult>(result);
+                        Log.Message($"Parsed {ophraseResult.responses.Length} paraphrased responses.");
+                        return ophraseResult.responses;
+                    }
+                    catch (Exception jsonEx)
+                    {
+                        Log.Error($"JSON parse error: {jsonEx.Message}");
+                        return new string[] { "Error: JSON parse error." };
+                    }
                 }
             }
         }
         catch (Exception ex)
         {
             Log.Error($"Exception occurred during paraphrasing: {ex.Message}");
-            return new string[0];
+            return new string[] { "Error: Exception occurred during paraphrasing." };
         }
     }
 }

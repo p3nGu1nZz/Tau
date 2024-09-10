@@ -1,15 +1,16 @@
 using CommandTerminal;
 using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
 
 public static class DataOphraseAction
 {
-    private static SemaphoreSlim _semaphore = new SemaphoreSlim(1);
-    private static CancellationTokenSource _cts = new CancellationTokenSource();
-
     public static async void Execute(CommandArg[] args)
     {
+        if (args.Length < 1)
+        {
+            Log.Error("Invalid command or insufficient arguments. Usage: data ophase <jsonDataFilename>");
+            return;
+        }
+
         string jsonDataFilename = args[0].String;
         Log.Message($"Processing file: {jsonDataFilename}");
 
@@ -18,7 +19,6 @@ public static class DataOphraseAction
         Stopwatch stopwatch = Stopwatch.StartNew();
         Log.Message($"Starting to process data from {jsonDataFilename}...");
 
-        // Load the JSON data file
         MessageList messageList = DataLoader.Load(jsonDataFilename);
         if (messageList == null)
         {
@@ -26,8 +26,7 @@ public static class DataOphraseAction
             return;
         }
 
-        // Process messages using OllamaParaphraseTask
-        var paraphraseTask = new OllamaParaphraseTask(_semaphore, _cts.Token);
+        var paraphraseTask = new OllamaParaphraseTask();
         await paraphraseTask.ProcessMessages(messageList, jsonDataFilename);
 
         stopwatch.Stop();
