@@ -32,6 +32,8 @@ public abstract class BaseProcess : MonoBehaviour
 
         Log.Message($"Process start info configured with arguments: {startInfo.Arguments}");
 
+        var stopwatch = Stopwatch.StartNew();
+
         try
         {
             using (var process = Process.Start(startInfo))
@@ -63,6 +65,11 @@ public abstract class BaseProcess : MonoBehaviour
         {
             Log.Error($"Exception occurred during command execution: {ex.Message}");
             throw;
+        }
+        finally
+        {
+            stopwatch.Stop();
+            Log.Message($"Command execution completed in {stopwatch.ElapsedMilliseconds} ms.");
         }
     }
 }

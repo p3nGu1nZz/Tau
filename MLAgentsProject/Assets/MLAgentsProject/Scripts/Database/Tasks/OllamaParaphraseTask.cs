@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
         int retryAmount = 5;
 
         Log.Message($"Starting to process {totalMessages} user contents from {jsonDataFilename}...");
+
+        var stopwatch = Stopwatch.StartNew();
 
         for (int i = 0; i < totalMessages; i++)
         {
@@ -49,6 +52,13 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
             }
         }
 
+        stopwatch.Stop();
+        double elapsedMinutes = stopwatch.Elapsed.TotalMinutes;
+        double paraphrasesPerMinute = totalGeneratedPhrases / elapsedMinutes;
+
+        Log.Message($"Processing completed in {stopwatch.ElapsedMilliseconds} ms.");
+        Log.Message($"Total paraphrases generated per minute: {paraphrasesPerMinute:F2}");
+
         lock (messageList.training_data)
         {
             messageList.training_data.AddRange(newMessagesList);
@@ -64,6 +74,7 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
 
     protected override async Task<string[]> Generate(string userContent, TimeSpan timeout)
     {
+        var stopwatch = Stopwatch.StartNew();
         try
         {
             using (var cts = new CancellationTokenSource(timeout))
@@ -83,6 +94,11 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask>
         {
             Log.Error($"Exception occurred during paraphrase task for user content '{userContent}': {ex.Message}");
             throw;
+        }
+        finally
+        {
+            stopwatch.Stop();
+            Log.Message($"Paraphrase task for user content '{userContent}' completed in {stopwatch.ElapsedMilliseconds} ms.");
         }
     }
 
