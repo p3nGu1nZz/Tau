@@ -1,0 +1,23 @@
+{
+    "version": "",
+    "model_name": "",
+    "organization": "",
+    "training_data": [
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the past tense of teach?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Taught"
+                }
+            ]
+        }
+    ],
+    "evaluation_data": []
+}
