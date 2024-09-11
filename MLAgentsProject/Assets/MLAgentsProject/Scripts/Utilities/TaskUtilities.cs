@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -16,13 +17,7 @@ public static class TaskUtilities
             Log.Message($"Attempt {attempt + 1} of {maxRetries} for user content: {userContent}");
             try
             {
-                using (var cts = new CancellationTokenSource(timeout))
-                {
-                    Log.Message($"Starting task for user content: {userContent}");
-                    string[] result = await generateFunc(timeout);
-                    Log.Message($"Task completed for user content: {userContent}");
-                    return result;
-                }
+                return await TryExecute(generateFunc, userContent, timeout);
             }
             catch (OperationCanceledException)
             {
@@ -46,6 +41,17 @@ public static class TaskUtilities
         }
 
         return new string[] { "Error: Unable to generate responses." };
+    }
+
+    private static async Task<string[]> TryExecute(Func<TimeSpan, Task<string[]>> generateFunc, string userContent, TimeSpan timeout)
+    {
+        using (var cts = new CancellationTokenSource(timeout))
+        {
+            Log.Message($"Starting task for user content: {userContent}");
+            string[] result = await generateFunc(timeout);
+            Log.Message($"Task completed for user content: {userContent}");
+            return result;
+        }
     }
 
     public static string GetUserContent(Message message)
@@ -85,5 +91,37 @@ public static class TaskUtilities
             SaveMessages(errorMessageListWrapper, jsonDataFilename, "_ophrase_error.json");
             Log.Message($"Total error messages generated: {totalErrorMessages}");
         }
+    }
+
+    public static void ValidateResponses(string[] responses, string userContent)
+    {
+        if (responses.Length == 0 || responses.Any(response => response.StartsWith("Error")))
+        {
+            throw new Exception($"Failed to generate valid responses for user content: {userContent}");
+        }
+    }
+
+    public static void AddNewMessages(Message message, string[] responses, List<Message> newMessagesList)
+    {
+        var newMessages = CreateNewMessages(message, responses);
+        lock (newMessagesList)
+        {
+            newMessagesList.AddRange(newMessages);
+        }
+    }
+
+    public static void AddErrorMessage(Message message, List<Message> errorMessageList, ConcurrentDictionary<string, int> counters)
+    {
+        lock (errorMessageList)
+        {
+            errorMessageList.Add(message);
+        }
+        counters.AddOrUpdate("totalErrorMessages", 1, (key, oldValue) => oldValue + 1);
+    }
+
+    public static void UpdateCounters(int generatedPhrases, int processedMessages, ConcurrentDictionary<string, int> counters)
+    {
+        counters.AddOrUpdate("totalProcessedMessages", processedMessages, (key, oldValue) => oldValue + processedMessages);
+        counters.AddOrUpdate("totalGeneratedPhrases", generatedPhrases, (key, oldValue) => oldValue + generatedPhrases);
     }
 }
