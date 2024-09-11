@@ -10,9 +10,12 @@ public abstract class BaseTask<T> where T : BaseTask<T>
 
     protected abstract Task<string[]> Generate(string userContent, TimeSpan timeout);
 
-    protected async Task<string[]> Execute(string userContent, TimeSpan timeout, int maxRetries = 1)
+    protected async Task<string[]> Execute(string userContent, TimeSpan timeout, int maxRetries = 1, int delay = 1000)
     {
         int attempt = 0;
+
+        await Task.Delay(delay);
+
         while (attempt < maxRetries)
         {
             Log.Message($"Attempt {attempt + 1} of {maxRetries} for user content: {userContent}");
@@ -43,9 +46,10 @@ public abstract class BaseTask<T> where T : BaseTask<T>
                 }
                 attempt++;
             }
+
+            await Task.Delay(delay);
         }
 
-        // Return an error response if all retries are exhausted
         return new string[] { "Error: Unable to generate responses." };
     }
 
