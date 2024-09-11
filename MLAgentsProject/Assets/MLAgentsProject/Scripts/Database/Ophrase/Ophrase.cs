@@ -1,27 +1,11 @@
 using System.Threading.Tasks;
 
-public class Ophrase : BaseProcess
+public class Ophrase : BaseProcess<Ophrase>
 {
     private static Ophrase _instance;
-    public static Ophrase Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = new Ophrase();
-            }
-            return _instance;
-        }
-    }
+    public static Ophrase Instance => _instance ??= new Ophrase();
 
-    protected override string GetBatchFileName()
-    {
-        return "ophrase.bat";
-    }
+    protected override string GetBatchFileName() => "ophrase.bat";
 
-    public async Task<string[]> Paraphrase(string inputString)
-    {
-        return await Execute(inputString);
-    }
+    public async Task<string[]> Paraphrase(string inputString) => await Execute(inputString);
 }
