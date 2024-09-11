@@ -10,7 +10,7 @@ public abstract class BaseTask<T> : ITask where T : BaseTask<T>
 {
     protected readonly ConcurrentDictionary<string, int> _counters = new ConcurrentDictionary<string, int>();
     protected CancellationTokenSource CancellationTokenSource = new CancellationTokenSource();
-    protected static readonly SemaphoreSlim Semaphore = new SemaphoreSlim(4);
+    protected static readonly SemaphoreSlim Semaphore = new SemaphoreSlim(2);
 
     public abstract Task Process(MessageList messageList, string jsonDataFilename);
     public abstract Task<string[]> Generate(string userContent, TimeSpan timeout);
