@@ -1,11 +1,14 @@
+using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using UnityEngine;
 
 public static class ProcessUtilities
 {
-    public static string BuildCommand(string batchFilePath, string inputString) =>
-        $"/c \"{batchFilePath} \"{inputString}\"\"";
+    public static string BuildCommand(string batchFilePath, string[] args)
+    {
+        string joinedArgs = string.Join("\" \"", args);
+        return $"/c \"{batchFilePath} \"{joinedArgs}\"\"";
+    }
 
     public static ProcessStartInfo CreateProcessStartInfo(string command) =>
         new ProcessStartInfo
@@ -18,9 +21,9 @@ public static class ProcessUtilities
             CreateNoWindow = true
         };
 
-    public static string[] ParseCommandResult(string result)
+    public static List<TResult> ParseResult<TResult>(string result)
     {
-        var commandResult = JsonUtility.FromJson<CommandResult>(result);
+        var commandResult = JsonUtility.FromJson<Result<TResult>>(result);
         return commandResult.responses;
     }
 }

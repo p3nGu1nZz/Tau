@@ -6,21 +6,23 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-public abstract class BaseTask<T> : ITask where T : BaseTask<T>
+public abstract class BaseTask<T, TResult> : ITask<TResult> where T : BaseTask<T, TResult>
 {
     protected readonly ConcurrentDictionary<string, int> _counters = new ConcurrentDictionary<string, int>();
     protected CancellationTokenSource CancellationTokenSource = new CancellationTokenSource();
     protected static readonly SemaphoreSlim Semaphore = new SemaphoreSlim(2);
 
     public abstract Task Process(MessageList messageList, string jsonDataFilename);
-    public abstract Task<string[]> Generate(string userContent, TimeSpan timeout);
+    public abstract Task<List<TResult>> Generate(string userContent, string agentContent, TimeSpan timeout);
 
-    public async Task<string[]> Execute(string userContent, TimeSpan timeout, int maxRetries = 1, int delay = 1000) =>
-        await TaskUtilities.ExecuteWithRetries(t => Generate(userContent, t), userContent, timeout, maxRetries, delay);
+    public async Task<List<TResult>> Execute(string userContent, string agentContent, TimeSpan timeout, int maxRetries = 1, int delay = 1000) =>
+        await TaskUtilities.Execute(t => Generate(userContent, agentContent, t), userContent, timeout, maxRetries, delay);
 
     public virtual string GetUserContent(Message message) => TaskUtilities.GetUserContent(message);
 
-    public virtual List<Message> CreateNewMessages(Message originalMessage, string[] responses) =>
+    public virtual string GetAgentContent(Message message) => TaskUtilities.GetAgentContent(message);
+
+    public virtual List<Message> CreateNewMessages(Message originalMessage, List<string> responses) =>
         TaskUtilities.CreateNewMessages(originalMessage, responses);
 
     public Message GetMessage(MessageList messageList, int index) => messageList.training_data[index];
@@ -72,23 +74,29 @@ public abstract class BaseTask<T> : ITask where T : BaseTask<T>
 
     public List<Task> CreateTasks(MessageList messageList, List<Message> newMessagesList, List<Message> errorMessageList, int totalMessages) =>
         Enumerable.Range(0, totalMessages)
-                  .Select(i => ProcessUserContent(GetUserContent(GetMessage(messageList, i)), GetMessage(messageList, i), newMessagesList, errorMessageList, i, totalMessages))
+                  .Select(i =>
+                  {
+                      var message = GetMessage(messageList, i);
+                      var userContent = GetUserContent(message);
+                      var agentContent = GetAgentContent(message);
+                      return ProcessUserContent(userContent, agentContent, message, newMessagesList, errorMessageList, i, totalMessages);
+                  })
                   .ToList();
 
-    public async Task ProcessUserContent(string userContent, Message message, List<Message> newMessagesList, List<Message> errorMessageList, int index, int totalMessages)
+    public async Task ProcessUserContent(string userContent, string agentContent, Message message, List<Message> newMessagesList, List<Message> errorMessageList, int index, int totalMessages)
     {
         await Semaphore.WaitAsync(CancellationTokenSource.Token);
         try
         {
             Log.Message($"Processing user content: {userContent} ({index + 1} of {totalMessages})");
 
-            var responses = await Execute(userContent, TimeSpan.FromSeconds(30), 10);
-            ValidateResponses(responses, userContent);
+            var responses = await Execute(userContent, agentContent, TimeSpan.FromSeconds(30), 10);
+            ValidateResponses(responses.Select(r => r.ToString()).ToList(), userContent);
 
-            AddNewMessages(message, responses, newMessagesList);
-            UpdateCounters(responses.Length, newMessagesList.Count);
+            AddNewMessages(message, responses.Select(r => r.ToString()).ToList(), newMessagesList);
+            UpdateCounters(responses.Count, newMessagesList.Count);
 
-            Log.Message($"Generated {responses.Length} responses for user content: {userContent}. Completed {index + 1} of {totalMessages} tasks.");
+            Log.Message($"Generated {responses.Count} responses for user content: {userContent}. Completed {index + 1} of {totalMessages} tasks.");
         }
         catch (Exception ex)
         {
@@ -101,9 +109,9 @@ public abstract class BaseTask<T> : ITask where T : BaseTask<T>
         }
     }
 
-    public void ValidateResponses(string[] responses, string userContent) => TaskUtilities.ValidateResponses(responses, userContent);
+    public void ValidateResponses(List<string> responses, string userContent) => TaskUtilities.ValidateResponses(responses, userContent);
 
-    public void AddNewMessages(Message message, string[] responses, List<Message> newMessagesList) =>
+    public void AddNewMessages(Message message, List<string> responses, List<Message> newMessagesList) =>
         TaskUtilities.AddNewMessages(message, responses, newMessagesList);
 
     public void AddErrorMessage(Message message, List<Message> errorMessageList) =>

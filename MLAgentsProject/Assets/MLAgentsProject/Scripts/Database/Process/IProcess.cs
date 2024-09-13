@@ -1,15 +1,16 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
-public interface IProcess
+public interface IProcess<TResult>
 {
     string BatchFilePath { get; }
-    Task<string[]> Execute(string inputString);
-    string BuildCommand(string inputString);
+    Task<List<TResult>> Execute(string[] args);
+    string BuildCommand(string[] args);
     ProcessStartInfo CreateProcessStartInfo(string command);
     Task<string> ReadProcessOutput(Process process);
     Task<string> ReadProcessError(Process process);
     void HandleProcessError(string error);
-    string[] ParseCommandResult(string result);
+    List<TResult> ParseCommandResult(string result);
     void LogExecutionTime(Stopwatch stopwatch);
 }

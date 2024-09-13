@@ -11,6 +11,7 @@ public static class DataCommand
         { "check", DataCheckAction.Execute },
         { "concat", DataConcatAction.Execute },
         { "ophrase", DataOphraseAction.Execute },
+        { "oproof", DataOproofAction.Execute },
         { "remove", DataRemoveAction.Execute },
         { "info", DataInfoAction.Execute },
         { "list", DataListAction.Execute },

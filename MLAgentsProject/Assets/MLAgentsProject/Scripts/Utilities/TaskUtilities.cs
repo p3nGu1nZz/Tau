@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 public static class TaskUtilities
 {
-    public static async Task<string[]> ExecuteWithRetries(Func<TimeSpan, Task<string[]>> generateFunc, string userContent, TimeSpan timeout, int maxRetries = 1, int delay = 1000)
+    public static async Task<List<TResult>> Execute<TResult>(Func<TimeSpan, Task<List<TResult>>> generateFunc, string userContent, TimeSpan timeout, int maxRetries = 1, int delay = 1000)
     {
         int attempt = 0;
         await Task.Delay(delay);
@@ -40,15 +40,15 @@ public static class TaskUtilities
             await Task.Delay(delay);
         }
 
-        return new string[] { "Error: Unable to generate responses." };
+        return new List<TResult> { default(TResult) };
     }
 
-    private static async Task<string[]> TryExecute(Func<TimeSpan, Task<string[]>> generateFunc, string userContent, TimeSpan timeout)
+    private static async Task<List<TResult>> TryExecute<TResult>(Func<TimeSpan, Task<List<TResult>>> generateFunc, string userContent, TimeSpan timeout)
     {
         using (var cts = new CancellationTokenSource(timeout))
         {
             Log.Message($"Starting task for user content: {userContent}");
-            string[] result = await generateFunc(timeout);
+            List<TResult> result = await generateFunc(timeout);
             Log.Message($"Task completed for user content: {userContent}");
             return result;
         }
@@ -59,7 +59,12 @@ public static class TaskUtilities
         return message.turns.First(turn => turn.role == "User").message;
     }
 
-    public static List<Message> CreateNewMessages(Message originalMessage, string[] responses)
+    public static string GetAgentContent(Message message)
+    {
+        return message.turns.Last(turn => turn.role == "Agent").message;
+    }
+
+    public static List<Message> CreateNewMessages(Message originalMessage, List<string> responses)
     {
         var agentResponse = originalMessage.turns.Last(turn => turn.role == "Agent").message;
 
@@ -93,15 +98,15 @@ public static class TaskUtilities
         }
     }
 
-    public static void ValidateResponses(string[] responses, string userContent)
+    public static void ValidateResponses(List<string> responses, string userContent)
     {
-        if (responses.Length == 0 || responses.Any(response => response.StartsWith("Error")))
+        if (responses.Count == 0 || responses.Any(response => response.StartsWith("Error")))
         {
             throw new Exception($"Failed to generate valid responses for user content: {userContent}");
         }
     }
 
-    public static void AddNewMessages(Message message, string[] responses, List<Message> newMessagesList)
+    public static void AddNewMessages(Message message, List<string> responses, List<Message> newMessagesList)
     {
         var newMessages = CreateNewMessages(message, responses);
         lock (newMessagesList)

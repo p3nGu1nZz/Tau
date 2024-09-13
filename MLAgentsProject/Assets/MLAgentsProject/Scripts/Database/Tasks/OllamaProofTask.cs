@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask, string>
+public class OllamaProofTask : BaseTask<OllamaProofTask, Response>
 {
-    public OllamaParaphraseTask() => Application.quitting += OnApplicationQuit;
+    public OllamaProofTask() => Application.quitting += OnApplicationQuit;
 
     private void OnApplicationQuit() => CancellationTokenSource.Cancel();
 
@@ -18,7 +17,7 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask, string>
         var newMessagesList = new List<Message>();
         var errorMessageList = new List<Message>();
         int totalMessages = messageList.training_data.Count;
-        Log.Message($"Starting to process {totalMessages} user contents from {jsonDataFilename}...");
+        Log.Message($"Starting to process {totalMessages} user and agent contents from {jsonDataFilename}...");
         var stopwatch = Stopwatch.StartNew();
         var tasks = CreateTasks(messageList, newMessagesList, errorMessageList, totalMessages);
         await HandleTasksCompletion(tasks);
@@ -26,33 +25,33 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask, string>
         LogProcessingCompletion(stopwatch, messageList, newMessagesList, jsonDataFilename, errorMessageList);
     }
 
-    public override async Task<List<string>> Generate(string userContent, string agentContent, TimeSpan timeout)
+    public override async Task<List<Response>> Generate(string userContent, string agentContent, TimeSpan timeout)
     {
         var stopwatch = Stopwatch.StartNew();
         try
         {
             using (var cts = new CancellationTokenSource(timeout))
             {
-                Log.Message($"Starting paraphrase task for user content: {userContent}");
-                List<string> result = await Ophrase.Instance.Paraphrase(userContent);
-                Log.Message($"Paraphrase task completed for user content: {userContent}");
-                return result.Select(StringUtilities.ScrubResponse).ToList();
+                Log.Message($"Starting proof task for user content: {userContent}");
+                List<Response> result = await Oproof.Instance.Proof(userContent, agentContent);
+                Log.Message($"Proof task completed for user content: {userContent}");
+                return result;
             }
         }
         catch (OperationCanceledException)
         {
-            Log.Message($"Paraphrase task for user content '{userContent}' timed out. Retrying...");
+            Log.Message($"Proof task for user content '{userContent}' timed out. Retrying...");
             throw;
         }
         catch (Exception ex)
         {
-            Log.Message($"Exception occurred during paraphrase task for user content '{userContent}': {ex.Message}. Retrying...");
+            Log.Message($"Exception occurred during proof task for user content '{userContent}': {ex.Message}. Retrying...");
             throw;
         }
         finally
         {
             stopwatch.Stop();
-            Log.Message($"Paraphrase task for user content '{userContent}' completed in {stopwatch.ElapsedMilliseconds} ms.");
+            Log.Message($"Proof task for user content '{userContent}' completed in {stopwatch.ElapsedMilliseconds} ms.");
         }
     }
 }

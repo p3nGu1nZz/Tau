@@ -2,9 +2,12 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseProcess<T> : IProcess where T : BaseProcess<T>
+public abstract class BaseProcess<T, TResponse> : IProcess<TResponse>
+    where T : BaseProcess<T, TResponse>
+    where TResponse : class
 {
     public string BatchFilePath { get; private set; }
 
@@ -15,12 +18,12 @@ public abstract class BaseProcess<T> : IProcess where T : BaseProcess<T>
 
     protected abstract string GetBatchFileName();
 
-    public async Task<string[]> Execute(string inputString)
+    public async Task<List<TResponse>> Execute(string[] args)
     {
         var stopwatch = Stopwatch.StartNew();
         try
         {
-            string command = BuildCommand(inputString);
+            string command = BuildCommand(args);
             Log.Message($"Starting command: '{command}'");
 
             var startInfo = CreateProcessStartInfo(command);
@@ -45,7 +48,7 @@ public abstract class BaseProcess<T> : IProcess where T : BaseProcess<T>
         }
     }
 
-    public string BuildCommand(string inputString) => ProcessUtilities.BuildCommand(BatchFilePath, inputString);
+    public string BuildCommand(string[] args) => ProcessUtilities.BuildCommand(BatchFilePath, args);
 
     public ProcessStartInfo CreateProcessStartInfo(string command) => ProcessUtilities.CreateProcessStartInfo(command);
 
@@ -61,7 +64,7 @@ public abstract class BaseProcess<T> : IProcess where T : BaseProcess<T>
             throw new Exception($"Process exception: {error}");
     }
 
-    public string[] ParseCommandResult(string result) => ProcessUtilities.ParseCommandResult(result);
+    public List<TResponse> ParseCommandResult(string result) => ProcessUtilities.ParseResult<TResponse>(result);
 
     public void LogExecutionTime(Stopwatch stopwatch)
     {
