@@ -72,41 +72,14 @@ public abstract class BaseTask<T, TResult> : ITask<TResult> where T : BaseTask<T
         SaveErrorMessages(errorMessageList, jsonDataFilename, _counters["totalErrorMessages"]);
     }
 
-    public List<Task> CreateTasks(MessageList messageList, List<Message> newMessagesList, List<Message> errorMessageList, int totalMessages) =>
-        Enumerable.Range(0, totalMessages)
-                  .Select(i =>
-                  {
-                      var message = GetMessage(messageList, i);
-                      var userContent = GetUserContent(message);
-                      var agentContent = GetAgentContent(message);
-                      return ProcessContent(userContent, agentContent, message, newMessagesList, errorMessageList, i, totalMessages);
-                  })
-                  .ToList();
-
-    public async Task ProcessContent(string userContent, string agentContent, Message message, List<Message> newMessagesList, List<Message> errorMessageList, int index, int totalMessages)
+    public virtual List<Task> CreateTasks(MessageList messageList, List<Message> newMessagesList, List<Message> errorMessageList, int totalMessages)
     {
-        await Semaphore.WaitAsync(CancellationTokenSource.Token);
-        try
-        {
-            Log.Message($"Processing user content: {userContent} ({index + 1} of {totalMessages})");
+        return new List<Task>();
+    }
 
-            var responses = await Execute(userContent, agentContent, TimeSpan.FromSeconds(30), 10);
-            ValidateResponses(responses.Select(r => r.ToString()).ToList(), userContent);
-
-            AddNewMessages(message, responses.Select(r => r.ToString()).ToList(), newMessagesList);
-            UpdateCounters(responses.Count, newMessagesList.Count);
-
-            Log.Message($"Generated {responses.Count} responses for user content: {userContent}. Completed {index + 1} of {totalMessages} tasks.");
-        }
-        catch (Exception ex)
-        {
-            Log.Message($"Error processing user content '{userContent}': {ex.Message}");
-            AddErrorMessage(message, errorMessageList);
-        }
-        finally
-        {
-            Semaphore.Release();
-        }
+    public virtual async Task ProcessContent(string userContent, string agentContent, Message message, List<Message> newMessagesList, List<Message> errorMessageList, int index, int totalMessages)
+    {
+        await Task.CompletedTask;
     }
 
     public void ValidateResponses(List<string> responses, string userContent) => TaskUtilities.ValidateResponses(responses, userContent);

@@ -55,4 +55,43 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask, string>
             Log.Message($"Paraphrase task for user content '{userContent}' completed in {stopwatch.ElapsedMilliseconds} ms.");
         }
     }
+    
+    public override List<Task> CreateTasks(MessageList messageList, List<Message> newMessagesList, List<Message> errorMessageList, int totalMessages)
+    {
+        return Enumerable.Range(0, totalMessages)
+                         .Select(i =>
+                         {
+                             var message = GetMessage(messageList, i);
+                             var userContent = GetUserContent(message);
+                             var agentContent = GetAgentContent(message);
+                             return ProcessContent(userContent, agentContent, message, newMessagesList, errorMessageList, i, totalMessages);
+                         })
+                         .ToList();
+    }
+
+    public override async Task ProcessContent(string userContent, string agentContent, Message message, List<Message> newMessagesList, List<Message> errorMessageList, int index, int totalMessages)
+    {
+        await Semaphore.WaitAsync(CancellationTokenSource.Token);
+        try
+        {
+            Log.Message($"Processing user content: {userContent} ({index + 1} of {totalMessages})");
+
+            var responses = await Execute(userContent, agentContent, TimeSpan.FromSeconds(30), 10);
+            ValidateResponses(responses.Select(r => r.ToString()).ToList(), userContent);
+
+            AddNewMessages(message, responses.Select(r => r.ToString()).ToList(), newMessagesList);
+            UpdateCounters(responses.Count, newMessagesList.Count);
+
+            Log.Message($"Generated {responses.Count} responses for user content: {userContent}. Completed {index + 1} of {totalMessages} tasks.");
+        }
+        catch (Exception ex)
+        {
+            Log.Message($"Error processing user content '{userContent}': {ex.Message}");
+            AddErrorMessage(message, errorMessageList);
+        }
+        finally
+        {
+            Semaphore.Release();
+        }
+    }
 }
