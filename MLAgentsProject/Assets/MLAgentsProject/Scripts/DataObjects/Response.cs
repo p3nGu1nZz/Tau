@@ -8,4 +8,5 @@ public class Response
     public bool is_valid;
     public string domain;
     public string context;
+    public string reason;
 }

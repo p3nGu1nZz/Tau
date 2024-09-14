@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -32,26 +33,38 @@ public class OllamaProofTask : BaseTask<OllamaProofTask, Response>
         {
             using (var cts = new CancellationTokenSource(timeout))
             {
-                Log.Message($"Starting proof task for user content: {userContent}");
+                Log.Message($"Generate: Starting proof task for user content: '{userContent}' with agent content: '{agentContent}'");
                 List<Response> result = await Oproof.Instance.Proof(userContent, agentContent);
-                Log.Message($"Proof task completed for user content: {userContent}");
+
+                // Log the result with all properties
+                foreach (var response in result)
+                {
+                    Log.Message($"Generate: Proof task completed with response: " +
+                                $"prompt='{response.prompt}', " +
+                                $"response='{response.response}', " +
+                                $"is_valid='{response.is_valid}', " +
+                                $"domain='{response.domain}', " +
+                                $"context='{response.context}', " +
+                                $"reason='{response.reason ?? string.Empty}'");
+                }
+
                 return result;
             }
         }
         catch (OperationCanceledException)
         {
-            Log.Message($"Proof task for user content '{userContent}' timed out. Retrying...");
+            Log.Message($"Generate: Proof task for user content '{userContent}' timed out. Retrying...");
             throw;
         }
         catch (Exception ex)
         {
-            Log.Message($"Exception occurred during proof task for user content '{userContent}': {ex.Message}. Retrying...");
+            Log.Message($"Generate: Exception occurred during proof task for user content '{userContent}': {ex.Message}. Retrying...");
             throw;
         }
         finally
         {
             stopwatch.Stop();
-            Log.Message($"Proof task for user content '{userContent}' completed in {stopwatch.ElapsedMilliseconds} ms.");
+            Log.Message($"Generate: Proof task for user content '{userContent}' completed in {stopwatch.ElapsedMilliseconds} ms.");
         }
     }
 }
