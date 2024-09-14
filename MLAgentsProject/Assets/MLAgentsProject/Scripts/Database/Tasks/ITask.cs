@@ -18,7 +18,7 @@ public interface ITask<TResult>
     Task HandleTasksCompletion(List<Task> tasks);
     void LogProcessingCompletion(Stopwatch stopwatch, MessageList messageList, List<Message> newMessagesList, string jsonDataFilename, List<Message> errorMessageList);
     List<Task> CreateTasks(MessageList messageList, List<Message> newMessagesList, List<Message> errorMessageList, int totalMessages);
-    Task ProcessUserContent(string userContent, string agentContent, Message message, List<Message> newMessagesList, List<Message> errorMessageList, int index, int totalMessages);
+    Task ProcessContent(string userContent, string agentContent, Message message, List<Message> newMessagesList, List<Message> errorMessageList, int index, int totalMessages);
     void ValidateResponses(List<string> responses, string userContent);
     void AddNewMessages(Message message, List<string> responses, List<Message> newMessagesList);
     void AddErrorMessage(Message message, List<Message> errorMessageList);

@@ -79,11 +79,11 @@ public abstract class BaseTask<T, TResult> : ITask<TResult> where T : BaseTask<T
                       var message = GetMessage(messageList, i);
                       var userContent = GetUserContent(message);
                       var agentContent = GetAgentContent(message);
-                      return ProcessUserContent(userContent, agentContent, message, newMessagesList, errorMessageList, i, totalMessages);
+                      return ProcessContent(userContent, agentContent, message, newMessagesList, errorMessageList, i, totalMessages);
                   })
                   .ToList();
 
-    public async Task ProcessUserContent(string userContent, string agentContent, Message message, List<Message> newMessagesList, List<Message> errorMessageList, int index, int totalMessages)
+    public async Task ProcessContent(string userContent, string agentContent, Message message, List<Message> newMessagesList, List<Message> errorMessageList, int index, int totalMessages)
     {
         await Semaphore.WaitAsync(CancellationTokenSource.Token);
         try
