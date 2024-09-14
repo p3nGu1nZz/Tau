@@ -2,35 +2,35 @@ using CommandTerminal;
 using System;
 using System.Diagnostics;
 
-public static class DataOphraseAction
+public static class DataOproofAction
 {
     public static async void Execute(CommandArg[] args)
     {
         if (args.Length < 1)
         {
-            Log.Error("Invalid command or insufficient arguments. Usage: data ophrase <jsonDataFilename>");
+            Log.Error("Invalid command or insufficient arguments. Usage: data oproof <jsonDataFilename>");
             return;
         }
 
-        string jsonDataFilename = args[0].String;
-        Log.Message($"Processing file: {jsonDataFilename}");
+        string filename = args[0].String;
+        Log.Message($"Processing file: {filename}");
 
         if (Terminal.IssuedError) return;
 
         Stopwatch stopwatch = Stopwatch.StartNew();
-        Log.Message($"Starting to process data from {jsonDataFilename}...");
+        Log.Message($"Starting to process data from {filename}...");
 
-        var messageList = DataLoader.Load(jsonDataFilename);
+        var messageList = DataLoader.Load(filename);
         if (messageList == null)
         {
-            Log.Error($"Failed to load data from '{jsonDataFilename}'.");
+            Log.Error($"Failed to load data from '{filename}'.");
             return;
         }
 
-        var task = new OllamaParaphraseTask();
+        var task = new OllamaProofTask();
         try
         {
-            await task.Process(messageList, jsonDataFilename);
+            await task.Process(messageList, filename);
         }
         catch (Exception ex)
         {

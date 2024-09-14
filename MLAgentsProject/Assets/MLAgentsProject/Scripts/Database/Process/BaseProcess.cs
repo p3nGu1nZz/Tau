@@ -2,9 +2,12 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseProcess
+public abstract class BaseProcess<T, TResponse> : IProcess<TResponse>
+    where T : BaseProcess<T, TResponse>
+    where TResponse : class
 {
     public string BatchFilePath { get; private set; }
 
@@ -15,26 +18,22 @@ public abstract class BaseProcess
 
     protected abstract string GetBatchFileName();
 
-    public async Task<string[]> Execute(string inputString)
+    public async Task<List<TResponse>> Execute(string[] args)
     {
         var stopwatch = Stopwatch.StartNew();
-
         try
         {
-            string command = BuildCommand(inputString);
+            string command = BuildCommand(args);
             Log.Message($"Starting command: '{command}'");
 
             var startInfo = CreateProcessStartInfo(command);
 
-            using (var process = Process.Start(startInfo))
+            using (var process = StartProcess(startInfo))
             {
-                string result = await process.StandardOutput.ReadToEndAsync();
-                string error = await process.StandardError.ReadToEndAsync();
+                string result = await ReadProcessOutput(process);
+                string error = await ReadProcessError(process);
 
-                if (!string.IsNullOrEmpty(error))
-                {
-                    throw new Exception($"Process exception: {error}");
-                }
+                HandleProcessError(error);
 
                 return ParseCommandResult(result);
             }
@@ -45,32 +44,31 @@ public abstract class BaseProcess
         }
         finally
         {
-            stopwatch.Stop();
-            Log.Message($"Command execution completed in {stopwatch.ElapsedMilliseconds / 1000.0:F2} s.");
+            LogExecutionTime(stopwatch);
         }
     }
 
-    private string BuildCommand(string inputString)
+    public string BuildCommand(string[] args) => ProcessUtilities.BuildCommand(BatchFilePath, args);
+
+    public ProcessStartInfo CreateProcessStartInfo(string command) => ProcessUtilities.CreateProcessStartInfo(command);
+
+    public Process StartProcess(ProcessStartInfo startInfo) => Process.Start(startInfo);
+
+    public async Task<string> ReadProcessOutput(Process process) => await process.StandardOutput.ReadToEndAsync();
+
+    public async Task<string> ReadProcessError(Process process) => await process.StandardError.ReadToEndAsync();
+
+    public void HandleProcessError(string error)
     {
-        return $"/c \"{BatchFilePath} \"{inputString}\"\"";
+        if (!string.IsNullOrEmpty(error))
+            throw new Exception($"Process exception: {error}");
     }
 
-    private ProcessStartInfo CreateProcessStartInfo(string command)
-    {
-        return new ProcessStartInfo
-        {
-            FileName = "cmd.exe",
-            Arguments = command,
-            UseShellExecute = false,
-            RedirectStandardOutput = true,
-            RedirectStandardError = true,
-            CreateNoWindow = true
-        };
-    }
+    public List<TResponse> ParseCommandResult(string result) => ProcessUtilities.ParseResult<TResponse>(result);
 
-    private string[] ParseCommandResult(string result)
+    public void LogExecutionTime(Stopwatch stopwatch)
     {
-        var commandResult = JsonUtility.FromJson<CommandResult>(result);
-        return commandResult.responses;
+        stopwatch.Stop();
+        Log.Message($"Command execution completed in {stopwatch.ElapsedMilliseconds / 1000.0:F2} s.");
     }
 }

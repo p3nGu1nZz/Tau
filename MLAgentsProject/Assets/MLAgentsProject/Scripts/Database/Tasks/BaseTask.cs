@@ -1,73 +1,97 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-public abstract class BaseTask<T> where T : BaseTask<T>
+public abstract class BaseTask<T, TResult> : ITask<TResult> where T : BaseTask<T, TResult>
 {
+    protected readonly ConcurrentDictionary<string, int> _counters = new ConcurrentDictionary<string, int>();
+    protected CancellationTokenSource CancellationTokenSource = new CancellationTokenSource();
+    protected static readonly SemaphoreSlim Semaphore = new SemaphoreSlim(8);
+
     public abstract Task Process(MessageList messageList, string jsonDataFilename);
+    public abstract Task<List<TResult>> Generate(string userContent, string agentContent, TimeSpan timeout);
 
-    protected abstract Task<string[]> Generate(string userContent, TimeSpan timeout);
+    public async Task<List<TResult>> Execute(string userContent, string agentContent, TimeSpan timeout, int maxRetries = 1, int delay = 1000) =>
+        await TaskUtilities.Execute(t => Generate(userContent, agentContent, t), userContent, timeout, maxRetries, delay);
 
-    protected async Task<string[]> Execute(string userContent, TimeSpan timeout, int maxRetries = 1)
+    public virtual string GetUserContent(Message message) => TaskUtilities.GetUserContent(message);
+
+    public virtual string GetAgentContent(Message message) => TaskUtilities.GetAgentContent(message);
+
+    public virtual List<Message> CreateNewMessages(Message originalMessage, List<string> responses) =>
+        TaskUtilities.CreateNewMessages(originalMessage, responses);
+
+    public Message GetMessage(MessageList messageList, int index) => messageList.training_data[index];
+
+    public void SaveMessages(MessageList messageList, string jsonDataFilename, string suffix) =>
+        TaskUtilities.SaveMessages(messageList, jsonDataFilename, suffix);
+
+    public void SaveErrorMessages(List<Message> errorMessageList, string jsonDataFilename, int totalErrorMessages, string suffix) =>
+        TaskUtilities.SaveErrorMessages(errorMessageList, jsonDataFilename, totalErrorMessages, suffix);
+
+    public void InitializeCounters()
     {
-        int attempt = 0;
-        while (attempt < maxRetries)
+        _counters["totalProcessedMessages"] = 0;
+        _counters["totalGeneratedPhrases"] = 0;
+        _counters["totalErrorMessages"] = 0;
+    }
+
+    public async Task HandleTasksCompletion(List<Task> tasks)
+    {
+        try
         {
-            Log.Message($"Attempt {attempt + 1} of {maxRetries} for user content: {userContent}");
-            try
-            {
-                using (var cts = new CancellationTokenSource(timeout))
-                {
-                    Log.Message($"Starting task for user content: {userContent}");
-                    string[] result = await Generate(userContent, timeout);
-                    Log.Message($"Task completed for user content: {userContent}");
-                    return result;
-                }
-            }
-            catch (OperationCanceledException)
-            {
-                Log.Message($"Task for user content '{userContent}' timed out. Retrying... Attempt {attempt + 1} of {maxRetries}");
-                attempt++;
-            }
-            catch (Exception ex)
-            {
-                if (attempt + 1 == maxRetries)
-                {
-                    throw new Exception($"Max retries ({attempt + 1}) reached for user content '{userContent}': {ex.Message}");
-                }
-                else
-                {
-                    Log.Message($"Attempt {attempt + 1} failed for user content '{userContent}': {ex.Message}. Retrying...");
-                }
-                attempt++;
-            }
+            await Task.WhenAll(tasks);
+        }
+        catch (Exception ex)
+        {
+            Log.Error($"Processing failed: {ex.Message}");
+            CancellationTokenSource.Cancel();
+            throw;
+        }
+    }
+
+    public void LogProcessingCompletion(Stopwatch stopwatch, MessageList messageList, List<Message> newMessagesList, string jsonDataFilename, List<Message> errorMessageList, string suffix)
+    {
+        double elapsedMinutes = stopwatch.Elapsed.TotalMinutes;
+        double paraphrasesPerMinute = _counters["totalGeneratedPhrases"] / elapsedMinutes;
+
+        Log.Message($"Processing completed in {stopwatch.ElapsedMilliseconds} ms. Total paraphrases generated per minute: {paraphrasesPerMinute:F2}");
+
+        lock (messageList.training_data)
+        {
+            messageList.training_data.AddRange(newMessagesList);
         }
 
-        // Return an error response if all retries are exhausted
-        return new string[] { "Error: Unable to generate responses." };
+        Log.Message($"All messages processed successfully. Total processed messages generated: {_counters["totalProcessedMessages"]}. Total phrases generated: {_counters["totalGeneratedPhrases"]}");
+
+        SaveMessages(messageList, jsonDataFilename, suffix);
+        SaveErrorMessages(errorMessageList, jsonDataFilename, _counters["totalErrorMessages"], suffix.Replace(".json","") + "_error.json");
     }
 
-    protected virtual string GetUserContent(Message message)
+    public virtual List<Task> CreateTasks(MessageList messageList, List<Message> newMessagesList, List<Message> errorMessageList, int totalMessages)
     {
-        return message.turns.First(turn => turn.role == "User").message;
+        return new List<Task>();
     }
 
-    protected virtual List<Message> CreateNewMessages(Message originalMessage, string[] responses)
+    public virtual async Task ProcessContent(string userContent, string agentContent, Message message, List<Message> newMessagesList, List<Message> errorMessageList, int index, int totalMessages)
     {
-        var agentResponse = originalMessage.turns.Last(turn => turn.role == "Agent").message;
-
-        return responses.Select(response => new Message
-        {
-            domain = originalMessage.domain,
-            context = originalMessage.context,
-            system = originalMessage.system,
-            turns = new List<Turn>
-            {
-                new() { role = "User", message = response },
-                new() { role = "Agent", message = agentResponse }
-            }
-        }).ToList();
+        await Task.CompletedTask;
     }
+
+    public void ValidateResponses(List<string> responses, string userContent) => TaskUtilities.ValidateResponses(responses, userContent);
+
+    public void AddNewMessages(Message message, List<string> responses, List<Message> newMessagesList) =>
+        TaskUtilities.AddNewMessages(message, responses, newMessagesList);
+
+    public void AddErrorMessage(Message message, List<Message> errorMessageList) =>
+        TaskUtilities.AddErrorMessage(message, errorMessageList, _counters);
+
+    public void UpdateCounters(int generatedPhrases, int processedMessages) =>
+        TaskUtilities.UpdateCounters(generatedPhrases, processedMessages, _counters);
+
+    public virtual void RemoveMessages(MessageList messageList, List<Message> responses) { }
 }
