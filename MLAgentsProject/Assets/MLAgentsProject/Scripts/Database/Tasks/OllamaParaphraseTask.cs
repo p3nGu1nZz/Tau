@@ -55,7 +55,7 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask, string>
             Log.Message($"Paraphrase task for user content '{userContent}' completed in {stopwatch.ElapsedMilliseconds} ms.");
         }
     }
-    
+
     public override List<Task> CreateTasks(MessageList messageList, List<Message> newMessagesList, List<Message> errorMessageList, int totalMessages)
     {
         return Enumerable.Range(0, totalMessages)

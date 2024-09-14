@@ -14,7 +14,7 @@ public interface ITask<TResult>
     List<Message> CreateNewMessages(Message originalMessage, List<string> responses);
     Message GetMessage(MessageList messageList, int index);
     void SaveMessages(MessageList messageList, string jsonDataFilename, string suffix);
-    void SaveErrorMessages(List<Message> errorMessageList, string jsonDataFilename, int totalErrorMessages);
+    void SaveErrorMessages(List<Message> errorMessageList, string jsonDataFilename, int totalErrorMessages, string suffix);
     Task HandleTasksCompletion(List<Task> tasks);
     void LogProcessingCompletion(Stopwatch stopwatch, MessageList messageList, List<Message> newMessagesList, string jsonDataFilename, List<Message> errorMessageList, string suffix);
     List<Task> CreateTasks(MessageList messageList, List<Message> newMessagesList, List<Message> errorMessageList, int totalMessages);
@@ -23,4 +23,5 @@ public interface ITask<TResult>
     void AddNewMessages(Message message, List<string> responses, List<Message> newMessagesList);
     void AddErrorMessage(Message message, List<Message> errorMessageList);
     void UpdateCounters(int generatedPhrases, int processedMessages);
+    void RemoveMessages(MessageList messageList, List<Message> responses);
 }

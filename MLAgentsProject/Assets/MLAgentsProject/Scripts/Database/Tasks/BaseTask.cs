@@ -30,8 +30,8 @@ public abstract class BaseTask<T, TResult> : ITask<TResult> where T : BaseTask<T
     public void SaveMessages(MessageList messageList, string jsonDataFilename, string suffix) =>
         TaskUtilities.SaveMessages(messageList, jsonDataFilename, suffix);
 
-    public void SaveErrorMessages(List<Message> errorMessageList, string jsonDataFilename, int totalErrorMessages) =>
-        TaskUtilities.SaveErrorMessages(errorMessageList, jsonDataFilename, totalErrorMessages);
+    public void SaveErrorMessages(List<Message> errorMessageList, string jsonDataFilename, int totalErrorMessages, string suffix) =>
+        TaskUtilities.SaveErrorMessages(errorMessageList, jsonDataFilename, totalErrorMessages, suffix);
 
     public void InitializeCounters()
     {
@@ -69,7 +69,7 @@ public abstract class BaseTask<T, TResult> : ITask<TResult> where T : BaseTask<T
         Log.Message($"All messages processed successfully. Total processed messages generated: {_counters["totalProcessedMessages"]}. Total phrases generated: {_counters["totalGeneratedPhrases"]}");
 
         SaveMessages(messageList, jsonDataFilename, suffix);
-        SaveErrorMessages(errorMessageList, jsonDataFilename, _counters["totalErrorMessages"]);
+        SaveErrorMessages(errorMessageList, jsonDataFilename, _counters["totalErrorMessages"], suffix.Replace(".json","") + "_error.json");
     }
 
     public virtual List<Task> CreateTasks(MessageList messageList, List<Message> newMessagesList, List<Message> errorMessageList, int totalMessages)
@@ -92,4 +92,6 @@ public abstract class BaseTask<T, TResult> : ITask<TResult> where T : BaseTask<T
 
     public void UpdateCounters(int generatedPhrases, int processedMessages) =>
         TaskUtilities.UpdateCounters(generatedPhrases, processedMessages, _counters);
+
+    public virtual void RemoveMessages(MessageList messageList, List<Message> responses) { }
 }

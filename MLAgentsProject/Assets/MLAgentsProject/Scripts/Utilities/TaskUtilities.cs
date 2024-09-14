@@ -88,12 +88,12 @@ public static class TaskUtilities
         Log.Message($"Messages saved to {outputFilename}");
     }
 
-    public static void SaveErrorMessages(List<Message> errorMessageList, string jsonDataFilename, int totalErrorMessages)
+    public static void SaveErrorMessages(List<Message> errorMessageList, string jsonDataFilename, int totalErrorMessages, string suffix)
     {
         if (errorMessageList.Count > 0)
         {
             var errorMessageListWrapper = new MessageList { training_data = errorMessageList };
-            SaveMessages(errorMessageListWrapper, jsonDataFilename, "_ophrase_error.json");
+            SaveMessages(errorMessageListWrapper, jsonDataFilename, suffix);
             Log.Message($"Total error messages generated: {totalErrorMessages}");
         }
     }

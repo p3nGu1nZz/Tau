@@ -17,6 +17,9 @@ public class OllamaProofTask : BaseTask<OllamaProofTask, Response>
         var stopwatch = Stopwatch.StartNew();
         var tasks = CreateTasks(messageList, newMessagesList, errorMessageList, totalMessages);
         await HandleTasksCompletion(tasks);
+
+        RemoveMessages(messageList, errorMessageList);
+
         stopwatch.Stop();
         LogProcessingCompletion(stopwatch, messageList, newMessagesList, jsonDataFilename, errorMessageList, "_oproof.json");
     }
@@ -77,7 +80,7 @@ public class OllamaProofTask : BaseTask<OllamaProofTask, Response>
                          .ToList();
     }
 
-    public override async Task ProcessContent(string userContent, string agentContent, Message message, List<Message> newMessagesList, List<Message> errorMessageList, int index, int totalMessages)
+    public override async Task ProcessContent(string userContent, string agentContent, Message message, List<Message> removeMessagesList, List<Message> errorMessageList, int index, int totalMessages)
     {
         await Semaphore.WaitAsync(CancellationTokenSource.Token);
         try
@@ -87,13 +90,19 @@ public class OllamaProofTask : BaseTask<OllamaProofTask, Response>
             var responses = await Execute(userContent, agentContent, TimeSpan.FromSeconds(30), 10);
             ValidateResponses(responses.Select(r => r.ToString()).ToList(), userContent);
 
-            // New log line specific to proof task
             Log.Message("OllamaProofTask: Validation completed for proof task.");
 
-            AddNewMessages(message, responses.Select(r => r.ToString()).ToList(), newMessagesList);
-            UpdateCounters(responses.Count, newMessagesList.Count);
+            foreach (var response in responses)
+            {
+                if (!response.is_valid)
+                {
+                    AddErrorMessage(message, errorMessageList);
+                }
+            }
 
-            Log.Message($"OllamaProofTask: Generated {responses.Count} responses for user content: {userContent}. Completed {index + 1} of {totalMessages} tasks.");
+            UpdateProofCounters(responses.Count(r => r.is_valid), errorMessageList.Count);
+
+            Log.Message($"OllamaProofTask: Processed {responses.Count(r => r.is_valid)} valid responses for user content: {userContent}. Completed {index + 1} of {totalMessages} tasks.");
         }
         catch (Exception ex)
         {
@@ -104,5 +113,19 @@ public class OllamaProofTask : BaseTask<OllamaProofTask, Response>
         {
             Semaphore.Release();
         }
+    }
+
+    public override void RemoveMessages(MessageList messageList, List<Message> removeMessagesList)
+    {
+        foreach (var message in removeMessagesList)
+        {
+            messageList.training_data.Remove(message);
+        }
+    }
+
+    private void UpdateProofCounters(int validResponses, int errorMessages)
+    {
+        _counters.AddOrUpdate("totalProcessedMessages", validResponses, (key, oldValue) => oldValue + validResponses);
+        _counters.AddOrUpdate("totalErrorMessages", errorMessages, (key, oldValue) => oldValue + errorMessages);
     }
 }
