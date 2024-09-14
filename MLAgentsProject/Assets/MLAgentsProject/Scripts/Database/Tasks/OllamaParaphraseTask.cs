@@ -23,7 +23,7 @@ public class OllamaParaphraseTask : BaseTask<OllamaParaphraseTask, string>
         var tasks = CreateTasks(messageList, newMessagesList, errorMessageList, totalMessages);
         await HandleTasksCompletion(tasks);
         stopwatch.Stop();
-        LogProcessingCompletion(stopwatch, messageList, newMessagesList, jsonDataFilename, errorMessageList);
+        LogProcessingCompletion(stopwatch, messageList, newMessagesList, jsonDataFilename, errorMessageList, "_ophrase.json");
     }
 
     public override async Task<List<string>> Generate(string userContent, string agentContent, TimeSpan timeout)

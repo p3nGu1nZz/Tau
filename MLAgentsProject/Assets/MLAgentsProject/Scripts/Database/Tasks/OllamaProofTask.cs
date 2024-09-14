@@ -23,7 +23,7 @@ public class OllamaProofTask : BaseTask<OllamaProofTask, Response>
         var tasks = CreateTasks(messageList, newMessagesList, errorMessageList, totalMessages);
         await HandleTasksCompletion(tasks);
         stopwatch.Stop();
-        LogProcessingCompletion(stopwatch, messageList, newMessagesList, jsonDataFilename, errorMessageList);
+        LogProcessingCompletion(stopwatch, messageList, newMessagesList, jsonDataFilename, errorMessageList, "_oproof.json");
     }
 
     public override async Task<List<Response>> Generate(string userContent, string agentContent, TimeSpan timeout)

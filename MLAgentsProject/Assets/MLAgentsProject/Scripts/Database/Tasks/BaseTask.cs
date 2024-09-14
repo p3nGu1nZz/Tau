@@ -54,7 +54,7 @@ public abstract class BaseTask<T, TResult> : ITask<TResult> where T : BaseTask<T
         }
     }
 
-    public void LogProcessingCompletion(Stopwatch stopwatch, MessageList messageList, List<Message> newMessagesList, string jsonDataFilename, List<Message> errorMessageList)
+    public void LogProcessingCompletion(Stopwatch stopwatch, MessageList messageList, List<Message> newMessagesList, string jsonDataFilename, List<Message> errorMessageList, string suffix)
     {
         double elapsedMinutes = stopwatch.Elapsed.TotalMinutes;
         double paraphrasesPerMinute = _counters["totalGeneratedPhrases"] / elapsedMinutes;
@@ -68,7 +68,7 @@ public abstract class BaseTask<T, TResult> : ITask<TResult> where T : BaseTask<T
 
         Log.Message($"All messages processed successfully. Total processed messages generated: {_counters["totalProcessedMessages"]}. Total phrases generated: {_counters["totalGeneratedPhrases"]}");
 
-        SaveMessages(messageList, jsonDataFilename, "_ophrase.json");
+        SaveMessages(messageList, jsonDataFilename, suffix);
         SaveErrorMessages(errorMessageList, jsonDataFilename, _counters["totalErrorMessages"]);
     }
 
