@@ -36,6 +36,9 @@ public class TableBuilder
             _tableManager.CreateTable(tableName);
         }
 
+        // Reset embeddings before starting the task
+        _embeddingStorage.ResetEmbeddings();
+
         Stopwatch stopwatch = Stopwatch.StartNew();
 
         // Include reserved words in the total token count only if it's the vocabulary table
@@ -52,6 +55,13 @@ public class TableBuilder
             {
                 type = EmbeddingUtilities.DetermineEmbeddingType(token);
             }
+
+            if (_embeddingStorage.DoesTokenExist(token))
+            {
+                Log.Message($"Duplicate token '{token}' found, skipping.");
+                continue;
+            }
+
             await semaphore.WaitAsync(_cts.Token);
 
             tasks.Add(Task.Run(async () =>
