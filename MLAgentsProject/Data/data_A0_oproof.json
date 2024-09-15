@@ -2315,21 +2315,6 @@
         },
         {
             "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How many times will nine fit into eighty-one?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "9"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
             "turns": [
@@ -4450,7 +4435,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "Can you spell division into four groups of 7? "
+                    "message": "Can you spell division into four groups of 7?"
                 },
                 {
                     "role": "Agent",
@@ -5125,7 +5110,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "How do you spell 'shorter'? "
+                    "message": "How do you spell 'shorter'?"
                 },
                 {
                     "role": "Agent",
@@ -9955,7 +9940,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "What's the phrase for 'adding eighteen and five'? "
+                    "message": "What's the phrase for 'adding eighteen and five'?"
                 },
                 {
                     "role": "Agent",
@@ -17089,21 +17074,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How does one spell out ten divided by two?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "5"
-                }
-            ]
-        },
-        {
             "domain": "Basic Grammar",
             "context": "Pluralization",
             "system": "Grammar AI",
@@ -17584,21 +17554,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How much does 22 plus 7 equal?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "29"
-                }
-            ]
-        },
-        {
             "domain": "Spelling",
             "context": "Incorrect Spelling",
             "system": "Spelling Checker AI",
@@ -17650,7 +17605,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "What is another spelling for 'happi'? "
+                    "message": "What is another spelling for 'happi'?"
                 },
                 {
                     "role": "Agent",
@@ -18040,7 +17995,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "What is the spelling of 'foots'? "
+                    "message": "What is the spelling of 'foots'?"
                 },
                 {
                     "role": "Agent",
@@ -18575,21 +18530,6 @@
         },
         {
             "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What's another term for beauty?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Beautiful"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
             "context": "Verb Forms",
             "system": "Grammar Helper AI",
             "turns": [
@@ -18865,7 +18805,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "Is it more like 'undoubtedly'? "
+                    "message": "Is it more like 'undoubtedly'?"
                 },
                 {
                     "role": "Agent",
@@ -19600,7 +19540,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "How does one spell 'receiv'? "
+                    "message": "How does one spell 'receiv'?"
                 },
                 {
                     "role": "Agent",
@@ -20734,21 +20674,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How much does 2 equal when added to 8?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "10"
-                }
-            ]
-        },
-        {
             "domain": "Spelling",
             "context": "Correct Spelling",
             "system": "Spelling Checker AI",
@@ -21775,7 +21700,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "What's the spelling of 'rune'? "
+                    "message": "What's the spelling of 'rune'?"
                 },
                 {
                     "role": "Agent",
@@ -22780,7 +22705,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "Does anyone know how to spell 'acquaintnce' correctly? "
+                    "message": "Does anyone know how to spell 'acquaintnce' correctly?"
                 },
                 {
                     "role": "Agent",
@@ -27199,21 +27124,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Multiplication",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Can someone explain how to spell the product of 9 and 2?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "18"
-                }
-            ]
-        },
-        {
             "domain": "Basic Grammar",
             "context": "Verb Forms",
             "system": "Grammar Helper AI",
@@ -27400,7 +27310,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "What is the spelling of 'happiness'? "
+                    "message": "What is the spelling of 'happiness'?"
                 },
                 {
                     "role": "Agent",
@@ -28755,21 +28665,6 @@
                 {
                     "role": "Agent",
                     "message": "Drank"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How would the result change if you subtracted 7 from 13?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Six"
                 }
             ]
         },
