@@ -8,7 +8,7 @@ using UnityEngine;
 public static class DataLoader
 {
     private const string Version = "0.1.0";
-    private const string ModelName = "Tau-LLM";
+    private const string ModelName = "Tau";
     private const string Organization = "Tau";
 
     public static async Task LoadData(MessageList messageList)
