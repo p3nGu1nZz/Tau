@@ -1,0 +1,653 @@
+{
+    "version": "",
+    "model_name": "",
+    "organization": "",
+    "training_data": [
+        {
+            "domain": "Spelling",
+            "context": "Incorrect Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is 'reccomend' spelled correctly?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "No"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Incorrect Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is 'recieiv' even close?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "No"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What's the difference between 13 and 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Six"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Incorrect Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is 'seperate' spelled seperate?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "No"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Incorrect Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is 'seperate' spelled separate?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "No"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Incorrect Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is it supposed to be 'seperete'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "No"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Incorrect Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "How do you spell 'separate', is it seperate?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "No"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the multitude of leaves?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Leaves"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What's the quotient when you divide 24 by six?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "4"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the collective noun for geese?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Geese"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What word encompasses multiple fish?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Fish"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What's the collective noun for several knives?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Knives"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Arithmetic AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "How do you spell 'four multiplied by four'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "16"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "How do you refer to multiple dogs at once?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Dogs"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Correct Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "How can we rewrite the word 'happening'"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Yes"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Could the word for attractiveness be called elegance?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Beautiful"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "How much does six go into three times?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Eighteen"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "How many groups can you make from dividing 21 by 7?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Three"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "How much smaller is 20 than 8?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "12"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is the adjective form of 'grace' spelled 'gracieus'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Graceful"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Can you calculate twelve plus five?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "17"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What was the last thing you saw?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Saw"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "When had he consumed?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Drank"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is it possible to be in a blissful mood?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Joyful"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Correct Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "How do you spell 'rhy-thm'"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Yes"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What would you say if someone's mood was excellent?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Happily"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Arithmetic AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "How many groups of four are in twenty?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "5"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Correct Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Isn't it propose?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Yes"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Mice, what's the correct term for more than one mouse?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Mice"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Can you find out what number 90 divided by 10 equals?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "9"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Did they mean to say 'gone'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Went"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is it the result of multiplying six squared?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Thirty-two"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What would you call something that poses a threat?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Dangerous"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "How many times does 7 fit into 28?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Four"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is it spelled like 'sin'"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Sang"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Incorrect Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Did you mean 'happened'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "No"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is 20 split into four?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "5"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What's twenty divided by four?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "5"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Incorrect Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is it more like 'undoubtedly'? "
+                },
+                {
+                    "role": "Agent",
+                    "message": "No"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Can you figure out the sum of seven plus cyve?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "12"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What tense does 'I looked' use?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Saw"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Correct Spelling",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Isn't 'accessibility' another way to say it?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Yes"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Does it add up to eleven times one?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "9"
+                }
+            ]
+        }
+    ],
+    "evaluation_data": []
+}
