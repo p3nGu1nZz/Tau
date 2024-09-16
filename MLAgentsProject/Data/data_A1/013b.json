@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'acquire' or 'aquire'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Acquire"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'calendar' or 'calender'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Calendar"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'recommend' or 'reccomend'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Recommend"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'believe' or 'beleive'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Believe"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'friend' or 'freind'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Friend"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'beautiful' or 'beautifull'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Beautiful"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'necessary' or 'neccessary'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Necessary"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'receive' or 'recieve'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Receive"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'embarrass' or 'embarass'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Embarrass"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'maintenance' or 'maintainance'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Maintenance"
+        }
+      ]
+    }
+  ]
+}

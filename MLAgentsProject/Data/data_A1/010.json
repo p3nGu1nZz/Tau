@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'vinculum' or 'vinculem'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Vinculum"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'monomial' or 'monomiel'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Monomial"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Identify the correct spelling: 'apothem' or 'apothum'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Apothem"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Select the correct spelling: 'abscissa' or 'abscisa'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Abscissa"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which spelling is correct: 'lemma' or 'lema'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Lemma"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'oblate' or 'oblat'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Oblate"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Identify the correct spelling: 'spheroid' or 'spheroide'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Spheroid"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Select the correct spelling: 'googolplex' or 'googolplax'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Googolplex"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which spelling is correct: 'ordinate' or 'ordinat'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Ordinate"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'camembert' or 'camambert'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Camembert"
+        }
+      ]
+    }
+  ]
+}

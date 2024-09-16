@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Logic Puzzle",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a train travels 120 miles in 2 hours, how far does it travel in 5 hours?"
+        },
+        {
+          "role": "Agent",
+          "message": "300"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a meeting starts at 9 AM and lasts for 3 hours and 45 minutes, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "12:45"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Distance Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you walk 6 miles north and then 8 miles east, how far are you from your starting point?"
+        },
+        {
+          "role": "Agent",
+          "message": "10"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Work Rate",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If it takes 7 hours to build a fence, how long will it take to build 3 fences?"
+        },
+        {
+          "role": "Agent",
+          "message": "21"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Speed Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a car travels 240 miles in 4 hours, what is its average speed?"
+        },
+        {
+          "role": "Agent",
+          "message": "60"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Volume Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a tank holds 800 gallons of water and is filled at a rate of 40 gallons per hour, how long will it take to fill the tank?"
+        },
+        {
+          "role": "Agent",
+          "message": "20"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Area Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a rectangle has a length of 12 meters and a width of 4 meters, what is its area?"
+        },
+        {
+          "role": "Agent",
+          "message": "48"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Proportion Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If 5 books cost $25, how much do 15 books cost?"
+        },
+        {
+          "role": "Agent",
+          "message": "75"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Fraction Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you have 2/3 of a pie and eat 1/4 of it, how much pie do you have left?"
+        },
+        {
+          "role": "Agent",
+          "message": "1/2"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Percentage Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a jacket costs $80 and is on sale for 15% off, what is the sale price?"
+        },
+        {
+          "role": "Agent",
+          "message": "68"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Logic Puzzle",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a plane flies 600 miles in 3 hours, how far does it fly in 7 hours?"
+        },
+        {
+          "role": "Agent",
+          "message": "1400"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a workshop starts at 10 AM and lasts for 5 hours, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "3"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Distance Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you drive 9 miles south and then 12 miles west, how far are you from your starting point?"
+        },
+        {
+          "role": "Agent",
+          "message": "15"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Work Rate",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If it takes 8 hours to paint a house, how long will it take to paint 2 houses?"
+        },
+        {
+          "role": "Agent",
+          "message": "16"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Speed Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a bike travels 180 miles in 6 hours, what is its average speed?"
+        },
+        {
+          "role": "Agent",
+          "message": "30"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Volume Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a pool holds 1500 gallons of water and is filled at a rate of 75 gallons per hour, how long will it take to fill the pool?"
+        },
+        {
+          "role": "Agent",
+          "message": "20"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Area Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a square has a side length of 9 meters, what is its area?"
+        },
+        {
+          "role": "Agent",
+          "message": "81"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Proportion Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If 7 oranges cost $3.50, how much do 21 oranges cost?"
+        },
+        {
+          "role": "Agent",
+          "message": "10.50"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Fraction Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you have 3/5 of a cake and eat 1/3 of it, how much cake do you have left?"
+        },
+        {
+          "role": "Agent",
+          "message": "2/5"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Percentage Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a laptop costs $1000 and is on sale for 10% off, what is the sale price?"
+        },
+        {
+          "role": "Agent",
+          "message": "900"
+        }
+      ]
+    }
+  ]
+}

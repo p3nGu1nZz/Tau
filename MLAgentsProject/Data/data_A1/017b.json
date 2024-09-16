@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'recalcitrant' or 'recalcitrent'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Recalcitrant"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'sagacious' or 'sagacous'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Sagacious"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Identify the correct spelling: 'taciturn' or 'taciturne'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Taciturn"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Select the correct spelling: 'ubiquitous' or 'ubiquitus'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Ubiquitous"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which spelling is correct: 'vociferous' or 'vociferus'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Vociferous"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'whimsical' or 'whimsicle'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Whimsical"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Identify the correct spelling: 'xenophobic' or 'xenophobik'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Xenophobic"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Select the correct spelling: 'yacht' or 'yatch'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yacht"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which spelling is correct: 'zephyr' or 'zepher'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Zephyr"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'abstruse' or 'abstrusee'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Abstruse"
+        }
+      ]
+    }
+  ]
+}

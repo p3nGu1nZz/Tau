@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'flabbergasted' or 'flabberghasted'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Flabbergasted"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'idiosyncrasy' or 'idiosyncracy'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Idiosyncrasy"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Identify the correct spelling: 'juxtaposition' or 'juxtoposition'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Juxtaposition"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Select the correct spelling: 'kaleidoscope' or 'kaliedoscope'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Kaleidoscope"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which spelling is correct: 'lugubrious' or 'lugubrius'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Lugubrious"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'misanthrope' or 'misanthrop'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Misanthrope"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Identify the correct spelling: 'nefarious' or 'neferious'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Nefarious"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Select the correct spelling: 'obstreperous' or 'obstreperus'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Obstreperous"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which spelling is correct: 'perspicacious' or 'perspicacous'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Perspicacious"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'quintessential' or 'quintessental'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Quintessential"
+        }
+      ]
+    }
+  ]
+}

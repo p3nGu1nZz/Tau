@@ -1,0 +1,120 @@
+	1. **Domains**: Basic Math, Grammar, and Spelling.
+	2. **Contexts**: Varied contexts within each domain to ensure comprehensive coverage.
+	3. **Systems**: Different AI systems like "Math Tutor AI," "Grammar Helper AI," and "Spelling Checker AI" to diversify the training scenarios.
+	4. **User Prompts**:
+	   - For Basic Math: Included addition, subtraction, multiplication, and division problems with varied phrasing (e.g., spelling out numbers, using digits, and mixing both). Also included logical questions and true/false statements. Examples:
+		 - "What is 5 plus five?"
+		 - "Subtract 7 from ten thousand."
+		 - "What is 3 times four hundred?"
+		 - "Divide 20 by four."
+		 - "Is 6 positive?"
+		 - "A right triangle has 90 degrees, true or false?"
+		 - "What is the square root of 16?"
+		 - "Is zero an even number?"
+		 - "Is 15 greater than 10?"
+		 - "True or false: 2 is a prime number."
+	   - For Grammar: Included verb forms, pluralization, adjectives, and logical questions. Examples:
+		 - "What is the past tense of run?"
+		 - "What is the plural of child?"
+		 - "What is the comparative form of good?"
+		 - "Is 'quickly' an adverb?"
+		 - "True or false: 'She run fast' is grammatically correct."
+		 - "What is the superlative form of bad?"
+		 - "Is 'they' a pronoun?"
+		 - "What is the past tense of 'go'?"
+		 - "Is 'beautiful' an adjective?"
+		 - "True or false: 'He is tallest' is correct."
+	   - For Spelling: Included correct and incorrect spellings, with prompts asking if a word is spelled correctly. Examples:
+		 - "Is 'accommodate' spelled correctly?"
+		 - "Is 'definately' spelled correctly?"
+		 - "Spell the word 'necessary'."
+		 - "Which is correct: 'recieve' or 'receive'?"
+		 - "Is 'privilege' spelled correctly?"
+		 - "Is 'occurence' spelled correctly?"
+		 - "Spell the word 'embarrass'."
+		 - "Which is correct: 'seperate' or 'separate'?"
+		 - "Is 'maintenance' spelled correctly?"
+		 - "Is 'publically' spelled correctly?"
+	5. **Agent Responses**: Limited to one word (token) to keep responses concise and focused.
+	6. **Evaluation Data**: Ensured evaluation prompts were different from training prompts but still within the same domains to avoid overfitting. Examples:
+	   - "Add 8 and seven."
+	   - "What is 10 minus three?"
+	   - "What is the past tense of eat?"
+	   - "What is the plural of mouse?"
+	   - "Is 'occurrence' spelled correctly?"
+	   - "Is 'recieve' spelled correctly?"
+	   - "Multiply 6 by two."
+	   - "What is 180 divided by three?"
+	   - "What is the superlative form of bad?"
+	   - "Is 'privilege' spelled correctly?"
+	   - "Is 1200 an even number?"
+	   - "True or false: 5 is an odd number."
+	   - "What is the past tense of 'see'?"
+	   - "Is 'they' a pronoun?"
+	   - "Spell the word 'accommodate'."
+	7. **Semantic and Syntactic Variation**: Changed the phrasing and structure of prompts to prevent overfitting and ensure the model learns a wide range of expressions.
+	8. **Token Limit**: Ensured the input prompt did not exceed 128 tokens.
+	9. **Language Style**: All prompt-response pairs are in English.
+	10. **Quantity**: Create 5 unique training data and evaluation messages with 1 user prompt and 1 agent response each; 10 total.
+	11. **Uniqueness**: Ensure all messages are unique from any previously generated messages.
+	12. **Character Restrictions**: Prompt and response pair content should not contain any special characters other than basic punctuation and quote marks, i.e., only characters found on a common English keyboard.
+	13. **Final Step**: No explain. Only json.
+
+	Example Output:
+	```json
+	{
+	  "version": "0.1.0",
+	  "model_name": "Tau-LLM",
+	  "organization": "Tau",
+	  "training_data": [
+		{
+		  "domain": "General",
+		  "context": "Greetings",
+		  "system": "Friendly AI",
+		  "turns": [
+			{
+			  "role": "User",
+			  "message": "Hi"
+			},
+			{
+			  "role": "Agent",
+			  "message": "Hello"
+			}
+		  ]
+		}
+	  ],
+	  "evaluation_data": [
+		{
+		  "domain": "Support",
+		  "context": "Software issue",
+		  "system": "Support AI",
+		  "turns": [
+			{
+			  "role": "User",
+			  "message": "Can't install software"
+			},
+			{
+			  "role": "Agent",
+			  "message": "Check download"
+			}
+		  ]
+		}
+	  ]
+	}
+
+	```
+Begin:
+---
+always generate unique messages.
+make questions harder.
+add prompt response pairs that include spelling questions like `A is the second letter in Cat.` or `How many times does the letter e appear in the phrase 'cats are awesome!'?
+prompts generated no longer then 128 words.
+response always one word.
+focus on math with special symbols.
+generate more new unique message using that specification. 
+do not repeat words we used before.
+do not repeat messages we used before.
+do not repeat context we used before.
+fast render.
+no explain.
+only json.

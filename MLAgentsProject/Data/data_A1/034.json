@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Logic Puzzle",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a spaceship travels 120 light-years in 10 years, how far does it travel per year?"
+        },
+        {
+          "role": "Agent",
+          "message": "12"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a Stargate mission starts at 0800 hours and lasts for 7 hours, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "1500"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Distance Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you walk 8 miles north and then 15 miles east on Abydos, how far are you from your starting point?"
+        },
+        {
+          "role": "Agent",
+          "message": "17"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Work Rate",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If it takes 5 hours to repair a DHD, how long will it take to repair 4 DHDs?"
+        },
+        {
+          "role": "Agent",
+          "message": "20"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Speed Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a Puddle Jumper travels 600 miles in 2 hours, what is its average speed?"
+        },
+        {
+          "role": "Agent",
+          "message": "300"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Volume Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a ZPM holds 1000 units of energy and is drained at a rate of 100 units per hour, how long will it last?"
+        },
+        {
+          "role": "Agent",
+          "message": "10"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Area Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a Goa'uld mothership has a rectangular landing area of 20 meters by 15 meters, what is its area?"
+        },
+        {
+          "role": "Agent",
+          "message": "300"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Proportion Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If 4 Naquadah generators cost 2000 credits, how much do 10 generators cost?"
+        },
+        {
+          "role": "Agent",
+          "message": "5000"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Fraction Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you have 5/6 of a ration bar and eat 1/2 of it, how much is left?"
+        },
+        {
+          "role": "Agent",
+          "message": "1/3"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Percentage Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a piece of Ancient technology costs 500 credits and is on sale for 30% off, what is the sale price?"
+        },
+        {
+          "role": "Agent",
+          "message": "350"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Logic Puzzle",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a spaceship travels 240 light-years in 20 years, how far does it travel per year?"
+        },
+        {
+          "role": "Agent",
+          "message": "12"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a Stargate mission starts at 0900 hours and lasts for 6 hours, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "1500"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Distance Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you walk 10 miles south and then 24 miles west on Abydos, how far are you from your starting point?"
+        },
+        {
+          "role": "Agent",
+          "message": "26"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Work Rate",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If it takes 3 hours to repair a DHD, how long will it take to repair 5 DHDs?"
+        },
+        {
+          "role": "Agent",
+          "message": "15"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Speed Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a Puddle Jumper travels 900 miles in 3 hours, what is its average speed?"
+        },
+        {
+          "role": "Agent",
+          "message": "300"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Volume Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a ZPM holds 2000 units of energy and is drained at a rate of 200 units per hour, how long will it last?"
+        },
+        {
+          "role": "Agent",
+          "message": "10"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Area Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a Goa'uld mothership has a rectangular landing area of 30 meters by 10 meters, what is its area?"
+        },
+        {
+          "role": "Agent",
+          "message": "300"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Proportion Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If 6 Naquadah generators cost 3000 credits, how much do 12 generators cost?"
+        },
+        {
+          "role": "Agent",
+          "message": "6000"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Fraction Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you have 4/5 of a ration bar and eat 1/2 of it, how much is left?"
+        },
+        {
+          "role": "Agent",
+          "message": "2/5"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Percentage Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a piece of Ancient technology costs 700 credits and is on sale for 20% off, what is the sale price?"
+        },
+        {
+          "role": "Agent",
+          "message": "560"
+        }
+      ]
+    }
+  ]
+}

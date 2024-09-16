@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Multiples",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the least common multiple of 4 and 5?"
+        },
+        {
+          "role": "Agent",
+          "message": "20"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Countable Nouns",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'apple' a countable noun?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Word",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'acquiesce' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Decimals",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 0.5 plus 0.25?"
+        },
+        {
+          "role": "Agent",
+          "message": "0.75"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Possessive Pronouns",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'hers' a possessive pronoun?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Mixed Fractions",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 1 1/2 plus 2 1/4?"
+        },
+        {
+          "role": "Agent",
+          "message": "3 3/4"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Reflexive Pronouns",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'myself' a reflexive pronoun?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Word",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'belligerent' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Percentages",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 15% of 200?"
+        },
+        {
+          "role": "Agent",
+          "message": "30"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Superlative Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the superlative form of 'tall'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Tallest"
+        }
+      ]
+    }
+  ]
+}

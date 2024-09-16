@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'accommodate' or 'acommodate'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Accommodate"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'definitely' or 'definately'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Definitely"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'separate' or 'seperate'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Separate"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'occurrence' or 'occurence'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Occurrence"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'privilege' or 'priviledge'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Privilege"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'necessary' or 'neccessary'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Necessary"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'receive' or 'recieve'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Receive"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'embarrass' or 'embarass'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Embarrass"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'maintenance' or 'maintainance'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Maintenance"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Problems",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'publicly' or 'publically'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Publicly"
+        }
+      ]
+    }
+  ]
+}

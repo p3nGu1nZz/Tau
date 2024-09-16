@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a train travels 60 miles per hour for 2 hours, how far does it travel?"
+        },
+        {
+          "role": "Agent",
+          "message": "120"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Comparisons",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is greater: 45 or 54?"
+        },
+        {
+          "role": "Agent",
+          "message": "54"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Analogies",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "As 2 is to 4, 3 is to ?"
+        },
+        {
+          "role": "Agent",
+          "message": "6"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you have 5 red balls and 3 blue balls, how many balls do you have in total?"
+        },
+        {
+          "role": "Agent",
+          "message": "8"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Comparisons",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is smaller: 0.5 or 0.05?"
+        },
+        {
+          "role": "Agent",
+          "message": "0.05"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a car travels 30 miles per hour for 3 hours, how far does it travel?"
+        },
+        {
+          "role": "Agent",
+          "message": "90"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Comparisons",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is greater: 100 or 10?"
+        },
+        {
+          "role": "Agent",
+          "message": "100"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Analogies",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "As 5 is to 25, 6 is to ?"
+        },
+        {
+          "role": "Agent",
+          "message": "36"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you have 7 green balls and 2 yellow balls, how many balls do you have in total?"
+        },
+        {
+          "role": "Agent",
+          "message": "9"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Comparisons",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is smaller: 0.1 or 0.01?"
+        },
+        {
+          "role": "Agent",
+          "message": "0.01"
+        }
+      ]
+    }
+  ]
+}

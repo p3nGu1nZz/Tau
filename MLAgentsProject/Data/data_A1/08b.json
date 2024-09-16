@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you have two apples and take away one, how many do you have?"
+        },
+        {
+          "role": "Agent",
+          "message": "One"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What number do you get when you multiply all of the numbers on a phone keypad?"
+        },
+        {
+          "role": "Agent",
+          "message": "Zero"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you divide 30 by half and add 10, what do you get?"
+        },
+        {
+          "role": "Agent",
+          "message": "70"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the next number in the sequence: 2, 4, 8, 16, ?"
+        },
+        {
+          "role": "Agent",
+          "message": "32"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you have a basket with 5 apples and you take away 3, how many apples do you have?"
+        },
+        {
+          "role": "Agent",
+          "message": "Three"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the next number in the sequence: 1, 1, 2, 3, 5, ?"
+        },
+        {
+          "role": "Agent",
+          "message": "8"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you multiply any number by zero, what is the result?"
+        },
+        {
+          "role": "Agent",
+          "message": "Zero"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the next number in the sequence: 5, 10, 20, 40, ?"
+        },
+        {
+          "role": "Agent",
+          "message": "80"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you have 10 apples and you give away half, how many do you have left?"
+        },
+        {
+          "role": "Agent",
+          "message": "Five"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the next number in the sequence: 3, 6, 12, 24, ?"
+        },
+        {
+          "role": "Agent",
+          "message": "48"
+        }
+      ]
+    }
+  ]
+}

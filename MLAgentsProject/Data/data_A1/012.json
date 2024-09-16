@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'She run fast' or 'She runs fast'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Runs"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'He go to school' or 'He goes to school'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Goes"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'They is happy' or 'They are happy'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Are"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'I has a book' or 'I have a book'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Have"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'She don't like it' or 'She doesn't like it'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Doesn't"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'We was there' or 'We were there'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Were"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'He don't know' or 'He doesn't know'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Doesn't"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'They has a car' or 'They have a car'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Have"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'She were late' or 'She was late'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Was"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'I is ready' or 'I am ready'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Am"
+        }
+      ]
+    }
+  ]
+}

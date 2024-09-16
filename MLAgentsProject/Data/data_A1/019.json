@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which spelling is correct: 'hyperbola' or 'hyperbolah'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Hyperbola"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'parallelogram' or 'paralelogram'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Parallelogram"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Identify the correct spelling: 'trapezoid' or 'trapezoyd'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Trapezoid"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Select the correct spelling: 'rhomboid' or 'rhomboide'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Rhomboid"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which spelling is correct: 'quadrilateral' or 'quadrilaterel'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Quadrilateral"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'isosceles' or 'isoceles'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Isosceles"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Identify the correct spelling: 'scalene' or 'scalane'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Scalene"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Select the correct spelling: 'tessellation' or 'teselation'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Tessellation"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which spelling is correct: 'dodecahedron' or 'dodecahedren'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Dodecahedron"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'icosahedron' or 'icosahedren'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Icosahedron"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Identify the correct spelling: 'tetrahedron' or 'tetrahedren'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Tetrahedron"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Select the correct spelling: 'octahedron' or 'octahedren'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Octahedron"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which spelling is correct: 'hexahedron' or 'hexahedren'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Hexahedron"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'parabola' or 'parabolah'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Parabola"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Identify the correct spelling: 'ellipse' or 'elipse'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Ellipse"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Select the correct spelling: 'hyperbola' or 'hyperbolah'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Hyperbola"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which spelling is correct: 'trapezoid' or 'trapezoyd'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Trapezoid"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'rhomboid' or 'rhomboide'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Rhomboid"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Identify the correct spelling: 'quadrilateral' or 'quadrilaterel'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Quadrilateral"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Math Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Select the correct spelling: 'isosceles' or 'isoceles'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Isosceles"
+        }
+      ]
+    }
+  ]
+}
