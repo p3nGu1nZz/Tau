@@ -1,0 +1,338 @@
+{
+    "version": "",
+    "model_name": "",
+    "organization": "",
+    "training_data": [
+        {
+            "domain": "Basic Math",
+            "context": "Even and Odd Numbers",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Can you spell out the answer using just two words?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Yes"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Addition",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Won't nineteen plus twenty-six equal forty-five?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "43"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Decimals",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "How much is it when you add .1 to .9?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "1"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Decimals",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What's the total if you add half to half?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "1"
+                }
+            ]
+        },
+        {
+            "domain": "Grammar",
+            "context": "Verb Conjugation",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Has he already ran today?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Run"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Math Terms",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "The correct answer is isoceles."
+                },
+                {
+                    "role": "Agent",
+                    "message": "Isosceles"
+                }
+            ]
+        },
+        {
+            "domain": "Grammar",
+            "context": "Adjectives",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "How do you describe someone who is happier than others?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Happier"
+                }
+            ]
+        },
+        {
+            "domain": "Grammar",
+            "context": "Verb Conjugation",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What had been drunk?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Drunk"
+                }
+            ]
+        },
+        {
+            "domain": "Grammar",
+            "context": "Logic Problems",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Does 'She dashed rapidly' convey the same meaning?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Runs"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Division",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Is it 'diveid' when dividing numbers? "
+                },
+                {
+                    "role": "Agent",
+                    "message": "5"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "How much would be left if you take away 34 from 77?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "43"
+                }
+            ]
+        },
+        {
+            "domain": "Grammar",
+            "context": "Verb Conjugation",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "How do you spell 'play' as is playing?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Playing"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Fractions",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Will the sum of 1/8 and 7/8 be a whole number?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "1"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What's the difference?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "43"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Square Roots",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Does 81 have any underlying factors?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "9"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Random Word",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Do you need help with spelling miscellaneous?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Yes"
+                }
+            ]
+        },
+        {
+            "domain": "Grammar",
+            "context": "Verb Forms",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What is the meaning of 'began'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Began"
+                }
+            ]
+        },
+        {
+            "domain": "Spelling",
+            "context": "Random Word",
+            "system": "Spelling Checker AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Do you spell it as 'entreprunor'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Yes"
+                }
+            ]
+        },
+        {
+            "domain": "Grammar",
+            "context": "Verb Conjugation",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "How was it that they used to have my stuff?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Had"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Fractions",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What happens when you add those percentages together?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "1"
+                }
+            ]
+        },
+        {
+            "domain": "Grammar",
+            "context": "Verb Conjugation",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Are you prepared for the thoughts that will arise?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Will"
+                }
+            ]
+        },
+        {
+            "domain": "Basic Math",
+            "context": "Multiplication",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "What other operation would you perform on the numbers?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "400"
+                }
+            ]
+        }
+    ],
+    "evaluation_data": []
+}

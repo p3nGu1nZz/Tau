@@ -4,32 +4,17 @@
     "organization": "",
     "training_data": [
         {
-            "domain": "Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
+            "domain": "Basic Math",
+            "context": "Subtraction",
+            "system": "Math Tutor AI",
             "turns": [
                 {
                     "role": "User",
-                    "message": "Can you spell the plural as 'analysis'?"
+                    "message": "What is eighty-six minus forty-three?"
                 },
                 {
                     "role": "Agent",
-                    "message": "Analyses"
-                }
-            ]
-        },
-        {
-            "domain": "Grammar",
-            "context": "Sentence Structure",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Does the phrase 'She run fast' follow proper grammatical rules?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "False"
+                    "message": "43"
                 }
             ]
         },
@@ -49,6 +34,36 @@
             ]
         },
         {
+            "domain": "Basic Math",
+            "context": "Decimals",
+            "system": "Math Tutor AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "If you combine point zero one with point nine, what's the result?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "1"
+                }
+            ]
+        },
+        {
+            "domain": "Grammar",
+            "context": "Pluralization",
+            "system": "Grammar Helper AI",
+            "turns": [
+                {
+                    "role": "User",
+                    "message": "Can you spell the plural as 'analysis'?"
+                },
+                {
+                    "role": "Agent",
+                    "message": "Analyses"
+                }
+            ]
+        },
+        {
             "domain": "Grammar",
             "context": "Prepositions",
             "system": "Grammar Helper AI",
@@ -64,47 +79,17 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
+            "domain": "Grammar",
+            "context": "Sentence Structure",
+            "system": "Grammar Helper AI",
             "turns": [
                 {
                     "role": "User",
-                    "message": "What is eighty-six minus forty-three?"
+                    "message": "Does the phrase 'She run fast' follow proper grammatical rules?"
                 },
                 {
                     "role": "Agent",
-                    "message": "43"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Even and Odd Numbers",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Can you spell out the answer using just two words?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Decimals",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "If you combine point zero one with point nine, what's the result?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "1"
+                    "message": "False"
                 }
             ]
         },
@@ -2345,21 +2330,6 @@
         },
         {
             "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Won't nineteen plus twenty-six equal forty-five?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "43"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
             "context": "Modulus Problem",
             "system": "Math Tutor AI",
             "turns": [
@@ -2674,21 +2644,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Decimals",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How much is it when you add .1 to .9?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "1"
-                }
-            ]
-        },
-        {
             "domain": "Grammar",
             "context": "Adjectives",
             "system": "Grammar Helper AI",
@@ -2795,21 +2750,6 @@
         },
         {
             "domain": "Basic Math",
-            "context": "Decimals",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What's the total if you add half to half?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "1"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
             "turns": [
@@ -2869,21 +2809,6 @@
             ]
         },
         {
-            "domain": "Grammar",
-            "context": "Verb Conjugation",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Has he already ran today?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Run"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Logarithms",
             "system": "Math Tutor AI",
@@ -2910,21 +2835,6 @@
                 {
                     "role": "Agent",
                     "message": "Smaller"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Math Terms",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "The correct answer is isoceles."
-                },
-                {
-                    "role": "Agent",
-                    "message": "Isosceles"
                 }
             ]
         },
@@ -3559,21 +3469,6 @@
             ]
         },
         {
-            "domain": "Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you describe someone who is happier than others?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Happier"
-                }
-            ]
-        },
-        {
             "domain": "Spelling",
             "context": "Random Words",
             "system": "Spelling Checker AI",
@@ -4125,21 +4020,6 @@
                 {
                     "role": "Agent",
                     "message": "42"
-                }
-            ]
-        },
-        {
-            "domain": "Grammar",
-            "context": "Verb Conjugation",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What had been drunk?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Drunk"
                 }
             ]
         },
@@ -5974,21 +5854,6 @@
             ]
         },
         {
-            "domain": "Grammar",
-            "context": "Logic Problems",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Does 'She dashed rapidly' convey the same meaning?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Runs"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Modulus Problem",
             "system": "Math Tutor AI",
@@ -6000,21 +5865,6 @@
                 {
                     "role": "Agent",
                     "message": "3"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is it 'diveid' when dividing numbers? "
-                },
-                {
-                    "role": "Agent",
-                    "message": "5"
                 }
             ]
         },
@@ -8045,21 +7895,6 @@
         },
         {
             "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How much would be left if you take away 34 from 77?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "43"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
             "context": "Logic Puzzle",
             "system": "Math Tutor AI",
             "turns": [
@@ -8715,21 +8550,6 @@
                 {
                     "role": "Agent",
                     "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Grammar",
-            "context": "Verb Conjugation",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you spell 'play' as is playing?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Playing"
                 }
             ]
         },
@@ -9705,21 +9525,6 @@
                 {
                     "role": "Agent",
                     "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Fractions",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Will the sum of 1/8 and 7/8 be a whole number?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "1"
                 }
             ]
         },
@@ -11269,21 +11074,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What's the difference?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "43"
-                }
-            ]
-        },
-        {
             "domain": "Grammar",
             "context": "Logic Problems",
             "system": "Grammar Helper AI",
@@ -11550,21 +11340,6 @@
                 {
                     "role": "Agent",
                     "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Square Roots",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Does 81 have any underlying factors?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "9"
                 }
             ]
         },
@@ -12225,21 +12000,6 @@
                 {
                     "role": "Agent",
                     "message": "55"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Random Word",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Do you need help with spelling miscellaneous?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -12994,21 +12754,6 @@
             ]
         },
         {
-            "domain": "Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the meaning of 'began'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Began"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -13594,21 +13339,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Random Word",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Do you spell it as 'entreprunor'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Logic Problems",
             "system": "Math Tutor AI",
@@ -13759,21 +13489,6 @@
             ]
         },
         {
-            "domain": "Grammar",
-            "context": "Verb Conjugation",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How was it that they used to have my stuff?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Had"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Fractions",
             "system": "Math Tutor AI",
@@ -13830,21 +13545,6 @@
                 {
                     "role": "Agent",
                     "message": "Went"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Fractions",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What happens when you add those percentages together?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "1"
                 }
             ]
         },
@@ -15140,21 +14840,6 @@
         },
         {
             "domain": "Grammar",
-            "context": "Verb Conjugation",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Are you prepared for the thoughts that will arise?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Will"
-                }
-            ]
-        },
-        {
-            "domain": "Grammar",
             "context": "Logic Problems",
             "system": "Grammar Helper AI",
             "turns": [
@@ -15390,21 +15075,6 @@
                 {
                     "role": "Agent",
                     "message": "300"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Multiplication",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What other operation would you perform on the numbers?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "400"
                 }
             ]
         },
