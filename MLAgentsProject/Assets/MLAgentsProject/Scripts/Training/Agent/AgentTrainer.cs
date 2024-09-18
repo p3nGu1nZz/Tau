@@ -113,7 +113,7 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
         }
         catch (Exception ex)
         {
-            Log.Error($"Failed to load training data from file '{fileName}': '{ex.Message}'");
+            throw new Exception($"Failed to load training data from file '{fileName}': '{ex.Message}'");
         }
     }
 
