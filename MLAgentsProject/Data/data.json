@@ -1564,21 +1564,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Random Words",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Which word is commonly used instead of recalcitrant?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Recalcitrant"
-                }
-            ]
-        },
-        {
             "domain": "Grammar",
             "context": "Verb Forms",
             "system": "Grammar Helper AI",
@@ -1695,36 +1680,6 @@
                 {
                     "role": "Agent",
                     "message": "Effervescent"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Can multiple mice be referred to collectively?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Multiplication",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How much does three times nine equal?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "27"
                 }
             ]
         },
@@ -2569,21 +2524,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What are mice called?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -3409,21 +3349,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What words can be used to refer to numerous rodents?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
             "domain": "Spelling",
             "context": "Random Word",
             "system": "Spelling Checker AI",
@@ -3600,21 +3525,6 @@
                 {
                     "role": "Agent",
                     "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Square Root",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Find the square root of 144."
-                },
-                {
-                    "role": "Agent",
-                    "message": "12"
                 }
             ]
         },
@@ -4564,21 +4474,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you form the plural of mouse?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
             "domain": "Grammar",
             "context": "Logic Problems",
             "system": "Grammar Helper AI",
@@ -5235,21 +5130,6 @@
                 {
                     "role": "Agent",
                     "message": "42"
-                }
-            ]
-        },
-        {
-            "domain": "Grammar",
-            "context": "Pronouns",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is he the correct pronoun?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -6165,21 +6045,6 @@
                 {
                     "role": "Agent",
                     "message": "9"
-                }
-            ]
-        },
-        {
-            "domain": "Grammar",
-            "context": "Collective Nouns",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is the word 'team' used to denote a unified group?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -9040,21 +8905,6 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "What remains after subtracting nine from fifteen?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "6"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
                     "message": "By how many units does 25 exceed 10?"
                 },
                 {
@@ -10279,21 +10129,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What term describes several rodents?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Multiplication",
             "system": "Math Tutor AI",
@@ -11265,21 +11100,6 @@
                 {
                     "role": "Agent",
                     "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Can you refer to more than one mouse as mice?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
                 }
             ]
         },
@@ -14164,21 +13984,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What's the plural form of goose?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Geese"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Multiplication",
             "system": "Math Tutor AI",
@@ -14374,21 +14179,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you refer to multiple computer input devices?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
             "domain": "Grammar",
             "context": "Verb Forms",
             "system": "Grammar Helper AI",
@@ -14430,21 +14220,6 @@
                 {
                     "role": "Agent",
                     "message": "19"
-                }
-            ]
-        },
-        {
-            "domain": "Grammar",
-            "context": "Verb Conjugation",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "The choir has been singing all day long."
-                },
-                {
-                    "role": "Agent",
-                    "message": "Sung"
                 }
             ]
         },
@@ -16129,21 +15904,6 @@
             ]
         },
         {
-            "domain": "Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you describe something that has started or begun?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Begun"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Multiplication",
             "system": "Math Tutor AI",
@@ -16954,21 +16714,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Mice, what's the correct term for more than one mouse?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Subtraction",
             "system": "Math Tutor AI",
@@ -17115,21 +16860,6 @@
                 {
                     "role": "Agent",
                     "message": "3"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What are mice?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
                 }
             ]
         },
@@ -17445,21 +17175,6 @@
                 {
                     "role": "Agent",
                     "message": "Graceful"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the collective noun for mice?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
                 }
             ]
         },
@@ -18979,21 +18694,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Plural form of 'mouse'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
             "domain": "Spelling",
             "context": "Random Words",
             "system": "Spelling Checker AI",
@@ -19125,21 +18825,6 @@
                 {
                     "role": "Agent",
                     "message": "32"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Do computer inputs also share a name with tiny mammals?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
                 }
             ]
         },
@@ -19620,21 +19305,6 @@
                 {
                     "role": "Agent",
                     "message": "14"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What's the result of dividing ten into equal parts?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "5"
                 }
             ]
         },
@@ -21304,21 +20974,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What are some other forms of mice?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
             "domain": "Grammar",
             "context": "Pronouns",
             "system": "Grammar Helper AI",
@@ -21525,36 +21180,6 @@
                 {
                     "role": "Agent",
                     "message": "Activated"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural spelling of mouse, mouses or mice?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Does the word 'conshus' sound like a correct spelling?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -22620,21 +22245,6 @@
                 {
                     "role": "Agent",
                     "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What's the spelling for 'mouzes'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
                 }
             ]
         },
@@ -25459,21 +25069,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Fractions",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you spell seven eighths and one eighth in math?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "1"
-                }
-            ]
-        },
-        {
             "domain": "Spelling",
             "context": "Incorrect Spelling",
             "system": "Spelling Checker AI",
@@ -27019,21 +26614,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Are you unsure about how to spell 'embarrass'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Modulus Problem",
             "system": "Math Tutor AI",
@@ -27285,21 +26865,6 @@
                 {
                     "role": "Agent",
                     "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Do you know any synonyms for plural mouse?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
                 }
             ]
         },
@@ -27615,21 +27180,6 @@
                 {
                     "role": "Agent",
                     "message": "Lemma"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Homophones",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Which is correct: 'their' or 'there' for possession?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Their"
                 }
             ]
         },
@@ -33320,21 +32870,6 @@
         },
         {
             "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'mice'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
             "context": "Adjectives",
             "system": "Grammar Helper AI",
             "turns": [
@@ -34035,21 +33570,6 @@
                 {
                     "role": "Agent",
                     "message": "31"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How many times does 5 go into 45 to get a result?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "9"
                 }
             ]
         },
@@ -36360,21 +35880,6 @@
                 {
                     "role": "Agent",
                     "message": "4"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What's the plural form of 'mouse', then?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
                 }
             ]
         },
@@ -41674,21 +41179,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How many can be referred to as mice?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
             "domain": "Grammar",
             "context": "Adjectives",
             "system": "Grammar Helper AI",
@@ -42290,21 +41780,6 @@
         },
         {
             "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the correct spelling for multiple 'mouse'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
             "context": "Verb Forms",
             "system": "Grammar Helper AI",
             "turns": [
@@ -42660,21 +42135,6 @@
                 {
                     "role": "Agent",
                     "message": "5"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Modulus Problem",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What's the leftover amount after dividing something?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "2"
                 }
             ]
         },
@@ -44430,21 +43890,6 @@
                 {
                     "role": "Agent",
                     "message": "1"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Do you mean to ask how one spells 'mouse's'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
                 }
             ]
         },
@@ -46654,21 +46099,6 @@
             ]
         },
         {
-            "domain": "Grammar",
-            "context": "Verb Forms",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What's the past form of behold?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Saw"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Division",
             "system": "Math Tutor AI",
@@ -48110,21 +47540,6 @@
         },
         {
             "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the sum of twenty-four and five?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "29"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
             "context": "Even Numbers",
             "system": "Math Tutor AI",
             "turns": [
@@ -48150,21 +47565,6 @@
                 {
                     "role": "Agent",
                     "message": "25"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you refer to multiple mice in English?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
                 }
             ]
         },
@@ -48360,21 +47760,6 @@
                 {
                     "role": "Agent",
                     "message": "25"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How can we compare the difficulty of 'easy'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Easier"
                 }
             ]
         },
@@ -49474,21 +48859,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of 'mouse'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
             "domain": "Grammar",
             "context": "Relative Clauses",
             "system": "Grammar Helper AI",
@@ -49894,21 +49264,6 @@
             ]
         },
         {
-            "domain": "Grammar",
-            "context": "Verb Conjugation",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "In what form do people draw now?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Draws"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Fractions",
             "system": "Math Tutor AI",
@@ -50164,21 +49519,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What other term describes several computer input devices?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Subtraction",
             "system": "Math Tutor AI",
@@ -50385,21 +49725,6 @@
                 {
                     "role": "Agent",
                     "message": "Better"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Decimals",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How many would you get if you multiplied 0.75 by 4?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "3"
                 }
             ]
         },
@@ -50989,21 +50314,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you make 'mouse' into a plural?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Subtraction",
             "system": "Math Tutor AI",
@@ -51041,21 +50351,6 @@
                 {
                     "role": "User",
                     "message": "Is the word 'betwixt' similar to 'between'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'bright' an adjective?"
                 },
                 {
                     "role": "Agent",
@@ -51725,21 +51020,6 @@
         },
         {
             "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What's the result of dividing ten by 5?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "2"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
             "context": "Multiplication",
             "system": "Math Tutor AI",
             "turns": [
@@ -51885,21 +51165,6 @@
                 {
                     "role": "Agent",
                     "message": "No"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What other creatures are referred to as mice?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
                 }
             ]
         },
@@ -52515,21 +51780,6 @@
                 {
                     "role": "Agent",
                     "message": "Seeing"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is the plural of mouse?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
                 }
             ]
         },
@@ -53280,21 +52530,6 @@
                 {
                     "role": "Agent",
                     "message": "Brought"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you spell necassity?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Necessary"
                 }
             ]
         },
@@ -55594,21 +54829,6 @@
             ]
         },
         {
-            "domain": "Spelling",
-            "context": "Logic Problems",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is it seperate or separate that's the question?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Separate"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Modulus Problem",
             "system": "Math Tutor AI",
@@ -55905,21 +55125,6 @@
                 {
                     "role": "Agent",
                     "message": "True"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What word is used to describe more than one mouse?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
                 }
             ]
         },
@@ -58100,21 +57305,6 @@
         },
         {
             "domain": "Grammar",
-            "context": "Logic Problems",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'She sprinted swiftly' a more idiomatic expression?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Runs"
-                }
-            ]
-        },
-        {
-            "domain": "Grammar",
             "context": "Adjectives",
             "system": "Grammar Helper AI",
             "turns": [
@@ -58175,21 +57365,6 @@
         },
         {
             "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Does 'ethics' encompass the same idea?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
             "context": "Logic Terms",
             "system": "Spelling Checker AI",
             "turns": [
@@ -58215,21 +57390,6 @@
                 {
                     "role": "Agent",
                     "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Grammar",
-            "context": "Verb Conjugation",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Were discoveries made by them before?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Discovered"
                 }
             ]
         },
@@ -58470,21 +57630,6 @@
                 {
                     "role": "Agent",
                     "message": "Swims"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Math",
-            "context": "Subtraction",
-            "system": "Math AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What's the math behind seven minus four?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "3"
                 }
             ]
         },
@@ -58770,21 +57915,6 @@
                 {
                     "role": "Agent",
                     "message": "Written"
-                }
-            ]
-        },
-        {
-            "domain": "Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'red' being used to describe something?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -59115,21 +58245,6 @@
                 {
                     "role": "Agent",
                     "message": "Children"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is it concience that you're thinking of?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -59614,21 +58729,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Addition",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What does three plus nine equal?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "12"
-                }
-            ]
-        },
-        {
             "domain": "Spelling",
             "context": "Logic Problems",
             "system": "Spelling Checker AI",
@@ -59925,21 +59025,6 @@
                 {
                     "role": "Agent",
                     "message": "18"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What are alternative names for multiple mice?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
                 }
             ]
         },
@@ -60574,21 +59659,6 @@
             ]
         },
         {
-            "domain": "Grammar",
-            "context": "Verb Conjugation",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Had you been continuously watching something?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Seeing"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Multiplication",
             "system": "Math Tutor AI",
@@ -61039,21 +60109,6 @@
             ]
         },
         {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is it correct to say that plural of mouse is mice?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Addition",
             "system": "Math Tutor AI",
@@ -61125,21 +60180,6 @@
                 {
                     "role": "Agent",
                     "message": "1"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Math Terms",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is it 'scalanee'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Scalene"
                 }
             ]
         },
@@ -61260,21 +60300,6 @@
                 {
                     "role": "Agent",
                     "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Pluralization",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Plural of 'mouse'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Mice"
                 }
             ]
         },
@@ -61550,21 +60575,6 @@
         },
         {
             "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Shouldn't it be spelled as 'accomidate'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
             "context": "Incorrect Spelling",
             "system": "Spelling Checker AI",
             "turns": [
@@ -61684,21 +60694,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is 64 splittted by 8?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "8"
-                }
-            ]
-        },
-        {
             "domain": "Basic Grammar",
             "context": "Adjectives",
             "system": "Grammar Helper AI",
@@ -61725,21 +60720,6 @@
                 {
                     "role": "Agent",
                     "message": "11"
-                }
-            ]
-        },
-        {
-            "domain": "Spelling",
-            "context": "Correct Spelling",
-            "system": "Spelling Checker AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is the term 'moral compass' used?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
                 }
             ]
         },
@@ -62539,21 +61519,6 @@
             ]
         },
         {
-            "domain": "Basic Math",
-            "context": "Division",
-            "system": "Math Tutor AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How many times does 8 go into 256?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "32"
-                }
-            ]
-        },
-        {
             "domain": "Basic Grammar",
             "context": "Pluralization",
             "system": "Grammar Helper AI",
@@ -62910,21 +61875,6 @@
                 {
                     "role": "Agent",
                     "message": "1"
-                }
-            ]
-        },
-        {
-            "domain": "Grammar",
-            "context": "Comparatives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How do you describe something as better than good?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Better"
                 }
             ]
         },
@@ -63604,21 +62554,6 @@
             ]
         },
         {
-            "domain": "Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "Is 'happy' considered to be a descriptive word?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Yes"
-                }
-            ]
-        },
-        {
             "domain": "Basic Math",
             "context": "Multiplication",
             "system": "Math Tutor AI",
@@ -63750,21 +62685,6 @@
                 {
                     "role": "Agent",
                     "message": "13"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "What is simpler than 'easy'?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Easier"
                 }
             ]
         },
@@ -63930,21 +62850,6 @@
                 {
                     "role": "Agent",
                     "message": "Careful"
-                }
-            ]
-        },
-        {
-            "domain": "Basic Grammar",
-            "context": "Adjectives",
-            "system": "Grammar Helper AI",
-            "turns": [
-                {
-                    "role": "User",
-                    "message": "How would you describe a goal that has been accomplished?"
-                },
-                {
-                    "role": "Agent",
-                    "message": "Successful"
                 }
             ]
         },
