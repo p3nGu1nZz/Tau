@@ -1,9 +1,5 @@
 using CommandTerminal;
 using System;
-using System.Collections.Generic;
-using UnityEngine;
-
-using AgentTrainerDelegator = AgentDelegator<AgentTrainer, TauAgent>;
 
 public static class TrainingAgentAction
 {
@@ -14,10 +10,11 @@ public static class TrainingAgentAction
             string agentType = StringUtilities.CapitalizeFirstLetter(args[1].String.ToLower());
             string fileName = args[2].String.ToLower();
 
-            var argValues = CommandUtilities.ParseArgs(args, "num-agents");
+            var argValues = CommandUtilities.ParseArgs(args, "num-agents", "columns");
             int numAgents = argValues.ContainsKey("num-agents") && int.TryParse(argValues["num-agents"], out int parsedNumAgents) ? parsedNumAgents : 1;
+            int columns = argValues.ContainsKey("columns") && int.TryParse(argValues["columns"], out int parsedColumns) ? parsedColumns : 1;
 
-            TrainingManager.Instance.ExecuteTraining(agentType, fileName, numAgents);
+            TrainingManager.Instance.ExecuteTraining(agentType, fileName, numAgents, columns);
         }
         catch (Exception ex)
         {

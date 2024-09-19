@@ -6,8 +6,8 @@ public class TrainingProcessor<TDelegator, TAgent> : BaseProcessor<TDelegator, T
     where TDelegator : AgentDelegator<TDelegator, TAgent>
     where TAgent : BaseAgent<TDelegator, TAgent>
 {
-    public TrainingProcessor(int numAgents, GameObject agentTrainerPrefab, GameObject tauAgentPrefab)
-        : base(numAgents)
+    public TrainingProcessor(int numAgents, GameObject agentTrainerPrefab, GameObject tauAgentPrefab, int columns)
+        : base(numAgents, columns)
     {
         // Setup the training pairs in the constructor
         for (int i = 0; i < numAgents; i++)

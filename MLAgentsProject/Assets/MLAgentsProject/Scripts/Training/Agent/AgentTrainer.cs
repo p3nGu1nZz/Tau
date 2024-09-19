@@ -13,6 +13,7 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
     public static float WaitTimeInSeconds = 0f;
     public static string TrainingFileName { get; set; }
     public static List<EmbeddingPair> TrainingData { get; set; }
+    public static int Columns { get; set; }
 
     private List<float> _Rewards = new List<float>();
     private int _LogCounter = 0;
@@ -36,9 +37,15 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
         _Stopwatch.Start();
     }
 
+    public void SetColumns(int columns)
+    {
+        Log.Message("Setting columns for AgentTrainer.");
+        Columns = columns;
+    }
+
     protected override void Setup()
     {
-        Log.Message($"Setting up AgentTrainer. maxSteps={MaxStepsPerEpisode}, rewardThreshold={RewardThreshold}");
+        Log.Message($"Setting up AgentTrainer. maxSteps={MaxStepsPerEpisode}, rewardThreshold={RewardThreshold}, columns={Columns}");
 
         if (Agent == null)
         {
@@ -46,7 +53,7 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
         }
 
         Agent.Setup();
-        Reward = RewardFactory.CreateReward(RewardType.Incremental, 1);
+        Reward = RewardFactory.CreateReward(RewardType.Incremental, Columns);
         Agent.gameObject.SetActive(true);
 
         ComponentUtilities.EnableAllComponents(Agent.gameObject);
@@ -68,7 +75,6 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
 
     void EndTrainingEpisode()
     {
-        //Log.Message($"Ending training episode {Agent.EpisodeCount}");
         IsProcessing = false;
         Agent.EndEpisode();
     }

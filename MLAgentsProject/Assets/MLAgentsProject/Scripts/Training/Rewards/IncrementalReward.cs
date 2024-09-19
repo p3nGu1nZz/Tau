@@ -23,7 +23,7 @@ public class IncrementalReward : BaseReward<double[]>
         for (int i = 0; i < columnsToUse; i++)
         {
             float difference = (float)Math.Abs(expectedEmbedding[i] - embedding[i]);
-            float reward = 1.0f / (1.0f + (float)Math.Exp(-difference)); // Sigmoid function
+            float reward = 1.0f - difference; // Direct difference
             totalReward += reward * 2.0f - 1.0f; // Map to range [-1, 1]
         }
 

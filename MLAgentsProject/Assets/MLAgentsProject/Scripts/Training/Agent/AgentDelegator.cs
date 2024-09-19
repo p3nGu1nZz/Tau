@@ -17,11 +17,6 @@ public abstract class AgentDelegator<T, U> : MonoBehaviour where T : MonoBehavio
         Data = new AgentData();
     }
 
-    protected virtual void Start()
-    {
-        Initialize();
-    }
-
     public abstract void Initialize();
     protected abstract void Setup();
 }
