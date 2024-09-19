@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Ratios",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the ratio of 8 to 4?"
+        },
+        {
+          "role": "Agent",
+          "message": "2:1"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Gerunds",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'running' a gerund?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Word",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'philanthropy' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logarithms",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the log base 10 of 100?"
+        },
+        {
+          "role": "Agent",
+          "message": "2"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Infinitives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'to run' an infinitive?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Square Numbers",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the square of 12?"
+        },
+        {
+          "role": "Agent",
+          "message": "144"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Relative Pronouns",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'which' a relative pronoun?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Word",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'silhouette' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Cubes",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the cube of 3?"
+        },
+        {
+          "role": "Agent",
+          "message": "27"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Demonstrative Pronouns",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'these' a demonstrative pronoun?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    }
+  ]
+}

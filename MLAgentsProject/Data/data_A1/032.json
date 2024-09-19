@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to dial' in present tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Dials"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to ascend' in past tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Ascended"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to teleport' in future tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Will"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to explore' in present continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Exploring"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to defend' in past perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Defended"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to translate' in present perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Translated"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to negotiate' in past continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Negotiating"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to activate' in future continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Activating"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to analyze' in present perfect continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Analyzing"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to infiltrate' in past perfect continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Infiltrating"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to dial' in past tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Dialed"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to ascend' in present perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Ascended"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to teleport' in past perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Teleported"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to explore' in future perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Explored"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to defend' in present continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Defending"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to translate' in past continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Translating"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to negotiate' in future perfect continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Negotiating"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to activate' in present perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Activated"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to analyze' in past perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Analyzed"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to infiltrate' in future perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Infiltrated"
+        }
+      ]
+    }
+  ]
+}

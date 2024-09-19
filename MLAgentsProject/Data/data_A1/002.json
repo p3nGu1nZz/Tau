@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Logical",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "A right triangle has 90 degrees, true or false?"
+        },
+        {
+          "role": "Agent",
+          "message": "True"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Square Root",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the square root of 16?"
+        },
+        {
+          "role": "Agent",
+          "message": "4"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Even Numbers",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is zero an even number?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Comparison",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 15 greater than 10?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Prime Numbers",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "True or false: 2 is a prime number."
+        },
+        {
+          "role": "Agent",
+          "message": "True"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Adverbs",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'quickly' an adverb?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Sentence Structure",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "True or false: 'She run fast' is grammatically correct."
+        },
+        {
+          "role": "Agent",
+          "message": "False"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Superlative Forms",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the superlative form of bad?"
+        },
+        {
+          "role": "Agent",
+          "message": "Worst"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Pronouns",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'they' a pronoun?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'beautiful' an adjective?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Logical",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 1200 an even number?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Comparison",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "True or false: 5 is an odd number."
+        },
+        {
+          "role": "Agent",
+          "message": "True"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Forms",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of 'see'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Saw"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Pronouns",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'they' a pronoun?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Spell the word 'accommodate'."
+        },
+        {
+          "role": "Agent",
+          "message": "Accommodate"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'publically' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Addition",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Add 8 and seven."
+        },
+        {
+          "role": "Agent",
+          "message": "15"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 10 minus three?"
+        },
+        {
+          "role": "Agent",
+          "message": "7"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Forms",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of eat?"
+        },
+        {
+          "role": "Agent",
+          "message": "Ate"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Pluralization",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the plural of mouse?"
+        },
+        {
+          "role": "Agent",
+          "message": "Mice"
+        }
+      ]
+    }
+  ]
+}

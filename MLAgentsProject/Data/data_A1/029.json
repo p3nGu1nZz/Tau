@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to swim' in present tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Swims"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to dance' in past tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Danced"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to jump' in future tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Will"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to cook' in present continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Cooking"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to drive' in past perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Driven"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to sing' in present perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Sung"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to build' in past continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Building"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to laugh' in future continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Laughing"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to teach' in present perfect continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Teaching"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to learn' in past perfect continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Learning"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to swim' in past tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Swam"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to dance' in present perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Danced"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to jump' in past perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Jumped"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to cook' in future perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Cooked"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to drive' in present continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Driving"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to sing' in past continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Singing"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to build' in future perfect continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Building"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to laugh' in present perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Laughed"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to teach' in past perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Taught"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to learn' in future perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Learned"
+        }
+      ]
+    }
+  ]
+}

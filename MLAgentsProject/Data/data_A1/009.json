@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you have 3 apples and you eat one, how many are left?"
+        },
+        {
+          "role": "Agent",
+          "message": "Two"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the next number in the sequence: 10, 20, 30, 40, ?"
+        },
+        {
+          "role": "Agent",
+          "message": "50"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you have 4 oranges and you give away 2, how many do you have left?"
+        },
+        {
+          "role": "Agent",
+          "message": "Two"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the next number in the sequence: 1, 3, 5, 7, ?"
+        },
+        {
+          "role": "Agent",
+          "message": "9"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you have 6 bananas and you eat 2, how many are left?"
+        },
+        {
+          "role": "Agent",
+          "message": "Four"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the next number in the sequence: 2, 5, 8, 11, ?"
+        },
+        {
+          "role": "Agent",
+          "message": "14"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you have 8 apples and you give away 3, how many do you have left?"
+        },
+        {
+          "role": "Agent",
+          "message": "Five"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the next number in the sequence: 4, 8, 12, 16, ?"
+        },
+        {
+          "role": "Agent",
+          "message": "20"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If you have 7 oranges and you eat 3, how many are left?"
+        },
+        {
+          "role": "Agent",
+          "message": "Four"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Logic Problems",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the next number in the sequence: 6, 12, 18, 24, ?"
+        },
+        {
+          "role": "Agent",
+          "message": "30"
+        }
+      ]
+    }
+  ]
+}

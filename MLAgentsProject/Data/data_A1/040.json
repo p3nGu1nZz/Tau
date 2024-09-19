@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a triangle has a base of 10 cm and a height of 5 cm, what is its area?"
+        },
+        {
+          "role": "Agent",
+          "message": "25"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a circle has a radius of 7 meters, what is its circumference? (Use π ≈ 3.14)"
+        },
+        {
+          "role": "Agent",
+          "message": "43.96"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a rectangle has a length of 8 meters and a width of 3 meters, what is its perimeter?"
+        },
+        {
+          "role": "Agent",
+          "message": "22"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a square has a side length of 6 cm, what is its area?"
+        },
+        {
+          "role": "Agent",
+          "message": "36"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a parallelogram has a base of 12 cm and a height of 4 cm, what is its area?"
+        },
+        {
+          "role": "Agent",
+          "message": "48"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a trapezoid has bases of 10 cm and 6 cm, and a height of 5 cm, what is its area?"
+        },
+        {
+          "role": "Agent",
+          "message": "40"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a cylinder has a radius of 3 meters and a height of 7 meters, what is its volume? (Use π ≈ 3.14)"
+        },
+        {
+          "role": "Agent",
+          "message": "197.82"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a cone has a radius of 4 cm and a height of 9 cm, what is its volume? (Use π ≈ 3.14)"
+        },
+        {
+          "role": "Agent",
+          "message": "150.72"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a sphere has a radius of 5 meters, what is its volume? (Use π ≈ 3.14)"
+        },
+        {
+          "role": "Agent",
+          "message": "523.33"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a rectangular prism has a length of 4 meters, a width of 3 meters, and a height of 2 meters, what is its volume?"
+        },
+        {
+          "role": "Agent",
+          "message": "24"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a triangle has a base of 8 cm and a height of 4 cm, what is its area?"
+        },
+        {
+          "role": "Agent",
+          "message": "16"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a circle has a radius of 5 meters, what is its circumference? (Use π ≈ 3.14)"
+        },
+        {
+          "role": "Agent",
+          "message": "31.4"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a rectangle has a length of 10 meters and a width of 4 meters, what is its perimeter?"
+        },
+        {
+          "role": "Agent",
+          "message": "28"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a square has a side length of 7 cm, what is its area?"
+        },
+        {
+          "role": "Agent",
+          "message": "49"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a parallelogram has a base of 14 cm and a height of 5 cm, what is its area?"
+        },
+        {
+          "role": "Agent",
+          "message": "70"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a trapezoid has bases of 12 cm and 8 cm, and a height of 6 cm, what is its area?"
+        },
+        {
+          "role": "Agent",
+          "message": "60"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a cylinder has a radius of 5 meters and a height of 10 meters, what is its volume? (Use π ≈ 3.14)"
+        },
+        {
+          "role": "Agent",
+          "message": "785"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a cone has a radius of 6 cm and a height of 12 cm, what is its volume? (Use π ≈ 3.14)"
+        },
+        {
+          "role": "Agent",
+          "message": "452.16"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a sphere has a radius of 4 meters, what is its volume? (Use π ≈ 3.14)"
+        },
+        {
+          "role": "Agent",
+          "message": "268.08"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Geometry Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a rectangular prism has a length of 5 meters, a width of 4 meters, and a height of 3 meters, what is its volume?"
+        },
+        {
+          "role": "Agent",
+          "message": "60"
+        }
+      ]
+    }
+  ]
+}

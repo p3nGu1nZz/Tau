@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Addition",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the sum of 678 and 234?"
+        },
+        {
+          "role": "Agent",
+          "message": "912"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Subtract 543 from 876."
+        },
+        {
+          "role": "Agent",
+          "message": "333"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Multiply 21 by 19."
+        },
+        {
+          "role": "Agent",
+          "message": "399"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 324 divided by 18?"
+        },
+        {
+          "role": "Agent",
+          "message": "18"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Square Root",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Find the square root of 169."
+        },
+        {
+          "role": "Agent",
+          "message": "13"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Forms",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past participle of 'choose'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Chosen"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Pluralization",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the plural of 'thesis'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Theses"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the comparative form of 'little'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Less"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'convenience' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'reciept' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Addition",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Add 789 and 321."
+        },
+        {
+          "role": "Agent",
+          "message": "1110"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 900 minus 456?"
+        },
+        {
+          "role": "Agent",
+          "message": "444"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Forms",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of 'drink'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Drank"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Pluralization",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the plural of 'index'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Indices"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'exaggerate' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'tommorrow' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Multiply 17 by 29."
+        },
+        {
+          "role": "Agent",
+          "message": "493"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 441 divided by 21?"
+        },
+        {
+          "role": "Agent",
+          "message": "21"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the comparative form of 'gentle'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Gentler"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'maintenance' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Addition",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the sum of 234 and 567?"
+        },
+        {
+          "role": "Agent",
+          "message": "801"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Subtract 432 from 987."
+        },
+        {
+          "role": "Agent",
+          "message": "555"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Multiply 19 by 23."
+        },
+        {
+          "role": "Agent",
+          "message": "437"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 256 divided by 8?"
+        },
+        {
+          "role": "Agent",
+          "message": "32"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Square Root",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Find the square root of 144."
+        },
+        {
+          "role": "Agent",
+          "message": "12"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Forms",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past participle of 'begin'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Begun"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Pluralization",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the plural of 'phenomenon'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Phenomena"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the comparative form of 'happy'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Happier"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'acquaintance' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'commitee' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Addition",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Add 345 and 678."
+        },
+        {
+          "role": "Agent",
+          "message": "1023"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 800 minus 456?"
+        },
+        {
+          "role": "Agent",
+          "message": "344"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Forms",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of 'sing'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Sang"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Pluralization",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the plural of 'cactus'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Cacti"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'entrepreneur' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'definately' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Multiply 18 by 24."
+        },
+        {
+          "role": "Agent",
+          "message": "432"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 625 divided by 25?"
+        },
+        {
+          "role": "Agent",
+          "message": "25"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the comparative form of 'brave'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Braver"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'bureaucracy' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    }
+  ]
+}

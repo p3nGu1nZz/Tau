@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Addition",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 19 plus 23?"
+        },
+        {
+          "role": "Agent",
+          "message": "42"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Forms",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of 'begin'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Began"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Word",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'connoisseur' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 88 minus 44?"
+        },
+        {
+          "role": "Agent",
+          "message": "44"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'dark' an adjective?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 6 times 8?"
+        },
+        {
+          "role": "Agent",
+          "message": "48"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Prepositions",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'beside' a preposition?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Word",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'exquisite' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 72 divided by 9?"
+        },
+        {
+          "role": "Agent",
+          "message": "8"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Conjunctions",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'yet' a conjunction?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    }
+  ]
+}

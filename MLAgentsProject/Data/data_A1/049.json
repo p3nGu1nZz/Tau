@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Addition",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 17 plus 26?"
+        },
+        {
+          "role": "Agent",
+          "message": "43"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Forms",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of 'run'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Ran"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Word",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'accommodate' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 92 minus 49?"
+        },
+        {
+          "role": "Agent",
+          "message": "43"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'blue' an adjective?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Fractions",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 2/3 plus 1/3?"
+        },
+        {
+          "role": "Agent",
+          "message": "1"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Pronouns",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'she' a pronoun?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Word",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'miscellaneous' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Decimals",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 0.7 plus 0.3?"
+        },
+        {
+          "role": "Agent",
+          "message": "1"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Conjunctions",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'nor' a conjunction?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 3 times 7?"
+        },
+        {
+          "role": "Agent",
+          "message": "21"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Prepositions",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'below' a preposition?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Word",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'entrepreneur' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 48 divided by 6?"
+        },
+        {
+          "role": "Agent",
+          "message": "8"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Conjunctions",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'yet' a conjunction?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Exponentiation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 5 squared?"
+        },
+        {
+          "role": "Agent",
+          "message": "25"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Articles",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'an' an article?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Word",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'silhouette' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Square Roots",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the square root of 36?"
+        },
+        {
+          "role": "Agent",
+          "message": "6"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Interjections",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'wow' an interjection?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    }
+  ]
+}

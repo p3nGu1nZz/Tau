@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a movie starts at 6 PM and lasts for 2 hours and 15 minutes, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "8:15"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a concert starts at 7:30 PM and lasts for 3 hours, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "10:30"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a flight departs at 9 AM and takes 5 hours and 45 minutes, what time does it arrive?"
+        },
+        {
+          "role": "Agent",
+          "message": "2:45"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a meeting starts at 1 PM and lasts for 2 hours and 30 minutes, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "3:30"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a train departs at 11:15 AM and the journey takes 4 hours and 20 minutes, what time does it arrive?"
+        },
+        {
+          "role": "Agent",
+          "message": "3:35"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a workshop starts at 8:30 AM and lasts for 6 hours, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "2:30"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a game starts at 3 PM and lasts for 1 hour and 45 minutes, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "4:45"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a lecture starts at 10:15 AM and lasts for 2 hours and 10 minutes, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "12:25"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a bus departs at 5:45 PM and the journey takes 3 hours and 25 minutes, what time does it arrive?"
+        },
+        {
+          "role": "Agent",
+          "message": "9:10"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a show starts at 2 PM and lasts for 2 hours and 50 minutes, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "4:50"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a movie starts at 5 PM and lasts for 2 hours and 30 minutes, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "7:30"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a concert starts at 6:30 PM and lasts for 3 hours, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "9:30"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a flight departs at 8 AM and takes 4 hours and 45 minutes, what time does it arrive?"
+        },
+        {
+          "role": "Agent",
+          "message": "12:45"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a meeting starts at 2 PM and lasts for 1 hour and 30 minutes, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "3:30"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a train departs at 10:15 AM and the journey takes 5 hours and 20 minutes, what time does it arrive?"
+        },
+        {
+          "role": "Agent",
+          "message": "3:35"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a workshop starts at 9:30 AM and lasts for 4 hours, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "1:30"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a game starts at 4 PM and lasts for 2 hours and 45 minutes, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "6:45"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a lecture starts at 11:15 AM and lasts for 1 hour and 50 minutes, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "1:05"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a bus departs at 4:45 PM and the journey takes 2 hours and 25 minutes, what time does it arrive?"
+        },
+        {
+          "role": "Agent",
+          "message": "7:10"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Time Calculation",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a show starts at 1 PM and lasts for 3 hours and 10 minutes, what time does it end?"
+        },
+        {
+          "role": "Agent",
+          "message": "4:10"
+        }
+      ]
+    }
+  ]
+}

@@ -87,7 +87,7 @@ public class OllamaProofTask : BaseTask<OllamaProofTask, Response>
         {
             Log.Message($"OllamaProofTask: Processing user content: {userContent} ({index + 1} of {totalMessages})");
 
-            var responses = await Execute(userContent, agentContent, TimeSpan.FromSeconds(30), 10);
+            var responses = await Execute(userContent, agentContent, TimeSpan.FromSeconds(30), 1);
             ValidateResponses(responses.Select(r => r.ToString()).ToList(), userContent);
 
             Log.Message("OllamaProofTask: Validation completed for proof task.");

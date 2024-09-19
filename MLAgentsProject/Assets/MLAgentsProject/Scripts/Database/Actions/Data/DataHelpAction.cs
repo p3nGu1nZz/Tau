@@ -13,14 +13,15 @@ public static class DataHelpAction
                 "Usage: data <subcommand> [options]",
                 "",
                 "Subcommands:",
-                "  load <filename>       Loads training data from one or more JSON files",
                 "  check <filename>      Checks the integrity of the specified data file",
                 "  concat <filenames>    Concatenates multiple data files into one, or processes all JSON files in a directory",
-                "  ophrase <filename>    Processes data with ophrase to generate paraphrased responses",
-                "  info <filename>       Displays metadata and data counts for the specified file",
                 "  delete <filename>     Deletes the specified data file",
-                "  list                  Lists all JSON data files in the Data directory",
                 "  help                  Displays this help message",
+                "  info <filename>       Displays metadata and data counts for the specified file",
+                "  list                  Lists all JSON data files in the Data directory",
+                "  load <filename>       Loads training data from one or more JSON files",
+                "  ophrase <filename>    Processes data with ophrase to generate paraphrased responses",
+                "  prune <filename>      Prunes the specified data file by removing extra punctuation spaces and must exists in database",
                 ""
             };
 

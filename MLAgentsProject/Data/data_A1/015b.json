@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Spelling",
+      "context": "Homophones",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'bare' or 'bear' for an animal?"
+        },
+        {
+          "role": "Agent",
+          "message": "Bear"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Common Misspellings",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'acquaintance' or 'aquantance'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Acquaintance"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Silent Letters",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'knob' or 'nob'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Knob"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Double Letters",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'committee' or 'comittee'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Committee"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Commonly Confused Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'complement' or 'compliment' for praise?"
+        },
+        {
+          "role": "Agent",
+          "message": "Compliment"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Spelling",
+      "context": "Homophones",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'flour' or 'flower' for baking?"
+        },
+        {
+          "role": "Agent",
+          "message": "Flour"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Common Misspellings",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'conscience' or 'conscence'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Conscience"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Silent Letters",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'knit' or 'nit'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Knit"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Double Letters",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'address' or 'adress'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Address"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Commonly Confused Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'stationary' or 'stationery' for writing materials?"
+        },
+        {
+          "role": "Agent",
+          "message": "Stationery"
+        }
+      ]
+    }
+  ]
+}

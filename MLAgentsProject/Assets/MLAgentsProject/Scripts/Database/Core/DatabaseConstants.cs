@@ -1,5 +1,9 @@
 public static class DatabaseConstants
 {
+    public const string Version = "0.1.0";
+    public const string ModelName = "Tau";
+    public const string Organization = "Tau";
+
     public static readonly string[] ReservedWords = new string[]
     {
         "domain", "context", "system", "user", "agent", "turns", "role", "version", "model_name", "organization", "training_data", "evaluation_data", "data", "id", "type"

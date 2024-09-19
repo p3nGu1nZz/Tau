@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'quixotic' or 'quixotik'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Quixotic"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'serendipity' or 'serendipitye'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Serendipity"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'ephemeral' or 'ephemerel'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Ephemeral"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'labyrinthine' or 'labyrinthe'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Labyrinthine"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'effervescent' or 'effervescant'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Effervescent"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'mellifluous' or 'mellifluos'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Mellifluous"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'obfuscate' or 'obfuskate'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Obfuscate"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'pulchritudinous' or 'pulchritudinus'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Pulchritudinous"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'sesquipedalian' or 'sesquipedalien'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Sesquipedalian"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'verisimilitude' or 'verisimilitood'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Verisimilitude"
+        }
+      ]
+    }
+  ]
+}

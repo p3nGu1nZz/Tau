@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Addition",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 7 plus 9?"
+        },
+        {
+          "role": "Agent",
+          "message": "16"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Forms",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of 'beam'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Beamed"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'Klingon' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 6 times 7?"
+        },
+        {
+          "role": "Agent",
+          "message": "42"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the comparative form of 'logical'?"
+        },
+        {
+          "role": "Agent",
+          "message": "More logical"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'deflector' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 50 minus 23?"
+        },
+        {
+          "role": "Agent",
+          "message": "27"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Pronouns",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'Spock' a pronoun?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'Enterprise' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 64 divided by 8?"
+        },
+        {
+          "role": "Agent",
+          "message": "8"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Addition",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 14 plus 5?"
+        },
+        {
+          "role": "Agent",
+          "message": "19"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Forms",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of 'explore'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Explored"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'recieve' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 5 times 9?"
+        },
+        {
+          "role": "Agent",
+          "message": "45"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the comparative form of 'brave'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Braver"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'Vulcan' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 80 minus 35?"
+        },
+        {
+          "role": "Agent",
+          "message": "45"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Pronouns",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'they' a pronoun?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'seperate' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 72 divided by 9?"
+        },
+        {
+          "role": "Agent",
+          "message": "8"
+        }
+      ]
+    }
+  ]
+}

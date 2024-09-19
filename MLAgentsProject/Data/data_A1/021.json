@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Addition",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 23 plus 19?"
+        },
+        {
+          "role": "Agent",
+          "message": "42"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Forms",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of 'sing'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Sang"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'rhythm' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 9 times 7?"
+        },
+        {
+          "role": "Agent",
+          "message": "63"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the comparative form of 'bright'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Brighter"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'reccommend' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 50 minus 18?"
+        },
+        {
+          "role": "Agent",
+          "message": "32"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Pronouns",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'it' a pronoun?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'conscience' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 81 divided by 9?"
+        },
+        {
+          "role": "Agent",
+          "message": "9"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Addition",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 34 plus 16?"
+        },
+        {
+          "role": "Agent",
+          "message": "50"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Forms",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past tense of 'write'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Wrote"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'definately' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Multiplication",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 8 times 6?"
+        },
+        {
+          "role": "Agent",
+          "message": "48"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the comparative form of 'small'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Smaller"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'necessary' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 90 minus 33?"
+        },
+        {
+          "role": "Agent",
+          "message": "57"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Pronouns",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'he' a pronoun?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Incorrect Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'recieve' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 100 divided by 4?"
+        },
+        {
+          "role": "Agent",
+          "message": "25"
+        }
+      ]
+    }
+  ]
+}

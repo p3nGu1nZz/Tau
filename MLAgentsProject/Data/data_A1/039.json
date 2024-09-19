@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a car accelerates from 0 to 60 mph in 10 seconds, what is its average acceleration?"
+        },
+        {
+          "role": "Agent",
+          "message": "6"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a ball is thrown upwards with a velocity of 20 m/s, how long does it take to reach the highest point?"
+        },
+        {
+          "role": "Agent",
+          "message": "2"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a force of 50 N is applied to a mass of 10 kg, what is the acceleration?"
+        },
+        {
+          "role": "Agent",
+          "message": "5"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a wave has a frequency of 500 Hz and a wavelength of 2 meters, what is its speed?"
+        },
+        {
+          "role": "Agent",
+          "message": "1000"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a pendulum completes 15 oscillations in 30 seconds, what is its period?"
+        },
+        {
+          "role": "Agent",
+          "message": "2"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a light wave travels 300,000 km/s and has a frequency of 600 THz, what is its wavelength?"
+        },
+        {
+          "role": "Agent",
+          "message": "0.5"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a spring with a constant of 200 N/m is stretched by 0.1 meters, what is the force exerted?"
+        },
+        {
+          "role": "Agent",
+          "message": "20"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a car travels at a constant speed of 60 mph for 2 hours, how far does it travel?"
+        },
+        {
+          "role": "Agent",
+          "message": "120"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a box is pushed with a force of 100 N and moves 5 meters, what is the work done?"
+        },
+        {
+          "role": "Agent",
+          "message": "500"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a circuit has a voltage of 12 V and a resistance of 4 ohms, what is the current?"
+        },
+        {
+          "role": "Agent",
+          "message": "3"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a car accelerates from 0 to 100 km/h in 5 seconds, what is its average acceleration?"
+        },
+        {
+          "role": "Agent",
+          "message": "20"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a ball is thrown upwards with a velocity of 30 m/s, how long does it take to reach the highest point?"
+        },
+        {
+          "role": "Agent",
+          "message": "3"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a force of 100 N is applied to a mass of 20 kg, what is the acceleration?"
+        },
+        {
+          "role": "Agent",
+          "message": "5"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a wave has a frequency of 400 Hz and a wavelength of 3 meters, what is its speed?"
+        },
+        {
+          "role": "Agent",
+          "message": "1200"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a pendulum completes 20 oscillations in 40 seconds, what is its period?"
+        },
+        {
+          "role": "Agent",
+          "message": "2"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a light wave travels 300,000 km/s and has a frequency of 500 THz, what is its wavelength?"
+        },
+        {
+          "role": "Agent",
+          "message": "0.6"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a spring with a constant of 300 N/m is stretched by 0.2 meters, what is the force exerted?"
+        },
+        {
+          "role": "Agent",
+          "message": "60"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a car travels at a constant speed of 70 mph for 3 hours, how far does it travel?"
+        },
+        {
+          "role": "Agent",
+          "message": "210"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a box is pushed with a force of 150 N and moves 4 meters, what is the work done?"
+        },
+        {
+          "role": "Agent",
+          "message": "600"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Physics Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "If a circuit has a voltage of 24 V and a resistance of 6 ohms, what is the current?"
+        },
+        {
+          "role": "Agent",
+          "message": "4"
+        }
+      ]
+    }
+  ]
+}

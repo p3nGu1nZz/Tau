@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 45 is divided by 7?"
+        },
+        {
+          "role": "Agent",
+          "message": "3"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 58 is divided by 9?"
+        },
+        {
+          "role": "Agent",
+          "message": "4"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 72 is divided by 11?"
+        },
+        {
+          "role": "Agent",
+          "message": "6"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 89 is divided by 8?"
+        },
+        {
+          "role": "Agent",
+          "message": "1"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 96 is divided by 13?"
+        },
+        {
+          "role": "Agent",
+          "message": "5"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 104 is divided by 15?"
+        },
+        {
+          "role": "Agent",
+          "message": "14"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 117 is divided by 16?"
+        },
+        {
+          "role": "Agent",
+          "message": "5"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 132 is divided by 17?"
+        },
+        {
+          "role": "Agent",
+          "message": "13"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 145 is divided by 18?"
+        },
+        {
+          "role": "Agent",
+          "message": "1"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 159 is divided by 19?"
+        },
+        {
+          "role": "Agent",
+          "message": "7"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 33 is divided by 4?"
+        },
+        {
+          "role": "Agent",
+          "message": "1"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 47 is divided by 5?"
+        },
+        {
+          "role": "Agent",
+          "message": "2"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 61 is divided by 6?"
+        },
+        {
+          "role": "Agent",
+          "message": "1"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 75 is divided by 7?"
+        },
+        {
+          "role": "Agent",
+          "message": "5"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 88 is divided by 9?"
+        },
+        {
+          "role": "Agent",
+          "message": "7"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 99 is divided by 10?"
+        },
+        {
+          "role": "Agent",
+          "message": "9"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 111 is divided by 11?"
+        },
+        {
+          "role": "Agent",
+          "message": "1"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 124 is divided by 12?"
+        },
+        {
+          "role": "Agent",
+          "message": "4"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 138 is divided by 13?"
+        },
+        {
+          "role": "Agent",
+          "message": "8"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Modulus Problem",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the remainder when 150 is divided by 14?"
+        },
+        {
+          "role": "Agent",
+          "message": "10"
+        }
+      ]
+    }
+  ]
+}

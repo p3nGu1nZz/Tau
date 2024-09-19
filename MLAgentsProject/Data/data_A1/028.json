@@ -1,0 +1,309 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to be' in present tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Am"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to have' in past tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Had"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to go' in future tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Will"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to eat' in present continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Eating"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to read' in past perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Read"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to write' in present perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Written"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to see' in past continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Seeing"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to run' in future continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Running"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to speak' in present perfect continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Speaking"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to drive' in past perfect continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Driving"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to be' in past tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Was"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to have' in present perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Had"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to go' in past perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Gone"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to eat' in future perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Eaten"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to read' in present continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Reading"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to write' in past continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Writing"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to see' in future perfect continuous tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Seeing"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to run' in present perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Run"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to speak' in past perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Spoken"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Verb Conjugation",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Conjugate the verb 'to drive' in future perfect tense."
+        },
+        {
+          "role": "Agent",
+          "message": "Driven"
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,11 +10,13 @@ public class EmbeddingStorage
 {
     private DatabaseInfo _info;
     private DatabaseManager _tableManager;
+    private ConcurrentDictionary<string, bool> _tokens;
 
     public EmbeddingStorage(DatabaseInfo info, DatabaseManager tableManager)
     {
         _info = info;
         _tableManager = tableManager;
+        _tokens = new ConcurrentDictionary<string, bool>();
         Log.Message("EmbeddingStorage initialized.");
     }
 
@@ -30,6 +33,7 @@ public class EmbeddingStorage
 
         var newEmbedding = new Embedding(Database.Instance.GenerateUniqueId(), token, embedding, type);
         tables[tableName].Add(newEmbedding);
+        _tokens[token] = true;
 
         // Update database info
         _info.TotalEmbeddings++;
@@ -66,6 +70,17 @@ public class EmbeddingStorage
         }
 
         return newEmbedding;
+    }
+
+    public bool DoesTokenExist(string token)
+    {
+        return _tokens.ContainsKey(token);
+    }
+
+    public void ResetEmbeddings()
+    {
+        _tokens.Clear();
+        Log.Message("Tokens have been reset.");
     }
 
     public Embedding Match(double[] vector)

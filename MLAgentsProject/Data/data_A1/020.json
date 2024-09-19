@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Spelling",
+      "context": "Logic Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'syllogism' or 'sylogism'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Syllogism"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'tautology' or 'tautalogy'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Tautology"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Identify the correct spelling: 'paradox' or 'paradoxe'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Paradox"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Select the correct spelling: 'fallacy' or 'fallasy'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Fallacy"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which spelling is correct: 'axiom' or 'axium'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Axiom"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Spelling",
+      "context": "Logic Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'premise' or 'premis'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Premise"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Identify the correct spelling: 'conclusion' or 'conclution'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Conclusion"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Select the correct spelling: 'deduction' or 'deducton'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Deduction"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which spelling is correct: 'induction' or 'inducton'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Induction"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Logic Terms",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Choose the correct spelling: 'hypothesis' or 'hypothasis'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Hypothesis"
+        }
+      ]
+    }
+  ]
+}

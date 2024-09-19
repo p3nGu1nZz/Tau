@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Spelling",
+      "context": "Homophones",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'to' or 'too' for also?"
+        },
+        {
+          "role": "Agent",
+          "message": "Too"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Common Misspellings",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'occurrence' or 'occurence'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Occurrence"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Silent Letters",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'knock' or 'nock'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Knock"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Double Letters",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'committee' or 'comittee'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Committee"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Commonly Confused Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'affect' or 'effect' for influence?"
+        },
+        {
+          "role": "Agent",
+          "message": "Affect"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Spelling",
+      "context": "Homophones",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'its' or 'it's' for possession?"
+        },
+        {
+          "role": "Agent",
+          "message": "Its"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Common Misspellings",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'privilege' or 'priviledge'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Privilege"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Silent Letters",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'gnat' or 'nat'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Gnat"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Double Letters",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'misspell' or 'mispell'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Misspell"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Commonly Confused Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'accept' or 'except' for inclusion?"
+        },
+        {
+          "role": "Agent",
+          "message": "Accept"
+        }
+      ]
+    }
+  ]
+}

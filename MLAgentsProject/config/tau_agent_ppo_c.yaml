@@ -8,7 +8,7 @@ behaviors:
       beta: 0.005
       epsilon: 0.2
       lambd: 0.95
-      num_epoch: 7
+      num_epoch: 5
       learning_rate_schedule: linear
     network_settings:
       normalize: true
@@ -31,9 +31,9 @@ behaviors:
           hidden_units: 256
           num_layers: 4
           learning_rate: 0.00003
-    keep_checkpoints: 10
-    checkpoint_interval: 100000
+    keep_checkpoints: 40
+    checkpoint_interval: 250000
     threaded: true
-    max_steps: 2000000
+    max_steps: 10000000
     time_horizon: 256
     summary_freq: 10000

@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Spelling",
+      "context": "Homophones",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'their' or 'there' for possession?"
+        },
+        {
+          "role": "Agent",
+          "message": "Their"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Common Misspellings",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'definitely' or 'definately'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Definitely"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Silent Letters",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'knight' or 'nite'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Knight"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Double Letters",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'accommodate' or 'acommodate'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Accommodate"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Commonly Confused Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'affect' or 'effect' for a result?"
+        },
+        {
+          "role": "Agent",
+          "message": "Effect"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Spelling",
+      "context": "Homophones",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'your' or 'you're' for possession?"
+        },
+        {
+          "role": "Agent",
+          "message": "Your"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Common Misspellings",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'separate' or 'seperate'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Separate"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Silent Letters",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'gnome' or 'nome'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Gnome"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Double Letters",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'committee' or 'comittee'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Committee"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Commonly Confused Words",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'accept' or 'except' for exclusion?"
+        },
+        {
+          "role": "Agent",
+          "message": "Except"
+        }
+      ]
+    }
+  ]
+}

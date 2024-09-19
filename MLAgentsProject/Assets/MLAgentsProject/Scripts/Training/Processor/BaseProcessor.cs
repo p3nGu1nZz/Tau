@@ -11,12 +11,14 @@ public abstract class BaseProcessor<TDelegator, TAgent>
     protected SemaphoreSlim semaphore;
     protected CancellationTokenSource cancellationTokenSource;
     protected List<TrainingPair<TDelegator, TAgent>> trainingPairs;
+    protected int columns;
 
-    protected BaseProcessor(int numAgents)
+    protected BaseProcessor(int numAgents, int columns)
     {
         semaphore = new SemaphoreSlim(numAgents);
         cancellationTokenSource = new CancellationTokenSource();
         trainingPairs = new List<TrainingPair<TDelegator, TAgent>>();
+        this.columns = columns;
     }
 
     protected void AddTrainingPair(GameObject agentDelegatorInstance, GameObject baseAgentInstance)
@@ -31,6 +33,7 @@ public abstract class BaseProcessor<TDelegator, TAgent>
         try
         {
             var agentTrainer = pair.AgentDelegator.GetComponent<AgentTrainer>();
+            agentTrainer.SetColumns(columns);
             agentTrainer.Initialize();
         }
         catch (OperationCanceledException)

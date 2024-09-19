@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Subtraction",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 100 - 45?"
+        },
+        {
+          "role": "Agent",
+          "message": "55"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Pluralization",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the plural of 'goose'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Geese"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Correct Spelling",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'maintenance' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Division",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 81 ÷ 9?"
+        },
+        {
+          "role": "Agent",
+          "message": "9"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the comparative form of 'bad'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Worse"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Square Roots",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the square root of 49?"
+        },
+        {
+          "role": "Agent",
+          "message": "7"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Superlatives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the superlative form of 'happy'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Happiest"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Letter Count",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "How many times does the letter 'a' appear in 'banana'?"
+        },
+        {
+          "role": "Agent",
+          "message": "3"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "True/False",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "True or false: 9 is an odd number."
+        },
+        {
+          "role": "Agent",
+          "message": "True"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Adverbs",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'slowly' an adverb?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    }
+  ]
+}

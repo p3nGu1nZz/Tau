@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'She has a cat' or 'She have a cat'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Has"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'He is tall' or 'He are tall'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Is"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'They has books' or 'They have books'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Have"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'I am happy' or 'I is happy'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Am"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'We are friends' or 'We is friends'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Are"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'She were there' or 'She was there'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Was"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'He has a dog' or 'He have a dog'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Has"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'They is here' or 'They are here'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Are"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'I has a pen' or 'I have a pen'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Have"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Logic Problems",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Which is correct: 'We is ready' or 'We are ready'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Are"
+        }
+      ]
+    }
+  ]
+}

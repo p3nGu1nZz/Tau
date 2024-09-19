@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "model_name": "Tau-LLM",
+  "organization": "Tau",
+  "training_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Prime Numbers",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 17 a prime number?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Possessive Nouns",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'dog's' a possessive noun?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Word",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'entrepreneur' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Even and Odd Numbers",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 42 an even number?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Subject-Verb Agreement",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'She run fast' correct?"
+        },
+        {
+          "role": "Agent",
+          "message": "No"
+        }
+      ]
+    }
+  ],
+  "evaluation_data": [
+    {
+      "domain": "Basic Math",
+      "context": "Rounding Numbers",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Round 4.67 to the nearest whole number."
+        },
+        {
+          "role": "Agent",
+          "message": "5"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Comparative Adjectives",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the comparative form of 'small'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Smaller"
+        }
+      ]
+    },
+    {
+      "domain": "Spelling",
+      "context": "Random Word",
+      "system": "Spelling Checker AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "Is 'conscientious' spelled correctly?"
+        },
+        {
+          "role": "Agent",
+          "message": "Yes"
+        }
+      ]
+    },
+    {
+      "domain": "Basic Math",
+      "context": "Order of Operations",
+      "system": "Math Tutor AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is 3 + 2 * 5?"
+        },
+        {
+          "role": "Agent",
+          "message": "13"
+        }
+      ]
+    },
+    {
+      "domain": "Grammar",
+      "context": "Past Participle",
+      "system": "Grammar Helper AI",
+      "turns": [
+        {
+          "role": "User",
+          "message": "What is the past participle of 'write'?"
+        },
+        {
+          "role": "Agent",
+          "message": "Written"
+        }
+      ]
+    }
+  ]
+}
