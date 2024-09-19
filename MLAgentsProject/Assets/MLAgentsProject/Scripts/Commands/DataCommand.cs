@@ -9,6 +9,7 @@ public static class DataCommand
     {
         { "load", DataLoadAction.Execute },
         { "check", DataCheckAction.Execute },
+        { "prune", DataPruneAction.Execute },
         { "concat", DataConcatAction.Execute },
         { "ophrase", DataOphraseAction.Execute },
         { "oproof", DataOproofAction.Execute },

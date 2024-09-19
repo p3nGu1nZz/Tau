@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,17 +6,13 @@ using UnityEngine;
 
 public static class DataLoader
 {
-    private const string Version = "0.1.0";
-    private const string ModelName = "Tau";
-    private const string Organization = "Tau";
-
     public static async Task LoadData(MessageList messageList)
     {
         List<string> vocabulary = ExtractAndLogVocabulary(messageList);
         var (chunkedTrainingData, combinedTrainingData) = ProcessAndLogData(messageList.training_data, "training");
         var (chunkedEvaluationData, combinedEvaluationData) = ProcessAndLogData(messageList.evaluation_data, "evaluation");
 
-        Tokenizer.Export(TableNames.Vocabulary, vocabulary, Version, ModelName, Organization);
+        Tokenizer.Export(TableNames.Vocabulary, vocabulary, DatabaseConstants.Version, DatabaseConstants.ModelName, DatabaseConstants.Organization);
 
         await DatabaseUtilities.BuildAndPopulateTables(vocabulary, combinedTrainingData, combinedEvaluationData);
         await DatabaseUtilities.AggregateAndStoreEmbeddings(chunkedTrainingData, chunkedEvaluationData);
@@ -35,7 +30,7 @@ public static class DataLoader
 
             if (messageList != null)
             {
-                RemoveDuplicates(messageList);
+                DataUtilities.RemoveDuplicates(messageList);
             }
 
             return messageList;
@@ -45,6 +40,26 @@ public static class DataLoader
             Log.Error($"{fileName} file not found.");
             return null;
         }
+    }
+
+    public static MessageList Prune(MessageList messageList)
+    {
+        Log.Message("Starting pruning process...");
+        Log.Message($"Initial training data count: {messageList.training_data.Count}");
+        Log.Message($"Initial evaluation data count: {messageList.evaluation_data.Count}");
+
+        DataUtilities.CleanPunctuationSpaces(messageList);
+        Log.Message("Cleaned punctuation and spaces.");
+
+        Log.Message("Pruning training data...");
+        DataUtilities.PruneMessages(messageList.training_data, TableNames.TrainingData);
+        Log.Message($"Post-pruning training data count: {messageList.training_data.Count}");
+
+        Log.Message("Pruning evaluation data...");
+        DataUtilities.PruneMessages(messageList.evaluation_data, TableNames.EvaluationData);
+        Log.Message($"Post-pruning evaluation data count: {messageList.evaluation_data.Count}");
+
+        return messageList;
     }
 
     private static MessageList Deserialize(string jsonData)
@@ -97,33 +112,5 @@ public static class DataLoader
         var tableNames = string.Join(", ", Database.Instance.GetTables().Keys);
         Log.Message($"Total tables exported: {Database.Instance.GetTables().Count}");
         Log.Message($"Table names: {tableNames}");
-    }
-
-    public static void RemoveDuplicates(MessageList messageList)
-    {
-        var trainingDuplicates = MessageComparer.FindDuplicates(messageList.training_data);
-        var evaluationDuplicates = MessageComparer.FindDuplicates(messageList.evaluation_data);
-
-        messageList.training_data = messageList.training_data.Except(trainingDuplicates).ToList();
-        messageList.evaluation_data = messageList.evaluation_data.Except(evaluationDuplicates).ToList();
-
-        // Remove messages from evaluation_data if they exist in training_data
-        var trainingMessages = new HashSet<string>(messageList.training_data.SelectMany(m => m.turns.Where(t => t.role == "User").Select(t => t.message)));
-        int initialEvaluationCount = messageList.evaluation_data.Count;
-        messageList.evaluation_data = messageList.evaluation_data.Where(m => !trainingMessages.Contains(m.turns.FirstOrDefault(t => t.role == "User")?.message)).ToList();
-        int messagesRemovedFromEvaluation = initialEvaluationCount - messageList.evaluation_data.Count;
-
-        Log.Message($"Training data duplicates removed: {trainingDuplicates.Count}");
-        Log.Message($"Evaluation data duplicates removed: {evaluationDuplicates.Count}");
-        Log.Message($"Messages removed from evaluation data because they exist in training data: {messagesRemovedFromEvaluation}");
-    }
-
-    public static void Shuffle(MessageList messageList)
-    {
-        System.Random rng = new();
-        messageList.training_data = messageList.training_data.OrderBy(_ => rng.Next()).ToList();
-        messageList.evaluation_data = messageList.evaluation_data.OrderBy(_ => rng.Next()).ToList();
-
-        Log.Message("Training data and evaluation data have been randomized.");
     }
 }

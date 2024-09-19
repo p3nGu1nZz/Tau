@@ -985,7 +985,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "What's the correct spelling for 'happee'? "
+                    "message": "What's the correct spelling for 'happee'?"
                 },
                 {
                     "role": "Agent",
@@ -9070,7 +9070,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "What is the past tense of 'sin'? "
+                    "message": "What is the past tense of 'sin'?"
                 },
                 {
                     "role": "Agent",
@@ -9670,7 +9670,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "What does it mean to spell 'drawing'? "
+                    "message": "What does it mean to spell 'drawing'?"
                 },
                 {
                     "role": "Agent",
@@ -12370,7 +12370,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "How do you spell 'chose'? "
+                    "message": "How do you spell 'chose'?"
                 },
                 {
                     "role": "Agent",
@@ -12430,7 +12430,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "How do you spell 'happier'? "
+                    "message": "How do you spell 'happier'?"
                 },
                 {
                     "role": "Agent",
@@ -21835,7 +21835,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "Is the spelling 'rnnnng' correct for 'running'? "
+                    "message": "Is the spelling 'rnnnng' correct for 'running'?"
                 },
                 {
                     "role": "Agent",
@@ -24775,7 +24775,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "What is the result of one-third plus one-sixth? "
+                    "message": "What is the result of one-third plus one-sixth?"
                 },
                 {
                     "role": "Agent",
@@ -27280,7 +27280,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "How about 'positively'? "
+                    "message": "How about 'positively'?"
                 },
                 {
                     "role": "Agent",
@@ -32230,7 +32230,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "Which one spells it right, 'friends' or 'frendz'? "
+                    "message": "Which one spells it right, 'friends' or 'frendz'?"
                 },
                 {
                     "role": "Agent",
@@ -33715,7 +33715,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "Do you know how to spell 'happie' correctly? "
+                    "message": "Do you know how to spell 'happie' correctly?"
                 },
                 {
                     "role": "Agent",
@@ -36805,7 +36805,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "Should it be 'recommnd'? "
+                    "message": "Should it be 'recommnd'?"
                 },
                 {
                     "role": "Agent",
@@ -37840,7 +37840,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "Is it 'diveid' when dividing numbers? "
+                    "message": "Is it 'diveid' when dividing numbers?"
                 },
                 {
                     "role": "Agent",
@@ -51355,7 +51355,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "What's the spelling of 'ait'? "
+                    "message": "What's the spelling of 'ait'?"
                 },
                 {
                     "role": "Agent",
@@ -51850,7 +51850,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "How do you spell 'vociferous'? "
+                    "message": "How do you spell 'vociferous'?"
                 },
                 {
                     "role": "Agent",
@@ -56770,7 +56770,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "How do you spell the word 'sang'? "
+                    "message": "How do you spell the word 'sang'?"
                 },
                 {
                     "role": "Agent",
@@ -62305,7 +62305,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "Do you spell 'sing' with an extra 'd'? "
+                    "message": "Do you spell 'sing' with an extra 'd'?"
                 },
                 {
                     "role": "Agent",
@@ -63655,7 +63655,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "Is it spelled as 'ephemerel'? "
+                    "message": "Is it spelled as 'ephemerel'?"
                 },
                 {
                     "role": "Agent",
@@ -64645,7 +64645,7 @@
             "turns": [
                 {
                     "role": "User",
-                    "message": "Do people normally use either 'taciturn' or 'taciturne'? "
+                    "message": "Do people normally use either 'taciturn' or 'taciturne'?"
                 },
                 {
                     "role": "Agent",
