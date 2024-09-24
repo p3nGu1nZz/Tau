@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "com.unity.ai.navigation": "2.0.4",
-    "com.unity.collab-proxy": "2.4.4",
+    "com.unity.collab-proxy": "2.5.1",
     "com.unity.ide.visualstudio": "2.0.22",
-    "com.unity.inputsystem": "1.10.0",
+    "com.unity.inputsystem": "1.11.0",
     "com.unity.ml-agents": "file:../ml-agents/com.unity.ml-agents",
     "com.unity.ml-agents.extensions": "file:../ml-agents/com.unity.ml-agents.extensions",
     "com.unity.postprocessing": "3.4.0",
