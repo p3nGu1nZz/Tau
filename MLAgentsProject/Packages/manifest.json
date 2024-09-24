@@ -7,7 +7,7 @@
     "com.unity.ml-agents": "file:../ml-agents/com.unity.ml-agents",
     "com.unity.ml-agents.extensions": "file:../ml-agents/com.unity.ml-agents.extensions",
     "com.unity.postprocessing": "3.4.0",
-    "com.unity.probuilder": "6.0.3",
+    "com.unity.probuilder": "6.0.4",
     "com.unity.render-pipelines.universal": "17.0.3",
     "com.unity.settings-manager": "2.0.1",
     "com.unity.test-framework": "1.4.5",
