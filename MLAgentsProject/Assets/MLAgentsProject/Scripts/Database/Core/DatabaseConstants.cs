@@ -19,4 +19,5 @@ public static class DatabaseConstants
     public const int MaxTableWidth = 110;
     public const int MaxLogLength = 110;
     public const int VectorSize = 384;
+    public const int TokenSize = 3;
 }
