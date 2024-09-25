@@ -42,7 +42,7 @@ public class TableBuilder
         Stopwatch stopwatch = Stopwatch.StartNew();
 
         // Include reserved words in the total token count only if it's the vocabulary table
-        int reservedWordsCount = isVocabulary ? DatabaseConstants.ReservedWords.Length : 0;
+        int reservedWordsCount = isVocabulary ? Constants.ReservedWords.Length : 0;
         int totalTokens = tokens.Count + reservedWordsCount + 1;
         var tasks = new List<Task>();
         var semaphore = new SemaphoreSlim(EmbeddingUtilities.MaxConcurrentJobs);

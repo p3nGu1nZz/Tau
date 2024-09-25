@@ -20,8 +20,8 @@ public class DatabaseManager
     public void CreateTable(string tableName) => _tableManager.CreateTable(tableName);
     public void DeleteTable(string tableName) => _tableManager.DeleteTable(tableName);
     public void ListTables() => _tableManager.ListTables();
-    public void Save(string fileName = DatabaseConstants.DatabaseFileName) => _saveLoadManager.Save(fileName);
-    public void Load(string fileName = DatabaseConstants.DatabaseFileName) => _saveLoadManager.Load(fileName);
+    public void Save(string fileName = Constants.DatabaseFileName) => _saveLoadManager.Save(fileName);
+    public void Load(string fileName = Constants.DatabaseFileName) => _saveLoadManager.Load(fileName);
     public void Clear() => _tableManager.Clear();
     public Dictionary<string, List<Embedding>> GetTables() => _tableManager.GetTables();
     public Dictionary<string, Embedding> GetTable(string tableName) => _tableManager.GetTable(tableName);

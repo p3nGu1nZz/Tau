@@ -28,6 +28,6 @@ public class PostBuildProcessor : IPostprocessBuildWithReport
 
     private static string GetProjectRootPath()
     {
-        return Path.Combine(Application.dataPath, DatabaseConstants.UpDirectoryLevel);
+        return Path.Combine(Application.dataPath, Constants.UpDirectoryLevel);
     }
 }

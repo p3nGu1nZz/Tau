@@ -22,7 +22,7 @@ public static class StringUtilities
 
         if (start < text.Length)
         {
-            lines[lines.Count - 1] = lines[lines.Count - 1].TrimEnd() + DatabaseConstants.TextElipsis;
+            lines[lines.Count - 1] = lines[lines.Count - 1].TrimEnd() + Constants.TextElipsis;
         }
 
         return lines;
@@ -55,32 +55,32 @@ public static class StringUtilities
 
     public static string TruncateLogMessage(string message)
     {
-        if (string.IsNullOrEmpty(message) || message.Length <= DatabaseConstants.MaxLogLength)
+        if (string.IsNullOrEmpty(message) || message.Length <= Constants.MaxLogLength)
         {
             return message;
         }
 
-        return message.Substring(0, DatabaseConstants.MaxLogLength) + DatabaseConstants.TextElipsis;
+        return message.Substring(0, Constants.MaxLogLength) + Constants.TextElipsis;
     }
 
     public static string ConvertVectorToString(double[] vector)
     {
-        if (vector.Length != DatabaseConstants.VectorSize)
+        if (vector.Length != Constants.VectorSize)
         {
-            throw new ArgumentException($"Vector must be of size {DatabaseConstants.VectorSize}.");
+            throw new ArgumentException($"Vector must be of size {Constants.VectorSize}.");
         }
 
-        return "[" + string.Join(DatabaseConstants.VectorSeparator, vector.Select(v => v.ToString("F6"))) + "]";
+        return "[" + string.Join(Constants.VectorSeparator, vector.Select(v => v.ToString("F6"))) + "]";
     }
 
     public static string ConvertVectorToString(float[] vector)
     {
-        if (vector.Length != DatabaseConstants.VectorSize)
+        if (vector.Length != Constants.VectorSize)
         {
-            throw new ArgumentException($"Vector must be of size {DatabaseConstants.VectorSize}.");
+            throw new ArgumentException($"Vector must be of size {Constants.VectorSize}.");
         }
 
-        return "[" + string.Join(DatabaseConstants.VectorSeparator, vector.Select(v => v.ToString("F6"))) + "]";
+        return "[" + string.Join(Constants.VectorSeparator, vector.Select(v => v.ToString("F6"))) + "]";
     }
 
     public static double[] ConvertStringToVector(string vectorString)
@@ -90,12 +90,12 @@ public static class StringUtilities
             throw new ArgumentException("Embedding vector must be enclosed in square brackets.");
         }
 
-        string[] parts = vectorString.Trim('[', ']').Split(DatabaseConstants.VectorSeparator);
+        string[] parts = vectorString.Trim('[', ']').Split(Constants.VectorSeparator);
         double[] vector = parts.Select(double.Parse).ToArray();
 
-        if (vector.Length != DatabaseConstants.VectorSize)
+        if (vector.Length != Constants.VectorSize)
         {
-            throw new ArgumentException($"Embedding vector must be of size {DatabaseConstants.VectorSize}.");
+            throw new ArgumentException($"Embedding vector must be of size {Constants.VectorSize}.");
         }
 
         return vector;

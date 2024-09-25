@@ -50,9 +50,9 @@ public class TableDisplay
         int idColumnWidth = CalculateColumnWidth("Id", table.Values.Select(k => k.Id.ToString()), 10);
         int typeColumnWidth = CalculateColumnWidth("Type", table.Values.Select(k => k.Type.ToString()), 10);
         int tokenColumnWidth = CalculateColumnWidth("Token", table.Keys.Select(k => k), 30, maxTokenLength);
-        int embeddingColumnWidth = DatabaseConstants.MaxTableWidth - (idColumnWidth + typeColumnWidth + tokenColumnWidth + 10);
+        int embeddingColumnWidth = Constants.MaxTableWidth - (idColumnWidth + typeColumnWidth + tokenColumnWidth + 10);
 
-        string separator = new string(DatabaseConstants.TableSeparator, DatabaseConstants.MaxTableWidth + 3);
+        string separator = new string(Constants.TableSeparator, Constants.MaxTableWidth + 3);
         var results = new StringBuilder();
         results.AppendLine(separator);
         results.AppendLine(FormatHeader(idColumnWidth, typeColumnWidth, tokenColumnWidth, embeddingColumnWidth));
@@ -81,12 +81,12 @@ public class TableDisplay
 
     private string TruncateText(string text, int maxLength)
     {
-        return text.Length > maxLength ? text.Substring(0, maxLength) + DatabaseConstants.TextElipsis : text;
+        return text.Length > maxLength ? text.Substring(0, maxLength) + Constants.TextElipsis : text;
     }
 
     private string FormatEmbeddings(List<double> vector, int numEmbeddingsToShow)
     {
-        return string.Join(DatabaseConstants.VectorSeparator, vector.Take(numEmbeddingsToShow)) + (vector.Count > numEmbeddingsToShow ? DatabaseConstants.TextElipsis : "");
+        return string.Join(Constants.VectorSeparator, vector.Take(numEmbeddingsToShow)) + (vector.Count > numEmbeddingsToShow ? Constants.TextElipsis : "");
     }
 
     private string FormatTableRow(KeyValuePair<string, Embedding> entry, int idColumnWidth, int typeColumnWidth, int tokenColumnWidth, int embeddingColumnWidth, int numEmbeddingsToShow, int maxLinesPerRecord, int maxTokenLength)

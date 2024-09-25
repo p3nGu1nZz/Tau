@@ -13,7 +13,7 @@ public static class DataConcatAction
             bool isFirstFile = true;
             string firstArg = args[0].String;
             string firstArgPath = DataUtilities.GetFilePath(firstArg);
-            string saveFileName = DatabaseConstants.DefaultDataFileName;
+            string saveFileName = Constants.DefaultDataFileName;
             List<string> fileNames = new();
             MessageList combined = new();
 

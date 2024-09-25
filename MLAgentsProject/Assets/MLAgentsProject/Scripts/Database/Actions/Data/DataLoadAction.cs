@@ -20,12 +20,11 @@ public static class DataLoadAction
         Stopwatch stopwatch = Stopwatch.StartNew();
         Log.Message($"Starting to load training data from {string.Join(", ", fileNames)}...");
 
-        // Initialize a combined message list
         MessageList combinedMessageList = new MessageList
         {
-            version = "0.1.0",
-            model_name = "Tau",
-            organization = "Huggingface",
+            version = Constants.Version,
+            model_name = Constants.ModelName,
+            organization = Constants.Organization,
             training_data = new List<Message>(),
             evaluation_data = new List<Message>()
         };
@@ -41,12 +40,9 @@ public static class DataLoadAction
                 Log.Message($"Version: {messageList.version}");
                 Log.Message($"Model Name: {messageList.model_name}");
                 Log.Message($"Organization: {messageList.organization}");
-
-                // Log the size of training and evaluation data
                 Log.Message($"Training data size: {messageList.training_data.Count}");
                 Log.Message($"Evaluation data size: {messageList.evaluation_data.Count}");
 
-                // Append the data to the combined message list
                 combinedMessageList.training_data.AddRange(messageList.training_data);
                 combinedMessageList.evaluation_data.AddRange(messageList.evaluation_data);
 
@@ -59,7 +55,6 @@ public static class DataLoadAction
             }
         }
 
-        // Use the combined message list
         await DataLoader.LoadData(combinedMessageList);
 
         stopwatch.Stop();

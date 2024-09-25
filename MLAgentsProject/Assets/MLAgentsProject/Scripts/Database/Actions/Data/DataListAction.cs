@@ -9,7 +9,7 @@ public static class DataListAction
     {
         try
         {
-            string dataDirectory = Path.Combine(Application.dataPath, DatabaseConstants.UpDirectoryLevel, DatabaseConstants.DataDirectoryName);
+            string dataDirectory = Path.Combine(Application.dataPath, Constants.UpDirectoryLevel, Constants.DataDirectoryName);
             var jsonFiles = DataUtilities.GetDirectoryContents(dataDirectory, "*.json");
 
             if (jsonFiles.Count == 0)

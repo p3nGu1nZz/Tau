@@ -13,11 +13,11 @@ public class SaveLoadManager
         _info = info;
     }
 
-    public void Save(string fileName = DatabaseConstants.DatabaseFileName)
+    public void Save(string fileName = Constants.DatabaseFileName)
     {
         if (string.IsNullOrEmpty(fileName))
         {
-            fileName = DatabaseConstants.DatabaseFileName;
+            fileName = Constants.DatabaseFileName;
         }
 
         string filePath = DataUtilities.GetFilePath(fileName);
@@ -44,11 +44,11 @@ public class SaveLoadManager
         Log.Message($"Database saved to {filePath} (Elapsed time: {stopwatch.Elapsed.TotalSeconds} seconds)");
     }
 
-    public void Load(string fileName = DatabaseConstants.DatabaseFileName)
+    public void Load(string fileName = Constants.DatabaseFileName)
     {
         if (string.IsNullOrEmpty(fileName))
         {
-            fileName = DatabaseConstants.DatabaseFileName;
+            fileName = Constants.DatabaseFileName;
         }
 
         string filePath = DataUtilities.GetFilePath(fileName);

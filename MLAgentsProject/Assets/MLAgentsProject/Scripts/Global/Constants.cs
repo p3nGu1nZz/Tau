@@ -1,4 +1,4 @@
-public static class DatabaseConstants
+public static class Constants
 {
     public const string Version = "0.1.0";
     public const string ModelName = "Tau";
@@ -18,5 +18,8 @@ public static class DatabaseConstants
     public const char TableSeparator = '-';
     public const int MaxTableWidth = 110;
     public const int MaxLogLength = 110;
+    public const int OverlapTokens = 16;
     public const int VectorSize = 384;
+    public const int MaxTokens = 128;
+    public const int TokenSize = 3;
 }

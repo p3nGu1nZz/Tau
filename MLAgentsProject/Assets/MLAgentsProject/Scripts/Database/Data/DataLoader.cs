@@ -12,10 +12,10 @@ public static class DataLoader
         var (chunkedTrainingData, combinedTrainingData) = ProcessAndLogData(messageList.training_data, "training");
         var (chunkedEvaluationData, combinedEvaluationData) = ProcessAndLogData(messageList.evaluation_data, "evaluation");
 
-        Tokenizer.Export(TableNames.Vocabulary, vocabulary, DatabaseConstants.Version, DatabaseConstants.ModelName, DatabaseConstants.Organization);
-
         await DatabaseUtilities.BuildAndPopulateTables(vocabulary, combinedTrainingData, combinedEvaluationData);
         await DatabaseUtilities.AggregateAndStoreEmbeddings(chunkedTrainingData, chunkedEvaluationData);
+
+        Tokenizer.Export(vocabulary);
 
         LogTableInfo();
     }
@@ -95,7 +95,7 @@ public static class DataLoader
             Log.Message($"Sample {dataType} message: {dataList[0]}");
         }
 
-        Dictionary<string, List<string>> chunkedData = Tokenizer.ChunkText(dataList);
+        Dictionary<string, List<string>> chunkedData = TokenizerUtilities.ChunkText(dataList);
         List<string> combinedData = chunkedData.Values.SelectMany(chunks => chunks).ToList();
 
         // Include short texts that were not chunked
