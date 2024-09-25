@@ -108,7 +108,7 @@ public class EmbeddingStorage
             Vectors = vectors,
             QueryVector = query,
             Results = results,
-            VectorSize = DatabaseConstants.VectorSize
+            VectorSize = Constants.VectorSize
         };
 
         JobHandle handle = job.Schedule(embeddings.Count, 64);

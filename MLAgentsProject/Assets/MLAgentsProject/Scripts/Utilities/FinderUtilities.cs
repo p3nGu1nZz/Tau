@@ -19,12 +19,12 @@ public static class FinderUtilities
 
     public static string TruncateText(string text, int maxLength)
     {
-        return text.Length > maxLength ? text.Substring(0, maxLength) + DatabaseConstants.TextElipsis : text;
+        return text.Length > maxLength ? text.Substring(0, maxLength) + Constants.TextElipsis : text;
     }
 
     public static string FormatEmbeddings(List<double> vector, int numEmbeddingsToShow)
     {
-        return string.Join(DatabaseConstants.VectorSeparator, vector.Take(numEmbeddingsToShow)) + (vector.Count > numEmbeddingsToShow ? DatabaseConstants.TextElipsis : "");
+        return string.Join(Constants.VectorSeparator, vector.Take(numEmbeddingsToShow)) + (vector.Count > numEmbeddingsToShow ? Constants.TextElipsis : "");
     }
 
     public static string FormatRecord(List<string> idLines, List<string> typeLines, List<string> tokenLines, List<string> tableLines, List<string> embeddingLines, int idColumnWidth, int typeColumnWidth, int tokenColumnWidth, int tableColumnWidth, int embeddingColumnWidth)

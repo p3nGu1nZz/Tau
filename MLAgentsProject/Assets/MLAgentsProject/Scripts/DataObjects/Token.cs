@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Numerics;
 
-[System.Serializable]
+[Serializable]
 public class Token
 {
     public int Id;
@@ -11,9 +10,9 @@ public class Token
 
     public Token(int id, string name, double[] vector)
     {
-        if (vector.Length != DatabaseConstants.TokenSize)
+        if (vector.Length != Constants.TokenSize && vector.Length != Constants.VectorSize)
         {
-            throw new ArgumentException("Token vector must be of size 3.");
+            throw new ArgumentException($"Token vector must be of size {Constants.TokenSize} or {Constants.VectorSize}.");
         }
 
         Id = id;

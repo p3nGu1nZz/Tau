@@ -6,10 +6,11 @@ public class TokenList
     public string version;
     public string model_name;
     public string organization;
-    public List<Token> token_data;
+    public int total_tokens;
+    public List<Token> tokens;
 
     public TokenList()
     {
-        token_data = new List<Token>();
+        tokens = new List<Token>();
     }
 }

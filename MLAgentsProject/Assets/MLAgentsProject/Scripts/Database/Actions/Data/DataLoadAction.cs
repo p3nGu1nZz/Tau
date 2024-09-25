@@ -22,9 +22,9 @@ public static class DataLoadAction
 
         MessageList combinedMessageList = new MessageList
         {
-            version = DatabaseConstants.Version,
-            model_name = DatabaseConstants.ModelName,
-            organization = DatabaseConstants.Organization,
+            version = Constants.Version,
+            model_name = Constants.ModelName,
+            organization = Constants.Organization,
             training_data = new List<Message>(),
             evaluation_data = new List<Message>()
         };

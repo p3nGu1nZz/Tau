@@ -15,9 +15,9 @@ public class ResultFormatter
         int typeColumnWidth = FinderUtilities.CalculateColumnWidth("Type", results.Select(r => r.Embedding?.Type.ToString() ?? ""), 10);
         int tokenColumnWidth = FinderUtilities.CalculateColumnWidth("Token", results.Select(r => r.Embedding?.Token ?? ""), 30, maxTokenLength);
         int tableColumnWidth = FinderUtilities.CalculateColumnWidth("Table", results.Select(r => r.TableName), 15);
-        int embeddingColumnWidth = DatabaseConstants.MaxTableWidth - (idColumnWidth + typeColumnWidth + tokenColumnWidth + tableColumnWidth + 10);
+        int embeddingColumnWidth = Constants.MaxTableWidth - (idColumnWidth + typeColumnWidth + tokenColumnWidth + tableColumnWidth + 10);
 
-        string separator = new string(DatabaseConstants.TableSeparator, DatabaseConstants.MaxTableWidth + 3);
+        string separator = new string(Constants.TableSeparator, Constants.MaxTableWidth + 3);
         var result = new StringBuilder();
         result.AppendLine(separator);
         result.AppendLine(FinderUtilities.FormatHeader(idColumnWidth, typeColumnWidth, tokenColumnWidth, tableColumnWidth, embeddingColumnWidth));

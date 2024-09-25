@@ -12,7 +12,7 @@ public class Embedding
 
     public Embedding(int id, string token, double[] vector, EmbeddingType type)
     {
-        if (vector.Length != DatabaseConstants.VectorSize)
+        if (vector.Length != Constants.VectorSize)
         {
             throw new ArgumentException("Embedding vector must be of size 384.");
         }

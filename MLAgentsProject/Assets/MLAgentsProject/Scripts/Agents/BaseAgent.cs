@@ -52,7 +52,7 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
     {
         try
         {
-            if (Data.Observations != null && Data.Observations.Length == DatabaseConstants.VectorSize)
+            if (Data.Observations != null && Data.Observations.Length == Constants.VectorSize)
             {
                 sensor.AddObservation(Data.Observations);
             }
@@ -124,9 +124,9 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
 
     protected bool CheckActionLength(int length)
     {
-        if (length != DatabaseConstants.VectorSize)
+        if (length != Constants.VectorSize)
         {
-            throw new ArgumentException($"Expected {DatabaseConstants.VectorSize} continuous actions, but received {length}.");
+            throw new ArgumentException($"Expected {Constants.VectorSize} continuous actions, but received {length}.");
         }
         return true;
     }

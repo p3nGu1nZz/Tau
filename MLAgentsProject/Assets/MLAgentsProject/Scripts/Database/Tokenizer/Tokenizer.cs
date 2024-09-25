@@ -1,22 +1,16 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using UnityEngine;
 
 public static class Tokenizer
 {
-    public static int MaxTokens { get; set; } = 128;
-    public static int OverlapTokens { get; set; } = 16;
-    private static HashSet<string> _vocabulary = new HashSet<string>();
+    private static HashSet<string> _vocabulary = new();
 
     public static List<string> ExtractVocabulary(List<Message> messages)
     {
         _vocabulary.Clear();
 
-        // Add reserved words to vocabulary
-        Log.Message($"Adding '{DatabaseConstants.ReservedWords.Length}' reserved words to 'vocabulary'...");
-        TokenizerUtilities.AddToVocabulary(DatabaseConstants.ReservedWords, _vocabulary);
+        Log.Message($"Adding '{Constants.ReservedWords.Length}' reserved words to 'vocabulary'...");
+        TokenizerUtilities.AddToVocabulary(Constants.ReservedWords, _vocabulary);
 
         foreach (var message in messages)
         {
@@ -38,50 +32,38 @@ public static class Tokenizer
         return sortedVocabulary;
     }
 
-    public static string Export(string fileName, List<string> vocabulary, string version, string modelName, string organization)
+    public static string Export(List<string> words)
     {
-        string scriptsDirectory = Path.Combine(Application.dataPath, "..", "Data");
-        string vocabFileName = Path.Combine(scriptsDirectory, Path.GetFileNameWithoutExtension(fileName) + ".json");
+        Log.Message("Tokenizer exporting vocabulary...");
+
+        string vocabFileName = DataUtilities.GetFilePath(TableNames.Vocabulary + ".json");
+        string tokenFileName = DataUtilities.GetFilePath(TableNames.Tokens + ".json");
 
         var vocabList = new VocabularyList
         {
-            version = version,
-            model_name = modelName,
-            organization = organization,
-            total_words = vocabulary.Count,
-            words = vocabulary
+            version = Constants.Version,
+            model_name = Constants.ModelName,
+            organization = Constants.Organization,
+            total_words = words.Count,
+            words = words
         };
 
-        var json = JsonUtility.ToJson(vocabList, true);
-        File.WriteAllText(vocabFileName, json);
-        Log.Message($"Vocabulary exported successfully to {vocabFileName}");
+        var vocabulary = Database.Instance.GetTable(TableNames.Vocabulary);
+        var tokens = TokenizerUtilities.GetTokensFromVocabularyWords(vocabulary, words);
+        var tokenList = new TokenList
+        {
+            version = Constants.Version,
+            model_name = Constants.ModelName,
+            organization = Constants.Organization,
+            total_tokens = vocabulary.Count,
+            tokens = tokens
+        };
+
+        TokenizerUtilities.SaveToFile(vocabFileName, vocabList);
+        TokenizerUtilities.SaveToFile(tokenFileName, tokenList);
+
+        Log.Message("Export process completed.");
 
         return vocabFileName;
-    }
-
-    public static Dictionary<string, List<string>> ChunkText(List<string> texts)
-    {
-        var chunkedTexts = new Dictionary<string, List<string>>();
-        foreach (var text in texts)
-        {
-            var tokens = text.Split(' ');
-
-            if (tokens.Length > MaxTokens)
-            {
-                List<string> chunks = new List<string>();
-                for (int i = 0; i < tokens.Length; i += (MaxTokens - OverlapTokens))
-                {
-                    var chunk = tokens.Skip(i).Take(MaxTokens).ToArray();
-                    chunks.Add(string.Join(" ", chunk));
-                }
-                chunkedTexts[text] = chunks;
-                Log.Message($"Chunked text into {chunks.Count} chunks.");
-            }
-            else
-            {
-                Log.Message($"Text is too short to be chunked: {text}");
-            }
-        }
-        return chunkedTexts;
     }
 }

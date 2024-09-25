@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -39,5 +40,75 @@ public static class TokenizerUtilities
         Log.Message($"Normalized text: {text}");
 
         return text;
+    }
+
+    public static void ProcessWord(string word, Dictionary<string, Embedding> vocabulary, TokenList tokenList)
+    {
+        if (!vocabulary.TryGetValue(word, out var embedding))
+        {
+            throw new KeyNotFoundException($"Word '{word}' not found in vocabulary table.");
+        }
+
+        if (embedding.Vector.Count != Constants.VectorSize && embedding.Vector.Count != Constants.TokenSize)
+        {
+            throw new ArgumentException($"Embedding vector for word '{word}' must be of size {Constants.VectorSize} or {Constants.TokenSize}.");
+        }
+
+        tokenList.tokens.Add(new Token(embedding.Id, embedding.Token, embedding.Vector.ToArray()));
+        Log.Message($"Token: {word}");
+    }
+
+    public static void SaveToFile(string fileName, object data)
+    {
+        var json = JsonUtility.ToJson(data, true);
+        File.WriteAllText(fileName, json);
+        Log.Message($"{Path.GetFileName(fileName)} exported successfully to {fileName}");
+    }
+
+    public static List<Token> GetTokensFromVocabularyWords(Dictionary<string, Embedding> vocabulary, List<string> words)
+    {
+        var tokens = new List<Token>();
+        foreach (var word in words)
+        {
+            if (vocabulary.TryGetValue(word, out var embedding))
+            {
+                if (embedding.Vector.Count != Constants.VectorSize && embedding.Vector.Count != Constants.TokenSize)
+                {
+                    throw new ArgumentException($"Embedding vector for word '{word}' must be of size {Constants.VectorSize} or {Constants.TokenSize}.");
+                }
+                tokens.Add(new Token(embedding.Id, embedding.Token, embedding.Vector.ToArray()));
+            }
+            else
+            {
+                throw new KeyNotFoundException($"Word '{word}' not found in vocabulary table.");
+            }
+        }
+        return tokens;
+    }
+
+    public static Dictionary<string, List<string>> ChunkText(List<string> texts)
+    {
+        var chunkedTexts = new Dictionary<string, List<string>>();
+        foreach (var text in texts)
+        {
+            var tokens = text.Split(' ');
+
+            if (tokens.Length > Constants.MaxTokens)
+            {
+                List<string> chunks = new List<string>();
+                for (int i = 0; i < tokens.Length; i += (Constants.MaxTokens - Constants.OverlapTokens))
+                {
+                    var chunk = tokens.Skip(i).Take(Constants.MaxTokens).ToArray();
+                    chunks.Add(string.Join(" ", chunk));
+                }
+                chunkedTexts[text] = chunks;
+                Log.Message($"Chunked text into {chunks.Count} chunks.");
+            }
+            else
+            {
+                Log.Message($"Text is too short to be chunked: {text}");
+            }
+        }
+        return chunkedTexts;
     }
 }
