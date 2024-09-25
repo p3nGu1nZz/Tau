@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public static class TokenizerUtilities
@@ -58,11 +59,13 @@ public static class TokenizerUtilities
         Log.Message($"Token: {word}");
     }
 
-    public static void SaveToFile(string fileName, object data)
+    public static async Task SaveToFileAsync<T>(string fileName, T data)
     {
-        var json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(fileName, json);
-        Log.Message($"{Path.GetFileName(fileName)} exported successfully to {fileName}");
+        using (StreamWriter writer = new(fileName))
+        {
+            string json = JsonUtility.ToJson(data, true);
+            await writer.WriteAsync(json);
+        }
     }
 
     public static List<Token> GetTokensFromVocabularyWords(Dictionary<string, Embedding> vocabulary, List<string> words)

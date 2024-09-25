@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 public static class Tokenizer
 {
@@ -32,7 +33,7 @@ public static class Tokenizer
         return sortedVocabulary;
     }
 
-    public static string Export(List<string> words)
+    public static async Task<string> Export(List<string> words)
     {
         Log.Message("Tokenizer exporting vocabulary...");
 
@@ -59,11 +60,11 @@ public static class Tokenizer
             tokens = tokens
         };
 
-        TokenizerUtilities.SaveToFile(vocabFileName, vocabList);
-        TokenizerUtilities.SaveToFile(tokenFileName, tokenList);
+        await TokenizerUtilities.SaveToFileAsync(vocabFileName, vocabList);
+        await TokenizerUtilities.SaveToFileAsync(tokenFileName, tokenList);
 
         Log.Message("Export process completed.");
 
-        return vocabFileName;
+        return tokenFileName;
     }
 }

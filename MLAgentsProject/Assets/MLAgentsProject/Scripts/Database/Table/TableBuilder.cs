@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Threading;
 using System;
 using System.Threading.Tasks;
@@ -19,7 +18,6 @@ public class TableBuilder
         _tableManager = tableManager;
         _cts = new CancellationTokenSource();
 
-        // Subscribe to the application quitting event
         Application.quitting += OnApplicationQuit;
     }
 
@@ -36,12 +34,10 @@ public class TableBuilder
             _tableManager.CreateTable(tableName);
         }
 
-        // Reset embeddings before starting the task
         _embeddingStorage.ResetEmbeddings();
 
         Stopwatch stopwatch = Stopwatch.StartNew();
 
-        // Include reserved words in the total token count only if it's the vocabulary table
         int reservedWordsCount = isVocabulary ? Constants.ReservedWords.Length : 0;
         int totalTokens = tokens.Count + reservedWordsCount + 1;
         var tasks = new List<Task>();
@@ -113,5 +109,56 @@ public class TableBuilder
         Log.Message($"Total time: {totalTimeMinutes:F2} minutes (Tokens per minute: {tokensPerMinute:F2})");
 
         Log.Message($"Table '{tableName}' built successfully with {tokens.Count} tokens processed.");
+    }
+
+    public async Task BuildTokenTable(string inputFile, string tableName)
+    {
+        var tables = _tableManager.GetTables();
+        if (!tables.ContainsKey(tableName))
+        {
+            _tableManager.CreateTable(tableName);
+        }
+
+        _embeddingStorage.ResetEmbeddings();
+
+        Stopwatch stopwatch = Stopwatch.StartNew();
+
+        var semaphore = new SemaphoreSlim(1);
+
+        await semaphore.WaitAsync(_cts.Token);
+
+        try
+        {
+            await Task.Run(async () =>
+            {
+                try
+                {
+                    Log.Message($"Starting optimizer task for '{inputFile}'");
+                    var tokenStopwatch = Stopwatch.StartNew();
+                    await TokenOptimizerTask.Execute(inputFile);
+                    tokenStopwatch.Stop();
+
+                    Log.Message($"Optimizer task completed in {tokenStopwatch.ElapsedMilliseconds} ms.");
+                }
+                catch (OperationCanceledException)
+                {
+                    Log.Error("Operation canceled.");
+                }
+                finally
+                {
+                    semaphore.Release();
+                }
+            }, _cts.Token);
+        }
+        catch (OperationCanceledException)
+        {
+            Log.Error("Task execution canceled due to an error.");
+        }
+
+        stopwatch.Stop();
+        double totalTimeMinutes = stopwatch.Elapsed.TotalMinutes;
+        Log.Message($"Total time: {totalTimeMinutes:F2} minutes");
+
+        Log.Message($"Table '{tableName}' built successfully.");
     }
 }
