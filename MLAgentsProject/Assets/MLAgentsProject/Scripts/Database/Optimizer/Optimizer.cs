@@ -19,10 +19,9 @@ public class Optimizer
     public async Task<string> Optimize(string inputFile)
     {
         string command = $"/c \"{batchFilePath} \"{inputFile}\"\"";
-        Console.WriteLine($"Command: {command}");
         Log.Message($"Executing command: {command}");
 
-        ProcessStartInfo start = new ProcessStartInfo
+        ProcessStartInfo start = new()
         {
             FileName = "cmd.exe",
             Arguments = command,
@@ -32,7 +31,6 @@ public class Optimizer
             CreateNoWindow = true
         };
 
-        Console.WriteLine($"Starting process with arguments: {start.Arguments}");
         Log.Message($"Starting process with arguments: {start.Arguments}");
 
         try
@@ -50,23 +48,22 @@ public class Optimizer
 
             if (result.EndsWith(Environment.NewLine))
             {
-                result = result.Substring(0, result.Length - Environment.NewLine.Length);
+                result = result[..^Environment.NewLine.Length];
             }
 
             string error = await errorReader.ReadToEndAsync();
             if (!string.IsNullOrEmpty(error))
             {
-                Console.Error.WriteLine($"Process error: {error}");
                 Log.Error($"Process error: {error}");
             }
 
+            Log.Message($"Process result: {result}");
             return result;
         }
         catch (Exception ex)
         {
-            Console.Error.WriteLine($"Exception occurred: {ex.Message}");
-            Log.Error($"Exception occurred: {ex.Message}");
-            return null;
+            Log.Error($"Unhandled exception occurred: {ex.Message}");
+            throw;
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Threading;
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
+using System.IO;
 
 public class TableBuilder
 {
@@ -133,16 +134,60 @@ public class TableBuilder
             {
                 try
                 {
-                    Log.Message($"Starting optimizer task for '{inputFile}'");
+                    Log.Message($"Starting to build token table from '{inputFile}'");
                     var tokenStopwatch = Stopwatch.StartNew();
-                    await TokenOptimizerTask.Execute(inputFile);
-                    tokenStopwatch.Stop();
 
-                    Log.Message($"Optimizer task completed in {tokenStopwatch.ElapsedMilliseconds} ms.");
+                    if (!File.Exists(inputFile))
+                    {
+                        throw new FileNotFoundException($"File not found: {inputFile}");
+                    }
+
+                    Log.Message($"Loading file: {inputFile}");
+                    string jsonData = await File.ReadAllTextAsync(inputFile);
+
+                    Log.Message($"File loaded successfully. Parsing JSON data...");
+                    TokenList tokenList = JsonUtility.FromJson<TokenList>(jsonData);
+                    Log.Message($"JSON data parsed successfully. Total tokens: {tokenList.tokens.Count}");
+
+                    await TokenOptimizerTask.Execute(inputFile);
+
+                    jsonData = await File.ReadAllTextAsync(inputFile);
+                    tokenList = JsonUtility.FromJson<TokenList>(jsonData);
+
+                    Log.Message($"Adding {tokenList.tokens.Count} embeddings to '{TableNames.Tokens}'...");
+
+                    foreach (var token in tokenList.tokens)
+                    {
+                        try
+                        {
+                            if (!_embeddingStorage.DoesTokenExist(token.Name))
+                            {
+                                _embeddingStorage.Add(token.Name, token.Vector.ToArray(), tableName, EmbeddingType.Token);
+                            }
+                            else
+                            {
+                                Log.Message($"Duplicate token '{token.Name}' found, skipping.");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error($"Error processing token '{token.Name}': {ex.Message}");
+                            throw;
+                        }
+                    }
+
+                    tokenStopwatch.Stop();
+                    Log.Message($"Token table built successfully in {tokenStopwatch.ElapsedMilliseconds} ms.");
                 }
                 catch (OperationCanceledException)
                 {
                     Log.Error("Operation canceled.");
+                    throw;
+                }
+                catch (Exception ex)
+                {
+                    Log.Error($"Unexpected error: {ex.Message}");
+                    throw;
                 }
                 finally
                 {
@@ -150,15 +195,15 @@ public class TableBuilder
                 }
             }, _cts.Token);
         }
-        catch (OperationCanceledException)
+        catch (Exception ex)
         {
-            Log.Error("Task execution canceled due to an error.");
+            Log.Error($"Unhandled exception: {ex.Message}");
+            throw;
         }
 
         stopwatch.Stop();
         double totalTimeMinutes = stopwatch.Elapsed.TotalMinutes;
         Log.Message($"Total time: {totalTimeMinutes:F2} minutes");
-
         Log.Message($"Table '{tableName}' built successfully.");
     }
 }
