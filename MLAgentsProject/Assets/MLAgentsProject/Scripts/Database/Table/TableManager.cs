@@ -58,7 +58,6 @@ public class TableManager
 
     public Dictionary<string, List<Embedding>> GetTables()
     {
-        Log.Message("Retrieving all tables.");
         return _tables;
     }
 

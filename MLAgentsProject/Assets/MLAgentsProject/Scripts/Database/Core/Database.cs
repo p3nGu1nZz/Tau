@@ -104,9 +104,9 @@ public class Database
         return finder.FindInTables(token, tableName, searchAllTables);
     }
 
-    public Embedding Match(double[] vector)
+    public Embedding Match(double[] vector, EmbeddingType type)
     {
-        return _embeddingManager.Match(vector);
+        return _embeddingManager.Match(vector, type);
     }
 
     public bool HasTable(string tableName)

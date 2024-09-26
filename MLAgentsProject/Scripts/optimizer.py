@@ -80,7 +80,6 @@ def main():
 
     try:
         optimizer.optimize(args.input_file, args.type, args.components)
-        print(f'Reduced embeddings saved to {args.input_file}')
     except Exception as e:
         print(f"An error occurred: {e}", file=sys.stderr)
         sys.exit(1)

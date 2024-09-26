@@ -40,8 +40,8 @@ public class EmbeddingManager
         await _tableBuilder.BuildTokenTable(filename, tableName);
     }
 
-    public Embedding Match(double[] vector)
+    public Embedding Match(double[] vector, EmbeddingType type)
     {
-        return _embeddingStorage.Match(vector);
+        return _embeddingStorage.Match(vector, type);
     }
 }
