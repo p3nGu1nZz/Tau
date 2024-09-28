@@ -15,7 +15,6 @@ public static class Tokenizer
 
         foreach (var message in messages)
         {
-            Log.Message($"Processing message: {message.domain}");
             TokenizerUtilities.AddToVocabulary(TokenizerUtilities.Normalize(message.domain), _vocabulary);
             TokenizerUtilities.AddToVocabulary(TokenizerUtilities.Normalize(message.context), _vocabulary);
             TokenizerUtilities.AddToVocabulary(TokenizerUtilities.Normalize(message.system), _vocabulary);

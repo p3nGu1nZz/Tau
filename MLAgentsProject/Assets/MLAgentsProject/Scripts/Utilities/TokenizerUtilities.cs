@@ -18,7 +18,6 @@ public static class TokenizerUtilities
                 vocabulary.Add(word);
             }
         }
-        Log.Message($"Added {words.Length} words to vocabulary.");
     }
 
     public static void AddToVocabulary(string[] words, HashSet<string> vocabulary)
@@ -38,7 +37,6 @@ public static class TokenizerUtilities
         text = text.ToLower();
         text = Regex.Replace(text, @"[^\w\s]", "");
         text = text.Trim();
-        Log.Message($"Normalized text: {text}");
 
         return text;
     }
@@ -105,11 +103,6 @@ public static class TokenizerUtilities
                     chunks.Add(string.Join(" ", chunk));
                 }
                 chunkedTexts[text] = chunks;
-                Log.Message($"Chunked text into {chunks.Count} chunks.");
-            }
-            else
-            {
-                Log.Message($"Text is too short to be chunked: {text}");
             }
         }
         return chunkedTexts;
