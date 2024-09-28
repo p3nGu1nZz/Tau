@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public static class TokenizerUtilities
@@ -17,7 +18,6 @@ public static class TokenizerUtilities
                 vocabulary.Add(word);
             }
         }
-        Log.Message($"Added {words.Length} words to vocabulary.");
     }
 
     public static void AddToVocabulary(string[] words, HashSet<string> vocabulary)
@@ -37,7 +37,6 @@ public static class TokenizerUtilities
         text = text.ToLower();
         text = Regex.Replace(text, @"[^\w\s]", "");
         text = text.Trim();
-        Log.Message($"Normalized text: {text}");
 
         return text;
     }
@@ -58,11 +57,13 @@ public static class TokenizerUtilities
         Log.Message($"Token: {word}");
     }
 
-    public static void SaveToFile(string fileName, object data)
+    public static async Task SaveToFileAsync<T>(string fileName, T data)
     {
-        var json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(fileName, json);
-        Log.Message($"{Path.GetFileName(fileName)} exported successfully to {fileName}");
+        using (StreamWriter writer = new(fileName))
+        {
+            string json = JsonUtility.ToJson(data, true);
+            await writer.WriteAsync(json);
+        }
     }
 
     public static List<Token> GetTokensFromVocabularyWords(Dictionary<string, Embedding> vocabulary, List<string> words)
@@ -102,11 +103,6 @@ public static class TokenizerUtilities
                     chunks.Add(string.Join(" ", chunk));
                 }
                 chunkedTexts[text] = chunks;
-                Log.Message($"Chunked text into {chunks.Count} chunks.");
-            }
-            else
-            {
-                Log.Message($"Text is too short to be chunked: {text}");
             }
         }
         return chunkedTexts;

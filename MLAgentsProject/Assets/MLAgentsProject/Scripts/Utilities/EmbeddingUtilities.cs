@@ -9,8 +9,9 @@ public static class EmbeddingUtilities
 {
     public const int MaxConcurrentJobs = 8;
 
-    public static void ValidateEmbeddingSize(double[] embedding, int expectedSize = Constants.VectorSize)
+    public static void ValidateEmbeddingSize(double[] embedding, EmbeddingType type)
     {
+        int expectedSize = type == EmbeddingType.Token ? Constants.TokenSize : Constants.VectorSize;
         if (embedding.Length != expectedSize)
         {
             throw new ArgumentException($"Embedding vector must be of size {expectedSize}.");

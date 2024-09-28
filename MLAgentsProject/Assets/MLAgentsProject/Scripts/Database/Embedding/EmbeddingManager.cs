@@ -35,8 +35,13 @@ public class EmbeddingManager
         await _tableBuilder.BuildTable(tokens, tableName, isVocabulary);
     }
 
-    public Embedding Match(double[] vector)
+    public async Task BuildTokenTable(string filename)
     {
-        return _embeddingStorage.Match(vector);
+        await _tableBuilder.BuildTokenTable(filename);
+    }
+
+    public Embedding Match(double[] vector, EmbeddingType type)
+    {
+        return _embeddingStorage.Match(vector, type);
     }
 }

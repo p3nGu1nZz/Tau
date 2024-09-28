@@ -15,11 +15,11 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
     public static List<EmbeddingPair> TrainingData { get; set; }
     public static int Columns { get; set; }
 
-    private List<float> _Rewards = new List<float>();
+    private List<float> _Rewards = new();
     private int _LogCounter = 0;
     private int _LogInterval = 100;
     private int _TotalSteps = 0;
-    private Stopwatch _Stopwatch = new Stopwatch();
+    private Stopwatch _Stopwatch = new ();
     private bool _IsTraining = false;
 
     public override void Initialize()

@@ -12,9 +12,10 @@ public class Embedding
 
     public Embedding(int id, string token, double[] vector, EmbeddingType type)
     {
-        if (vector.Length != Constants.VectorSize)
+        int expectedSize = type == EmbeddingType.Token ? Constants.TokenSize : Constants.VectorSize;
+        if (vector.Length != expectedSize)
         {
-            throw new ArgumentException("Embedding vector must be of size 384.");
+            throw new ArgumentException($"Embedding vector must be of size {expectedSize}.");
         }
 
         Id = id;

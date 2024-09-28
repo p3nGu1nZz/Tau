@@ -15,7 +15,7 @@ public abstract class BaseTask<T, TResult> : ITask<TResult> where T : BaseTask<T
     public abstract Task Process(MessageList messageList, string jsonDataFilename);
     public abstract Task<List<TResult>> Generate(string userContent, string agentContent, TimeSpan timeout);
 
-    public async Task<List<TResult>> Execute(string userContent, string agentContent, TimeSpan timeout, int maxRetries = 1, int delay = 1000) =>
+    public async Task<List<TResult>> Execute(string userContent, string agentContent, TimeSpan timeout, int maxRetries = 1, int delay = 1) =>
         await TaskUtilities.Execute(t => Generate(userContent, agentContent, t), userContent, timeout, maxRetries, delay);
 
     public virtual string GetUserContent(Message message) => TaskUtilities.GetUserContent(message);
