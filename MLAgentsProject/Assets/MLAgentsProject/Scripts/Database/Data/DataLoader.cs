@@ -15,9 +15,6 @@ public static class DataLoader
         await DatabaseUtilities.BuildAndPopulateTables(vocabulary, combinedTrainingData, combinedEvaluationData);
         await DatabaseUtilities.AggregateAndStoreEmbeddings(chunkedTrainingData, chunkedEvaluationData);
 
-        string tokenFileName = await Tokenizer.Export(vocabulary);
-        await Database.Instance.BuildTokenTable(tokenFileName);
-
         LogTableInfo();
     }
 

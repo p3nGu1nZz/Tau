@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -81,6 +82,17 @@ public class Database
             return table.ToDictionary(e => e.Token, e => e);
         }
         return null;
+    }
+
+    public List<string> GetVocabulary()
+    {
+        var vocabularyTable = GetTable(TableNames.Vocabulary);
+        if (vocabularyTable == null)
+        {
+            throw new InvalidOperationException("Vocabulary table not found.");
+        }
+
+        return vocabularyTable.Keys.ToList();
     }
 
     public string GetInfo()

@@ -10,7 +10,7 @@ public static class DatabaseTableAction
         {
             if (args.Length < 2)
             {
-                throw new ArgumentException("Insufficient arguments for table command. Usage: database table <subcommand> <table_name>");
+                throw new ArgumentException("Insufficient arguments for table command. Usage: database table <subcommand> <table_name> <args>");
             }
 
             string subCommand = args[1].String.ToLower();
@@ -31,6 +31,7 @@ public static class DatabaseTableAction
 
     public static readonly Dictionary<string, Action<CommandArg[]>> Actions = new()
     {
+        { "build", TableBuildAction.Execute },
         { "create", TableCreateAction.Execute },
         { "remove", TableRemoveAction.Execute },
         { "list", TableListAction.Execute },
