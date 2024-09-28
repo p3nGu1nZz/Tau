@@ -5,12 +5,13 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using System.IO;
+using System.Linq;
 
 public class TableBuilder
 {
     private EmbeddingStorage _embeddingStorage;
     private DatabaseManager _tableManager;
-    public int TaskStartDelay { get; set; } = 250;
+    public int TaskStartDelay { get; set; } = 1;
     private CancellationTokenSource _cts;
 
     public TableBuilder(EmbeddingStorage embeddingStorage, DatabaseManager tableManager)
@@ -67,13 +68,15 @@ public class TableBuilder
                 {
                     Log.Message($"Processing token '{token}' ({i + 1}/{tokens.Count})");
                     var tokenStopwatch = Stopwatch.StartNew();
+
                     double[] embedding = await GenerateEmbeddingTask.Execute(token, type);
+
                     tokenStopwatch.Stop();
 
                     if (embedding != null)
                     {
                         _embeddingStorage.Add(token, embedding, tableName, type);
-                        Log.Message($"Processed {i}/{tokens.Count} tokens in {tokenStopwatch.ElapsedMilliseconds} ms.");
+                        Log.Message($"Processed {i + 1}/{tokens.Count} tokens in {tokenStopwatch.ElapsedMilliseconds} ms.");
                     }
                     else
                     {
@@ -112,12 +115,12 @@ public class TableBuilder
         Log.Message($"Table '{tableName}' built successfully with {tokens.Count} tokens processed.");
     }
 
-    public async Task BuildTokenTable(string inputFile, string tableName)
+    public async Task BuildTokenTable(string inputFile)
     {
         var tables = _tableManager.GetTables();
-        if (!tables.ContainsKey(tableName))
+        if (!tables.ContainsKey(TableNames.Tokens))
         {
-            _tableManager.CreateTable(tableName);
+            _tableManager.CreateTable(TableNames.Tokens);
         }
 
         _embeddingStorage.ResetEmbeddings();
@@ -162,7 +165,7 @@ public class TableBuilder
                         {
                             if (!_embeddingStorage.DoesTokenExist(token.Name))
                             {
-                                _embeddingStorage.Add(token.Name, token.Vector.ToArray(), tableName, EmbeddingType.Token);
+                                _embeddingStorage.Add(token.Name, token.Vector.ToArray(), TableNames.Tokens, EmbeddingType.Token);
                             }
                             else
                             {
@@ -204,6 +207,6 @@ public class TableBuilder
         stopwatch.Stop();
         double totalTimeMinutes = stopwatch.Elapsed.TotalMinutes;
         Log.Message($"Total time: {totalTimeMinutes:F2} minutes");
-        Log.Message($"Table '{tableName}' built successfully.");
+        Log.Message($"Table '{TableNames.Tokens}' built successfully.");
     }
 }

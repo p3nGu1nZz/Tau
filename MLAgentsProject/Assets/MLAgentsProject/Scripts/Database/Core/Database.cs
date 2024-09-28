@@ -29,9 +29,9 @@ public class Database
         await _embeddingManager.BuildTable(tokens, tableName, isVocabulary);
     }
 
-    public async Task BuildTokenTable(string filename, string tableName)
+    public async Task BuildTokenTable(string filename)
     {
-        await _embeddingManager.BuildTokenTable(filename, tableName);
+        await _embeddingManager.BuildTokenTable(filename);
     }
 
     public async Task<double[]> GetEmbedding(string token, EmbeddingType type)
