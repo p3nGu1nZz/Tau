@@ -92,7 +92,6 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
     {
         try
         {
-            if(trainingData == null)
             trainingData = GetRandomTrainingData();
 
             Agent.Data.ModelInput = trainingData.InputEmbedding;
