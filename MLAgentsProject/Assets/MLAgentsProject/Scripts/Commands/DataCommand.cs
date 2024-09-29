@@ -8,7 +8,7 @@ public static class DataCommand
     private static readonly Dictionary<string, Action<CommandArg[]>> CommandActions = new()
     {
         { "load", DataLoadAction.Execute },
-        { "check", DataCheckAction.Execute },
+        { "audit", DataAuditAction.Execute },
         { "concat", DataConcatAction.Execute },
         { "ophrase", DataOphraseAction.Execute },
         { "oproof", DataOproofAction.Execute },
