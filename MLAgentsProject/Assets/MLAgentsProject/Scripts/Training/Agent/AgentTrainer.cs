@@ -20,7 +20,7 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
     private int _LogInterval = 100;
     private int _TotalSteps = 0;
     private Stopwatch _Stopwatch = new ();
-    private bool _IsTraining = false;
+    private EmbeddingPair trainingData;
 
     public override void Initialize()
     {
@@ -65,7 +65,7 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
         {
             EndTrainingEpisode();
         }
-        else if (!_IsTraining)
+        else if (Agent.Data.ModelOutput == null)
         {
             StartCoroutine(TrainingStep());
         }
@@ -81,18 +81,19 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
 
     IEnumerator TrainingStep()
     {
-        _IsTraining = true;
+        IsProcessing = true;
         yield return new WaitForSeconds(WaitTimeInSeconds);
 
         RequestTraining();
-        _IsTraining = false;
+        IsProcessing = false;
     }
 
     void RequestTraining()
     {
         try
         {
-            EmbeddingPair trainingData = GetRandomTrainingData();
+            if(trainingData == null)
+            trainingData = GetRandomTrainingData();
 
             Agent.Data.ModelInput = trainingData.InputEmbedding;
             Agent.Data.ExpectedOutput = trainingData.OutputEmbedding;

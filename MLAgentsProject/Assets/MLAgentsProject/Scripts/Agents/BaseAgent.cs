@@ -40,7 +40,6 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
 
     public override void OnEpisodeBegin()
     {
-        //Log.Message($"New episode {EpisodeCount++} has begun.");
         EpisodeCount++;
         ResetAgent();
     }
@@ -95,16 +94,15 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
     {
         CheckActionLength(continuousActions.Length);
         Data.ModelOutput = AgentUtilities.ConvertActionsToDouble(continuousActions);
-        // Log.Message(StringUtilities.TruncateLogMessage($"process_actions: ModelOutput={StringUtilities.ConvertVectorToString(Data.ModelOutput)}"));
 
         HandleReward();
+        Data.ModelOutput = null;
     }
 
     protected void InitializeVocabulary()
     {
         try
         {
-            //Log.Message("Initializing vocabulary.");
             Data.Vocabulary = GetVocabulary();
             Log.Message($"Loaded {Data.Vocabulary.Count} tokens into agent vocabulary.");
         }
@@ -132,7 +130,6 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
 
     public void ResetAgent()
     {
-        // Log.Message("Resetting agent.");
         Data.ModelInput = null;
         Data.ModelOutput = null;
         Data.ExpectedOutput = null;
