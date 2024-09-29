@@ -13,7 +13,7 @@ public static class DataHelpAction
                 "Usage: data <subcommand> [options]",
                 "",
                 "Subcommands:",
-                "  check <filename>      Checks the integrity of the specified data file",
+                "  audit <filename>      Audits the specified data file for missing embeddings and attempts to fix them",
                 "  concat <filenames>    Concatenates multiple data files into one, or processes all JSON files in a directory",
                 "  delete <filename>     Deletes the specified data file",
                 "  help                  Displays this help message",

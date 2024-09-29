@@ -1,0 +1,23 @@
+{
+    "version": "0.1.0",
+    "model_name": "Tau",
+    "organization": "Tau",
+    "total_messages": 13,
+    "missing_embeddings": 13,
+    "created_embeddings": 0,
+    "missing_tokens": [
+        "0.75",
+        "playing",
+        "6 1/4",
+        "more efficient",
+        "thirty-two",
+        "-2",
+        "2:1",
+        "they're",
+        "more logical",
+        "1/2",
+        "3/4",
+        "1:4",
+        "0.05"
+    ]
+}
