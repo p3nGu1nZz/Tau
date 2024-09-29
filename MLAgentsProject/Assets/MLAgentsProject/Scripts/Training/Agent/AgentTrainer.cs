@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using UnityEngine;
 using Unity.MLAgents;
 
 public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
@@ -17,10 +15,11 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
 
     private List<float> _Rewards = new();
     private int _LogCounter = 0;
-    private int _LogInterval = 100;
+    private int _LogInterval = 500;
     private int _TotalSteps = 0;
-    private Stopwatch _Stopwatch = new ();
+    private Stopwatch _Stopwatch = new();
     private EmbeddingPair trainingData;
+    private TrainingState _currentState = TrainingState.Idle;
 
     public override void Initialize()
     {
@@ -61,13 +60,35 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
 
     void FixedUpdate()
     {
-        if (Agent.StepCount >= MaxStepsPerEpisode || Agent.GetCumulativeReward() <= RewardThreshold)
+        switch (_currentState)
         {
-            EndTrainingEpisode();
-        }
-        else if (Agent.Data.ModelOutput == null)
-        {
-            StartCoroutine(TrainingStep());
+            case TrainingState.Idle:
+                if (Agent.StepCount >= MaxStepsPerEpisode || Agent.GetCumulativeReward() <= RewardThreshold)
+                {
+                    EndTrainingEpisode();
+                }
+                else
+                {
+                    _currentState = TrainingState.Preparing;
+                }
+                break;
+
+            case TrainingState.Preparing:
+                RequestTraining();
+                _currentState = TrainingState.Training;
+                break;
+
+            case TrainingState.Training:
+                if (Agent.Data.ModelOutput != null)
+                {
+                    _currentState = TrainingState.Completed;
+                }
+                break;
+
+            case TrainingState.Completed:
+                Agent.IsTraining = false;
+                _currentState = TrainingState.Idle;
+                break;
         }
 
         UpdateReporting();
@@ -75,34 +96,40 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
 
     void EndTrainingEpisode()
     {
-        IsProcessing = false;
+        Agent.IsTraining = false;
         Agent.EndEpisode();
-    }
-
-    IEnumerator TrainingStep()
-    {
-        IsProcessing = true;
-        yield return new WaitForSeconds(WaitTimeInSeconds);
-
-        RequestTraining();
-        IsProcessing = false;
+        _currentState = TrainingState.Idle;
     }
 
     void RequestTraining()
     {
         try
         {
+            Agent.IsTraining = true;
+
             trainingData = GetRandomTrainingData();
 
             Agent.Data.ModelInput = trainingData.InputEmbedding;
             Agent.Data.ExpectedOutput = trainingData.OutputEmbedding;
             Agent.Data.Observations = AgentUtilities.ConvertToFloatArray(Agent.Data.ModelInput);
 
-            Agent.RequestDecision();
+            // Ensure observations are set before requesting a decision
+            if (Agent.Data.Observations != null && Agent.Data.Observations.Length > 0)
+            {
+                Agent.RequestDecision();
+            }
+            else
+            {
+                Log.Error("Observations are not set correctly.");
+                Agent.IsTraining = false;
+                _currentState = TrainingState.Idle;
+            }
         }
         catch (Exception ex)
         {
             Log.Error($"Error during training request: {ex.Message}");
+            Agent.IsTraining = false;
+            _currentState = TrainingState.Idle;
         }
     }
 
@@ -147,7 +174,7 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
         double elapsedSeconds = _Stopwatch.Elapsed.TotalSeconds;
         double iterationsPerSecond = _LogInterval / elapsedSeconds;
 
-        Log.Message($"training >> step={_TotalSteps}, episode={Agent.EpisodeCount} reward={meanReward} ({iterationsPerSecond:F2} it/sec)");
+        Log.Message($"training >> step={_TotalSteps}, ep={Agent.EpisodeCount} mean={meanReward} count={_Rewards.Count} ({iterationsPerSecond:F2} itr/s)");
 
         // Log to TensorBoard
         Academy.Instance.StatsRecorder.Add("Averaged Reward", meanReward);

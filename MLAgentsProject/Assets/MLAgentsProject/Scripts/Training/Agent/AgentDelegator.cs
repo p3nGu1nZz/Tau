@@ -9,7 +9,6 @@ public abstract class AgentDelegator<T, U> : MonoBehaviour where T : MonoBehavio
     public AgentData Data;
     public BaseReward<double[]> Reward;
     public bool IsInitialized = false;
-    public bool IsProcessing = false;
 
     protected virtual void Awake()
     {
