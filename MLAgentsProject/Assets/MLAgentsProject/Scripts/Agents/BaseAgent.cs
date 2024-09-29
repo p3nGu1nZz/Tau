@@ -124,9 +124,9 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
 
     protected bool CheckActionLength(int length)
     {
-        if (length != Constants.VectorSize)
+        if (length != Constants.TokenSize)
         {
-            throw new ArgumentException($"Expected {Constants.VectorSize} continuous actions, but received {length}.");
+            throw new ArgumentException($"Expected {Constants.TokenSize} continuous actions, but received {length}.");
         }
         return true;
     }

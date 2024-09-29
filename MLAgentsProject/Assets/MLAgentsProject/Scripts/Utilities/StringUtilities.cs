@@ -65,21 +65,11 @@ public static class StringUtilities
 
     public static string ConvertVectorToString(double[] vector)
     {
-        if (vector.Length != Constants.VectorSize)
-        {
-            throw new ArgumentException($"Vector must be of size {Constants.VectorSize}.");
-        }
-
         return "[" + string.Join(Constants.VectorSeparator, vector.Select(v => v.ToString("F6"))) + "]";
     }
 
     public static string ConvertVectorToString(float[] vector)
     {
-        if (vector.Length != Constants.VectorSize)
-        {
-            throw new ArgumentException($"Vector must be of size {Constants.VectorSize}.");
-        }
-
         return "[" + string.Join(Constants.VectorSeparator, vector.Select(v => v.ToString("F6"))) + "]";
     }
 
@@ -92,11 +82,6 @@ public static class StringUtilities
 
         string[] parts = vectorString.Trim('[', ']').Split(Constants.VectorSeparator);
         double[] vector = parts.Select(double.Parse).ToArray();
-
-        if (vector.Length != Constants.VectorSize)
-        {
-            throw new ArgumentException($"Embedding vector must be of size {Constants.VectorSize}.");
-        }
 
         return vector;
     }

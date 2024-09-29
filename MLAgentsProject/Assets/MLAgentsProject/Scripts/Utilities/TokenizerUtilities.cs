@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public static class TokenizerUtilities
@@ -37,32 +38,17 @@ public static class TokenizerUtilities
         text = text.ToLower();
         text = Regex.Replace(text, @"[^\w\s]", "");
         text = text.Trim();
-        Log.Message($"Normalized text: {text}");
 
         return text;
     }
 
-    public static void ProcessWord(string word, Dictionary<string, Embedding> vocabulary, TokenList tokenList)
+    public static async Task SaveToFile<T>(string fileName, T data)
     {
-        if (!vocabulary.TryGetValue(word, out var embedding))
+        using (StreamWriter writer = new(fileName))
         {
-            throw new KeyNotFoundException($"Word '{word}' not found in vocabulary table.");
+            string json = JsonUtility.ToJson(data, true);
+            await writer.WriteAsync(json);
         }
-
-        if (embedding.Vector.Count != Constants.VectorSize && embedding.Vector.Count != Constants.TokenSize)
-        {
-            throw new ArgumentException($"Embedding vector for word '{word}' must be of size {Constants.VectorSize} or {Constants.TokenSize}.");
-        }
-
-        tokenList.tokens.Add(new Token(embedding.Id, embedding.Token, embedding.Vector.ToArray()));
-        Log.Message($"Token: {word}");
-    }
-
-    public static void SaveToFile(string fileName, object data)
-    {
-        var json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(fileName, json);
-        Log.Message($"{Path.GetFileName(fileName)} exported successfully to {fileName}");
     }
 
     public static List<Token> GetTokensFromVocabularyWords(Dictionary<string, Embedding> vocabulary, List<string> words)

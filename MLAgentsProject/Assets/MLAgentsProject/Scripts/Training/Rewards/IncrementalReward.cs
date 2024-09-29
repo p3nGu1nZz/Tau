@@ -6,13 +6,13 @@ public class IncrementalReward : BaseReward<double[]>
 
     public IncrementalReward(int initialColumnsToUse)
     {
-        if (initialColumnsToUse > 0 && initialColumnsToUse <= Constants.VectorSize)
+        if (initialColumnsToUse > 0 && initialColumnsToUse <= Constants.TokenSize)
         {
             this.columnsToUse = initialColumnsToUse;
         }
         else
         {
-            throw new ArgumentException($"Invalid number of columns: {initialColumnsToUse}. Must be between 1 and {Constants.VectorSize}.");
+            throw new ArgumentException($"Invalid number of columns: {initialColumnsToUse}. Must be between 1 and {Constants.TokenSize}.");
         }
     }
 
@@ -33,14 +33,14 @@ public class IncrementalReward : BaseReward<double[]>
 
     public void SetColumnsToUse(int columns)
     {
-        if (columns > 0 && columns <= Constants.VectorSize)
+        if (columns > 0 && columns <= Constants.TokenSize)
         {
             columnsToUse = columns;
             Log.Message($"Columns to use set to: {columns}");
         }
         else
         {
-            throw new ArgumentException($"Invalid number of columns: {columns}. Must be between 1 and {Constants.VectorSize}.");
+            throw new ArgumentException($"Invalid number of columns: {columns}. Must be between 1 and {Constants.TokenSize}.");
         }
     }
 }
