@@ -12,6 +12,7 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
     public float StepReward { get; set; }
     public int EpisodeCount { get; set; }
     public TDelegator Delegator { get; set; }
+    public bool IsTraining { get; set; }
 
     public void Setup()
     {
@@ -26,6 +27,7 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
         {
             Log.Message("Initializing BaseAgent.");
             EpisodeCount = 0;
+            IsTraining = false;
             if (Data.Vocabulary == null)
             {
                 throw new InvalidOperationException("Vocabulary is not initialized.");
@@ -40,7 +42,6 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
 
     public override void OnEpisodeBegin()
     {
-        //Log.Message($"New episode {EpisodeCount++} has begun.");
         EpisodeCount++;
         ResetAgent();
     }
@@ -95,7 +96,6 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
     {
         CheckActionLength(continuousActions.Length);
         Data.ModelOutput = AgentUtilities.ConvertActionsToDouble(continuousActions);
-        // Log.Message(StringUtilities.TruncateLogMessage($"process_actions: ModelOutput={StringUtilities.ConvertVectorToString(Data.ModelOutput)}"));
 
         HandleReward();
     }
@@ -104,7 +104,6 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
     {
         try
         {
-            //Log.Message("Initializing vocabulary.");
             Data.Vocabulary = GetVocabulary();
             Log.Message($"Loaded {Data.Vocabulary.Count} tokens into agent vocabulary.");
         }
@@ -121,9 +120,9 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
 
     protected bool CheckActionLength(int length)
     {
-        if (length != Constants.VectorSize)
+        if (length != Constants.TokenSize)
         {
-            throw new ArgumentException($"Expected {Constants.VectorSize} continuous actions, but received {length}.");
+            throw new ArgumentException($"Expected {Constants.TokenSize} continuous actions, but received {length}.");
         }
         return true;
     }
@@ -132,10 +131,10 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
 
     public void ResetAgent()
     {
-        // Log.Message("Resetting agent.");
         Data.ModelInput = null;
         Data.ModelOutput = null;
         Data.ExpectedOutput = null;
         Data.Observations = null;
+        IsTraining = false;
     }
 }

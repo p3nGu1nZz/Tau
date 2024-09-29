@@ -8,12 +8,6 @@ using UnityEngine;
 
 public static class DatabaseUtilities
 {
-    public static void SaveToFile(string content, string filePath)
-    {
-        File.WriteAllText(filePath, content);
-        Debug.Log($"File saved successfully to {filePath}");
-    }
-
     public static void CompressStringToFile(string content, string compressedFileName)
     {
         using (var memoryStream = new MemoryStream())

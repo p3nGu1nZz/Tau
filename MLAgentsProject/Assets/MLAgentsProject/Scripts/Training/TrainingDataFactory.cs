@@ -13,7 +13,6 @@ public static class TrainingDataFactory
         {
             try
             {
-                //Log.Message($"Processing message with {message.turns.Count} turns.");
                 CheckTurns(message.turns);
 
                 for (int i = 0; i < message.turns.Count - 1; i += 2)
@@ -21,9 +20,8 @@ public static class TrainingDataFactory
                     var userTurn = message.turns[i];
                     var agentTurn = message.turns[i + 1];
 
-                    //Log.Message($"User turn: {userTurn.message}, Agent turn: {agentTurn.message}");
-                    var inputEmbedding = FindEmbedding(userTurn.message);
-                    var outputEmbedding = FindEmbedding(agentTurn.message);
+                    var inputEmbedding = FindEmbedding(userTurn.message, TableNames.TrainingData);
+                    var outputEmbedding = FindEmbedding(agentTurn.message, TableNames.Tokens);
                     trainingDataList.Add(new EmbeddingPair(inputEmbedding, outputEmbedding));
                 }
             }
@@ -37,9 +35,8 @@ public static class TrainingDataFactory
         return trainingDataList;
     }
 
-    private static void CheckTurns(List<Turn> turns)
+    public static void CheckTurns(List<Turn> turns)
     {
-        //Log.Message("Checking message pairs.");
         if (turns.Count % 2 != 0)
         {
             throw new InvalidDataException("Invalid number of messages. Messages should be in pairs of user and agent.");
@@ -61,11 +58,10 @@ public static class TrainingDataFactory
         return DataLoader.Load(filePath);
     }
 
-    private static double[] FindEmbedding(string token)
+    public static double[] FindEmbedding(string token, string tableName)
     {
         token = token.ToLower();
-        //Log.Message($"Getting embedding for token: {token}");
-        var embedding = Database.Instance.FindEmbedding(TableNames.TrainingData, token);
+        var embedding = Database.Instance.FindEmbedding(tableName, token);
         if (embedding != null)
         {
             return embedding;

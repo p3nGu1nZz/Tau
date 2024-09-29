@@ -18,6 +18,7 @@ public static class TokenizerUtilities
                 vocabulary.Add(word);
             }
         }
+        Log.Message($"Added {words.Length} words to vocabulary.");
     }
 
     public static void AddToVocabulary(string[] words, HashSet<string> vocabulary)
@@ -38,23 +39,8 @@ public static class TokenizerUtilities
         text = Regex.Replace(text, @"[^\w\s]", "");
         text = text.Trim();
 
+
         return text;
-    }
-
-    public static void ProcessWord(string word, Dictionary<string, Embedding> vocabulary, TokenList tokenList)
-    {
-        if (!vocabulary.TryGetValue(word, out var embedding))
-        {
-            throw new KeyNotFoundException($"Word '{word}' not found in vocabulary table.");
-        }
-
-        if (embedding.Vector.Count != Constants.VectorSize && embedding.Vector.Count != Constants.TokenSize)
-        {
-            throw new ArgumentException($"Embedding vector for word '{word}' must be of size {Constants.VectorSize} or {Constants.TokenSize}.");
-        }
-
-        tokenList.tokens.Add(new Token(embedding.Id, embedding.Token, embedding.Vector.ToArray()));
-        Log.Message($"Token: {word}");
     }
 
     public static async Task SaveToFileAsync<T>(string fileName, T data)
@@ -103,6 +89,11 @@ public static class TokenizerUtilities
                     chunks.Add(string.Join(" ", chunk));
                 }
                 chunkedTexts[text] = chunks;
+                Log.Message($"Chunked text into {chunks.Count} chunks.");
+            }
+            else
+            {
+                Log.Message($"Text is too short to be chunked: {text}");
             }
         }
         return chunkedTexts;

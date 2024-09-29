@@ -73,3 +73,4 @@ crashlytics-build.properties
 
 /venv/*
 /MLAgentsProject/Scripts/__pycache__
+/MLAgentsProject/Assets/ML-Agents/Timers

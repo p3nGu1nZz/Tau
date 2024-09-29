@@ -77,3 +77,4 @@ crashlytics-build.properties
 /ml-agents
 /results/*
 /Scripts/__pycache__/*
+/Assets/ML-Agents/Timers

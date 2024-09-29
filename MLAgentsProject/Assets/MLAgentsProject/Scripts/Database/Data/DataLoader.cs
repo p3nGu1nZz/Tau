@@ -40,26 +40,6 @@ public static class DataLoader
         }
     }
 
-    public static MessageList Prune(MessageList messageList)
-    {
-        Log.Message("Starting pruning process...");
-        Log.Message($"Initial training data count: {messageList.training_data.Count}");
-        Log.Message($"Initial evaluation data count: {messageList.evaluation_data.Count}");
-
-        DataUtilities.CleanPunctuationSpaces(messageList);
-        Log.Message("Cleaned punctuation and spaces.");
-
-        Log.Message("Pruning training data...");
-        DataUtilities.PruneMessages(messageList.training_data, TableNames.TrainingData);
-        Log.Message($"Post-pruning training data count: {messageList.training_data.Count}");
-
-        Log.Message("Pruning evaluation data...");
-        DataUtilities.PruneMessages(messageList.evaluation_data, TableNames.EvaluationData);
-        Log.Message($"Post-pruning evaluation data count: {messageList.evaluation_data.Count}");
-
-        return messageList;
-    }
-
     private static MessageList Deserialize(string jsonData)
     {
         return JsonUtility.FromJson<MessageList>(jsonData);

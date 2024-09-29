@@ -8,6 +8,18 @@ using UnityEngine;
 
 public static class DataUtilities
 {
+    public static void SaveToFile(object content, string filePath)
+    {
+        string jsonData = JsonUtility.ToJson(content, true);
+        SaveToFile(jsonData, filePath);
+    }
+
+    public static void SaveToFile(string content, string filePath)
+    {
+        File.WriteAllText(filePath, content);
+        Debug.Log($"File saved successfully to {filePath}");
+    }
+
     public static string GetFilePath(string fileName)
     {
         if (string.IsNullOrEmpty(fileName))
@@ -68,29 +80,6 @@ public static class DataUtilities
                 turn.message = pattern.Replace(turn.message, "$1");
             }
         }
-    }
-
-    public static void PruneMessages(List<Message> messages, string tableName)
-    {
-        Log.Message($"Pruning messages for table: {tableName}");
-        Log.Message($"Initial message count: {messages.Count}");
-
-        for (int i = messages.Count - 1; i >= 0; i--)
-        {
-            Message message = messages[i];
-            foreach (var turn in message.turns)
-            {
-                double[] result = Database.Instance.FindEmbedding(tableName, turn.message);
-                if (result == null)
-                {
-                    Log.Message($"Pruning message: {turn.message}");
-                    messages.RemoveAt(i);
-                    break;
-                }
-            }
-        }
-
-        Log.Message($"Post-pruning message count: {messages.Count}");
     }
 
     public static void RemoveDuplicates(MessageList messageList)
