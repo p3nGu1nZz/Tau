@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 public static class TaskUtilities
 {
-    public static async Task<List<TResult>> Execute<TResult>(Func<TimeSpan, Task<List<TResult>>> generateFunc, string userContent, TimeSpan timeout, int maxRetries = 1, int delay = 1000)
+    public static async Task<List<TResult>> Execute<TResult>(Func<TimeSpan, Task<List<TResult>>> generateFunc, string userContent, TimeSpan timeout, int maxRetries = 1, int delay = 1)
     {
         int attempt = 0;
         await Task.Delay(delay);

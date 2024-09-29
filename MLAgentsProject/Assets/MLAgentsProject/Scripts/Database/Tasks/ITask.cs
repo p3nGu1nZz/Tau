@@ -8,7 +8,7 @@ public interface ITask<TResult>
     void InitializeCounters();
     Task Process(MessageList messageList, string jsonDataFilename);
     Task<List<TResult>> Generate(string userContent, string agentContent, TimeSpan timeout);
-    Task<List<TResult>> Execute(string userContent, string agentContent, TimeSpan timeout, int maxRetries = 1, int delay = 1000);
+    Task<List<TResult>> Execute(string userContent, string agentContent, TimeSpan timeout, int maxRetries = 1, int delay = 1);
     string GetUserContent(Message message);
     string GetAgentContent(Message message);
     List<Message> CreateNewMessages(Message originalMessage, List<string> responses);

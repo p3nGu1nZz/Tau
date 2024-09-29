@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -27,6 +28,11 @@ public class Database
     public async Task BuildTable(List<string> tokens, string tableName, bool isVocabulary = false)
     {
         await _embeddingManager.BuildTable(tokens, tableName, isVocabulary);
+    }
+
+    public async Task BuildTokenTable(string filename)
+    {
+        await _embeddingManager.BuildTokenTable(filename);
     }
 
     public async Task<double[]> GetEmbedding(string token, EmbeddingType type)
@@ -78,6 +84,17 @@ public class Database
         return null;
     }
 
+    public List<string> GetVocabulary()
+    {
+        var vocabularyTable = GetTable(TableNames.Vocabulary);
+        if (vocabularyTable == null)
+        {
+            throw new InvalidOperationException("Vocabulary table not found.");
+        }
+
+        return vocabularyTable.Keys.ToList();
+    }
+
     public string GetInfo()
     {
         return Info.Get();
@@ -99,9 +116,9 @@ public class Database
         return finder.FindInTables(token, tableName, searchAllTables);
     }
 
-    public Embedding Match(double[] vector)
+    public Embedding Match(double[] vector, EmbeddingType type)
     {
-        return _embeddingManager.Match(vector);
+        return _embeddingManager.Match(vector, type);
     }
 
     public bool HasTable(string tableName)

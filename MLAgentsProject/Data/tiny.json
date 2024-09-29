@@ -21,17 +21,17 @@
   ],
   "evaluation_data": [
     {
-      "domain": "Support",
-      "context": "Software issue",
-      "system": "Support AI",
+      "domain": "General",
+      "context": "Greetings",
+      "system": "Friendly AI",
       "turns": [
         {
           "role": "User",
-          "message": "Can't install software"
+          "message": "Goodbye"
         },
         {
           "role": "Agent",
-          "message": "Check download"
+          "message": "Bye"
         }
       ]
     }

@@ -26,11 +26,7 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
         {
             Log.Message("Initializing BaseAgent.");
             EpisodeCount = 0;
-            if (Data.Vocabulary != null)
-            {
-                AgentUtilities.LogTokens(Data.Vocabulary.Keys);
-            }
-            else
+            if (Data.Vocabulary == null)
             {
                 throw new InvalidOperationException("Vocabulary is not initialized.");
             }
@@ -38,6 +34,7 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
         catch (Exception ex)
         {
             Log.Error($"Error during initialization: {ex.Message}");
+            throw;
         }
     }
 

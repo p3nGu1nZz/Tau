@@ -39,10 +39,11 @@ public static class TokenizerUtilities
         text = Regex.Replace(text, @"[^\w\s]", "");
         text = text.Trim();
 
+
         return text;
     }
 
-    public static async Task SaveToFile<T>(string fileName, T data)
+    public static async Task SaveToFileAsync<T>(string fileName, T data)
     {
         using (StreamWriter writer = new(fileName))
         {

@@ -11,6 +11,7 @@ public static class Constants
 
     public const string DefaultDataFileName = "data.json";
     public const string DatabaseFileName = "database.bin";
+    public const string ScriptsDirectoryName = "Scripts";
     public const string DataDirectoryName = "Data";
     public const string UpDirectoryLevel = "..";
     public const string VectorSeparator = "|";

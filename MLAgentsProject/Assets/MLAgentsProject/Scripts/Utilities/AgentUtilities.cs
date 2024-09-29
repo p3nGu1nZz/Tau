@@ -19,12 +19,4 @@ public static class AgentUtilities
         }
         return result;
     }
-
-    public static void LogTokens(Dictionary<string, Embedding>.KeyCollection keys)
-    {
-        //foreach (var token in keys)
-        //{
-        //    Log.Message($"Token: {token}");
-        //}
-    }
 }

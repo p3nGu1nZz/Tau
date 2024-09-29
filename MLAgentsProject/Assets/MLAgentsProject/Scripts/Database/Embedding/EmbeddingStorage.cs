@@ -22,7 +22,7 @@ public class EmbeddingStorage
 
     public void Add(string token, double[] embedding, string tableName, EmbeddingType type)
     {
-        EmbeddingUtilities.ValidateEmbeddingSize(embedding);
+        EmbeddingUtilities.ValidateEmbeddingSize(embedding, type);
         EmbeddingUtilities.ValidateTableName(tableName);
 
         var tables = _tableManager.GetTables();
@@ -38,8 +38,6 @@ public class EmbeddingStorage
         // Update database info
         _info.TotalEmbeddings++;
         _info.DatabaseSize += embedding.Length * sizeof(double);
-
-        Log.Message($"Added embedding for token '{token}' to table '{tableName}'.");
     }
 
     public async Task<double[]> GetEmbedding(string token, EmbeddingType type)
@@ -83,10 +81,10 @@ public class EmbeddingStorage
         Log.Message("Tokens have been reset.");
     }
 
-    public Embedding Match(double[] vector)
+    public Embedding Match(double[] vector, EmbeddingType type)
     {
         Log.Message("Starting Match function...");
-        EmbeddingUtilities.ValidateEmbeddingSize(vector);
+        EmbeddingUtilities.ValidateEmbeddingSize(vector, type);
 
         var table = _tableManager.GetTable(TableNames.Vocabulary);
         if (table == null)

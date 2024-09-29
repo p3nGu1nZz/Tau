@@ -4,5 +4,6 @@ public enum EmbeddingType
     Word,
     Short,
     Long,
-    Chunk
+    Chunk,
+    Token
 }
