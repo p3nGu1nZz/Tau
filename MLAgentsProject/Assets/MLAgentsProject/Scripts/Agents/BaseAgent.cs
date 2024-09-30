@@ -12,7 +12,6 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
     public float StepReward { get; set; }
     public int EpisodeCount { get; set; }
     public TDelegator Delegator { get; set; }
-    public bool IsTraining { get; set; }
 
     public void Setup()
     {
@@ -27,7 +26,6 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
         {
             Log.Message("Initializing BaseAgent.");
             EpisodeCount = 0;
-            IsTraining = false;
             if (Data.Vocabulary == null)
             {
                 throw new InvalidOperationException("Vocabulary is not initialized.");
@@ -135,6 +133,5 @@ public abstract class BaseAgent<TDelegator, TAgent> : Agent, IBaseAgent
         Data.ModelOutput = null;
         Data.ExpectedOutput = null;
         Data.Observations = null;
-        IsTraining = false;
     }
 }

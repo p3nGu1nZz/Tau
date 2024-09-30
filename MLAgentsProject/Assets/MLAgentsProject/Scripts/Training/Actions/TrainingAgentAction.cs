@@ -12,9 +12,8 @@ public static class TrainingAgentAction
 
             var argValues = CommandUtilities.ParseArgs(args, "agents", "columns");
             int numAgents = argValues.ContainsKey("agents") && int.TryParse(argValues["agents"], out int parsedNumAgents) ? parsedNumAgents : 1;
-            int columns = argValues.ContainsKey("columns") && int.TryParse(argValues["columns"], out int parsedColumns) ? parsedColumns : 1;
 
-            TrainingManager.Instance.ExecuteTraining(agentType, fileName, numAgents, columns);
+            TrainingManager.Instance.ExecuteTraining(agentType, fileName, numAgents);
         }
         catch (Exception ex)
         {

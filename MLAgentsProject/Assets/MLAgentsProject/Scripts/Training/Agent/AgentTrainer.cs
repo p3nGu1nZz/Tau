@@ -6,16 +6,12 @@ using Unity.MLAgents;
 
 public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
 {
-    public static int MaxStepsPerEpisode = 10000;
-    public static float RewardThreshold = -100f;
-    public static float WaitTimeInSeconds = 0f;
     public static string TrainingFileName { get; set; }
     public static List<EmbeddingPair> TrainingData { get; set; }
     public static int Columns { get; set; }
 
     private List<float> _Rewards = new();
     private int _LogCounter = 0;
-    private int _LogInterval = 500;
     private int _TotalSteps = 0;
     private Stopwatch _Stopwatch = new();
     private EmbeddingPair trainingData;
@@ -44,7 +40,7 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
 
     protected override void Setup()
     {
-        Log.Message($"Setting up AgentTrainer. maxSteps={MaxStepsPerEpisode}, rewardThreshold={RewardThreshold}, columns={Columns}");
+        Log.Message($"Setting up AgentTrainer. maxSteps={Constants.MaxStepsPerEpisode}, rewardThreshold={Constants.RewardThreshold}, columns={Columns}");
 
         if (Agent == null)
         {
@@ -63,7 +59,7 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
         switch (_currentState)
         {
             case TrainingState.Idle:
-                if (Agent.StepCount >= MaxStepsPerEpisode || Agent.GetCumulativeReward() <= RewardThreshold)
+                if (Agent.StepCount >= Constants.MaxStepsPerEpisode || Agent.GetCumulativeReward() <= Constants.RewardThreshold)
                 {
                     EndTrainingEpisode();
                 }
@@ -86,7 +82,6 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
                 break;
 
             case TrainingState.Completed:
-                Agent.IsTraining = false;
                 _currentState = TrainingState.Idle;
                 break;
         }
@@ -96,7 +91,6 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
 
     void EndTrainingEpisode()
     {
-        Agent.IsTraining = false;
         Agent.EndEpisode();
         _currentState = TrainingState.Idle;
     }
@@ -105,8 +99,6 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
     {
         try
         {
-            Agent.IsTraining = true;
-
             trainingData = GetRandomTrainingData();
 
             Agent.Data.ModelInput = trainingData.InputEmbedding;
@@ -121,14 +113,12 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
             else
             {
                 Log.Error("Observations are not set correctly.");
-                Agent.IsTraining = false;
                 _currentState = TrainingState.Idle;
             }
         }
         catch (Exception ex)
         {
             Log.Error($"Error during training request: {ex.Message}");
-            Agent.IsTraining = false;
             _currentState = TrainingState.Idle;
         }
     }
@@ -172,7 +162,7 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
         }
 
         double elapsedSeconds = _Stopwatch.Elapsed.TotalSeconds;
-        double iterationsPerSecond = _LogInterval / elapsedSeconds;
+        double iterationsPerSecond = Constants.LogInterval / elapsedSeconds;
 
         Log.Message($"training >> step={_TotalSteps}, ep={Agent.EpisodeCount} mean={meanReward} count={_Rewards.Count} ({iterationsPerSecond:F2} itr/s)");
 
@@ -184,7 +174,7 @@ public class AgentTrainer : AgentDelegator<AgentTrainer, TauAgent>
 
     void UpdateReporting()
     {
-        if (_LogCounter >= _LogInterval)
+        if (_LogCounter >= Constants.LogInterval)
         {
             LogReward();
             _LogCounter = 0;

@@ -20,7 +20,7 @@ public class TrainingManager
 
     private TrainingManager() { }
 
-    public void ExecuteTraining(string agentType, string fileName, int numAgents, int columns)
+    public void ExecuteTraining(string agentType, string fileName, int numAgents)
     {
         try
         {
@@ -30,7 +30,7 @@ public class TrainingManager
                 throw new InvalidOperationException("No database loaded. Please load a database or training data.");
             }
 
-            Log.Message($"Starting training for {TrainingType.Agent} with agent type {agentType} using file {fileName}, {numAgents} agents, and {columns} columns");
+            Log.Message($"Starting training for {TrainingType.Agent} with agent type {agentType} using file {fileName}, {numAgents} agents");
 
             string agentPrefabName = $"{agentType}{TrainingType.Agent}";
             string trainerPrefabName = $"{TrainingType.Agent}Trainer";
@@ -49,7 +49,7 @@ public class TrainingManager
             GameUtilities.RemoveExistingInstances(trainerPrefabName);
 
             Log.Message("Instantiating prefabs.");
-            processor = new TrainingProcessor<AgentTrainer, TauAgent>(numAgents, agentTrainerPrefab, tauAgentPrefab, columns);
+            processor = new TrainingProcessor<AgentTrainer, TauAgent>(numAgents, agentTrainerPrefab, tauAgentPrefab, Constants.TokenSize);
 
             Log.Message($"Successfully instantiated {numAgents} pairs of {agentPrefabName} and {trainerPrefabName} prefabs.");
 

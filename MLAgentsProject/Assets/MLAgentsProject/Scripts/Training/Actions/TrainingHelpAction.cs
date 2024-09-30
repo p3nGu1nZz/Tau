@@ -13,7 +13,7 @@ public static class TrainingHelpAction
                 "Usage: training <subcommand> [options]",
                 "",
                 "Subcommands:",
-                "  agent <type> <filename> [--num-agents <number>]  Trains a specified agent type with the given filename and optional number of agents",
+                "  agent <type> <filename> [--agents <number>]  Trains a specified agent type with the given filename and optional number of agents",
                 "  cancel                                           Cancels ongoing training",
                 "  help                                             Displays this help message",
                 ""

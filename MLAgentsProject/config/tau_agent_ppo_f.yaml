@@ -1,0 +1,47 @@
+behaviors:
+  TauAgent:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 512
+      buffer_size: 40960
+      learning_rate: 1e-05
+      beta: 0.005
+      epsilon: 0.2
+      lambd: 0.95
+      num_epoch: 5
+      learning_rate_schedule: linear
+    network_settings:
+      normalize: True
+      hidden_units: 256
+      num_layers: 5
+      vis_encode_type: simple
+      memory:
+        memory_size: 256
+        sequence_length: 128
+    reward_signals:
+      extrinsic:
+        gamma: 0.99
+        strength: 1.0
+        network_settings:   
+          normalize: True
+          hidden_units: 256
+          num_layers:   5
+          vis_encode_type:  simple
+          memory:
+            memory_size: 256
+            sequence_length: 128
+      curiosity:
+        gamma: 0.995
+        strength: 0.1
+        learning_rate: 1e-05
+        network_settings:
+          normalize: True
+          hidden_units: 256
+          num_layers: 5
+    keep_checkpoints: 10
+    even_checkpoints: True
+    checkpoint_interval: 2500000
+    max_steps: 25000000
+    time_horizon: 512
+    summary_freq: 500000
+    threaded: True
