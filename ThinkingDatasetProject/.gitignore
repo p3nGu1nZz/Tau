@@ -1,0 +1,57 @@
+# Ignore Visual Studio temporary files, build results, and including NuGet Packages Directory
+*.pidb
+*.user
+*.suo
+*.sln.docstates
+*.vs/
+.vscode/
+TestResults/
+
+# User-specific files
+*.rsuser
+*.rsuser.json
+
+# build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+[Oo]ut/
+bin/
+obj/
+
+# if using dotnet pack
+*.nupkg
+*.snupkg
+
+# other dotnet files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Auto-generated files (Common)
+*.log
+*.vspscc
+*.vssscc
+.vs/
+_UpgradeReport_Files/
+Backup*/
+ipch/
+*.aps
+*.ncb
+*.res
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.VC.opendb
+
+# User-specific files (Resharper)
+_ReSharper*/
+*.user
+*.userossc
+*.dotSettings
+
+# Exclude solution files
+*.sln
