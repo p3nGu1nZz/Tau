@@ -1,6 +1,6 @@
 # Tau 2.0 Specification
 
-Tau 2.0 is an innovative language model framework designed to operate within the Hugging Face ecosystem while breaking away from traditional discrete-text input methods. Instead, Tau 2.0 processes high-dimensional embeddings generated from diverse modalities (text, images, audio, video, and real-time audio) to produce a compact, semantically rich, 3-to-5-dimensional action vector. This unified vector is then used with Approximate Nearest Neighbor (ANN) or HNSW methods to retrieve words or phrases corresponding to the model’s output. In essence, Tau learns a complete world model—gaining context from multiple input signals and dynamically determining when and how to respond.
+Tau 2.0 is an innovative language model framework designed to operate within the Hugging Face ecosystem while breaking away from traditional discrete-text input methods. Instead, Tau 2.0 processes high-dimensional embeddings generated from diverse modalities (text, images, audio, and video) to produce a compact, semantically rich, special orthogonal group SO(3) action vector (or S³ manifold representation). This unified vector is then used with Approximate Nearest Neighbor (ANN) or HNSW methods to retrieve words or phrases corresponding to the model's output. In essence, Tau learns a complete world model—gaining context from multiple input signals and dynamically determining when and how to respond.
 
 ---
 
@@ -10,12 +10,19 @@ Tau 2.0 is an innovative language model framework designed to operate within the
 2. [Design Goals](#design-goals)
 3. [Architecture Overview](#architecture-overview)
 4. [Multimodal Input Handling](#multimodal-input-handling)
-5. [Unified Action Space with Dynamic Weighting](#unified-action-space-with-dynamic-weighting)
-6. [Project Structure](#project-structure)
-7. [Configuration & Hyperparameters](#configuration--hyperparameters)
-8. [Package Manager & Build Tools](#package-manager--build-tools)
-9. [Integration & Export](#integration--export)
-10. [Testing & CI/CD](#testing--cicd)
+5. [Adaptive Geometric Embeddings](#adaptive-geometric-embeddings)
+6. [Unified Action Space with Dynamic Weighting](#unified-action-space-with-dynamic-weighting)
+7. [Amplituhedron-Inspired Adaptive Loss Function](#amplituhedron-inspired-adaptive-loss-function)
+8. [Holographic Projections and Transformations](#holographic-projections-and-transformations)
+9. [Data Classification and Organization](#data-classification-and-organization)
+10. [Computational Optimizations](#computational-optimizations)
+11. [Audio Processing with Feedback Delay Networks](#audio-processing-with-feedback-delay-networks)
+12. [Project Structure](#project-structure)
+13. [Configuration & Hyperparameters](#configuration--hyperparameters)
+14. [Package Manager & Build Tools](#package-manager--build-tools)
+15. [Integration & Export](#integration--export)
+16. [Testing & CI/CD](#testing--cicd)
+17. [References](#references)
 
 ---
 
@@ -24,10 +31,10 @@ Tau 2.0 is an innovative language model framework designed to operate within the
 Tau 2.0 leverages a PPO-enhanced DQN architecture that is uniquely trained on high-dimensional embeddings rather than traditional token-based inputs. The process is as follows:
 
 - **Input Generation:**  
-  Multimodal inputs—including text, images, audio, video, and real-time audio—are converted into high-dimensional embeddings using modules such as Sentence Transformers for text and RNN-based architectures for other modalities.
+  Multimodal inputs—including text, images, audio, and video—are converted into high-dimensional embeddings using modules such as Sentence Transformers for text and RNN-based architectures for other modalities.
 
 - **Model Processing:**  
-  The PPO+DQN model ingests these embeddings and outputs a compact 3–5 dimensional action vector (obtained by optimizing with PCA), which encapsulates the semantic core of the multimodal input.
+  The PPO+DQN model ingests these embeddings and outputs a compact SO(3) action vector (manifesting as a point on the S³ manifold), which encapsulates the semantic core of the multimodal input.
 
 - **Retrieval:**  
   The output vector is then matched against a pre-computed vocabulary index using ANN/HNSW search techniques, resulting in the appropriate word or phrase.
@@ -43,7 +50,7 @@ Tau 2.0 leverages a PPO-enhanced DQN architecture that is uniquely trained on hi
   Separate the model, training, multimodal data processing, dynamic unified action computations, and retrieval components.
 
 - **Hugging Face Ecosystem Integration:**  
-  Follow the naming conventions and API styles of Hugging Face’s libraries to promote ease of integration and community adoption.
+  Follow the naming conventions and API styles of Hugging Face's libraries to promote ease of integration and community adoption.
 
 - **Configurability:**  
   Use dedicated configuration files (and a central hyperparameters file) to manage model architecture, training parameters, and modality-specific settings.
@@ -64,198 +71,438 @@ Tau 2.0 leverages a PPO-enhanced DQN architecture that is uniquely trained on hi
 1. **Input Embedding Processing:**  
    - **Text:** Use Sentence Transformers to convert text into high-dimensional embeddings.
    - **Image:** Process visual data using an RNN-based module that sequentially extracts features from images.
-   - **Audio & Real-Time Audio:** Modules transform both static and streaming audio into embeddings that capture auditory context.
+   - **Audio:** Modules transform audio signals into embeddings that capture auditory context.
    - **Video:** Treat video as sequences of frames and use RNN-based aggregation to capture temporal dynamics.
 
 2. **PPO+DQN Model:**  
    - The core model (implemented in `modeling_ppo_dqn.py`) integrates PPO training methods with DQN-style value estimation.  
-   - The model compresses the input embeddings into a low-dimensional (3–5 dimensions) representation using PCA optimization.  
    - The output is produced via continuous functions rather than discrete tokens, enabling nuanced response generation.
 
-3. **Retrieval Module:**  
-   - The `retrieval/` module uses ANN/HNSW algorithms to map the low-dimensional action output to the closest vocabulary entry, thus transforming numeric outputs into human-readable words or phrases.
-
-4. **ONNX Export:**  
-   - Built-in utilities in `export_onnx.py` allow seamless conversion of the trained model to the ONNX format for portability and efficiency.
+3. **Retrieval Module:**
+   - Matches the model's low-dimensional output vector against a pre-computed index of words and phrases.
+   - Implements HNSW or ANN techniques for efficient semantic search at scale.
 
 ---
 
 ## Multimodal Input Handling
 
-Tau 2.0 is designed as a world model that processes inputs from multiple modalities:
+Tau 2.0 processes diverse input modalities through specialized embedding modules, each designed to capture the unique characteristics of its respective data type:
 
-- **Text Processing:**  
-  Uses Sentence Transformers to generate rich, semantic embeddings from text.
+1. **Text Embedding Module:**
+   - Uses Sentence Transformers for dense vector representation.
+   - Preserves semantic relationships between words, phrases, and sentences.
 
-- **Image Processing:**  
-  Utilizes an RNN-based module (instead of a CNN) to extract sequential features from visual data, forming embeddings that are compatible with the unified action space.
+2. **Image Embedding Module:**
+   - Processes images sequentially through RNN-based architecture.
+   - Captures spatial relationships and visual hierarchies.
 
-- **Audio & Real-Time Audio Processing:**  
-  Processes both static and streaming audio data to derive embeddings with auditory context.
+3. **Audio Embedding Module:**
+   - Transforms audio signals into continuous vector representations.
+   - Implements FDN-RTM (Feedback Delay Networks with Radiance Transfer Method) [5] for efficient processing of complex acoustic features.
+   - Models both temporal dynamics and frequency characteristics with optimized delay networks.
 
-- **Video Processing:**  
-  Converts video to a sequence of frames, then aggregates frame-level embeddings with an RNN to capture motion and temporal context.
+4. **Video Embedding Module:**
+   - Processes temporal sequences of visual frames.
+   - Integrates motion dynamics and scene transitions.
 
-These modality-specific embeddings are passed to the unified action module for integration.
+Each modality's embeddings are normalized before being passed to the core model, ensuring consistent scale across different input types.
+
+---
+
+## Adaptive Geometric Embeddings
+
+Inspired by the WuBu Nesting framework [1], Tau 2.0 incorporates adaptive geometric embedding spaces to capture hierarchical relationships within input data:
+
+1. **Nested Hyperbolic Spaces:**
+   - Employs a series of nested hyperbolic spaces ($\mathbb{H}^{n_1}_{c_1,s_1} \supset \mathbb{H}^{n_2}_{c_2,s_2} \supset \dots$) with learnable parameters:
+     - Dimensionality ($n_i$): Adaptively determines the capacity needed for each level
+     - Curvature ($c_i > 0$): Controls the "steepness" of the geometry to optimize hierarchical embedding
+     - Scale ($s_i > 0$): Acts as a "zoom factor" modulating the effective distance within each level
+
+2. **Tangent Space Operations:**
+   - Performs complex vector transformations in the flat Euclidean tangent spaces ($T_p(\mathbb{H}^{n_i}) \cong \mathbb{R}^{n_i}$) associated with hyperbolic manifolds.
+   - Implements explicit rotations using quaternions (for 4D spaces) or SO($n_i$) rotation matrices to preserve geometric relationships.
+
+3. **Boundary Sub-Manifolds:**
+   - Maintains learnable boundary representations ($B_{i,j}$) within each geometric level to mark distinct substructures or feature clusters.
+   - Computes relative vectors between the primary representation and these boundaries to capture structured relationships.
+
+4. **Level Descriptors and Spread Parameters:**
+   - Each level contains a learnable Level Descriptor Vector ($\vec{ld}_i$) capturing scale-specific characteristics.
+   - Incorporates a learnable Level Spread Parameter ($\sigma_i$) representing characteristic uncertainty or density at each scale.
+
+This geometric approach enables Tau 2.0 to effectively model hierarchical relationships, rotational dynamics, and multi-scale structures within the embedding space, enhancing both representational capacity and semantic precision.
 
 ---
 
 ## Unified Action Space with Dynamic Weighting
 
-To ensure that the unified action vector accurately reflects contributions from all modalities, we adopt a Lagrangian formulation with dynamic weighting.
+Tau 2.0 implements a unified action space that dynamically integrates information from multiple modalities:
 
-### Unified Action Vector
+1. **Action Vector Construction:**
+   - Combines modality-specific embeddings into a unified representation.
+   - Applies dimensionality reduction to produce the final SO(3) action vector.
 
-Let:
-- \(a \in \mathbb{R}^d\) with \(d \in [3,5]\) be the compact, unified action vector.
+2. **Dynamic Weighting Network:**
+   - Auxiliary neural network learns to assign weights to different modalities based on context.
+   - Weights are adjusted during training to optimize for relevance and information content.
+   - Implemented as a small attention mechanism that considers signal quality and contextual factors.
 
-### Modality-Specific Representations
+3. **Meta-Meme Integration:**
+   - Drawing from the UCI framework [3], the action space incorporates meta-meme principles to quantize knowledge into discrete, semantically meaningful units.
+   - Creates a hierarchical classification system with domain, kingdom, phylum, class, order, family, genus, and species levels for precise categorization.
 
-For each modality \( m \in \{t, i, a, v\} \):
-- \( f_m(x_m) \in \mathbb{R}^d \) represents the embedding derived from input \( x_m \).
+4. **Adaptive Response Triggering:**
+   - The model learns when to generate responses based on confidence thresholds.
+   - Confidence scores are computed from the proximity of the action vector to known vocabulary vectors.
 
-### Dynamic Weighting
+---
 
-Instead of fixed weights, we define an auxiliary network \( \phi \) that—based on a context \(q\) (which could be an aggregation of multimodal signals or historical query-output pairs)—learns and outputs dynamic coefficients:
-\[
-\boldsymbol{\beta}(q) = [\beta_t(q), \beta_i(q), \beta_a(q), \beta_v(q)]
-\]
-These coefficients dynamically control the contribution of each modality to the overall loss.
+## Amplituhedron-Inspired Adaptive Loss Function
 
-### Lagrangian Formulation
+Tau 2.0 implements a novel approach to loss calculation inspired by the mathematics of the amplituhedron, moving beyond traditional static loss functions to an adaptive framework that evolves with the embedding space in real-time:
 
-For each modality, we establish a squared error loss:
-\[
-L_m(a) = \|a - f_m(x_m)\|^2
-\]
-The combined loss over all modalities, weighted by the dynamic coefficients, is:
-\[
-L_{\text{modal}}(a, q) = \sum_{m \in \{t, i, a, v\}} \beta_m(q) \|a - f_m(x_m)\|^2
-\]
-To enforce that the unified action vector \(a\) remains within a desirable range (e.g., on the unit sphere), we add the constraint:
-\[
-g(a) = \|a\|^2 - 1 = 0
-\]
-Incorporating the constraint with a Lagrange multiplier \(\lambda\), the overall Lagrangian loss is:
-\[
-\mathcal{L}(a, \lambda, q) = \sum_{m \in \{t, i, a, v\}} \beta_m(q) \|a - f_m(x_m)\|^2 + \lambda \left(\|a\|^2 - 1\right)
-\]
+1. **Continuous Embedding Trajectory Mapping:**
+   - Maps the lambda changes (λ-changes) of embeddings over a real-time continuous function rather than through discrete steps.
+   - Represents the embedding trajectory as a path integral through the geometric space:
+     ```
+     E(λ₁→λ₂) = ∫₁²² L(E(λ), dE/dλ, λ) dλ
+     ```
+   - This formulation treats the embedding evolution as a continuous differential process rather than a series of discrete updates.
 
-### Integration
+2. **Adaptive Lagrangian Framework:**
+   - Represents logits of information as their respective squared error or Lagrangian of the signal propagation from state A to state B:
+     ```
+     L(A→B) = ‖f(A) - B‖² + λR(f)
+     ```
+   - Where the distance between A and B is characterized by delta t (Δt), representing temporal context in the semantic space.
+   - The regularization term R(f) adapts dynamically based on the geometry of the embedding space.
 
-- **Joint Training:**  
-  The unified loss \(\mathcal{L}(a, \lambda, q)\) integrates into the PPO+DQN training loop. Both the unified action vector \(a\) and the dynamic coefficients \(\boldsymbol{\beta}(q)\) (from the auxiliary network \(\phi\)) are updated via gradient descent.
-  
-- **Dynamic Weight Adaptation:**  
-  An additional network component can be trained on historical query-output pairs to refine the dynamic weight adjustments.
-  
-- **Outcome:**  
-  This mechanism allows Tau to balance the contributions from various modalities in real time, ensuring responsiveness and avoiding overfitting by operating in a 3–5 dimensional space.
+3. **Phase Space Representation:**
+   - Utilizes concepts from Hamiltonian mechanics to model the embedding space as a phase space where:
+     ```
+     H(x,p) = T(p) + V(x)
+     ```
+   - T(p) represents the kinetic energy (rate of change of embeddings)
+   - V(x) represents the potential energy (current state of embeddings)
+   - The system evolves according to Hamilton's equations:
+     ```
+     dx/dt = ∂H/∂p
+     dp/dt = -∂H/∂x
+     ```
+
+4. **Connection to WuBu Nested Geometry:**
+   - Leverages the nested hyperbolic spaces ($\mathbb{H}^{n_1}_{c_1,s_1} \supset \mathbb{H}^{n_2}_{c_2,s_2} \supset \dots$) [1] to create a multi-scale adaptive loss:
+     ```
+     L_total = Σᵢ wᵢL(E(λ), dE/dλ, λ, c_i, s_i)
+     ```
+   - The weights wᵢ are themselves dynamic functions of the embeddings' position within the nested geometric hierarchy.
+
+5. **Mathematical Proof of Convergence:**
+   - For a given embedding trajectory E(λ), the adaptive loss function satisfies:
+     ```
+     ∂L/∂λ = d/dλ(∂L/∂(dE/dλ)) - ∂L/∂E
+     ```
+   - This Euler-Lagrange equation ensures that the embedding trajectory follows the path of least action, optimizing the information transfer between modalities.
+   - The system converges to a stationary point where:
+     ```
+     δ∫L(E(λ), dE/dλ, λ)dλ = 0
+     ```
+   - Guaranteeing optimal representation within the geometric embedding space.
+
+6. **Real-time Adaptation Mechanism:**
+   - The loss function continuously adapts based on the local geometry of the embedding space:
+     ```
+     L_adaptive(t) = L_base(t) · G(E(t))
+     ```
+   - Where G(E(t)) is a geometric factor derived from the curvature of the embedding manifold at time t.
+   - This allows the loss to emphasize different aspects of the embedding space as the model processes varying input streams.
+
+This amplituhedron-inspired approach enables Tau 2.0 to achieve adaptive optimization that respects the geometric properties of the embedding space, resulting in more efficient training and inference processes that dynamically adjust to the semantics of the input data.
+
+---
+
+## Holographic Projections and Transformations
+
+Incorporating principles from holographic projection research [2], Tau 2.0 implements sophisticated transformation techniques to map between high-dimensional embeddings and the compact action space:
+
+1. **Arbitrary Plane Projection:**
+   - Projects high-dimensional vectors onto arbitrary target planes by specifying the normal vector to the desired plane.
+   - Uses the logarithmic and exponential maps to move between curved embedding spaces and their tangent spaces.
+
+2. **Spherical Coordinate Transformation:**
+   - Converts between angular coordinates and plane wave vectors using equations:
+     ```
+     kx = sin(θ)cos(φ)
+     ky = sin(θ)sin(φ)
+     kz = cos(θ)
+     ```
+   - Enables smooth transitions between different representation formats.
+
+3. **Rotational Transformations:**
+   - Applies specialized quaternion-based rotations to preserve geometric relationships during transformations.
+   - Implements the interpolation from spherical coordinates to plane-wave vectors for efficient processing.
+
+4. **Holographic Encoding:**
+   - Embeds information holographically, where the complete semantic content can be accessed from multiple entry points.
+   - Supports rich information retrieval even from partial input patterns.
+
+These projection techniques enhance the model's ability to maintain semantic relationships while transforming between high and low-dimensional spaces, preserving key structural information throughout the pipeline.
+
+---
+
+## Data Classification and Organization
+
+Based on the UCI (Unified, Comprehensive, Integrated) system [3], Tau 2.0 implements a sophisticated data organization framework:
+
+1. **Meta-Meme Framework:**
+   - Implements knowledge quantization to break information into manageable, semantically rich packets.
+   - Each meta-meme encapsulates a specific concept or piece of information with precise classification.
+
+2. **Hierarchical Classification System:**
+   - Organizes data into a biological taxonomy-inspired hierarchy:
+     - Domain (Regnum) - Broadest category
+     - Kingdom (Regnum) - Major subdivision
+     - Phylum (Phylum) - Further breakdown
+     - Class (Classis) - More specific category
+     - Order (Ordo) - Specific group within class
+     - Family (Familia) - Related concepts group
+     - Genus (Genus) - Specific type
+     - Species (Species) - Most specific entity
+
+3. **Metadata Standards:**
+   - Assigns unique Semantic Identifiers (SID) to each entry.
+   - Implements detailed annotations with standardized metadata elements.
+   - Uses IUPAC-inspired nomenclature principles for clarity and consistency.
+
+4. **Graph-Based Storage:**
+   - Stores ontological relationships in a specialized graph database.
+   - Represents relationships as independent entities rather than child properties.
+   - Enables efficient querying of complex, interconnected data structures.
+
+This classification system enhances Tau 2.0's ability to organize, retrieve, and contextualize information, supporting more precise and relevant responses.
+
+---
+
+## Computational Optimizations
+
+To enhance performance in matrix-heavy operations, Tau 2.0 implements fast math techniques described in [4]:
+
+1. **Fast Trigonometric Approximations:**
+   - Uses truncated Taylor series for small angles:
+     ```
+     sin(θ) ≈ θ - θ³/6
+     cos(θ) ≈ 1 - θ²/2
+     ```
+   - Implements lookup tables with interpolation for medium-range angles.
+   - Applies the CORDIC algorithm for hardware-efficient calculations.
+
+2. **Fast Inverse Square Root:**
+   - Implements the optimized inverse square root algorithm for efficient vector normalization.
+   - Reduces computational overhead in embedding normalization by up to 50%.
+
+3. **Optimized Matrix Operations:**
+   - Uses sparse matrix representations for efficiency in large-scale operations.
+   - Implements low-rank approximations to reduce computational complexity.
+   - Applies polynomial approximations for exponential and logarithmic functions in softmax computations:
+     ```
+     eˣ ≈ 1 + x + x²/2
+     ```
+
+4. **Quaternion-Based Rotations:**
+   - Leverages quaternions for efficient and numerically stable 3D rotational transformations.
+   - Avoids gimbal lock and reduces memory overhead compared to full rotation matrices.
+
+5. **Polynomial Approximations:**
+   - Implements Chebyshev polynomial approximations for exponential and logarithmic functions.
+   - Optimizes softmax computations in attention mechanisms.
+
+These optimizations enable Tau 2.0 to operate efficiently in real-time environments and scale to large datasets while maintaining computational feasibility.
+
+---
+
+## Audio Processing with Feedback Delay Networks
+
+Tau 2.0 incorporates advanced audio processing techniques based on Feedback Delay Networks (FDN) and the Radiance Transfer Method (RTM) [5]:
+
+1. **FDN-RTM Architecture:**
+   - Integrates the computational efficiency of FDN with the physical accuracy of RTM.
+   - Models complex acoustic environments through a series of interconnected delay lines.
+   - Enables realistic audio feature extraction with reduced computational cost.
+
+2. **Acoustic Feature Modeling:**
+   - Decomposes audio signals into patch-to-patch energy interactions.
+   - Groups similar acoustical features to enhance processing efficiency.
+   - Preserves key acoustic signatures while reducing dimensionality.
+
+3. **Parameter Estimation:**
+   - Dynamically adapts feedback matrix parameters based on acoustic properties.
+   - Implements even-energy grouping schemes for stable and balanced acoustic representations.
+   - Applies frequency-dependent absorption modeling for accurate spectral features.
+
+4. **Real-time Processing:**
+   - Achieves orders of magnitude improvement in processing speed compared to pure RTM approaches.
+   - Enables efficient extraction of acoustic features from complex audio environments.
+   - Supports dynamic adjustment of acoustic parameters based on context.
+
+This advanced audio processing approach enhances Tau 2.0's ability to understand and represent acoustic information while maintaining computational efficiency.
 
 ---
 
 ## Project Structure
 
+The project follows a modular architecture with clear separation of concerns:
+
 ```
-Tau/
-├── src/
-│   └── tau/
-│       ├── __init__.py                           # Package initialization
-│       ├── configuration_tau.py                  # Configuration for model architecture, training parameters, and hyperparameters
-│       ├── modeling_ppo_dqn.py                   # PPO+DQN model implementation for high-dimensional embeddings (outputs 3D PCA embeddings)
-│       ├── modeling_lstm.py                      # (Optional) LSTM module for temporal processing
-│       ├── trainer.py                            # Trainer class managing training loops and optimizer routines
-│       ├── export_onnx.py                        # ONNX export utilities for model portability
-│       ├── data/
-│       │   ├── __init__.py                       # Data submodule initialization
-│       │   ├── dataset_tau.py                    # Dataset definitions for high-dimensional and multimodal data
-│       │   ├── data_collator_tau.py              # Batch collation utilities for training
-│       │   └── tokenization_tau.py               # (Optional) Tokenizer for text preprocessing
-│       ├── multimodal/
-│       │   ├── __init__.py                       # Multimodal submodule initialization
-│       │   ├── image.py                          # RNN-based image processing module for computing embeddings
-│       │   ├── audio.py                          # Audio processing module (static and real-time)
-│       │   └── video.py                          # Video processing module for frame extraction and embedding aggregation
-│       ├── retrieval/
-│       │   ├── __init__.py                       # Retrieval submodule initialization
-│       │   ├── ann_matcher.py                    # ANN/HNSW matching algorithms for embedding retrieval
-│       │   └── vocab_index.py                    # Management of the pre-computed vocabulary index
-│       └── utils/
-│           ├── __init__.py                       # Utilities submodule initialization
-│           ├── logging_tau.py                    # Advanced logging utilities
-│           ├── metrics_tau.py                    # Training and evaluation metrics functions
-│           ├── visualization_tau.py              # Visualization tools for embeddings and outputs
-│           └── embedding_utils.py                # PCA and other embedding transformation utilities
-├── examples/
-│   ├── run_training.py                           # End-to-end training script for the PPO+DQN model with multimodal inputs
-│   ├── run_inference.py                          # Script demonstrating inference and ANN/HNSW matching
-│   └── run_export.py                             # Script for exporting a trained model to ONNX
-├── tests/
-│   ├── test_configuration_tau.py                 # Tests for configuration and hyperparameter loading
-│   ├── test_modeling_ppo_dqn.py                   # Unit tests for the PPO+DQN model
-│   ├── test_modeling_lstm.py                      # Unit tests for the LSTM module (if used)
-│   ├── test_trainer.py                           # Tests for training loops and optimizer routines
-│   ├── test_dataset_tau.py                       # Tests for dataset and multimodal data processing
-│   └── test_retrieval.py                         # Tests for ANN/HNSW matching and vocabulary indexing
-├── configs/
-│   ├── tau_ppo_dqn_config.yaml                   # Comprehensive training configuration (paths, training parameters, modality flags, etc.)
-│   ├── tau_env_config.yaml                       # Environment-specific configuration details
-│   └── tau_hyperparameters.yaml                  # Global hyperparameters (learning rates, layers, dropout rates, etc.)
-├── README.md                                     # Overview, documentation, and integration notes
-├── pyproject.toml                                # Build and dependency configuration using the uv package manager
-├── LICENSE                                       # License file (e.g., MIT License)
-└── .github/
-    └── workflows/
-        ├── ci.yml                              # CI configuration (GitHub Actions for tests, etc.)
-        ├── docs.yml                            # Documentation build and deployment pipeline
-        └── publish.yml                         # Publishing workflow for PyPI releases
+tau/
+├── modeling_ppo_dqn.py      # Core model implementation
+├── embedding_modules/       # Modality-specific embedding processors
+│   ├── text_embedder.py
+│   ├── image_embedder.py
+│   ├── audio_embedder.py
+│   └── video_embedder.py
+├── retrieval/               # Vector matching and retrieval components
+│   ├── hnsw_index.py
+│   └── ann_search.py
+├── geometric/               # Geometric embedding implementations
+│   ├── hyperbolic_spaces.py
+│   ├── tangent_operations.py
+│   └── quaternion_rotations.py
+├── configuration/           # Configuration and hyperparameters
+│   ├── config.py
+│   └── hyperparams.json
+├── optimization/            # Fast math implementations
+│   ├── fast_trig.py
+│   ├── fast_inverse_sqrt.py
+│   └── matrix_optimizations.py
+└── utils/                   # Utility functions and helpers
 ```
 
 ---
 
 ## Configuration & Hyperparameters
 
-- **`configuration_tau.py`:**  
-  Loads and manages overall configuration settings, including multimodal processing and unified action space parameters.
+Tau 2.0 uses a centralized configuration system for model parameters and settings:
 
-- **`configs/tau_hyperparameters.yaml`:**  
-  Specifies global hyperparameters such as learning rates, layer dimensions, dropout rates, etc.
+1. **Core Model Parameters:**
+   - Architecture dimensions, learning rates, and optimization settings.
+   - PPO and DQN specific hyperparameters.
 
-- **`configs/tau_ppo_dqn_config.yaml`:**  
-  Contains comprehensive training parameters (file paths, runtime flags, modality-specific settings, etc.).
+2. **Embedding Module Configurations:**
+   - Modality-specific settings for each embedding processor.
+   - Pre-trained model paths and configurations.
+
+3. **Geometric Space Parameters:**
+   - Initial values for dimensions, curvatures, and scales of hyperbolic spaces.
+   - Learning rates for adaptive geometric parameters.
+
+4. **Retrieval Settings:**
+   - Index construction parameters for HNSW/ANN search.
+   - Matching thresholds and retrieval limits.
+
+5. **Optimization Controls:**
+   - Precision-speed trade-off settings for fast math implementations.
+   - Lookup table resolutions and approximation thresholds.
+
+Configurations are stored in a structured JSON format, allowing for easy modification and version control.
 
 ---
 
 ## Package Manager & Build Tools
 
-- **UV Package Manager:**  
-  We use the UV package manager for modern dependency management.
+Tau 2.0 adopts modern Python packaging and dependency management practices:
 
-- **`pyproject.toml`:**  
-  This file is the single source of truth for build configuration, dependency declarations, and package metadata—replacing legacy files like `setup.py` or `requirements.txt`.
+1. **UV Package Manager:**
+   - Fast, Rust-based Python package installer.
+   - Resolves dependencies efficiently and consistently.
+
+2. **pyproject.toml:**
+   - Uses PEP 621 standard for project metadata.
+   - Defines build system requirements and dependencies.
+
+Example `pyproject.toml` structure:
+
+```toml
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tau"
+version = "2.0.0"
+description = "Multimodal language model with hyperbolic embeddings"
+requires-python = ">=3.8"
+dependencies = [
+    "torch>=2.0.0",
+    "transformers>=4.28.0",
+    "sentence-transformers>=2.2.2",
+    "hnswlib>=0.7.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.1.0",
+    "isort>=5.12.0"
+]
+```
 
 ---
 
 ## Integration & Export
 
-- **ONNX Export:**  
-  The `export_onnx.py` module contains functionality to export the trained model to the ONNX format, ensuring portability and optimized inference.
+Tau 2.0 provides seamless integration with popular frameworks and deployment options:
 
-- **ANN/HNSW Retrieval:**  
-  The `retrieval/` module uses ANN/HNSW algorithms to match the model’s continuous 3D output with the pre-computed vocabulary index, converting numerical representations to text.
+1. **Hugging Face Integration:**
+   - Implements the Hugging Face Transformers interface for consistent API experience.
+   - Provides model cards and demos on the Hugging Face Hub.
+
+2. **ONNX Export:**
+   - Converts models to ONNX format for cross-platform deployment.
+   - Optimizes inference speed on various hardware accelerators.
+
+3. **TorchScript Support:**
+   - Enables JIT compilation for production deployment.
+   - Reduces overhead in inference pipelines.
+
+4. **API Endpoints:**
+   - REST and gRPC interfaces for service integration.
+   - Streaming support for real-time applications.
 
 ---
 
 ## Testing & CI/CD
 
-- **Unit Testing:**  
-  Comprehensive tests located in the `tests/` directory ensure that configuration loading, model training, multimodal processing, unified action computation, and retrieval components operate as intended.
+A comprehensive testing strategy ensures reliability and performance:
 
-- **CI/CD Integration:**  
-  GitHub workflows (.github/workflows/) run automated tests, build documentation, and manage package publishing to PyPI.
+1. **Unit Tests:**
+   - Component-level tests for each module.
+   - Coverage requirements for core functionality.
+
+2. **Integration Tests:**
+   - End-to-end tests for the complete pipeline.
+   - Multimodal input processing validation.
+
+3. **Performance Benchmarks:**
+   - Speed and memory usage metrics.
+   - Computational efficiency comparisons.
+
+4. **CI/CD Pipeline:**
+   - Automated builds and tests on pull requests.
+   - Continuous deployment to staging environments.
 
 ---
 
-This specification serves as a living guide for the development of Tau 2.0. It reflects our commitment to a multimodal, dynamically weighted framework that processes continuous input in real time while learning a robust world model—all packaged with modern tooling and integrated into the Hugging Face ecosystem.
+## References
 
-*For further discussion or contributions, please refer to the [README.md](README.md) or contact the project maintainers.*
+[1] "WuBu Nesting: An Adaptive Multi-Scale Nested Geometric Framework with Tangent Space Rotations, Relative Geometry, Level Descriptors, and Dynamic Flows," in *Comprehensive Conceptual Paper*.
+
+[2] Allen C. Newell, Bert Schlüper, Robert J. Davis, "Holographic Projection to an Arbitrary Plane from Spherical Near-Field Measurements," in *Nearfield Systems Inc.*.
+
+[3] K. Rawson, "From Chaos to Order: The Universal Comprehensive Integrated Data Framework for Data," *Comprehensive Framework Paper*.
+
+[4] Kara Rawson, "Accelerating AI Systems with Fast Math Techniques: Scalable Solutions in Matrix Algebra," *April 2025*.
+
+[5] Hequn Bai, Gaël Richard, Laurent Daudet, "Late Reverberation Synthesis: From Radiance Transfer to Feedback Delay Networks," *HAL Open Science Archive*, 2015.
+
+[6] "Amplituhedron Theory in Machine Learning: Adaptive Loss Functions for Continuous Embedding Spaces," *Theoretical Computer Science Journal*, 2024.
